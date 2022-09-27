@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Deepin Home
+Exec=/usr/bin/deepin-home
+X-Deepin-TurboType=dtkqml
