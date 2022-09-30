@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+    SPDX-License-Identifier: LGPL-3.0-or-later
+ -->
+<svg width="74px" height="74px" viewBox="0 0 74 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="115.001347%" y1="-20.2340759%" x2="14.8991597%" y2="107.562458%" id="linearGradient-1">
+            <stop stop-color="#FFCC4B" offset="0%"></stop>
+            <stop stop-color="#ED9A33" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-上滑" transform="translate(-623.000000, -759.000000)">
+            <g id="编组" transform="translate(106.000000, 203.000000)">
+                <g id="问卷调查-+-问卷调查备份-+-问卷调查备份-2-蒙版" transform="translate(0.000000, -1.000000)">
+                    <g id="编组-17" transform="translate(20.000000, -42.000000)">
+                        <g id="加入我们" transform="translate(0.000000, 553.000000)">
+                            <g id="编组-10备份" transform="translate(487.000000, 36.000000)">
+                                <g id="社区动态" transform="translate(10.000000, 10.000000)">
+                                    <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="74" height="74" rx="16"></rect>
+                                    <g id="编组-40" transform="translate(14.000000, 14.000000)">
+                                        <rect id="矩形" x="0" y="0" width="46" height="46"></rect>
+                                        <g id="编组-33" transform="translate(5.111111, 5.962963)">
+                                            <polyline id="路径" stroke="#FFFFFF" stroke-width="1.7037037" points="21.6534554 27.9324599 0 27.9324599 0 -2.76775496e-13 30.6666667 -2.76775496e-13 30.6666667 13.6296296"></polyline>
+                                            <circle id="椭圆形" stroke="#FFFFFF" stroke-width="1.7037037" cx="29.8563171" cy="17.5495014" r="4.77172366"></circle>
+                                            <path d="M37.5644861,30.0293941 C37.5644861,25.7722899 34.1134213,22.3212251 29.8563171,22.3212251 C25.599213,22.3212251 22.1481481,25.7722899 22.1481481,30.0293941 C22.1481481,34.2864983 37.5644861,34.2864983 37.5644861,30.0293941 Z" id="椭圆形备份-7" stroke="#FFFFFF" stroke-width="1.7037037"></path>
+                                            <line x1="1.27777778" y1="8.09259259" x2="30.2407407" y2="8.09259259" id="直线-6" stroke="#FFFFFF" stroke-width="1.7037037" stroke-linecap="square"></line>
+                                            <rect id="矩形" fill-opacity="0.6" fill="#FFFFFF" x="11.9259259" y="17.037037" width="6.81481481" height="1.7037037"></rect>
+                                            <polyline id="路径-24备份" stroke-opacity="0.6" stroke="#FFFFFF" stroke-width="1.7037037" points="5.11111111 14.4814815 8.51851852 17.6744367 5.11111111 21.2962963"></polyline>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

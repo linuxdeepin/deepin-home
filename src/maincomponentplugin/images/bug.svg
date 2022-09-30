@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+    SPDX-License-Identifier: LGPL-3.0-or-later
+ -->
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="32.7002966%" cy="33.5690736%" fx="32.7002966%" fy="33.5690736%" r="107.754785%" gradientTransform="translate(0.327003,0.335691),scale(1.000000,0.989899),rotate(43.121079),scale(1.000000,1.640429),translate(-0.327003,-0.335691)" id="radialGradient-1">
+            <stop stop-color="#3D3CFD" offset="0%"></stop>
+            <stop stop-color="#B2AFFB" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="32.7002966%" cy="33.5690736%" fx="32.7002966%" fy="33.5690736%" r="107.754785%" gradientTransform="translate(0.327003,0.335691),scale(1.000000,0.989899),rotate(43.121079),scale(1.000000,1.640429),translate(-0.327003,-0.335691)" id="radialGradient-2">
+            <stop stop-color="#5251FD" stop-opacity="0.29490651" offset="0%"></stop>
+            <stop stop-color="#5857FD" stop-opacity="0.214830092" offset="100%"></stop>
+        </radialGradient>
+        <path d="M2.53636362,30.0857143 C2.20909089,29.8377551 2.04545454,29.4244898 2.1272727,29.0938776 C2.20909089,28.6806123 2.53636362,28.35 2.86363635,28.2673469 C4.58181816,27.8540816 5.15454543,27.6887755 5.7272727,27.1928572 C3.10909089,25.2918367 0,21.3244898 0,16.5306122 C0,7.60408161 7.5272727,0 16.5272727,0 C25.4454546,0 32.7272727,7.35612243 32.7272727,16.4479592 C32.7272727,25.4571428 26.7545455,31.9040816 17.5909091,32.8959184 C16.6909091,32.9785715 15.8727273,33.0612245 14.9727273,33.0612245 C9.9818182,33.0612245 4.90909093,31.6561225 2.53636362,30.0857143 Z" id="path-3"></path>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.937766335 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-618.000000, -499.000000)">
+            <g id="编组" transform="translate(259.000000, 203.000000)">
+                <g id="问卷调查-+-问卷调查备份-+-问卷调查备份-2-蒙版" transform="translate(0.000000, -1.000000)">
+                    <g id="编组-4" transform="translate(20.000000, 282.000000)">
+                        <g id="常用服务备份" transform="translate(325.000000, 0.000000)">
+                            <g id="bug反馈" transform="translate(14.000000, 15.000000)">
+                                <rect id="矩形" x="0" y="0" width="68" height="68"></rect>
+                                <g id="编组" transform="translate(9.000000, 14.000000)">
+                                    <path d="M32.7272727,0 C35.739735,-5.53380342e-16 38.1818182,2.44208318 38.1818182,5.45454545 L38.1818182,33.1168831 C38.1818182,36.1293454 35.739735,38.5714286 32.7272727,38.5714286 L5.45454545,38.5714286 C2.44208318,38.5714286 3.68920228e-16,36.1293454 0,33.1168831 L0,5.45454545 C5.19258192e-16,2.44208318 2.44208318,1.44155876e-15 5.45454545,0 L32.7272727,0 Z M9.03636364,6.97959183 C8.64986723,6.58587057 8.08480371,6.43035452 7.55402706,6.57162506 C7.02325041,6.71289561 6.60739821,7.1294904 6.46311797,7.66448221 C6.31883773,8.19947402 6.46804905,8.77158487 6.85454546,9.16530613 L11.8181818,14.1795918 L6.85454546,19.1571429 C6.4083002,19.5987002 6.27320837,20.2702688 6.51345873,20.8527533 C6.75370909,21.4352379 7.32086962,21.8112155 7.94545453,21.8020408 C8.35535428,21.8030683 8.74845824,21.6376037 9.03636364,21.3428571 L15.0181818,15.2816326 C15.3057487,14.9921383 15.4673862,14.5988949 15.4673862,14.1887755 C15.4673862,13.7786561 15.3057487,13.3854127 15.0181818,13.0959184 Z M24.5454546,18.6979592 L16.0363636,18.6979592 C15.1878534,18.6979592 14.5,19.3928315 14.5,20.25 C14.5,21.1071685 15.1878534,21.8020408 16.0363636,21.8020408 L24.5454546,21.8020408 C25.3939648,21.8020408 26.0818182,21.1071685 26.0818182,20.25 C26.0818182,19.3928315 25.3939648,18.6979592 24.5454546,18.6979592 Z" id="形状结合" fill="url(#radialGradient-1)"></path>
+                                    <g id="编组-8" transform="translate(17.272727, 11.938776)" fill-rule="nonzero">
+                                        <g id="形状">
+                                            <use fill="url(#radialGradient-2)" xlink:href="#path-3"></use>
+                                            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                                        </g>
+                                        <path d="M25.9391698,20.2040816 C26.5758696,20.2040816 27.141825,19.6836417 27.2833139,18.9029817 L28.132247,14.9996821 C28.3444802,14.0455422 27.8492693,13.0914023 27.141825,12.9179223 C26.3636364,12.6577023 25.5854477,13.2648823 25.4439588,14.1322822 L24.5950258,18.0355818 C24.3827925,18.9897218 24.8780035,19.9438617 25.5854477,20.1173416 C25.7269365,20.2040816 25.797681,20.2040816 25.9391698,20.2040816 Z" id="路径" fill="#FFFFFF"></path>
+                                        <path d="M18.6664425,20.2040816 C19.3031424,20.2040816 19.8690977,19.6836417 20.0105866,18.9029818 L20.8595197,14.9996821 C21.071753,14.0455422 20.576542,13.0914023 19.8690978,12.9179223 C19.0909091,12.6577023 18.3127204,13.2648823 18.1712316,14.1322822 L17.3222985,18.0355818 C17.1100652,18.9897217 17.6052762,19.9438616 18.3127204,20.1173416 C18.4542093,20.2040816 18.5249537,20.2040816 18.6664425,20.2040816 L18.6664425,20.2040816 Z" id="路径" fill="#FFFFFF"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

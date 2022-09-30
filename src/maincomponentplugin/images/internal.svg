@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+    SPDX-License-Identifier: LGPL-3.0-or-later
+ -->
+<svg width="74px" height="74px" viewBox="0 0 74 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="79.8032403%" y1="8.18694165%" x2="14.8991597%" y2="107.562458%" id="linearGradient-1">
+            <stop stop-color="#009CFF" offset="0%"></stop>
+            <stop stop-color="#335EF7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-上滑" transform="translate(-136.000000, -759.000000)">
+            <g id="编组" transform="translate(106.000000, 203.000000)">
+                <g id="问卷调查-+-问卷调查备份-+-问卷调查备份-2-蒙版" transform="translate(0.000000, -1.000000)">
+                    <g id="编组-17" transform="translate(20.000000, -42.000000)">
+                        <g id="加入我们" transform="translate(0.000000, 553.000000)">
+                            <g id="编组-10" transform="translate(0.000000, 36.000000)">
+                                <g id="内测交流" transform="translate(10.000000, 10.000000)">
+                                    <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="74" height="74" rx="16"></rect>
+                                    <g id="编组-40" transform="translate(14.000000, 14.000000)">
+                                        <rect id="矩形" x="0" y="0" width="46" height="46"></rect>
+                                        <g id="编组-39" transform="translate(4.259259, 8.518519)">
+                                            <polyline id="路径" stroke="#FFFFFF" stroke-width="1.7037037" transform="translate(16.611111, 13.203704) scale(-1, 1) translate(-16.611111, -13.203704) " points="0 12.0580415 0 0 33.2222222 0 33.2222222 17.8442875 33.2222222 26.4074074 26.1166432 22.8284693 12.527838 22.8284693"></polyline>
+                                            <path d="M32.6034223,25.432278 C34.7583168,23.9355647 36.1691264,21.3329516 36.1691264,18.5104891 C36.1691264,13.9330057 32.4583429,10.2222222 27.8808595,10.2222222 C23.3033761,10.2222222 19.5925926,13.9330057 19.5925926,18.5104891 C19.5925926,21.4030499 21.0743498,23.9495278 23.3202194,25.432278 L23.3202194,29.8148148 L32.6034223,29.8148148 L32.6034223,25.432278 Z" id="路径" stroke="#FFFFFF" stroke-width="1.7037037"></path>
+                                            <rect id="矩形" fill="#FFFFFF" x="27.2592593" y="19.5925926" width="1.7037037" height="5.96296296"></rect>
+                                            <rect id="矩形备份-14" fill="#FFFFFF" transform="translate(28.111111, 19.166667) rotate(-90.000000) translate(-28.111111, -19.166667) " x="27.2592593" y="15.3333333" width="1.7037037" height="7.66666667"></rect>
+                                            <rect id="矩形备份-15" fill="#FFFFFF" transform="translate(27.930028, 25.848339) rotate(-90.000000) translate(-27.930028, -25.848339) " x="27.0781765" y="22.0150053" width="1.7037037" height="7.66666667"></rect>
+                                            <rect id="矩形" fill-opacity="0.6" fill="#FFFFFF" x="4.25925926" y="6.81481481" width="8.51851852" height="1.7037037"></rect>
+                                            <rect id="矩形备份-26" fill-opacity="0.6" fill="#FFFFFF" x="4.25925926" y="12.7777778" width="10.2222222" height="1.7037037"></rect>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
