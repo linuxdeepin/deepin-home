@@ -26,7 +26,8 @@ import "."
 ApplicationWindow {
     id: window
     visible: true
-    width: 500
+    width: 1000
+    minimumWidth: 1000
     height: 700
     title: qsTr("Deepin Home")
     flags: Qt.WindowMinButtonsHint | Qt.WindowCloseButtonHint

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+    SPDX-License-Identifier: LGPL-3.0-or-later
+ -->
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="32.7002966%" cy="33.5690736%" fx="32.7002966%" fy="33.5690736%" r="113.874979%" gradientTransform="translate(0.327003,0.335691),scale(1.000000,0.885383),rotate(46.315889),scale(1.000000,1.640429),translate(-0.327003,-0.335691)" id="radialGradient-1">
+            <stop stop-color="#00B0FF" offset="0%"></stop>
+            <stop stop-color="#AAF2FF" offset="100%"></stop>
+        </radialGradient>
+        <path d="M4.11949217,0 C1.8445866,0 0,1.84836726 0,4.12793546 L0,35.4201414 C0,36.514924 0.434378578,37.5649593 1.20671993,38.3388837 C1.97910324,39.1132057 3.02692625,39.5480769 4.11949217,39.5480769 L15.1494604,39.5480769 L28.8202321,39.5480769 C32.2407391,39.5478329 35.0136457,36.7750356 35.0140245,33.3545285 L35.015176,4.12742697 L35.015176,4.12742697 C35.015176,1.84785877 33.1705894,0 30.8956838,0 L4.11949217,0 Z M5.88643867,9.36539977 L16.1171706,9.36539977 C16.8235432,9.36539977 17.3959486,9.93897839 17.3959486,10.6467988 C17.3959486,11.3546192 16.8235432,11.9281978 16.1171706,11.9281978 L5.88643867,11.9281978 C5.18006603,11.9281978 4.60766062,11.3546192 4.60766062,10.6467988 C4.60766062,9.93897839 5.18057348,9.36539977 5.88643867,9.36539977 Z M5.88643867,16.2000364 L16.1171706,16.2000364 C16.8235432,16.2000364 17.3959486,16.7736151 17.3959486,17.4814355 C17.3959486,18.1892559 16.8235432,18.7628345 16.1171706,18.7628345 L5.88643867,18.7628345 C5.18006603,18.7628345 4.60766062,18.1892559 4.60766062,17.4814355 C4.60766062,16.7736151 5.18057348,16.2000364 5.88643867,16.2000364 Z" id="path-2"></path>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.979419833   0 0 0 0 0.95325362  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <radialGradient cx="32.7002966%" cy="33.5690736%" fx="32.7002966%" fy="33.5690736%" r="98.2438108%" gradientTransform="translate(0.327003,0.335691),scale(1.000000,0.994026),rotate(42.863022),scale(1.000000,1.640429),translate(-0.327003,-0.335691)" id="radialGradient-4">
+            <stop stop-color="#12C5E3" stop-opacity="0.388120424" offset="0%"></stop>
+            <stop stop-color="#9BF0FF" stop-opacity="0.206336388" offset="100%"></stop>
+        </radialGradient>
+        <path d="M34.4633504,17.724334 C33.9841281,17.236388 33.3306418,16.9615385 32.6487184,16.9615385 C31.9670714,16.9615385 31.3132639,17.2364503 30.8340864,17.724334 L14.6888388,33.9619505 C14.2071293,34.4461912 13.9361791,35.1029119 13.9354839,35.7879081 L13.9354839,42.4171864 C13.9354839,43.8435036 15.0853414,45 16.5034708,45 L23.0946935,45 C23.7754968,45 24.4284606,44.7267852 24.9101691,44.2422955 L41.0554167,28.0038304 C42.0567966,26.9958204 42.0567966,25.3616223 41.0554167,24.3536122 L34.4633504,17.724334 L34.4633504,17.724334 Z M41.5840566,20.5269186 L38.261825,17.1849087 C36.7944454,15.7087934 36.7944454,13.3147849 38.261825,11.8378558 C39.7292046,10.3617404 42.1090452,10.3617404 43.5772337,11.8378558 L46.8994653,15.1798656 C48.3668449,16.655981 48.3668449,19.0499895 46.8994653,20.5269186 C45.4312768,22.0038477 43.0514362,22.0038477 41.5840566,20.5269186 Z" id="path-5"></path>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.627391895 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.51206362 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-上滑" transform="translate(-790.000000, -386.000000)">
+            <g id="编组" transform="translate(106.000000, 203.000000)">
+                <g id="问卷调查-+-问卷调查备份-+-问卷调查备份-2-蒙版" transform="translate(0.000000, -1.000000)">
+                    <g id="编组-17" transform="translate(20.000000, -42.000000)">
+                        <g id="编组-4" transform="translate(0.000000, 211.000000)">
+                            <g id="常用服务备份-2" transform="translate(650.000000, 0.000000)">
+                                <g id="服务/需求反馈" transform="translate(14.000000, 15.000000)">
+                                    <rect id="矩形" x="0" y="0" width="68" height="68"></rect>
+                                    <g id="编组" transform="translate(10.000000, 12.000000)">
+                                        <g id="形状">
+                                            <use fill="url(#radialGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                                            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                                        </g>
+                                        <g id="形状">
+                                            <use fill="url(#radialGradient-4)" fill-rule="evenodd" xlink:href="#path-5"></use>
+                                            <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

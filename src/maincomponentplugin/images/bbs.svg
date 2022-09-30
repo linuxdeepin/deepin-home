@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+    SPDX-License-Identifier: LGPL-3.0-or-later
+ -->
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="-37.8164215%" x2="50%" y2="137.342995%" id="linearGradient-1">
+            <stop stop-color="#009CFF" offset="0%"></stop>
+            <stop stop-color="#335EF7" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="10.5365854" y="0" width="37.4634146" height="30.2162162" rx="7.02439024"></rect>
+        <linearGradient x1="50%" y1="-5.49494684%" x2="50%" y2="110.624191%" id="linearGradient-3">
+            <stop stop-color="#C3F3FF" stop-opacity="0.373195408" offset="0%"></stop>
+            <stop stop-color="#51A7FC" stop-opacity="0.485477901" offset="100%"></stop>
+        </linearGradient>
+        <path d="M7.02439024,8.13513514 L30.4390244,8.13513514 C34.318488,8.13513514 37.4634146,11.2800618 37.4634146,15.1595254 L37.4634146,31.3410044 C37.4634146,35.2149794 34.327049,38.3576279 30.4530817,38.3653806 L24.3725763,38.3775491 C23.7586448,38.3787777 23.1697555,38.6210821 22.732738,39.052277 L20.3747789,41.3788199 C19.4635606,42.2778976 17.9992163,42.2785445 17.087204,41.3802722 L14.7221262,39.0508259 C14.2852388,38.6205206 13.6969782,38.3787783 13.0837639,38.3775504 L7.01032459,38.3653889 C3.13636059,38.3576316 -4.13753708e-16,35.2149845 0,31.3410127 L0,15.1595254 C-4.75097269e-16,11.2800618 3.14492664,8.13513514 7.02439024,8.13513514 Z" id="path-4"></path>
+        <filter x="-0.5%" y="-0.6%" width="101.1%" height="101.1%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="-0.4" dy="0.4" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页-上滑" transform="translate(-140.000000, -386.000000)">
+            <g id="编组" transform="translate(106.000000, 203.000000)">
+                <g id="问卷调查-+-问卷调查备份-+-问卷调查备份-2-蒙版" transform="translate(0.000000, -1.000000)">
+                    <g id="编组-17" transform="translate(20.000000, -42.000000)">
+                        <g id="编组-4" transform="translate(0.000000, 211.000000)">
+                            <g id="服务/互动交流" transform="translate(14.000000, 15.000000)">
+                                <rect id="矩形" x="0" y="0" width="68" height="68"></rect>
+                                <g id="编组-12" transform="translate(10.000000, 13.000000)">
+                                    <g id="矩形">
+                                        <use fill="#D8D8D8" xlink:href="#path-2"></use>
+                                        <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                                    </g>
+                                    <g id="矩形备份">
+                                        <use fill="url(#linearGradient-3)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                                    </g>
+                                    <path d="M9.81184669,25.2908623 C11.3513164,25.2908623 12.5993031,24.0520106 12.5993031,22.5238095 C12.5993031,20.9956085 11.3513164,19.7567568 9.81184669,19.7567568 C8.272377,19.7567568 7.02439024,20.9956085 7.02439024,22.5238095 C7.02439024,24.0520106 8.272377,25.2908623 9.81184669,25.2908623 Z M18.7317073,25.2908623 C20.271177,25.2908623 21.5191638,24.0520106 21.5191638,22.5238095 C21.5191638,20.9956085 20.271177,19.7567568 18.7317073,19.7567568 C17.1922376,19.7567568 15.9442509,20.9956085 15.9442509,22.5238095 C15.9442509,24.0520106 17.1922376,25.2908623 18.7317073,25.2908623 Z M27.6515679,25.2908623 C29.1910376,25.2908623 30.4390244,24.0520106 30.4390244,22.5238095 C30.4390244,20.9956085 29.1910376,19.7567568 27.6515679,19.7567568 C26.1120983,19.7567568 24.8641115,20.9956085 24.8641115,22.5238095 C24.8641115,24.0520106 26.1120983,25.2908623 27.6515679,25.2908623 Z" id="形状结合" fill="#FFFFFF"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

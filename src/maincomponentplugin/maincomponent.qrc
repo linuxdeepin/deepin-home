@@ -1,5 +1,16 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>index/Index.qml</file>
+        <file>index/ContactModel.qml</file>
+        <file>index/Carousel.qml</file>
+        <file>index/Card1.qml</file>
+        <file>index/Card2.qml</file>
+        <file>index/Card3.qml</file>
+        <file>images/bbs.svg</file>
+        <file>images/bug.svg</file>
+        <file>images/demand.svg</file>
+        <file>images/contact.svg</file>
+        <file>images/internal.svg</file>
     </qresource>
 </RCC>
