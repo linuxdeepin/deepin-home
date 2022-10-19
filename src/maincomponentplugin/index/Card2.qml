@@ -14,16 +14,34 @@ Control {
     property string title
     property string image
     property Gradient gradient
+    property color shadowColor
+    property bool hover
+    signal clicked()
+
     Rectangle {
+        id: boxShadowSource
         width: root.width
         height: root.height
+        y: root.hover ? -6 : 0
+        Behavior on y { PropertyAnimation {} }
         radius: 20
         LinearGradient {
+            id: g
             source: parent
             anchors.fill: parent
             start: Qt.point(0, 0)
             end: Qt.point(width, height)
             gradient: root.gradient
+        }
+        Rectangle {
+            id: c
+            width: parent.width*0.5
+            height: parent.height*0.6
+            x: parent.width - width
+            y: parent.height - height
+            color: shadowColor
+            radius: 20
+            opacity: 0.15
         }
         Text {
             id: title
@@ -36,10 +54,34 @@ Control {
             anchors.top: title.bottom
             anchors.topMargin: 11
             anchors.horizontalCenter: parent.horizontalCenter
-
+            anchors.bottom: parent.bottom
             width: parent.width-39
-            fillMode: Image.PreserveAspectFit
             source: image
+        }
+    }
+    // 阴影
+    BoxShadow {
+        anchors.fill: boxShadowSource
+        shadowBlur : 12
+        shadowColor : Qt.rgba(0.07, 0.2, 0.5, root.hover ? 0.1 : 0.05)
+        Behavior on shadowColor { PropertyAnimation {} }
+        shadowOffsetX : 0
+        shadowOffsetY : 5
+        cornerRadius: boxShadowSource.radius
+        hollow: true
+    }
+    MouseArea {
+        width: root.width
+        height: root.height
+        hoverEnabled: true
+        onEntered: {
+            root.hover = true
+        }
+        onExited: {
+            root.hover = false
+        }
+        onClicked: {
+            root.clicked()
         }
     }
 }

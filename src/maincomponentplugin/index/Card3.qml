@@ -17,6 +17,8 @@ Control {
         width: root.width
         height: root.height
         color: "transparent"
+        Behavior on color { PropertyAnimation {} }
+        radius: 18
         Image {
             id: icon
             x: 10
@@ -41,6 +43,22 @@ Control {
             anchors.rightMargin: 14
             anchors.verticalCenter: parent.verticalCenter
             theme: DTK.themeType
+        }
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered: {
+                parent.color = Qt.rgba(0,0,0,0.1)
+            }
+            onExited: {
+                parent.color = "transparent"
+            }
+            onPressed: {
+                parent.color = Qt.rgba(0,0,0,0.2)
+            }
+            onReleased: {
+                parent.color = Qt.rgba(0,0,0,0.1)
+            }
         }
     }
 }

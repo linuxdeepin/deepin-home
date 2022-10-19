@@ -7,6 +7,14 @@
         <file>index/Card1.qml</file>
         <file>index/Card2.qml</file>
         <file>index/Card3.qml</file>
+
+        <file>list/List.qml</file>
+        <file>list/Notify.qml</file>
+        <file>list/NotifyDetail.qml</file>
+        <file>list/Questionnaire.qml</file>
+
+        <file>api/API.qml</file>
+
         <file>images/bbs.svg</file>
         <file>images/bug.svg</file>
         <file>images/demand.svg</file>

@@ -25,13 +25,15 @@ import "."
  */
 ApplicationWindow {
     id: window
+    x: Screen.width / 2 - width / 2
+    y: Screen.height / 2 - height / 2
     visible: true
     width: 1000
     minimumWidth: 1000
-    height: 700
+    height: 800
     title: qsTr("Deepin Home")
     flags: Qt.WindowMinButtonsHint | Qt.WindowCloseButtonHint
-
+    color: "#fff"
     DWindow.enabled: true
     DWindow.loadingOverlay: Rectangle {
         color: palette.window
