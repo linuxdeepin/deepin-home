@@ -5,7 +5,11 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 
+
 ScrollView {
+    id: root
+    signal notifyClicked()
+    signal questionnaireClicked()
     Column {
         id: body
         spacing: 30
@@ -26,6 +30,9 @@ ScrollView {
                 icon: "/images/bbs.svg"
                 width: body.width * 0.3
                 height: width/3
+                onClicked: {
+                    Qt.openUrlExternally("https://bbs.deepin.org");
+                }
             }
             Card1 {
                 title: "Bug反馈"
@@ -65,6 +72,11 @@ ScrollView {
                         GradientStop {  position: 0.3;  color: "#f5faff" }
                         GradientStop {  position: 0.9;  color: "#e3f4ff" }
                     }
+                    shadowColor: "#8dc5f0"
+                    onClicked: {
+                        root.questionnaireClicked()
+                        console.log("notifyClicked")
+                    }
                 }
                 Card2 {
                     title: "WIKI"
@@ -75,6 +87,10 @@ ScrollView {
                         GradientStop {  position: 0.2;  color: "#eef2ff" }
                         GradientStop {  position: 0.9;  color: "#e1eaff" }
                     }
+                    shadowColor: "#bfbdff"
+                    onClicked: {
+                        Qt.openUrlExternally("https://wiki.deepin.org");
+                    }
                 }
                 Card2 {
                     title: "GitHub"
@@ -84,6 +100,10 @@ ScrollView {
                     gradient: Gradient {
                         GradientStop {  position: 0.2;  color: "#fff7ed" }
                         GradientStop {  position: 0.9;  color: "#ffefdd" }      
+                    }
+                    shadowColor: "#FBA956"
+                    onClicked: {
+                        Qt.openUrlExternally("https://github.com/linuxdeepin");
                     }
                 }
             }

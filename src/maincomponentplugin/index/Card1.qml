@@ -15,9 +15,13 @@ Control {
     property string title
     property string subtitle
     property string icon
+    property bool hover
+    signal clicked()
 
     Rectangle {
         id: boxShadowSource
+        y: root.hover ? -6 : 0
+        Behavior on y { PropertyAnimation {} }
         width: root.width
         height: root.height
         radius: 20
@@ -57,25 +61,18 @@ Control {
                 text: root.subtitle
             }
 
-            Rectangle {
-                visible: disabled
+
+            RoundRectangle {
+                visible: root.disabled
+                width: 60
+                height: 24
                 anchors.verticalCenter: title.verticalCenter
                 anchors.left: title.right
                 anchors.leftMargin: 6
-                id: roundRect
                 radius: 14
-                color: "black"
-                width: 60
-                height: 24
-                Rectangle {
-                    id: squareRect
-                    color: "red"
-                    width: 13
-                    height: 13
-                    radius: 4
-                    anchors.top: roundRect.top
-                    anchors.left: roundRect.left
-                }
+                antialiasing: true
+                corners: (RoundRectangle.TopRightCorner | RoundRectangle.BottomCorner)
+
                 LinearGradient {
                     source: parent
                     anchors.fill: parent
@@ -113,10 +110,32 @@ Control {
     BoxShadow {
         anchors.fill: boxShadowSource
         shadowBlur : 12
-        shadowColor : Qt.rgba(0.07, 0.2, 0.5, 0.05)
+        shadowColor : Qt.rgba(0.07, 0.2, 0.5, root.hover ? 0.1 : 0.05)
+        Behavior on shadowColor { PropertyAnimation {} }
         shadowOffsetX : 0
         shadowOffsetY : 5
         cornerRadius: boxShadowSource.radius
         hollow: true
+    }
+
+    MouseArea {
+        width: root.width
+        height: root.height
+        hoverEnabled: true
+        onEntered: {
+            if(root.disabled){
+                return
+            }
+            root.hover = true
+        }
+        onExited: {
+            if(root.disabled){
+                return
+            }
+            root.hover = false
+        }
+        onClicked: {
+            root.clicked()
+        }
     }
 }
