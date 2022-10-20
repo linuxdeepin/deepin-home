@@ -58,10 +58,13 @@ Rectangle {
             color: Qt.rgba(0,0,0,0.6)
         }
         RecommandButton {
-            text: "查看更多"
+            text: qsTr("查看更多")
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             visible: root.url
+            onClicked: () => {
+                Qt.openUrlExternally(root.url)
+            }
         }
     }
 }

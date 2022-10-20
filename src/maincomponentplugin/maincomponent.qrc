@@ -12,13 +12,20 @@
         <file>list/Notify.qml</file>
         <file>list/NotifyDetail.qml</file>
         <file>list/Questionnaire.qml</file>
+        <file>list/NotFound.qml</file>
+
+        <file>article/Article.qml</file>
 
         <file>api/API.qml</file>
+        <file>api/qmldir</file>
+        
+        <file>widgets/Loading.qml</file>
 
         <file>images/bbs.svg</file>
         <file>images/bug.svg</file>
         <file>images/demand.svg</file>
         <file>images/contact.svg</file>
         <file>images/internal.svg</file>
+        <file>images/404.svg</file>
     </qresource>
 </RCC>
