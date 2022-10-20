@@ -29,11 +29,15 @@ ApplicationWindow {
     y: Screen.height / 2 - height / 2
     visible: true
     width: 1000
-    minimumWidth: 1000
+    minimumWidth: width
+    maximumWidth: width
     height: 800
     title: qsTr("Deepin Home")
-    flags: Qt.WindowMinButtonsHint | Qt.WindowCloseButtonHint
+    flags: Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
     color: "#fff"
+
+    header: TitleBar {}  // 添加默认标题栏
+
     DWindow.enabled: true
     DWindow.loadingOverlay: Rectangle {
         color: palette.window

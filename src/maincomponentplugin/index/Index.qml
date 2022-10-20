@@ -4,10 +4,16 @@
 
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import QtGraphicalEffects 1.0
+import org.deepin.dtk 1.0
+import "../list" as DList
+import "../article" as DArticle
 
 
 ScrollView {
     id: root
+    property int listIndex
+    property int articleIndex 
     signal notifyClicked()
     signal questionnaireClicked()
     Column {
@@ -74,7 +80,9 @@ ScrollView {
                     }
                     shadowColor: "#8dc5f0"
                     onClicked: {
-                        root.questionnaireClicked()
+                        // root.questionnaireClicked()
+                        root.listIndex = 1
+                        popup.sourceComponent = list_component
                         console.log("notifyClicked")
                     }
                 }
@@ -124,14 +132,91 @@ ScrollView {
                     icon: "/images/internal.svg"
                     width: body.width * 0.5
                     height: width/4
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            root.articleIndex = 1
+                            popup.sourceComponent = article_component
+                        }
+                    }
                 }
                 Card3 {
                     title: "社区动态"
                     icon: "/images/contact.svg"
                     width: body.width * 0.5
                     height: width/4
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            root.articleIndex = 2
+                            popup.sourceComponent = article_component
+                        }
+                    }
                 }
             }
         }
+    }
+
+    Component {
+        id: list_component
+        Item {
+            width: appLoader.width
+            height: appLoader.height 
+            Rectangle {
+                anchors.fill: parent
+                color: Qt.rgba(0,0,0,0.2)
+                
+                MouseArea {
+                    width: parent.width*0.6
+                    height: parent.height
+                    onClicked: {
+                        destroyAnim.start()
+                    }
+                }
+            }
+            DList.List {
+                id: list
+                index: root.listIndex
+                width: parent.width * 0.4
+                height: parent.height
+                x: parent.width
+                Behavior on x { PropertyAnimation {} }
+                Component.onCompleted: {
+                    x = parent.width - width
+                    console.log("completed")
+                }
+            }
+            SequentialAnimation {
+                id: destroyAnim
+                NumberAnimation { 
+                    target: list
+                    property:"x"
+                    to: parent.width
+                }
+                ScriptAction { 
+                    script: {
+                        popup.sourceComponent = null
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
+        id: article_component
+        Item {
+            DArticle.Article {
+                width: root.width
+                height: root.height
+                index: root.articleIndex
+                onCanceled: {
+                    popup.sourceComponent = null
+                }
+            }
+        }
+    }
+
+    Loader {
+        id: popup
     }
 }

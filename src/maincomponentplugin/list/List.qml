@@ -13,14 +13,6 @@ Control {
         radius: 20
         offscreen: false
     }
-    ItemViewport {
-        id: roundBlur
-        anchors.fill: blur
-        fixed: true
-        sourceItem: blur
-        radius: blur.radius
-        hideSource: false
-    }
     RoundRectangle {
         id: sidebar
         width: root.width
@@ -39,14 +31,15 @@ Control {
                     x: 10
                     y: 10
                     width: sidebar.width-10*2
+                    currentIndex: root.index
                     TabButton {
-                        text: qsTr("新闻标题")
+                        text: qsTr("系统消息")
                     }
                     TabButton {
                         text: qsTr("调查问卷")
                     }
-                    Component.onCompleted: {
-                        bar.setCurrentIndex(root.index)
+                    onCurrentIndexChanged: {
+                        root.index = currentIndex
                     }
                 }
                 StackLayout {
@@ -67,6 +60,7 @@ Control {
                     }
                     Item {
                         Questionnaire {
+                            anchors.fill: parent
                         }
                     }
                 }
