@@ -1,5 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import org.deepin.dtk 1.0
 
 // 无数据时显示
 Item {

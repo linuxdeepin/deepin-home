@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Deepin Home Daemon
+Exec=/usr/bin/deepin-home-daemon
+Type=Application
+NoDisplay=true

@@ -77,12 +77,10 @@ Control {
         if (root.index === 1) {
             API.getInternalTest((resp)=>{
                 content.text = resp.value
-                console.log(resp.value)
             })
         } else {
             API.getAboutUs((resp)=>{
                 content.text = resp.value
-                console.log(resp.value)
             })
         }
     }

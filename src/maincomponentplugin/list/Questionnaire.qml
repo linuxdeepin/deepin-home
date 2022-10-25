@@ -16,7 +16,7 @@ Item {
                     "uuid": item.uuid,
                     "title": item.title,
                     "summary": item.summary,
-                    "start_at": item.start_at,
+                    "end_at": new Date(item.end_at).toLocaleString(locale, Locale.ShortFormat),
                     "url": item.url,
                 })
             }
@@ -51,7 +51,7 @@ Item {
                 radius: 8
                 color: index%2==0 ? Qt.rgba(0,0,0,0.05) : 'transparent';
                 function read() {
-                    API.markRead(uuid)
+                    API.markRead("p","q",uuid)
                     mark_dot.color = "#b1b1b1"
                     Qt.openUrlExternally(url)
                 }
@@ -107,7 +107,7 @@ Item {
                         elide: Text.ElideRight
                     }
                     Text {
-                        text: start_at
+                        text: "有效期至：" + end_at
                         anchors.right: parent.right
                         color: Qt.rgba(0,0,0,0.6);
                     }
@@ -124,7 +124,7 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    API.isRead(uuid, (read) => {
+                    API.isRead("p", "q", uuid, (read) => {
                         if(read) {
                             mark_dot.color = "#b1b1b1"
                         }
