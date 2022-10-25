@@ -36,7 +36,7 @@ ApplicationWindow {
     flags: Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
     color: "#fff"
 
-    header: TitleBar {}  // 添加默认标题栏
+    // header: TitleBar {}  // 添加默认标题栏
 
     DWindow.enabled: true
     DWindow.loadingOverlay: Rectangle {

@@ -25,4 +25,7 @@ QUrl MainComponentPlugin::mainComponentPath() const
     return QUrl("qrc:///main.qml");
 }
 
-void MainComponentPlugin::initialize(QQmlApplicationEngine *engine) {}
+void MainComponentPlugin::initialize(QQmlApplicationEngine *engine)
+{
+    engine->rootContext()->setContextProperty("worker", &worker);
+}

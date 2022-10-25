@@ -5,6 +5,7 @@
 #ifndef MAINCOMPONENTPLUGIN_H
 #define MAINCOMPONENTPLUGIN_H
 
+#include "worker.h"
 #include <dqmlappmainwindowinterface.h>
 
 class QQmlComponent;
@@ -23,6 +24,7 @@ public:
 
 private:
     PluginListModel *pluginListModel;
+    Worker worker;
 };
 
 #endif // MAINCOMPONENTPLUGIN_H

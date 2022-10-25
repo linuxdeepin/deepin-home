@@ -27,5 +27,6 @@
         <file>images/contact.svg</file>
         <file>images/internal.svg</file>
         <file>images/404.svg</file>
+        <file>images/read.svg</file>
     </qresource>
 </RCC>
