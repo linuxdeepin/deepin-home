@@ -11,6 +11,7 @@ import org.deepin.dtk 1.0
 Control {
     id: root
     clip: true
+    property ListModel model
     Rectangle {
         id: main
         anchors.fill: parent
@@ -30,7 +31,7 @@ Control {
         }
         PathView {
             id: pathView
-            model: ContactModel {}
+            model: root.model
             delegate: delegate 
             path: Path {
                 startX: 0; startY: 0

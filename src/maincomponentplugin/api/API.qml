@@ -47,6 +47,13 @@ Item {
             get("/api/v1/public/setting/aboutus_"+lang, callback)
         })
     }
+    function getClientHome(callback) {
+        getLanguage(lang=>{
+            get("/api/v1/public/setting/client-home_"+lang, (resp)=>{
+                callback(JSON.parse(resp.value))
+            })
+        })
+    }
     // 标记通知已读
     function markRead(channel, topic, uuid) {
         worker.markRead(channel, topic, uuid)

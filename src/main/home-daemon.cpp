@@ -14,13 +14,41 @@ HomeDaemon::HomeDaemon(QObject *parent)
     mHttp = new QNetworkAccessManager(this);
     mHttp->setCache(diskCache);
 
+    // 初始化系统托盘
     mMenu = new QMenu();
     initSysTrayIcon();
+    execFirstNotify();
+    // 记录启动次数和运行时间（用于提醒填写调查问卷）
+    if (settings.value("firstNotify").toBool()) {
+        settings.remove("bootCount");
+        settings.remove("runTime");
+    } else {
+        QTimer::singleShot(60 * 60 * 1000, this, &HomeDaemon::runTimeRecord);
+        auto count = settings.value("bootCount", 0).toInt() + 1;
+        if (QCoreApplication::arguments().contains("--autostart")) {
+            settings.setValue("bootCount", count);
+        }
+        if (count >= 4) {
+            execFirstNotify();
+        }
+    }
 }
 
 HomeDaemon::~HomeDaemon()
 {
     delete mMenu;
+}
+
+void HomeDaemon::runTimeRecord()
+{
+    if (!settings.value("firstNotify").toBool()) {
+        auto count = settings.value("runTime", 0).toInt() + 1;
+        settings.setValue("runTime", count);
+        if (count >= 12) {
+            execFirstNotify();
+        }
+        QTimer::singleShot(60 * 60 * 1000, this, &HomeDaemon::runTimeRecord);
+    }
 }
 
 void HomeDaemon::initSysTrayIcon()
@@ -240,6 +268,36 @@ void HomeDaemon::refreshChannel(QString cronID, QString node, QString channel)
         refreshChannel(cronID, node, channel);
     });
 }
+// 在固定时机提醒填写调查问卷
+void HomeDaemon::execFirstNotify()
+{
+    qDebug() << "execFirstNotify";
+    try {
+        refreshNode();
+        auto url = QString("%1/api/v1/public/channel/%2/topic/%3/messages?language=%4")
+                       .arg(node)
+                       .arg("p")
+                       .arg("q")
+                       .arg(getLanguage());
+        auto list = fetch(url).array();
+        for (auto v : list) {
+            auto message = v.toObject();
+            auto top = message.value("top").toBool();
+            if (!top) {
+                continue;
+            }
+            // 发送消息通知
+            auto title = message.value("title").toString();
+            auto summary = message.value("summary").toString();
+            auto url = message.value("url").toString();
+            notify(title, summary, url);
+            settings.setValue("firstNotify", true);
+            qDebug() << "send first notify" << title << summary;
+        }
+    } catch (...) {
+        qWarning() << "Network Error";
+    }
+}
 // 处理消息
 void HomeDaemon::message(QString node, QString channel, QString topic, QString changeID)
 {
@@ -257,7 +315,8 @@ void HomeDaemon::message(QString node, QString channel, QString topic, QString c
     for (auto v : list) {
         auto message = v.toObject();
         auto uuid = message.value("uuid").toString();
-        if (!message.value("notify").toBool()) {
+        auto allowNotify = message.value("notify").toBool();
+        if (!allowNotify) {
             continue;
         }
         auto settingKey = messageSettingKey(channel, topic, uuid);

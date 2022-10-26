@@ -32,8 +32,11 @@ class HomeDaemon : public QObject
 
     Q_CLASSINFO("D-Bus Interface", "com.deepin.Home.Daemon")
 private:
+    // 语言环境
     QString language;
+    // 分发节点
     QString node;
+    // 消息渠道
     QStringList channels;
     int nodeRefreshTime;
     QDateTime nodeLastRefresh;
@@ -65,6 +68,9 @@ public:
     void message(QString node, QString channel, QString topic, QString changeID);
     // 消息发送到控制中心
     void notify(QString title, QString summary, QString url);
+    // 在固定时机提醒填写调查问卷
+    void execFirstNotify();
+    void runTimeRecord();
 public slots:
     // 获取当前机器码（用户级别）
     QString getMachineID();
