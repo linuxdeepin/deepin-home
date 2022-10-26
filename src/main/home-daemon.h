@@ -1,6 +1,11 @@
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+
+// SPDX-License-Identifier: LGPL-3.0-or-later
+
 #ifndef HELLO_H
 #define HELLO_H
 
+#include <QAction>
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -10,11 +15,14 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLocale>
+#include <QMenu>
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
 #include <QNetworkReply>
+#include <QProcess>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QSystemTrayIcon>
 #include <QTimer>
 #include <QUuid>
 
@@ -33,11 +41,14 @@ private:
     QHash<QString, QDateTime> topicRefresh;
 
     QSettings settings;
-    QNetworkAccessManager *http;
+    QNetworkAccessManager *mHttp;
+    QSystemTrayIcon *mSysTrayIcon;
+    QMenu *mMenu;
 
 public:
     explicit HomeDaemon(QObject *parent = nullptr);
     ~HomeDaemon();
+    void initSysTrayIcon();
     QString newUUID();
     // 每个消息的状态存储在配置文件中
     QString messageSettingKey(QString channel, QString topic, QString uuid);
@@ -47,6 +58,7 @@ public:
     void start();
     // 主流程，更新node信息，并启动定时器刷新渠道消息
     void run();
+    void refreshNode();
     // 定时刷新单个渠道
     void refreshChannel(QString cronID, QString node, QString channel);
     // 处理消息
@@ -68,6 +80,9 @@ public slots:
     void markRead(QString channel, QString topic, QString uuid);
     // 获取消息是否已读
     bool isRead(QString channel, QString topic, QString uuid);
+
+signals: // 信号
+    void exit();
 };
 
 #endif // HELLO_H

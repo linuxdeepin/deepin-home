@@ -16,21 +16,24 @@ set(SRC
 # Find the Qt5Quick library
 find_package(Qt5Quick CONFIG REQUIRED)
 find_package(Qt5DBus CONFIG REQUIRED)
+find_package(Qt5Widgets CONFIG REQUIRED)
 
 # Add EXE
 add_executable(${APP_NAME} ${SRC})
 
-add_executable(${APP_DAEMON_NAME} daemon.cpp daemon.h)
+add_executable(${APP_DAEMON_NAME} daemon.cpp home-daemon.h home-daemon.cpp)
 
 # 由于 EXE 只是作为启动程序加载 LIB 使用，一般来说，只需链接 ${LIB_NAME} 既可。
 target_link_libraries(${APP_NAME}
     Qt5::Quick
+    Qt5::DBus
     ${DtkDeclarative_LIBRARIES}
     )
 target_link_libraries(${APP_DAEMON_NAME}
     Qt5::Core
     Qt5::Network
     Qt5::DBus
+    Qt5::Widgets
     )
 set_target_properties(${APP_NAME} PROPERTIES INSTALL_RPATH ${DTK_QML_APP_PLUGIN_PATH})
 install(TARGETS ${APP_NAME} DESTINATION ${APP_BIN_INSTALL_DIR})
@@ -39,3 +42,4 @@ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_NAME}.desktop" DESTINATIO
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_DAEMON_NAME}.desktop" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_DAEMON_NAME}.desktop" DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg/autostart)
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../dbusservice/com.deepin.Home.Daemon.service" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../maincomponentplugin/images/deepin-home.svg" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps)
