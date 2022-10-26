@@ -6,6 +6,8 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtGraphicalEffects 1.0
 import org.deepin.dtk 1.0
+
+import "../api"
 import "../list" as DList
 import "../article" as DArticle
 
@@ -24,8 +26,10 @@ ScrollView {
         height: appLoader.height
         // 轮播图
         Carousel {
+            id: carousel
             width: body.width
             height: body.width*0.2
+            model: ListModel {}
         }
         // 首栏
         Row {
@@ -155,6 +159,14 @@ ScrollView {
                 }
             }
         }
+    }
+
+    Component.onCompleted: {
+        API.getClientHome(resp=>{
+            for(let item of resp.carousel){
+                carousel.model.append({img: item.img, url: item.url})
+            }
+        })
     }
 
     Component {
