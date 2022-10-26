@@ -14,7 +14,7 @@ Copyright: None
 License: CC0-1.0
 
 # desktop file
-FIles: deepin-home.desktop
+FIles: deepin-home.desktop deepin-home-daemon.desktop
 Copyright: None
 License: CC0-1.0
 
@@ -52,3 +52,18 @@ License: CC0-1.0
 Files: .clang-format
 Copyright: None
 License: CC0-1.0
+
+# qmldir
+Files: src/maincomponentplugin/api/qmldir
+Copyright: None
+License: CC0-1.0
+
+# svg
+Files: src/maincomponentplugin/images/*.svg
+Copyright: None
+License: CC-BY-4.0
+
+# dbus service
+Files: src/dbusservice/*.service
+Copyright: None
+License: CC-BY-4.0

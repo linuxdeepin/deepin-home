@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-    SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
-    SPDX-License-Identifier: LGPL-3.0-or-later
- -->
 <svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <radialGradient cx="32.7002966%" cy="33.5690736%" fx="32.7002966%" fy="33.5690736%" r="113.874979%" gradientTransform="translate(0.327003,0.335691),scale(1.000000,0.885383),rotate(46.315889),scale(1.000000,1.640429),translate(-0.327003,-0.335691)" id="radialGradient-1">
