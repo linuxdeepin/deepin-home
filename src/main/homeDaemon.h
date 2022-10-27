@@ -2,8 +2,8 @@
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
-#ifndef HELLO_H
-#define HELLO_H
+#ifndef HOMEDAEMON_H
+#define HOMEDAEMON_H
 
 #include <QAction>
 #include <QCoreApplication>
@@ -29,24 +29,22 @@
 class HomeDaemon : public QObject
 {
     Q_OBJECT
-
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.Home.Daemon")
 private:
     // 语言环境
-    QString language;
+    QString m_language;
     // 分发节点
-    QString node;
+    QString m_node;
     // 消息渠道
-    QStringList channels;
-    int nodeRefreshTime;
-    QDateTime nodeLastRefresh;
-    QString refreshChannelCronID;
-    QHash<QString, QDateTime> topicRefresh;
+    QStringList m_channels;
+    // 节点刷新间隔（单位秒）
+    int m_nodeRefreshTime;
+    // 渠道刷新任务ID，用于中止旧的任务
+    QString m_refreshChannelCronID;
 
-    QSettings settings;
-    QNetworkAccessManager *mHttp;
-    QSystemTrayIcon *mSysTrayIcon;
-    QMenu *mMenu;
+    QSettings m_settings;
+    QNetworkAccessManager *m_http;
+    QSystemTrayIcon *m_sysTrayIcon;
+    QMenu *m_menu;
 
 public:
     explicit HomeDaemon(QObject *parent = nullptr);
@@ -91,4 +89,4 @@ signals: // 信号
     void exit();
 };
 
-#endif // HELLO_H
+#endif // HOMEDAEMON_H

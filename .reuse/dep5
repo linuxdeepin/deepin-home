@@ -64,6 +64,6 @@ Copyright: None
 License: CC-BY-4.0
 
 # dbus service
-Files: src/dbusservice/*.service
+Files: src/dbusservice/*
 Copyright: None
 License: CC-BY-4.0

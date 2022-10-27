@@ -7,14 +7,11 @@
 Worker::Worker(QObject *parent)
     : QObject(parent)
 {
-    daemon = new QDBusInterface("com.deepin.Home.Daemon",
-                                "/com/deepin/Home/Daemon",
-                                "com.deepin.Home.Daemon",
-                                QDBusConnection::sessionBus(),
-                                this);
-    if (daemon->isValid()) {
-        connect(daemon, SIGNAL(exit()), this, SLOT(exit()));
-    }
+    m_daemon = new ComDeepinHomeDaemonInterface("com.deepin.Home.Daemon",
+                                                "/com/deepin/Home/Daemon",
+                                                QDBusConnection::sessionBus(),
+                                                this);
+    connect(m_daemon, SIGNAL(exit()), this, SLOT(exit()));
 }
 
 Worker::~Worker() {}
@@ -22,33 +19,30 @@ Worker::~Worker() {}
 QString Worker::getNode()
 {
     qDebug() << "get node";
-    QDBusReply<QString> reply = daemon->call("getNode");
-    return reply;
+    return m_daemon->getNode();
 };
 QString Worker::getLanguage()
 {
     qDebug() << "get language";
-    QDBusReply<QString> reply = daemon->call("getLanguage");
-    return reply;
+    return m_daemon->getLanguage();
 };
 QString Worker::getMachineID()
 {
     qDebug() << "get machine id";
-    QDBusReply<QString> reply = daemon->call("getMachineID");
-    return reply;
+    return m_daemon->getMachineID();
 };
 void Worker::markRead(QString channel, QString topic, QString uuid)
 {
     qDebug() << "mark read";
     QList<QVariant> args;
     args << channel << topic << uuid;
-    daemon->callWithArgumentList(QDBus::NoBlock, "markRead", args);
+    m_daemon->callWithArgumentList(QDBus::NoBlock, "markRead", args);
 };
 bool Worker::isRead(QString channel, QString topic, QString uuid)
 {
     qDebug() << "is read";
     QList<QVariant> args;
     args << channel << topic << uuid;
-    QDBusReply<bool> reply = daemon->callWithArgumentList(QDBus::BlockWithGui, "isRead", args);
+    QDBusReply<bool> reply = m_daemon->callWithArgumentList(QDBus::BlockWithGui, "isRead", args);
     return reply;
 };
