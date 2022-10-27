@@ -24,7 +24,7 @@ public:
 
 private:
     PluginListModel *pluginListModel;
-    Worker worker;
+    Worker m_worker;
 };
 
 #endif // MAINCOMPONENTPLUGIN_H

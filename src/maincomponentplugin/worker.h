@@ -12,11 +12,12 @@
 #include <QDebug>
 #include <QObject>
 
+#include "homeDaemonProxy.h"
 class Worker : public QObject
 {
     Q_OBJECT
 private:
-    QDBusInterface *daemon;
+    ComDeepinHomeDaemonInterface *m_daemon;
 
 public:
     explicit Worker(QObject *parent = nullptr);

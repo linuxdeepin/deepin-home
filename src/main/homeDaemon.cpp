@@ -2,7 +2,7 @@
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
-#include "./home-daemon.h"
+#include "homeDaemon.h"
 
 HomeDaemon::HomeDaemon(QObject *parent)
     : QObject(parent)
@@ -11,22 +11,22 @@ HomeDaemon::HomeDaemon(QObject *parent)
     auto diskCache = new QNetworkDiskCache(this);
     auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
     diskCache->setCacheDirectory(cacheDir + "/http_cache");
-    mHttp = new QNetworkAccessManager(this);
-    mHttp->setCache(diskCache);
+    m_http = new QNetworkAccessManager(this);
+    m_http->setCache(diskCache);
 
     // 初始化系统托盘
-    mMenu = new QMenu();
+    m_menu = new QMenu();
     initSysTrayIcon();
-    execFirstNotify();
+
     // 记录启动次数和运行时间（用于提醒填写调查问卷）
-    if (settings.value("firstNotify").toBool()) {
-        settings.remove("bootCount");
-        settings.remove("runTime");
+    if (m_settings.value("firstNotify").toBool()) {
+        m_settings.remove("bootCount");
+        m_settings.remove("runTime");
     } else {
         QTimer::singleShot(60 * 60 * 1000, this, &HomeDaemon::runTimeRecord);
-        auto count = settings.value("bootCount", 0).toInt() + 1;
+        auto count = m_settings.value("bootCount", 0).toInt() + 1;
         if (QCoreApplication::arguments().contains("--autostart")) {
-            settings.setValue("bootCount", count);
+            m_settings.setValue("bootCount", count);
         }
         if (count >= 4) {
             execFirstNotify();
@@ -36,14 +36,14 @@ HomeDaemon::HomeDaemon(QObject *parent)
 
 HomeDaemon::~HomeDaemon()
 {
-    delete mMenu;
+    delete m_menu;
 }
 
 void HomeDaemon::runTimeRecord()
 {
-    if (!settings.value("firstNotify").toBool()) {
-        auto count = settings.value("runTime", 0).toInt() + 1;
-        settings.setValue("runTime", count);
+    if (!m_settings.value("firstNotify").toBool()) {
+        auto count = m_settings.value("runTime", 0).toInt() + 1;
+        m_settings.setValue("runTime", count);
         if (count >= 12) {
             execFirstNotify();
         }
@@ -54,39 +54,34 @@ void HomeDaemon::runTimeRecord()
 void HomeDaemon::initSysTrayIcon()
 {
     // 系统托盘
-    mSysTrayIcon = new QSystemTrayIcon(this);
-    mSysTrayIcon->setIcon(QIcon::fromTheme("deepin-home"));
-    mSysTrayIcon->setToolTip("深度之家");
+    m_sysTrayIcon = new QSystemTrayIcon(this);
+    m_sysTrayIcon->setIcon(QIcon::fromTheme("deepin-home"));
+    m_sysTrayIcon->setToolTip("深度之家");
     // 托盘菜单
     auto showMainAction = new QAction("显示主界面", this);
-    connect(mSysTrayIcon, &QSystemTrayIcon::activated, this, [] {
-        QProcess mainProcess;
-        mainProcess.startDetached("deepin-home", QStringList());
+    connect(m_sysTrayIcon, &QSystemTrayIcon::activated, this, [] {
+        QProcess::startDetached("deepin-home", QStringList());
     });
     connect(showMainAction, &QAction::triggered, this, [] {
-        QProcess mainProcess;
-        mainProcess.startDetached("deepin-home", QStringList());
+        QProcess::startDetached("deepin-home", QStringList());
     });
     auto exitAction = new QAction("退出", this);
-    connect(exitAction, &QAction::triggered, this, [this] {
-        emit exit();
-        QCoreApplication::quit();
-    });
-    mMenu->addAction(showMainAction);
-    mMenu->addAction(exitAction);
-    mSysTrayIcon->setContextMenu(mMenu);
-    mSysTrayIcon->show();
+    connect(exitAction, &QAction::triggered, this, [] { QCoreApplication::quit(); });
+    m_menu->addAction(showMainAction);
+    m_menu->addAction(exitAction);
+    m_sysTrayIcon->setContextMenu(m_menu);
+    m_sysTrayIcon->show();
 }
 
 QString HomeDaemon::getMachineID()
 {
-    auto machineID = settings.value("machineID").toString();
+    auto machineID = m_settings.value("machineID").toString();
     qDebug() << "try to get machine id from setting";
     if (!machineID.isEmpty()) {
         return machineID;
     }
     machineID = newUUID();
-    settings.setValue("machineID", machineID);
+    m_settings.setValue("machineID", machineID);
     qDebug() << "new machine id saved to setting";
     return machineID;
 }
@@ -94,60 +89,60 @@ QString HomeDaemon::getMachineID()
 // 获取服务器地址
 QString HomeDaemon::getServer()
 {
-    auto server = settings.value("server").toString();
+    auto server = m_settings.value("server").toString();
     if (!server.isEmpty()) {
         return server;
     }
     server = "https://home.deepin.org";
-    settings.setValue("server", server);
+    m_settings.setValue("server", server);
     return server;
 }
 
 // 获取当前语言
 QString HomeDaemon::getLanguage()
 {
-    if (language.isEmpty()) {
+    if (m_language.isEmpty()) {
         auto local = QLocale::system();
         auto url = QString("%1/api/v1/public/language/%2").arg(getServer()).arg(local.name());
         auto doc = fetch(url).object();
-        language = doc.value("code").toString();
+        m_language = doc.value("code").toString();
     }
-    return language;
+    return m_language;
 };
 
 // 获取分发节点地址，顺便刷新channels，缓存时间由服务器配置
 QString HomeDaemon::getNode()
 {
-    if (node.isEmpty()) {
+    if (m_node.isEmpty()) {
         refreshNode();
     }
-    return node;
+    return m_node;
 }
 
 // 获取渠道列表
 QStringList HomeDaemon::getChannels()
 {
-    if (node.isEmpty()) {
+    if (m_node.isEmpty()) {
         refreshNode();
     }
-    return channels;
+    return m_channels;
 }
 // 标记消息已读
 void HomeDaemon::markRead(QString channel, QString topic, QString uuid)
 {
     auto settingKey = messageSettingKey(channel, topic, uuid);
     qDebug() << "mark read" << settingKey;
-    settings.beginGroup("messages");
-    settings.setValue(settingKey, "read");
-    settings.endGroup();
+    m_settings.beginGroup("messages");
+    m_settings.setValue(settingKey, "read");
+    m_settings.endGroup();
 }
 // 获取消息是否已读
 bool HomeDaemon::isRead(QString channel, QString topic, QString uuid)
 {
     auto settingKey = messageSettingKey(channel, topic, uuid);
-    settings.beginGroup("messages");
-    auto value = settings.value(settingKey).toString();
-    settings.endGroup();
+    m_settings.beginGroup("messages");
+    auto value = m_settings.value(settingKey).toString();
+    m_settings.endGroup();
     qDebug() << "get message status" << settingKey << value;
     return value == "read";
 }
@@ -164,7 +159,7 @@ QString HomeDaemon::messageSettingKey(QString channel, QString topic, QString uu
 // 封装http get请求
 QJsonDocument HomeDaemon::fetch(const QUrl &url)
 {
-    auto reply = mHttp->get(QNetworkRequest(url));
+    auto reply = m_http->get(QNetworkRequest(url));
     QEventLoop eventLoop;
     connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
     eventLoop.exec();
@@ -188,7 +183,7 @@ void HomeDaemon::run()
     qDebug() << "Refresh Node";
     // 用于停止旧的定时器
     auto cronID = newUUID();
-    refreshChannelCronID = cronID;
+    m_refreshChannelCronID = cronID;
 
     // 如果执行发生异常，在一个小时后重试
     auto nextRefreshTime = 60 * 60;
@@ -196,7 +191,7 @@ void HomeDaemon::run()
         refreshNode();
         auto currentNode = getNode();
         // 如果执行无异常，服从服务器调控
-        nextRefreshTime = nodeRefreshTime;
+        nextRefreshTime = m_nodeRefreshTime;
         for (auto channel : getChannels()) {
             QTimer::singleShot(1000, this, [cronID, currentNode, channel, this] {
                 refreshChannel(cronID, currentNode, channel);
@@ -210,21 +205,17 @@ void HomeDaemon::run()
 }
 void HomeDaemon::refreshNode()
 {
-    if (QDateTime::currentDateTime() < nodeLastRefresh.addSecs(nodeRefreshTime)) {
-        return;
-    }
     auto url = QString("%1/api/v1/public/machine/%2/node").arg(getServer()).arg(getMachineID());
     auto doc = fetch(url).object();
-    node = doc.value("server").toString();
-    channels = doc.value("channels").toVariant().toStringList();
+    m_node = doc.value("server").toString();
+    m_channels = doc.value("channels").toVariant().toStringList();
     auto refresh_time = doc.value("refresh_time").toInt();
     // 默认一分钟刷新一次，服务器可根据负载进行调控
     if (refresh_time == 0) {
         refresh_time = 60;
     }
-    nodeRefreshTime = refresh_time;
-    nodeLastRefresh = QDateTime::currentDateTime();
-    qDebug() << "refresh node" << node;
+    m_nodeRefreshTime = refresh_time;
+    qDebug() << "refresh node" << m_node;
 }
 // 定时刷新单个渠道
 void HomeDaemon::refreshChannel(QString cronID, QString node, QString channel)
@@ -242,9 +233,9 @@ void HomeDaemon::refreshChannel(QString cronID, QString node, QString channel)
             auto topic = t.value("name").toString();
             auto settingKey = QString("topics/%1_%2_changeID").arg(channel).arg(topic);
             auto currentChangeID = t.value("change_id").toString();
-            auto lastChangeID = settings.value(settingKey);
+            auto lastChangeID = m_settings.value(settingKey);
             if (currentChangeID != lastChangeID) {
-                settings.setValue(settingKey, currentChangeID);
+                m_settings.setValue(settingKey, currentChangeID);
                 message(node, channel, topic, currentChangeID);
             }
         }
@@ -262,7 +253,7 @@ void HomeDaemon::refreshChannel(QString cronID, QString node, QString channel)
     // 延迟1分钟再次运行
     QTimer::singleShot(nextRefreshTime * 1000, this, [=] {
         // 如果任务中断，则不再运行
-        if (cronID != refreshChannelCronID) {
+        if (cronID != m_refreshChannelCronID) {
             return;
         }
         refreshChannel(cronID, node, channel);
@@ -273,12 +264,12 @@ void HomeDaemon::execFirstNotify()
 {
     qDebug() << "execFirstNotify";
     try {
-        refreshNode();
-        auto url = QString("%1/api/v1/public/channel/%2/topic/%3/messages?language=%4")
-                       .arg(node)
+        auto url = QString("%1/api/v1/public/channel/%2/topic/%3/messages?language=%4&change_id=%5")
+                       .arg(getNode())
                        .arg("p")
                        .arg("q")
-                       .arg(getLanguage());
+                       .arg(getLanguage())
+                       .arg(m_refreshChannelCronID);
         auto list = fetch(url).array();
         for (auto v : list) {
             auto message = v.toObject();
@@ -291,7 +282,7 @@ void HomeDaemon::execFirstNotify()
             auto summary = message.value("summary").toString();
             auto url = message.value("url").toString();
             notify(title, summary, url);
-            settings.setValue("firstNotify", true);
+            m_settings.setValue("firstNotify", true);
             qDebug() << "send first notify" << title << summary;
         }
     } catch (...) {
@@ -311,7 +302,7 @@ void HomeDaemon::message(QString node, QString channel, QString topic, QString c
                    .arg(changeID);
     auto list = fetch(url).array();
     QStringList ids;
-    settings.beginGroup("messages");
+    m_settings.beginGroup("messages");
     for (auto v : list) {
         auto message = v.toObject();
         auto uuid = message.value("uuid").toString();
@@ -323,10 +314,10 @@ void HomeDaemon::message(QString node, QString channel, QString topic, QString c
         // 记录所有消息，便于下面进行清理
         ids << settingKey;
         // 是否已通知
-        if (!settings.value(settingKey).toString().isEmpty()) {
+        if (!m_settings.value(settingKey).toString().isEmpty()) {
             continue;
         }
-        settings.setValue(settingKey, "notify");
+        m_settings.setValue(settingKey, "notify");
         // 发送消息通知
         auto title = message.value("title").toString();
         auto summary = message.value("summary").toString();
@@ -336,13 +327,13 @@ void HomeDaemon::message(QString node, QString channel, QString topic, QString c
     }
     // 清理过期的消息
     auto prefix = QString("%1_%2").arg(channel).arg(topic);
-    for (auto key : settings.childKeys()) {
+    for (auto key : m_settings.childKeys()) {
         if (key.startsWith(prefix) && !ids.contains(key)) {
             qDebug() << "remove" << key;
-            settings.remove(key);
+            m_settings.remove(key);
         }
     }
-    settings.endGroup();
+    m_settings.endGroup();
 }
 
 // 消息发送到控制中心

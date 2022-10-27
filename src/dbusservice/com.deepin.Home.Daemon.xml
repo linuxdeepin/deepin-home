@@ -1,0 +1,33 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="com.deepin.Home.Daemon">
+    <signal name="exit">
+    </signal>
+    <method name="getMachineID">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="getServer">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="getLanguage">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="getNode">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="getChannels">
+      <arg type="as" direction="out"/>
+    </method>
+    <method name="markRead">
+      <arg name="channel" type="s" direction="in"/>
+      <arg name="topic" type="s" direction="in"/>
+      <arg name="uuid" type="s" direction="in"/>
+    </method>
+    <method name="isRead">
+      <arg type="b" direction="out"/>
+      <arg name="channel" type="s" direction="in"/>
+      <arg name="topic" type="s" direction="in"/>
+      <arg name="uuid" type="s" direction="in"/>
+    </method>
+  </interface>
+</node>

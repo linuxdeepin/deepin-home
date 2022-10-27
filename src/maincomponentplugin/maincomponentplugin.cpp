@@ -27,5 +27,5 @@ QUrl MainComponentPlugin::mainComponentPath() const
 
 void MainComponentPlugin::initialize(QQmlApplicationEngine *engine)
 {
-    engine->rootContext()->setContextProperty("worker", &worker);
+    engine->rootContext()->setContextProperty("worker", &m_worker);
 }
