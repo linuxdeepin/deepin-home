@@ -1,5 +1,5 @@
 # Application
-if (NOT CMAKE_BUILD_TYPE STREQUAL "Release")
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(LIBRARY_OUTPUT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib")
     add_definitions(-DLOCALLIBPATH="${LIBRARY_OUTPUT_PATH}")
 endif()

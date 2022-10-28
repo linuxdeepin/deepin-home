@@ -28,7 +28,6 @@ find_package(Qt5Widgets CONFIG REQUIRED)
 add_executable(${APP_NAME} ${SRC})
 
 qt5_add_dbus_adaptor(DAEMON_SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemon.h HomeDaemon homeDaemonAdaptor HomeDaemonAdaptor)
-message(WARNING ${DAEMON_SRC})
 add_executable(${APP_DAEMON_NAME} ${DAEMON_SRC})
 
 # 由于 EXE 只是作为启动程序加载 LIB 使用，一般来说，只需链接 ${LIB_NAME} 既可。
