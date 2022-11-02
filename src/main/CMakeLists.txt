@@ -17,6 +17,10 @@ set(DAEMON_SRC
     daemon.cpp 
     homeDaemon.h
     homeDaemon.cpp
+    api.h
+    api.cpp
+    account.h
+    account.cpp
     )
 
 # Find the Qt5Quick library
@@ -26,6 +30,18 @@ find_package(Qt5Widgets CONFIG REQUIRED)
 
 # Add EXE
 add_executable(${APP_NAME} ${SRC})
+
+set_source_files_properties(../dbusservice/org.freedesktop.DBus.Properties.xml PROPERTIES CLASSNAME PropertiesChangedProxy)
+set_source_files_properties(../dbusservice/org.freedesktop.DBus.Properties.xml PROPERTIES NO_NAMESPACE ON)
+qt5_add_dbus_interface(DAEMON_SRC ../dbusservice/org.freedesktop.DBus.Properties.xml propertiesChangedProxy)
+
+set_source_files_properties(../dbusservice/com.deepin.deepinid.xml PROPERTIES CLASSNAME DeepinidDaemonProxy)
+set_source_files_properties(../dbusservice/com.deepin.deepinid.xml PROPERTIES NO_NAMESPACE ON)
+qt5_add_dbus_interface(DAEMON_SRC ../dbusservice/com.deepin.deepinid.xml deepinidDaemonProxy)
+
+set_source_files_properties(../dbusservice/com.deepin.deepinid.Client.xml PROPERTIES CLASSNAME DeepinidClientProxy)
+set_source_files_properties(../dbusservice/com.deepin.deepinid.Client.xml PROPERTIES NO_NAMESPACE ON)
+qt5_add_dbus_interface(DAEMON_SRC ../dbusservice/com.deepin.deepinid.Client.xml deepinidClientProxy)
 
 qt5_add_dbus_adaptor(DAEMON_SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemon.h HomeDaemon homeDaemonAdaptor HomeDaemonAdaptor)
 add_executable(${APP_DAEMON_NAME} ${DAEMON_SRC})

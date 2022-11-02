@@ -52,6 +52,13 @@ Control {
         height: root.height
         source: main
         maskSource: mask
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log("ok");
+                Qt.openUrlExternally(root.model.get(pathView.currentIndex).url);
+            }
+        }
     }
     Timer {
         id: timer
