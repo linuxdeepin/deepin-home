@@ -2,6 +2,7 @@
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
+#include "../base/const.h"
 #include "./homeDaemon.h"
 #include "./homeDaemonAdaptor.h"
 #include <QApplication>
@@ -15,19 +16,19 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
-    if (!dbus.registerService("com.deepin.Home.Daemon")) {
+    if (!dbus.registerService(DEEPIN_HOME_DAEMON_SERVICE)) {
         qDebug() << "DBus Error" << dbus.lastError().message();
         return -1;
     }
 
     HomeDaemon daemon;
-    daemon.start();
 
     QObject::connect(&app, &QCoreApplication::aboutToQuit, &daemon, &HomeDaemon::exit);
 
     new HomeDaemonAdaptor(&daemon);
-    dbus.registerObject("/com/deepin/Home/Daemon", &daemon);
+    dbus.registerObject(DEEPIN_HOME_DAEMON_PATH, &daemon);
 
+    daemon.start();
     qDebug() << APP_NAME << "start exec";
     return app.exec();
 }

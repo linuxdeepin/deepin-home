@@ -86,6 +86,7 @@ Control {
                             console.log("select notfiy", index, uuid)
                             API.markRead("p","n",uuid)
                             root.selected({title, content, start_at, url})
+                            API.messageCount()
                         }
                     }
                     Rectangle {
@@ -187,6 +188,7 @@ Control {
                                 API.markRead("p", "n", item.uuid)
                                 item.read = true
                             }
+                            API.messageCount()
                         }
                     }
                 }

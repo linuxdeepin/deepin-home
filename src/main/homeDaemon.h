@@ -2,26 +2,22 @@
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
-#ifndef HOMEDAEMON_H
-#define HOMEDAEMON_H
+#ifndef DEEPIN_HOME_DAEMON_H
+#define DEEPIN_HOME_DAEMON_H
 
+#include "../base/const.h"
+#include "account.h"
+#include "api.h"
 #include <QAction>
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDebug>
 #include <QHash>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QLocale>
 #include <QMenu>
-#include <QNetworkAccessManager>
-#include <QNetworkDiskCache>
-#include <QNetworkReply>
 #include <QProcess>
 #include <QSettings>
-#include <QStandardPaths>
 #include <QSystemTrayIcon>
 #include <QTimer>
 #include <QUuid>
@@ -40,11 +36,13 @@ private:
     int m_nodeRefreshTime;
     // 渠道刷新任务ID，用于中止旧的任务
     QString m_refreshChannelCronID;
+    QMap<QString, QString> m_topicChangeID;
 
     QSettings m_settings;
-    QNetworkAccessManager *m_http;
     QSystemTrayIcon *m_sysTrayIcon;
     QMenu *m_menu;
+    API *m_api;
+    Account *m_account = nullptr;
 
 public:
     explicit HomeDaemon(QObject *parent = nullptr);
@@ -53,22 +51,25 @@ public:
     QString newUUID();
     // 每个消息的状态存储在配置文件中
     QString messageSettingKey(QString channel, QString topic, QString uuid);
-    // 封装http get请求
-    QJsonDocument fetch(const QUrl &url);
     // 启动定时器，循环刷新消息
     void start();
     // 主流程，更新node信息，并启动定时器刷新渠道消息
     void run();
     void refreshNode();
     // 定时刷新单个渠道
-    void refreshChannel(QString cronID, QString node, QString channel);
+    void refreshChannel(QString cronID, QString channel);
     // 处理消息
-    void message(QString node, QString channel, QString topic, QString changeID);
+    void message(QString channel, QString topic, QString changeID);
     // 消息发送到控制中心
     void notify(QString title, QString summary, QString url);
     // 在固定时机提醒填写调查问卷
     void execFirstNotify();
     void runTimeRecord();
+
+    // 记录主题的change id，避免返回刷新消息列表
+    QString getTopicChangeID(QString channel, QString topic);
+    void setTopicChangeID(QString channel, QString topic, QString changeID);
+
 public slots:
     // 获取当前机器码（用户级别）
     QString getMachineID();
@@ -84,9 +85,27 @@ public slots:
     void markRead(QString channel, QString topic, QString uuid);
     // 获取消息是否已读
     bool isRead(QString channel, QString topic, QString uuid);
-
-signals: // 信号
+    // 客户端登录回调
+    void OnAuthorized(QString code, QString state);
+    // 登录账户
+    void login();
+    // 登出账户
+    void logout();
+    // 当前是否登录
+    bool isLogin();
+    // 当前登录用户信息
+    QMap<QString, QVariant> getUserInfo();
+    // 获取消息列表
+    QString getMessages(QString channel, QString topic);
+    // 打开论坛
+    void openForum();
+signals:
+    // 用户登录状态变动
+    void userInfoChanged();
+    // 消息列表变动
+    void messageChanged();
+    // 托盘退出
     void exit();
 };
 
-#endif // HOMEDAEMON_H
+#endif // DEEPIN_HOME_DAEMON_H

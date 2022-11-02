@@ -20,6 +20,8 @@
         
         <file>widgets/Loading.qml</file>
 
+        <file>MyTitleBar/MyTitleBar.qml</file>
+
         <file>images/bbs.svg</file>
         <file>images/bug.svg</file>
         <file>images/demand.svg</file>
@@ -27,5 +29,8 @@
         <file>images/internal.svg</file>
         <file>images/404.svg</file>
         <file>images/read.svg</file>
+        <file>images/avatar.svg</file>
+        <file>images/msg.svg</file>
+        <file>images/deepin-home.svg</file>
     </qresource>
 </RCC>

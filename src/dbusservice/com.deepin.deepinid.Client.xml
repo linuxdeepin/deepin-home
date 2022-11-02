@@ -1,0 +1,21 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="com.deepin.deepinid.Client">
+  <interface name="com.deepin.deepinid.Client">
+    <signal name="loadError">
+    </signal>
+    <method name="onLoadError">
+    </method>
+    <method name="Register">
+      <arg name="clientID" type="s" direction="in"/>
+      <arg name="service" type="s" direction="in"/>
+      <arg name="path" type="s" direction="in"/>
+      <arg name="interface" type="s" direction="in"/>
+    </method>
+    <method name="Authorize">
+      <arg name="clientID" type="s" direction="in"/>
+      <arg name="scopes" type="as" direction="in"/>
+      <arg name="callback" type="s" direction="in"/>
+      <arg name="state" type="s" direction="in"/>
+    </method>
+  </interface>
+</node>

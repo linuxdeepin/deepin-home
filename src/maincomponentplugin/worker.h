@@ -17,7 +17,7 @@ class Worker : public QObject
 {
     Q_OBJECT
 private:
-    ComDeepinHomeDaemonInterface *m_daemon;
+    HomeDaemonProxy *m_daemon;
 
 public:
     explicit Worker(QObject *parent = nullptr);
@@ -28,11 +28,17 @@ public slots:
     QString getMachineID();
     void markRead(QString channel, QString topic, QString uuid);
     bool isRead(QString channel, QString topic, QString uuid);
-    void exit()
-    {
-        qDebug() << "daemon exit";
-        QCoreApplication::quit();
-    };
+    void exit();
+    void login();
+    void logout();
+    bool isLogin();
+    QMap<QString, QVariant> getUserInfo();
+    QString getMessages(QString channel, QString topic);
+    void openForum();
+
+signals:
+    void userInfoChanged();
+    void messageChanged();
 };
 
 #endif // WORKER_H

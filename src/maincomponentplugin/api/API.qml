@@ -6,6 +6,11 @@ pragma Singleton
 import QtQuick 2.0
 
 Item {
+    property bool isLogin: false
+    property string avatar
+    property string nickname
+    property int msgCount: 0
+
     function get(url, callback) {
         url = worker.getNode() + url
         console.log("send get request", url)
@@ -24,15 +29,15 @@ Item {
     }
     // 获取通知列表
     function getNotify(callback) {
-        getLanguage(lang=>{
-            get("/api/v1/public/channel/p/topic/n/messages?language="+lang, callback)
-        })
+        // p: public channel
+        let data = worker.getMessages("p", "n")
+        callback(JSON.parse(data))
     }
     // 获取调查问卷列表
     function getQuestionnaire(callback) {
-        getLanguage(lang=>{
-            get("/api/v1/public/channel/p/topic/q/messages?language="+lang, callback)
-        })
+        // p: public channel
+        let data = worker.getMessages("p", "q")
+        callback(JSON.parse(data))
     }
     // 获取内测渠道内容
     function getInternalTest(callback){
@@ -53,6 +58,12 @@ Item {
             })
         })
     }
+    function login() {
+        worker.login()
+    }
+    function logout() {
+        worker.logout()
+    }
     // 标记通知已读
     function markRead(channel, topic, uuid) {
         worker.markRead(channel, topic, uuid)
@@ -61,8 +72,36 @@ Item {
     function isRead(channel, topic, uuid, callback) {
         callback(worker.isRead(channel, topic, uuid))
     }
+    // 获取账户信息
+    function refreshAccount() {
+        isLogin = worker.isLogin()
+        let info = worker.getUserInfo()
+        nickname = info.nickname
+        avatar = info.avatar_url
+    }
+    // 统计未读通知
+    function messageCount() {
+        getNotify(list => {
+            const unread = list.filter(n => !worker.isRead("p", "n", n.uuid)).length
+            msgCount = unread
+        })
+    }
+    function openForum() {
+        worker.openForum()
+    }
     Component.onCompleted: {
-        getLanguage(lang => {})
-        console.log(worker.getNode());
+        refreshAccount()
+        messageCount()
+    }
+    Connections {
+        target: worker
+        function onUserInfoChanged() {
+            console.log("user info changed")
+            refreshAccount()
+        }
+        function onMessageChanged() {
+            console.log("message change")
+            messageCount();
+        }
     }
 }

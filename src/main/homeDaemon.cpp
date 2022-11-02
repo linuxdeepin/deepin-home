@@ -7,12 +7,8 @@
 HomeDaemon::HomeDaemon(QObject *parent)
     : QObject(parent)
 {
-    // 网络请求缓存目录
-    auto diskCache = new QNetworkDiskCache(this);
-    auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-    diskCache->setCacheDirectory(cacheDir + "/http_cache");
-    m_http = new QNetworkAccessManager(this);
-    m_http->setCache(diskCache);
+    // 网络请求
+    m_api = new API(this);
 
     // 初始化系统托盘
     m_menu = new QMenu();
@@ -93,7 +89,7 @@ QString HomeDaemon::getServer()
     if (!server.isEmpty()) {
         return server;
     }
-    server = "https://home.deepin.org";
+    server = DEEPIN_HOME_SERVER;
     m_settings.setValue("server", server);
     return server;
 }
@@ -102,10 +98,7 @@ QString HomeDaemon::getServer()
 QString HomeDaemon::getLanguage()
 {
     if (m_language.isEmpty()) {
-        auto local = QLocale::system();
-        auto url = QString("%1/api/v1/public/language/%2").arg(getServer()).arg(local.name());
-        auto doc = fetch(url).object();
-        m_language = doc.value("code").toString();
+        m_language = m_api->getLanguage(getServer());
     }
     return m_language;
 };
@@ -156,26 +149,15 @@ QString HomeDaemon::messageSettingKey(QString channel, QString topic, QString uu
 {
     return QString("%1_%2_%3").arg(channel).arg(topic).arg(uuid);
 }
-// 封装http get请求
-QJsonDocument HomeDaemon::fetch(const QUrl &url)
-{
-    auto reply = m_http->get(QNetworkRequest(url));
-    QEventLoop eventLoop;
-    connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
-    eventLoop.exec();
-    if (reply->error() != QNetworkReply::NoError) {
-        qWarning() << "Network Error" << reply->errorString();
-        throw reply->errorString();
-    }
-    QByteArray replyData = reply->readAll();
-    reply->deleteLater();
-    reply = nullptr;
-    return QJsonDocument::fromJson(replyData);
-}
 // 启动定时器，循环刷新消息
 void HomeDaemon::start()
 {
-    QTimer::singleShot(1000, this, &HomeDaemon::run);
+    // 初始化 account 服务
+    if (m_account == nullptr) {
+        QTimer::singleShot(1000, this, &HomeDaemon::run);
+        m_account = new Account(this, m_api, getServer());
+        connect(m_account, &Account::userInfoChanged, this, &HomeDaemon::userInfoChanged);
+    }
 }
 // 主流程，更新node信息，并启动定时器刷新渠道消息
 void HomeDaemon::run()
@@ -189,12 +171,11 @@ void HomeDaemon::run()
     auto nextRefreshTime = 60 * 60;
     try {
         refreshNode();
-        auto currentNode = getNode();
         // 如果执行无异常，服从服务器调控
         nextRefreshTime = m_nodeRefreshTime;
         for (auto channel : getChannels()) {
-            QTimer::singleShot(1000, this, [cronID, currentNode, channel, this] {
-                refreshChannel(cronID, currentNode, channel);
+            QTimer::singleShot(1000, this, [cronID, channel, this] {
+                refreshChannel(cronID, channel);
             });
         }
     } catch (...) {
@@ -205,58 +186,45 @@ void HomeDaemon::run()
 }
 void HomeDaemon::refreshNode()
 {
-    auto url = QString("%1/api/v1/public/machine/%2/node").arg(getServer()).arg(getMachineID());
-    auto doc = fetch(url).object();
-    m_node = doc.value("server").toString();
-    m_channels = doc.value("channels").toVariant().toStringList();
-    auto refresh_time = doc.value("refresh_time").toInt();
-    // 默认一分钟刷新一次，服务器可根据负载进行调控
-    if (refresh_time == 0) {
-        refresh_time = 60;
-    }
-    m_nodeRefreshTime = refresh_time;
-    qDebug() << "refresh node" << m_node;
+    auto node = m_api->getNode(getServer(), getMachineID());
+
+    m_node = node.server;
+    m_channels = node.channels;
+    m_nodeRefreshTime = node.refresh_time;
 }
 // 定时刷新单个渠道
-void HomeDaemon::refreshChannel(QString cronID, QString node, QString channel)
+void HomeDaemon::refreshChannel(QString cronID, QString channel)
 {
     qDebug() << "Refresh Channel" << channel;
 
     // 如果执行发生异常，在十分钟后重试
     auto nextRefreshTime = 60 * 10;
     try {
-        auto url = QString("%1/api/v1/public/channel/%2/topics").arg(node).arg(channel);
-        auto doc = fetch(url).object();
-
-        for (auto v : doc.value("topics").toArray()) {
-            auto t = v.toObject();
-            auto topic = t.value("name").toString();
-            auto settingKey = QString("topics/%1_%2_changeID").arg(channel).arg(topic);
-            auto currentChangeID = t.value("change_id").toString();
-            auto lastChangeID = m_settings.value(settingKey);
-            if (currentChangeID != lastChangeID) {
-                m_settings.setValue(settingKey, currentChangeID);
-                message(node, channel, topic, currentChangeID);
+        auto topics = m_api->getTopics(getNode(), channel);
+        auto changed = false;
+        for (auto topic : topics.list) {
+            auto lastChangeID = getTopicChangeID(channel, topic.name);
+            if (topic.change_id != lastChangeID) {
+                message(channel, topic.name, topic.change_id);
+                setTopicChangeID(channel, topic.name, topic.change_id);
+                changed = true;
             }
         }
-
-        auto refresh_time = doc.value("refresh_time").toInt();
-        if (refresh_time == 0) {
-            // 默认一分钟刷新一次，服务器可根据负载和渠道重要程度进行调控
-            refresh_time = 60;
+        if (changed) {
+            emit messageChanged();
         }
-        nextRefreshTime = refresh_time;
+        nextRefreshTime = topics.refresh_time;
     } catch (...) {
         qWarning() << "Refresh Channel Error";
     }
     qDebug() << "topic next refresh will be in the" << nextRefreshTime << "seconds";
-    // 延迟1分钟再次运行
-    QTimer::singleShot(nextRefreshTime * 1000, this, [=] {
-        // 如果任务中断，则不再运行
+    // 延迟再次运行
+    QTimer::singleShot(nextRefreshTime * 1000, this, [this, cronID, channel] {
+        // 如果cron id刷新，则任务中断
         if (cronID != m_refreshChannelCronID) {
             return;
         }
-        refreshChannel(cronID, node, channel);
+        refreshChannel(cronID, channel);
     });
 }
 // 在固定时机提醒填写调查问卷
@@ -264,53 +232,37 @@ void HomeDaemon::execFirstNotify()
 {
     qDebug() << "execFirstNotify";
     try {
-        auto url = QString("%1/api/v1/public/channel/%2/topic/%3/messages?language=%4&change_id=%5")
-                       .arg(getNode())
-                       .arg("p")
-                       .arg("q")
-                       .arg(getLanguage())
-                       .arg(m_refreshChannelCronID);
-        auto list = fetch(url).array();
-        for (auto v : list) {
-            auto message = v.toObject();
-            auto top = message.value("top").toBool();
-            if (!top) {
+        auto messages = m_api->getMessages(getNode(),
+                                           DEEPIN_HOME_CHANNEL_PUBLIC,
+                                           DEEPIN_HOME_TOPIC_QUESTIONS,
+                                           getLanguage(),
+                                           getTopicChangeID(DEEPIN_HOME_CHANNEL_PUBLIC,
+                                                            DEEPIN_HOME_TOPIC_QUESTIONS));
+        for (auto message : messages) {
+            if (!message.top) {
                 continue;
             }
             // 发送消息通知
-            auto title = message.value("title").toString();
-            auto summary = message.value("summary").toString();
-            auto url = message.value("url").toString();
-            notify(title, summary, url);
+            notify(message.title, message.summary, message.url);
             m_settings.setValue("firstNotify", true);
-            qDebug() << "send first notify" << title << summary;
+            qDebug() << "send first notify" << message.title << message.summary;
         }
     } catch (...) {
         qWarning() << "Network Error";
     }
 }
 // 处理消息
-void HomeDaemon::message(QString node, QString channel, QString topic, QString changeID)
+void HomeDaemon::message(QString channel, QString topic, QString changeID)
 {
     qDebug() << "refresh message" << channel << topic;
-
-    auto url = QString("%1/api/v1/public/channel/%2/topic/%3/messages?language=%4&change_id=%5")
-                   .arg(node)
-                   .arg(channel)
-                   .arg(topic)
-                   .arg(getLanguage())
-                   .arg(changeID);
-    auto list = fetch(url).array();
+    auto messages = m_api->getMessages(getNode(), channel, topic, getLanguage(), changeID);
     QStringList ids;
     m_settings.beginGroup("messages");
-    for (auto v : list) {
-        auto message = v.toObject();
-        auto uuid = message.value("uuid").toString();
-        auto allowNotify = message.value("notify").toBool();
-        if (!allowNotify) {
+    for (auto message : messages) {
+        if (!message.notify) {
             continue;
         }
-        auto settingKey = messageSettingKey(channel, topic, uuid);
+        auto settingKey = messageSettingKey(channel, topic, message.uuid);
         // 记录所有消息，便于下面进行清理
         ids << settingKey;
         // 是否已通知
@@ -319,11 +271,8 @@ void HomeDaemon::message(QString node, QString channel, QString topic, QString c
         }
         m_settings.setValue(settingKey, "notify");
         // 发送消息通知
-        auto title = message.value("title").toString();
-        auto summary = message.value("summary").toString();
-        auto url = message.value("url").toString();
-        notify(title, summary, url);
-        qDebug() << "send notify" << settingKey << title << summary;
+        notify(message.title, message.summary, message.url);
+        qDebug() << "send notify" << settingKey << message.title << message.summary;
     }
     // 清理过期的消息
     auto prefix = QString("%1_%2").arg(channel).arg(topic);
@@ -364,4 +313,62 @@ void HomeDaemon::notify(QString title, QString summary, QString url)
     if (!err.isEmpty()) {
         qWarning() << "DBus Error" << err;
     }
+}
+
+// 记录主题的change id，避免返回刷新消息列表
+QString HomeDaemon::getTopicChangeID(QString channel, QString topic)
+{
+    auto key = QString("%1_%2").arg(channel).arg(topic);
+    return m_topicChangeID[key];
+}
+void HomeDaemon::setTopicChangeID(QString channel, QString topic, QString changeID)
+{
+    auto key = QString("%1_%2").arg(channel).arg(topic);
+    m_topicChangeID[key] = changeID;
+}
+
+// 客户端登录后回调
+void HomeDaemon::OnAuthorized(QString code, QString state)
+{
+    m_account->authorized(code, state);
+}
+// 登录账户
+void HomeDaemon::login()
+{
+    m_account->login();
+}
+// 登出账户
+void HomeDaemon::logout()
+{
+    m_account->logout();
+}
+// 当前是否登录
+bool HomeDaemon::isLogin()
+{
+    return m_account->isLogin();
+}
+// 获取当前登录用户信息
+QMap<QString, QVariant> HomeDaemon::getUserInfo()
+{
+    QMap<QString, QVariant> m;
+    auto info = m_account->getUserInfo();
+    m["uid"] = info.uid;
+    m["nickname"] = info.nickname;
+    m["avatar_url"] = info.avatar_url;
+    return m;
+}
+// 获取消息列表数据
+QString HomeDaemon::getMessages(QString channel, QString topic)
+{
+    auto doc = m_api->getMessagesJSON(getNode(),
+                                      channel,
+                                      topic,
+                                      getLanguage(),
+                                      getTopicChangeID(channel, topic));
+    return QString(doc.toJson());
+}
+// 打开论坛
+void HomeDaemon::openForum()
+{
+    m_account->openForum();
 }
