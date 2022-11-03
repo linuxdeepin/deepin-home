@@ -52,16 +52,16 @@ void HomeDaemon::initSysTrayIcon()
     // 系统托盘
     m_sysTrayIcon = new QSystemTrayIcon(this);
     m_sysTrayIcon->setIcon(QIcon::fromTheme("deepin-home"));
-    m_sysTrayIcon->setToolTip("深度之家");
+    m_sysTrayIcon->setToolTip(tr("深度之家"));
     // 托盘菜单
-    auto showMainAction = new QAction("显示主界面", this);
+    auto showMainAction = new QAction(tr("显示主界面"), this);
     connect(m_sysTrayIcon, &QSystemTrayIcon::activated, this, [] {
         QProcess::startDetached("deepin-home", QStringList());
     });
     connect(showMainAction, &QAction::triggered, this, [] {
         QProcess::startDetached("deepin-home", QStringList());
     });
-    auto exitAction = new QAction("退出", this);
+    auto exitAction = new QAction(tr("退出"), this);
     connect(exitAction, &QAction::triggered, this, [] { QCoreApplication::quit(); });
     m_menu->addAction(showMainAction);
     m_menu->addAction(exitAction);
@@ -291,7 +291,7 @@ void HomeDaemon::notify(QString title, QString summary, QString url)
     QStringList actions;
     QVariantMap hints;
     if (!url.isEmpty()) {
-        actions << "_open" << tr("View");
+        actions << "_open" << tr("查看");
         hints["x-deepin-action-_open"] = "xdg-open," + url;
     }
     QDBusInterface notification("org.freedesktop.Notifications",

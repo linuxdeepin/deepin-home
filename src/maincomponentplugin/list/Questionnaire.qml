@@ -111,7 +111,7 @@ Item {
                         elide: Text.ElideRight
                     }
                     Text {
-                        text: "有效期至：" + end_at
+                        text: qsTr("有效期至：%1").arg(end_at)
                         anchors.right: parent.right
                         color: Qt.rgba(0,0,0,0.6);
                     }

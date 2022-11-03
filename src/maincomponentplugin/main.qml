@@ -6,7 +6,7 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import org.deepin.dtk 1.0
 import "index" as DIndex
-import "./MyTitleBar"
+import "./titlebar"
 
 AppLoader {
     id: appLoader
@@ -41,8 +41,7 @@ AppLoader {
         }
     }
 
-    Component.onCompleted: { 
-        appLoader.window.header.destroy()  
+    Component.onCompleted: {
         appLoader.window.header = actualTitleBar
     }
 }

@@ -12,15 +12,11 @@
         <file>list/NotifyDetail.qml</file>
         <file>list/Questionnaire.qml</file>
         <file>list/NotFound.qml</file>
-
         <file>article/Article.qml</file>
-
         <file>api/API.qml</file>
         <file>api/qmldir</file>
-        
         <file>widgets/Loading.qml</file>
-
-        <file>MyTitleBar/MyTitleBar.qml</file>
+        <file>titlebar/MyTitleBar.qml</file>
 
         <file>images/bbs.svg</file>
         <file>images/bug.svg</file>
@@ -32,5 +28,7 @@
         <file>images/avatar.svg</file>
         <file>images/msg.svg</file>
         <file>images/deepin-home.svg</file>
+        <file>images/q.webp</file>
+        <file alias="dsg/built-in-icons/deepin-home.dci">images/deepin-home.dci</file>
     </qresource>
 </RCC>
