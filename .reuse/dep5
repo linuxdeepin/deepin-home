@@ -58,12 +58,17 @@ Files: src/maincomponentplugin/api/qmldir
 Copyright: None
 License: CC0-1.0
 
-# svg
-Files: src/maincomponentplugin/images/*.svg
+# images
+Files: src/maincomponentplugin/images/*
 Copyright: None
 License: CC-BY-4.0
 
 # dbus service
 Files: src/dbusservice/*
+Copyright: None
+License: CC-BY-4.0
+
+# translations
+Files: translations/*
 Copyright: None
 License: CC-BY-4.0

@@ -144,11 +144,11 @@ Control {
                 width: parent.width - 20
                 height: 30
                 Text {
-                    text: "系统消息一共"+ list_model.count +"条"
+                    text: qsTr("系统消息一共%1条").arg(list_model.count)
                 }
                 Text {
                     id: markread_button
-                    text: "一键已读"
+                    text: qsTr("一键已读")
                     property bool hover;
                     color: hover ? '#0081FF' : '$000';
                     anchors.right: parent.right

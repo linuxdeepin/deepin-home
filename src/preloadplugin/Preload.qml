@@ -32,11 +32,9 @@ ApplicationWindow {
     minimumWidth: width
     maximumWidth: width
     height: 800
-    title: qsTr("Deepin Home")
+    title: qsTr("深度之家")
     flags: Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
     color: "#fff"
-
-    header: TitleBar {}  // 添加默认标题栏
 
     DWindow.enabled: true
     DWindow.loadingOverlay: Rectangle {

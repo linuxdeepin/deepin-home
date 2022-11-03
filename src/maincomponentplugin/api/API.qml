@@ -75,9 +75,11 @@ Item {
     // 获取账户信息
     function refreshAccount() {
         isLogin = worker.isLogin()
-        let info = worker.getUserInfo()
-        nickname = info.nickname
-        avatar = info.avatar_url
+        if(isLogin){
+            let info = worker.getUserInfo()
+            nickname = info.nickname
+            avatar = info.avatar_url
+        }
     }
     // 统计未读通知
     function messageCount() {

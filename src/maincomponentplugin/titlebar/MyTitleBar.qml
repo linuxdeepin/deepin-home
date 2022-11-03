@@ -17,6 +17,31 @@ TitleBar {
         x: 12
         anchors.verticalCenter: parent.verticalCenter
     }
+
+    menu: Menu {
+        AboutAction { aboutDialog: control.aboutDialog }
+        QuitAction { }
+    }
+    
+    aboutDialog: AboutDialog {
+        width: 400
+        modality: Qt.NonModal
+        version: qsTr("Version: %1").arg("1.0.0")
+        productName: qsTr("深度之家")
+        // productIcon: "deepin-home"
+        companyLogo: "file://" + DTK.deepinDistributionOrgLogo
+        websiteName: DTK.deepinWebsiteName
+        websiteLink: DTK.deepinWebsiteLink
+
+        IconLabel {
+            x: 5
+            anchors.horizontalCenter: parent.horizontalCenter
+            icon.name: "deepin-home"
+            icon.width: 96
+            icon.height: 96
+        }
+    }
+
     content: RowLayout {
         anchors.fill: parent
         // 填充空白
@@ -38,7 +63,7 @@ TitleBar {
             }
             // 昵称
             Text {
-                text: API.isLogin ? API.nickname : qsTr("No login")
+                text: API.isLogin ? API.nickname : qsTr("未登录")
                 id: nickname_text
                 width: 60
                 elide: Text.ElideRight
@@ -73,7 +98,7 @@ TitleBar {
                 width: account_item.width
                 maxVisibleItems: 10
                 MenuItem { 
-                    text: qsTr("Login") 
+                    text: qsTr("登录") 
                     onTriggered: {
                         worker.login()
                     }
@@ -85,7 +110,7 @@ TitleBar {
                 width: account_item.width
                 maxVisibleItems: 10
                 MenuItem {
-                    text: qsTr("Logout") 
+                    text: qsTr("登出") 
                     onTriggered: {
                         worker.logout()
                     }

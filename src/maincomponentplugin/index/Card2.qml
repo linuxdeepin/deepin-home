@@ -25,6 +25,7 @@ Control {
         y: root.hover ? -6 : 0
         Behavior on y { PropertyAnimation {} }
         radius: 20
+        clip: true
         LinearGradient {
             id: g
             source: parent
@@ -33,29 +34,31 @@ Control {
             end: Qt.point(width, height)
             gradient: root.gradient
         }
-        Rectangle {
-            id: c
-            width: parent.width*0.5
-            height: parent.height*0.6
-            x: parent.width - width
-            y: parent.height - height
-            color: shadowColor
-            radius: 20
-            opacity: 0.15
-        }
         Text {
             id: title
             y: 16
             text: root.title
-            font.pointSize: 16
+            font.pixelSize: 16
+            font.bold: true
             anchors.horizontalCenter: parent.horizontalCenter
         }
+        // 阴影
+        BoxShadow {
+            anchors.fill: cover_image
+            shadowBlur : 10
+            shadowColor : root.shadowColor
+            shadowOffsetX : 20
+            shadowOffsetY : 2
+            cornerRadius: 20
+            opacity: 0.5
+        }
         Image {
+            id: cover_image
             anchors.top: title.bottom
             anchors.topMargin: 11
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            width: parent.width-39
+            width: parent.width-40
             source: image
         }
     }

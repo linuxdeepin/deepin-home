@@ -47,8 +47,8 @@ Item {
             Row {
                 spacing: body.width*0.1/2
                 Card1 {
-                    title: "互动交流"
-                    subtitle: "社区用户交流、分析"
+                    title: qsTr("互动交流")
+                    subtitle: qsTr("社区用户交流、分析")
                     icon: "/images/bbs.svg"
                     width: body.width * 0.3
                     height: width/3
@@ -57,16 +57,16 @@ Item {
                     }
                 }
                 Card1 {
-                    title: "Bug反馈"
-                    subtitle: "日常使用问题反馈"
+                    title: qsTr("Bug反馈")
+                    subtitle: qsTr("日常使用问题反馈")
                     icon: "/images/bug.svg"
                     disabled: true
                     width: body.width * 0.3
                     height: width/3
                 }
                 Card1 {
-                    title: "需求反馈"
-                    subtitle: "需求反馈"
+                    title: qsTr("需求反馈")
+                    subtitle: qsTr("对操作系统的好建议")
                     icon: "/images/demand.svg"
                     disabled: true
                     width: body.width * 0.3
@@ -78,15 +78,15 @@ Item {
                 spacing: 10
                 width: parent.width
                 Text {
-                    font.pointSize: 20
+                    font.pixelSize: 20
                     font.bold: true
                     text: qsTr("社区相关")
                 }
                 Row {
                     spacing: body.width*0.1/2
                     Card2 {
-                        title: "问卷调查"
-                        image: "https://storage.deepin.org/forum/2022061003111206_1654845072.jpg"
+                        title: qsTr("问卷调查")
+                        image: "/images/q.webp"
                         width: body.width * 0.3
                         height: width/2
                         gradient: Gradient {             
@@ -97,12 +97,14 @@ Item {
                         shadowColor: "#8dc5f0"
                         onClicked: {
                             root.questionnaireClicked()
-                            // root.listIndex = 1
                         }
                     }
                     Card2 {
-                        title: "WIKI"
-                        image: "https://storage.deepin.org/forum/2022090101422509_1662010945.jpg"
+                        id: link1
+                        property string url; 
+                        visible: false
+                        title: ""
+                        image: ""
                         width: body.width * 0.3
                         height: width/2
                         gradient: Gradient {
@@ -111,12 +113,15 @@ Item {
                         }
                         shadowColor: "#bfbdff"
                         onClicked: {
-                            Qt.openUrlExternally("https://wiki.deepin.org");
+                            Qt.openUrlExternally(url);
                         }
                     }
                     Card2 {
-                        title: "GitHub"
-                        image: "https://storage.deepin.org/forum/2022092001093009_1663650570.jpg"
+                        id: link2
+                        property string url; 
+                        visible: false
+                        title: ""
+                        image: ""
                         width: body.width * 0.3
                         height: width/2
                         gradient: Gradient {
@@ -125,7 +130,7 @@ Item {
                         }
                         shadowColor: "#FBA956"
                         onClicked: {
-                            Qt.openUrlExternally("https://github.com/linuxdeepin");
+                            Qt.openUrlExternally(url);
                         }
                     }
                 }
@@ -135,14 +140,14 @@ Item {
                 spacing: 10
                 width: body.width
                 Text {
-                    font.pointSize: 18
+                    font.pixelSize: 20
                     font.bold: true
                     text: qsTr("加入我们")
                 }
                 Row {
                     width: parent.width
                     Card3 {
-                        title: "内测交流"
+                        title: qsTr("内测交流")
                         icon: "/images/internal.svg"
                         width: body.width * 0.5
                         height: width/4
@@ -155,7 +160,7 @@ Item {
                         }
                     }
                     Card3 {
-                        title: "社区动态"
+                        title: qsTr("社区动态")
                         icon: "/images/contact.svg"
                         width: body.width * 0.5
                         height: width/4
@@ -176,6 +181,18 @@ Item {
         API.getClientHome(resp=>{
             for(let item of resp.carousel){
                 carousel.model.append({img: item.img, url: item.url})
+            }
+            if(resp.links[0]){
+                link1.title = resp.links[0].title
+                link1.image = resp.links[0].img
+                link1.url = resp.links[0].url
+                link1.visible = true
+            }
+            if(resp.links[1]){
+                link2.title = resp.links[1].title
+                link2.image = resp.links[1].img
+                link2.url = resp.links[1].url
+                link2.visible = true
             }
         })
     }

@@ -53,7 +53,7 @@ Control {
                 anchors.bottom: parent.verticalCenter
             }
             Text {
-                font.pointSize: 12
+                font.pixelSize: 11
                 color: "#000"
                 opacity: 0.6
                 anchors.top: title.bottom
@@ -84,7 +84,7 @@ Control {
                     }
                 }
                 Text {
-                    text: "敬请期待"
+                    text: qsTr("敬请期待")
                     color: "#fff"
                     anchors.centerIn: parent
                 }

@@ -29,9 +29,9 @@ Control {
         }
         Text {
             text: root.title
-            font.pointSize: 20
-            anchors.left: icon.right
+            font.pixelSize: 20
             anchors.verticalCenter: parent.verticalCenter
+            anchors.left: icon.right
             anchors.leftMargin: 14
         }
 
