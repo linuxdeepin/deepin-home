@@ -62,7 +62,7 @@ Rectangle {
             color: Qt.rgba(0,0,0,0.6)
         }
         RecommandButton {
-            text: qsTr("查看更多")
+            text: qsTr("View more")
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             visible: root.url

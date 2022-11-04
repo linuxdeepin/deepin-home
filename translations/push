@@ -1,0 +1,4 @@
+#!/bin/bash
+lupdate src/maincomponentplugin/**/*.qml -ts translations/deepin-home.ts
+lupdate src/main/*.cpp -ts translations/deepin-home-daemon.ts
+tx push -s

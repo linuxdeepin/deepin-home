@@ -37,10 +37,10 @@ Control {
                     width: sidebar.width-10*2
                     currentIndex: root.index
                     TabButton {
-                        text: qsTr("系统消息")
+                        text: qsTr("Messages")
                     }
                     TabButton {
-                        text: qsTr("调查问卷")
+                        text: qsTr("Questionaires")
                     }
                     onCurrentIndexChanged: {
                         root.index = currentIndex

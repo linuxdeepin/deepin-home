@@ -47,8 +47,8 @@ Item {
             Row {
                 spacing: body.width*0.1/2
                 Card1 {
-                    title: qsTr("互动交流")
-                    subtitle: qsTr("社区用户交流、分析")
+                    title: qsTr("Communication")
+                    subtitle: qsTr("Discuss and share here")
                     icon: "/images/bbs.svg"
                     width: body.width * 0.3
                     height: width/3
@@ -57,16 +57,16 @@ Item {
                     }
                 }
                 Card1 {
-                    title: qsTr("Bug反馈")
-                    subtitle: qsTr("日常使用问题反馈")
+                    title: qsTr("Bug Report")
+                    subtitle: qsTr("Report issues you found")
                     icon: "/images/bug.svg"
                     disabled: true
                     width: body.width * 0.3
                     height: width/3
                 }
                 Card1 {
-                    title: qsTr("需求反馈")
-                    subtitle: qsTr("对操作系统的好建议")
+                    title: qsTr("Suggestions")
+                    subtitle: qsTr("Submit your suggestions")
                     icon: "/images/demand.svg"
                     disabled: true
                     width: body.width * 0.3
@@ -80,12 +80,12 @@ Item {
                 Text {
                     font.pixelSize: 20
                     font.bold: true
-                    text: qsTr("社区相关")
+                    text: qsTr("Resources")
                 }
                 Row {
                     spacing: body.width*0.1/2
                     Card2 {
-                        title: qsTr("问卷调查")
+                        title: qsTr("Questionaire")
                         image: "/images/q.webp"
                         width: body.width * 0.3
                         height: width/2
@@ -142,12 +142,12 @@ Item {
                 Text {
                     font.pixelSize: 20
                     font.bold: true
-                    text: qsTr("加入我们")
+                    text: qsTr("Join US")
                 }
                 Row {
                     width: parent.width
                     Card3 {
-                        title: qsTr("内测交流")
+                        title: qsTr("Internal Testing")
                         icon: "/images/internal.svg"
                         width: body.width * 0.5
                         height: width/4
@@ -160,7 +160,7 @@ Item {
                         }
                     }
                     Card3 {
-                        title: qsTr("社区动态")
+                        title: qsTr("Community News")
                         icon: "/images/contact.svg"
                         width: body.width * 0.5
                         height: width/4
@@ -200,8 +200,8 @@ Item {
     Component {
         id: list_component
         Item {
-            width: appLoader.width
-            height: appLoader.height 
+            width: root.width
+            height: root.height 
             Rectangle {
                 anchors.fill: parent
                 color: Qt.rgba(0,0,0,0.2)
@@ -212,6 +212,11 @@ Item {
                     onClicked: {
                         destroyAnim.start()
                     }
+                }
+                MouseArea {
+                    x: parent.width*0.6
+                    width: parent.width*0.4
+                    height: parent.height
                 }
             }
             DList.List {

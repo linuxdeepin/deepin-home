@@ -32,7 +32,7 @@ ApplicationWindow {
     minimumWidth: width
     maximumWidth: width
     height: 800
-    title: qsTr("深度之家")
+    title: qsTr("Deepin Messages")
     flags: Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
     color: "#fff"
 

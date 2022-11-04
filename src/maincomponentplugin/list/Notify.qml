@@ -48,8 +48,7 @@ Control {
     Component {
         id: not_found
         NotFound {
-            title: qsTr("无通知信息")
-            subtitle: qsTr("当前无通知信息，感谢您的关注！")
+            title: qsTr("No messages yet.")
         }
     }
     // 列表
@@ -144,11 +143,11 @@ Control {
                 width: parent.width - 20
                 height: 30
                 Text {
-                    text: qsTr("系统消息一共%1条").arg(list_model.count)
+                    text: qsTr("%1 messages").arg(list_model.count)
                 }
                 Text {
                     id: markread_button
-                    text: qsTr("一键已读")
+                    text: qsTr("Mark all as read")
                     property bool hover;
                     color: hover ? '#0081FF' : '$000';
                     anchors.right: parent.right

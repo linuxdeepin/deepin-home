@@ -64,7 +64,7 @@ Control {
 
             RoundRectangle {
                 visible: root.disabled
-                width: 60
+                width: t.width+10
                 height: 24
                 anchors.verticalCenter: title.verticalCenter
                 anchors.left: title.right
@@ -84,7 +84,8 @@ Control {
                     }
                 }
                 Text {
-                    text: qsTr("敬请期待")
+                    id: t
+                    text: qsTr("Coming")
                     color: "#fff"
                     anchors.centerIn: parent
                 }

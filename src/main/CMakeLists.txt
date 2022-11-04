@@ -11,8 +11,9 @@ add_definitions(-DAPP_NAME="${APP_NAME}")
 # Set sources
 set(SRC
     main.cpp
+    ../../../translations/deepin-home.qrc
     )
-
+set(CMAKE_AUTORCC ON)
 set(DAEMON_SRC
     daemon.cpp 
     homeDaemon.h
@@ -21,6 +22,7 @@ set(DAEMON_SRC
     api.cpp
     account.h
     account.cpp
+    ../../../translations/deepin-home-daemon.qrc
     )
 
 # Find the Qt5Quick library
