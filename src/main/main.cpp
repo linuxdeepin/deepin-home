@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
         qDebug() << "DBus Error";
         return -1;
     }
-
 #ifdef LOCALLIBPATH
     DAppLoader appLoader(APP_NAME, LOCALLIBPATH);
 #else

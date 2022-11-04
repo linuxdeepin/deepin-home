@@ -13,3 +13,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 find_package(DtkDeclarative REQUIRED)
 
 add_subdirectory(src)
+
+execute_process(COMMAND bash "-c" "lrelease translations/**/*"
+                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})

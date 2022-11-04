@@ -27,7 +27,7 @@ TitleBar {
         width: 400
         modality: Qt.NonModal
         version: qsTr("Version: %1").arg("1.0.0")
-        productName: qsTr("深度之家")
+        productName: qsTr("Deepin Messages")
         // productIcon: "deepin-home"
         companyLogo: "file://" + DTK.deepinDistributionOrgLogo
         websiteName: DTK.deepinWebsiteName
@@ -63,7 +63,7 @@ TitleBar {
             }
             // 昵称
             Text {
-                text: API.isLogin ? API.nickname : qsTr("未登录")
+                text: API.isLogin ? API.nickname : qsTr("Unlogged")
                 id: nickname_text
                 width: 60
                 elide: Text.ElideRight
@@ -98,7 +98,7 @@ TitleBar {
                 width: account_item.width
                 maxVisibleItems: 10
                 MenuItem { 
-                    text: qsTr("登录") 
+                    text: qsTr("Sign in") 
                     onTriggered: {
                         worker.login()
                     }
@@ -110,7 +110,7 @@ TitleBar {
                 width: account_item.width
                 maxVisibleItems: 10
                 MenuItem {
-                    text: qsTr("登出") 
+                    text: qsTr("Sign out") 
                     onTriggered: {
                         worker.logout()
                     }

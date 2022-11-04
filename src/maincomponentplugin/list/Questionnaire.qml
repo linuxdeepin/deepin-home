@@ -40,8 +40,7 @@ Item {
     Component {
         id: not_found
         NotFound {
-            title: qsTr("无问卷信息")
-            subtitle: qsTr("当前无问卷信息，感谢您的关注！")
+            title: qsTr("No questionaires yet.")
         }
     }
     // 列表
@@ -111,12 +110,12 @@ Item {
                         elide: Text.ElideRight
                     }
                     Text {
-                        text: qsTr("有效期至：%1").arg(end_at)
+                        text: qsTr("Expired on: %1").arg(end_at)
                         anchors.right: parent.right
                         color: Qt.rgba(0,0,0,0.6);
                     }
                     RecommandButton {
-                        text: qsTr("填写")
+                        text: qsTr("Fill In")
                         width: 60
                         height: 26
                         anchors.right: parent.right

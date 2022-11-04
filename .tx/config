@@ -1,0 +1,17 @@
+[main]
+host = https://www.transifex.com
+
+[deepin-home.deepin-home-ts]
+file_filter = translations/deepin-home/<lang>.ts
+minimum_perc = 0
+source_file = translations/deepin-home.ts
+source_lang = en_US
+type = QT
+
+[deepin-home.deepin-home-daemon-ts]
+file_filter = translations/deepin-home-daemon/<lang>.ts
+minimum_perc = 0
+source_file = translations/deepin-home-daemon.ts
+source_lang = en_US
+type = QT
+

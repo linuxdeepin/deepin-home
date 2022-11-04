@@ -9,7 +9,6 @@ import org.deepin.dtk 1.0
 // 无数据时显示
 Item {
     property string title
-    property string subtitle
     Image {
         sourceSize.width: 130
         sourceSize.height: 130
@@ -19,14 +18,10 @@ Item {
     }
     Text {
         id: title_text
-        anchors.centerIn: parent
-        font.pixelSize: 16
-        font.bold: true
         text: title
-    }
-    Text {
-        text: subtitle
-        anchors.top: title_text.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+        font.pixelSize: 14
+        
+        anchors.centerIn: parent
+        opacity: 0.4
     }
 }

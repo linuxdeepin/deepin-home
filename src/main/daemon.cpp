@@ -6,7 +6,6 @@
 #include "./homeDaemon.h"
 #include "./homeDaemonAdaptor.h"
 #include <QApplication>
-#include <QCoreApplication>
 
 int main(int argc, char *argv[])
 {
@@ -19,6 +18,10 @@ int main(int argc, char *argv[])
     if (!dbus.registerService(DEEPIN_HOME_DAEMON_SERVICE)) {
         qDebug() << "DBus Error" << dbus.lastError().message();
         return -1;
+    }
+    QTranslator translator;
+    if (translator.load(QLocale::system().name(), ":/resources/deepin-home-daemon/")) {
+        app.installTranslator(&translator);
     }
 
     HomeDaemon daemon;
