@@ -91,6 +91,9 @@ Item {
     function openForum() {
         worker.openForum()
     }
+    function getVersion() {
+        return worker.getVersion()
+    }
     Component.onCompleted: {
         refreshAccount()
         messageCount()

@@ -36,6 +36,7 @@ public slots:
     QString getMessages(QString channel, QString topic);
     void openForum();
     void quit();
+    QString getVersion();
 signals:
     void userInfoChanged();
     void messageChanged();

@@ -36,7 +36,7 @@ TitleBar {
     aboutDialog: AboutDialog {
         width: 400
         modality: Qt.NonModal
-        version: qsTr("Version: %1").arg("1.0.0")
+        version: qsTr("Version: %1").arg(API.getVersion())
         productName: qsTr("Deepin Messages")
         // productIcon: "deepin-home"
         companyLogo: "file://" + DTK.deepinDistributionOrgLogo
