@@ -89,7 +89,7 @@
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
-        <source>Quit</source>
+        <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -126,12 +126,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="148"/>
         <source>%1 messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="152"/>
         <source>Mark all as read</source>
         <translation type="unfinished"></translation>
     </message>
@@ -152,12 +152,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="113"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="88"/>
         <source>Expired on: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="118"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="116"/>
         <source>Fill In</source>
         <translation type="unfinished"></translation>
     </message>

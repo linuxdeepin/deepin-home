@@ -1,5 +1,8 @@
 [Desktop Entry]
-Name=Deepin Home
+Name=Deepin Message
+Name[zh_CN]=深度消息
+GenericName=Message
+GenericName[zh_CN]=消息
 Icon=deepin-home
 Exec=/usr/bin/deepin-home
 Type=Application

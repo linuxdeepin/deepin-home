@@ -26,7 +26,7 @@ TitleBar {
             aboutDialog: control.aboutDialog
         }
         QuitAction {
-            text: qsTr("Quit")
+            text: qsTr("Exit")
             onTriggered: {
                 worker.quit()
             }
@@ -94,7 +94,7 @@ TitleBar {
             MouseArea {
                 anchors.fill: parent
                 onClicked:{
-                    var pos = Qt.point(avatar_image.x, root.height-11)
+                    var pos = Qt.point(avatar_image.x, root.height-12)
                     if(API.isLogin) {
                         accountMenu.popup(avatar_image, pos)
                     } else {
