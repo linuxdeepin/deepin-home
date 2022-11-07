@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/maincomponentplugin/index/Card1.qml" line="88"/>
         <source>Coming</source>
-        <translation type="unfinished"/>
+        <translation>Невдовзі</translation>
     </message>
 </context>
 <context>
@@ -12,57 +12,57 @@
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>Спілкування</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Discuss and share here</source>
-        <translation type="unfinished"/>
+        <translation>Тут можна обговорювати і ділитися враженнями</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="60"/>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Звіт щодо вади</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
         <source>Report issues you found</source>
-        <translation type="unfinished"/>
+        <translation>Повідомте про виявлені вади</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="68"/>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Пропозиції</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
         <source>Submit your suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Надішліть ваші пропозиції</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="83"/>
         <source>Resources</source>
-        <translation type="unfinished"/>
+        <translation>Ресурси</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="88"/>
         <source>Questionaire</source>
-        <translation type="unfinished"/>
+        <translation>Опитування</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="145"/>
         <source>Join US</source>
-        <translation type="unfinished"/>
+        <translation>Долучіться до нас</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="150"/>
         <source>Internal Testing</source>
-        <translation type="unfinished"/>
+        <translation>Внутрішнє тестування</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="163"/>
         <source>Community News</source>
-        <translation type="unfinished"/>
+        <translation>Новини спільноти</translation>
     </message>
 </context>
 <context>
@@ -70,40 +70,50 @@
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Повідомлення</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
         <source>Questionaires</source>
-        <translation type="unfinished"/>
+        <translation>Опитування</translation>
     </message>
 </context>
 <context>
     <name>MyTitleBar</name>
     <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="25"/>
+        <source>About</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
+        <source>Exit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="39"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>Версія: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="30"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="40"/>
         <source>Deepin Messages</source>
-        <translation type="unfinished"/>
+        <translation>Повідомлення Deepin</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="66"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>Поза системою</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="101"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="111"/>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Увійти</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="113"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="123"/>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Вийти</translation>
     </message>
 </context>
 <context>
@@ -111,17 +121,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Notify.qml" line="51"/>
         <source>No messages yet.</source>
-        <translation type="unfinished"/>
+        <translation>Ще немає повідомлень.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="148"/>
         <source>%1 messages</source>
-        <translation type="unfinished"/>
+        <translation>%1 повідомлень</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="152"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>Позначити усі як прочитані</translation>
     </message>
 </context>
 <context>
@@ -129,7 +139,7 @@
     <message>
         <location filename="../src/maincomponentplugin/list/NotifyDetail.qml" line="65"/>
         <source>View more</source>
-        <translation type="unfinished"/>
+        <translation>Переглянути ще</translation>
     </message>
 </context>
 <context>
@@ -137,17 +147,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
         <source>No questionaires yet.</source>
-        <translation type="unfinished"/>
+        <translation>Ще немає опитувань.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="113"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="88"/>
         <source>Expired on: %1</source>
-        <translation type="unfinished"/>
+        <translation>Строк дії: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="118"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="116"/>
         <source>Fill In</source>
-        <translation type="unfinished"/>
+        <translation>Заповнення</translation>
     </message>
 </context>
 </TS>

@@ -12,57 +12,57 @@
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>互动交流</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Discuss and share here</source>
-        <translation type="unfinished"/>
+        <translation>社区用户交流分享</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="60"/>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Bug反馈</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
         <source>Report issues you found</source>
-        <translation type="unfinished"/>
+        <translation>日常使用问题反馈</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="68"/>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>需求反馈</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
         <source>Submit your suggestions</source>
-        <translation type="unfinished"/>
+        <translation>对操作系统的好建议</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="83"/>
         <source>Resources</source>
-        <translation type="unfinished"/>
+        <translation>社区相关</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="88"/>
         <source>Questionaire</source>
-        <translation type="unfinished"/>
+        <translation>问卷调查</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="145"/>
         <source>Join US</source>
-        <translation type="unfinished"/>
+        <translation>加入我们</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="150"/>
         <source>Internal Testing</source>
-        <translation type="unfinished"/>
+        <translation>内测交流</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="163"/>
         <source>Community News</source>
-        <translation type="unfinished"/>
+        <translation>社区动态</translation>
     </message>
 </context>
 <context>
@@ -70,40 +70,50 @@
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>系统消息</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
         <source>Questionaires</source>
-        <translation type="unfinished"/>
+        <translation>调查问卷</translation>
     </message>
 </context>
 <context>
     <name>MyTitleBar</name>
     <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="25"/>
+        <source>About</source>
+        <translation>关于</translation>
+    </message>
+    <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
+        <source>Exit</source>
+        <translation>退出</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="39"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>版本：%1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="30"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="40"/>
         <source>Deepin Messages</source>
-        <translation type="unfinished"/>
+        <translation>深度消息</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="66"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>未登录</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="101"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="111"/>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>登录</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="113"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="123"/>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>登出</translation>
     </message>
 </context>
 <context>
@@ -111,17 +121,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Notify.qml" line="51"/>
         <source>No messages yet.</source>
-        <translation type="unfinished"/>
+        <translation>当前无通知信息，感谢您的关注！</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="148"/>
         <source>%1 messages</source>
-        <translation type="unfinished"/>
+        <translation>共%1条</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="152"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>一键已读</translation>
     </message>
 </context>
 <context>
@@ -129,7 +139,7 @@
     <message>
         <location filename="../src/maincomponentplugin/list/NotifyDetail.qml" line="65"/>
         <source>View more</source>
-        <translation type="unfinished"/>
+        <translation>查看更多</translation>
     </message>
 </context>
 <context>
@@ -137,17 +147,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
         <source>No questionaires yet.</source>
-        <translation type="unfinished"/>
+        <translation>当前无问卷信息，感谢您的关注！</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="113"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="88"/>
         <source>Expired on: %1</source>
-        <translation type="unfinished"/>
+        <translation>有效期至：%1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="118"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="116"/>
         <source>Fill In</source>
-        <translation type="unfinished"/>
+        <translation>填写</translation>
     </message>
 </context>
 </TS>

@@ -4,22 +4,22 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
         <source>Deepin Messages</source>
-        <translation type="unfinished"/>
+        <translation>深度消息</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
         <source>Show main window</source>
-        <translation>深度之家</translation>
+        <translation>显示主窗口</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="64"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="294"/>
+        <location filename="../src/main/homeDaemon.cpp" line="298"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>查看</translation>
     </message>
 </context>
 </TS>
