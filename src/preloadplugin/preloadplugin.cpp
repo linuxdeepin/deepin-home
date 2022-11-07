@@ -25,7 +25,8 @@ QUrl PreloadPlugin::preloadComponentPath() const
 QGuiApplication *PreloadPlugin::creatApplication(int &argc, char **argv)
 {
     QGuiApplication *app = new QGuiApplication(argc, argv);
-
+    app->setOrganizationName("deepin");
+    app->setOrganizationDomain("deepin.org");
     auto translator = new QTranslator(app);
     if (translator->load(QLocale::system().name(), ":/resources/deepin-home/")) {
         app->installTranslator(translator);

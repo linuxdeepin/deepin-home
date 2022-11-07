@@ -4,6 +4,8 @@ set(MAINCOMPONENNT_SRC
     maincomponentplugin.cpp
     worker.h
     worker.cpp
+    network.h
+    network.cpp
 )
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
 find_package(Qt5QuickCompiler REQUIRED)
