@@ -57,19 +57,22 @@ Control {
         }
         ScrollView {
             anchors.top: btn.bottom
+            anchors.topMargin: 10
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
             width: parent.width
             clip: true
-            Text {
-                id: content
-                x: 30
-                y: 30
-                width: dialog.width-x*2
-                wrapMode: Text.Wrap
-                textFormat: Text.RichText
-                onLinkActivated: (link) => {
-                    Qt.openUrlExternally(link)
+            Column {
+                Text {
+                    id: content
+                    x: 30
+                    y: 30
+                    width: dialog.width-x*2
+                    wrapMode: Text.Wrap
+                    textFormat: Text.RichText
+                    onLinkActivated: (link) => {
+                        Qt.openUrlExternally(link)
+                    }
                 }
             }
         }
