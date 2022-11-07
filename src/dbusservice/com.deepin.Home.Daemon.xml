@@ -5,7 +5,7 @@
     </signal>
     <signal name="messageChanged">
     </signal>
-    <signal name="exit">
+    <signal name="exited">
     </signal>
     <method name="getMachineID">
       <arg type="s" direction="out"/>
@@ -54,6 +54,8 @@
       <arg name="topic" type="s" direction="in"/>
     </method>
     <method name="openForum">
+    </method>
+    <method name="quit">
     </method>
   </interface>
 </node>

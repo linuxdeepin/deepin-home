@@ -99,13 +99,15 @@ public slots:
     QString getMessages(QString channel, QString topic);
     // 打开论坛
     void openForum();
+    // 退出程序
+    void quit();
 signals:
     // 用户登录状态变动
     void userInfoChanged();
     // 消息列表变动
     void messageChanged();
-    // 托盘退出
-    void exit();
+    // 程序退出时发出信号
+    void exited();
 };
 
 #endif // DEEPIN_HOME_DAEMON_H

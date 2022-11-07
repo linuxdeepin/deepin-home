@@ -12,7 +12,8 @@ Worker::Worker(QObject *parent)
                                    DEEPIN_HOME_DAEMON_PATH,
                                    QDBusConnection::sessionBus(),
                                    this);
-    connect(m_daemon, &HomeDaemonProxy::exit, this, &Worker::exit);
+
+    connect(m_daemon, &HomeDaemonProxy::exited, this, &Worker::exited);
     connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, &Worker::userInfoChanged);
     connect(m_daemon, &HomeDaemonProxy::messageChanged, this, &Worker::messageChanged);
 }
@@ -54,7 +55,7 @@ bool Worker::isRead(QString channel, QString topic, QString uuid)
     return reply;
 };
 
-void Worker::exit()
+void Worker::exited()
 {
     qDebug() << "daemon exit";
     QCoreApplication::quit();
@@ -93,4 +94,9 @@ void Worker::openForum()
 {
     qDebug() << "login bbs";
     m_daemon->openForum();
+}
+void Worker::quit()
+{
+    qDebug() << "quit";
+    m_daemon->quit();
 }

@@ -31,7 +31,6 @@ AppLoader {
 
     Loader {
         id: actualTitleBar
-        height: 50
         asynchronous: true
         sourceComponent: MyTitleBar {
             onNotifyClicked: {

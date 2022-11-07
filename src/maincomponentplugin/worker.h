@@ -28,14 +28,14 @@ public slots:
     QString getMachineID();
     void markRead(QString channel, QString topic, QString uuid);
     bool isRead(QString channel, QString topic, QString uuid);
-    void exit();
+    void exited();
     void login();
     void logout();
     bool isLogin();
     QMap<QString, QVariant> getUserInfo();
     QString getMessages(QString channel, QString topic);
     void openForum();
-
+    void quit();
 signals:
     void userInfoChanged();
     void messageChanged();
