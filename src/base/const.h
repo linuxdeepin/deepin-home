@@ -6,6 +6,7 @@
 #define DEEEPIN_HOME_CONSTS_H
 
 const char DEEPIN_HOME_SERVER[] = "https://home.deepin.org";
+const char DEEPIN_HOME_VERSION[] = "1.0.0";
 const char DEEPIN_HOME_DAEMON_SERVICE[] = "com.deepin.Home.Daemon";
 const char DEEPIN_HOME_DAEMON_PATH[] = "/com/deepin/Home/Daemon";
 const char DEEPIN_HOME_DAEMON_INTERFACE[] = "com.deepin.Home.Daemon";

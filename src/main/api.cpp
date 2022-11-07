@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "api.h"
+#include "../base/const.h"
 
 API::API(QObject *parent)
     : QObject(parent)
@@ -22,7 +23,10 @@ QJsonDocument API::get(const QUrl &url)
     QString err;
     // 如果网络错误，再重试2次
     for (auto i = 0; i < 3; i++) {
-        auto reply = m_http->get(QNetworkRequest(url));
+        auto req = QNetworkRequest(url);
+        req.setHeader(QNetworkRequest::UserAgentHeader,
+                      QString("DeepinHomeClient/%1").arg(DEEPIN_HOME_VERSION));
+        auto reply = m_http->get(req);
         QEventLoop eventLoop;
         connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
         eventLoop.exec();
@@ -42,6 +46,8 @@ QJsonDocument API::get(const QUrl &url)
 QJsonDocument API::post(const QUrl &url, QJsonDocument body)
 {
     QNetworkRequest req(url);
+    req.setHeader(QNetworkRequest::UserAgentHeader,
+                  QString("DeepinHomeClient/%1").arg(DEEPIN_HOME_VERSION));
     req.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     auto reply = m_http->post(req, body.toJson());
     QEventLoop eventLoop;

@@ -100,3 +100,7 @@ void Worker::quit()
     qDebug() << "quit";
     m_daemon->quit();
 }
+QString Worker::getVersion()
+{
+    return DEEPIN_HOME_VERSION;
+}
