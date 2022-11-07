@@ -27,5 +27,6 @@ QUrl MainComponentPlugin::mainComponentPath() const
 
 void MainComponentPlugin::initialize(QQmlApplicationEngine *engine)
 {
+    engine->setNetworkAccessManagerFactory(&m_network);
     engine->rootContext()->setContextProperty("worker", &m_worker);
 }

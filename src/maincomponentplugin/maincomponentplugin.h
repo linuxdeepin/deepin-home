@@ -5,6 +5,7 @@
 #ifndef MAINCOMPONENTPLUGIN_H
 #define MAINCOMPONENTPLUGIN_H
 
+#include "network.h"
 #include "worker.h"
 #include <dqmlappmainwindowinterface.h>
 
@@ -25,6 +26,7 @@ public:
 private:
     PluginListModel *pluginListModel;
     Worker m_worker;
+    NetworkFactory m_network;
 };
 
 #endif // MAINCOMPONENTPLUGIN_H
