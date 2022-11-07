@@ -90,20 +90,26 @@ Control {
                     }
                     Rectangle {
                         color: "transparent"
-                        anchors.left: parent.left
-                        anchors.leftMargin: 10
-                        anchors.right: parent.right
-                        anchors.rightMargin: 10
-                        anchors.top: parent.top
-                        anchors.topMargin: 12
-                        anchors.bottom: parent.bottom
-                        anchors.bottomMargin: 12
+                        x: 10
+                        y: 12
+                        width: parent.width - x*2
+                        height: parent.height - y*2
+                        Text {
+                            id: starttime_text
+                            text: start_at
+                            anchors.right: parent.right
+                            color: Qt.rgba(0,0,0,0.6);
+                        }
                         Text {
                             id: title_text
-                            x: 20
+                            anchors.left: parent.left
+                            anchors.leftMargin: 20
+                            anchors.verticalCenter: starttime_text.verticalCenter
+                            anchors.right: starttime_text.left
                             text: title
                             font.pixelSize: 14
                             font.bold: true
+                            elide: Text.ElideRight
                         }
                         Rectangle {
                             id: mark_dot
@@ -120,13 +126,9 @@ Control {
                             text: summary
                             anchors.top: title_text.bottom
                             color: Qt.rgba(0,0,0,0.7);
-                            width: parent.width
-                            elide: Text.ElideRight
-                        }
-                        Text {
-                            text: start_at
+                            anchors.left: title_text.left
                             anchors.right: parent.right
-                            color: Qt.rgba(0,0,0,0.6);
+                            elide: Text.ElideRight
                         }
                     }
                     Component.onCompleted: {
