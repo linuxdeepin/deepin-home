@@ -259,12 +259,13 @@ void HomeDaemon::message(QString channel, QString topic, QString changeID)
     QStringList ids;
     m_settings.beginGroup("messages");
     for (auto message : messages) {
-        if (!message.notify) {
-            continue;
-        }
         auto settingKey = messageSettingKey(channel, topic, message.uuid);
         // 记录所有消息，便于下面进行清理
         ids << settingKey;
+
+        if (!message.notify) {
+            continue;
+        }
         // 是否已通知
         if (!m_settings.value(settingKey).toString().isEmpty()) {
             continue;
