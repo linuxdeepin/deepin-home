@@ -5,22 +5,32 @@
 import QtQuick 2.11
 import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
+import org.deepin.dtk.style 1.0 as DS
 import "../api"
 
 TitleBar {
     id: root
+    height: DS.Style.titleBar.height
     signal notifyClicked()
     leftContent: Image {
         source: "/images/deepin-home.svg"
-        sourceSize.width: 40
-        sourceSize.height: 40
-        x: 12
+        sourceSize.width:  root.height - 10
+        sourceSize.height: root.height - 10
+        x: 10
         anchors.verticalCenter: parent.verticalCenter
     }
 
     menu: Menu {
-        AboutAction { aboutDialog: control.aboutDialog }
-        QuitAction { }
+        AboutAction {
+            text: qsTr("About")
+            aboutDialog: control.aboutDialog
+        }
+        QuitAction {
+            text: qsTr("Quit")
+            onTriggered: {
+                worker.quit()
+            }
+        }
     }
     
     aboutDialog: AboutDialog {
@@ -84,7 +94,7 @@ TitleBar {
             MouseArea {
                 anchors.fill: parent
                 onClicked:{
-                    var pos = Qt.point(avatar_image.x, 30)
+                    var pos = Qt.point(avatar_image.x, root.height-11)
                     if(API.isLogin) {
                         accountMenu.popup(avatar_image, pos)
                     } else {

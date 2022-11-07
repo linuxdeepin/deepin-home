@@ -26,8 +26,6 @@ int main(int argc, char *argv[])
 
     HomeDaemon daemon;
 
-    QObject::connect(&app, &QCoreApplication::aboutToQuit, &daemon, &HomeDaemon::exit);
-
     new HomeDaemonAdaptor(&daemon);
     dbus.registerObject(DEEPIN_HOME_DAEMON_PATH, &daemon);
 

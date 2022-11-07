@@ -62,7 +62,10 @@ void HomeDaemon::initSysTrayIcon()
         QProcess::startDetached("deepin-home", QStringList());
     });
     auto exitAction = new QAction(tr("Exit"), this);
-    connect(exitAction, &QAction::triggered, this, [] { QCoreApplication::quit(); });
+    connect(exitAction, &QAction::triggered, this, [this] {
+        emit exited();
+        QCoreApplication::quit();
+    });
     m_menu->addAction(showMainAction);
     m_menu->addAction(exitAction);
     m_sysTrayIcon->setContextMenu(m_menu);
@@ -372,4 +375,9 @@ QString HomeDaemon::getMessages(QString channel, QString topic)
 void HomeDaemon::openForum()
 {
     m_account->openForum();
+}
+// 退出daemon
+void HomeDaemon::quit()
+{
+    QCoreApplication::quit();
 }
