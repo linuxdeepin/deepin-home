@@ -83,13 +83,23 @@ Item {
                     y: 12
                     width: parent.width-x*2
                     height: parent.height-y*2
-
+                    Text {
+                        id: endtime_text
+                        text: qsTr("Expired on: %1").arg(end_at)
+                        anchors.right: parent.right
+                        color: Qt.rgba(0,0,0,0.6);
+                        elide: Text.ElideRight
+                    }
                     Text {
                         id: title_text
-                        x: 20
+                        anchors.left: parent.left
+                        anchors.leftMargin: 20
+                        anchors.right: endtime_text.left
+                        anchors.verticalCenter: endtime_text.verticalCenter
                         text: title
                         font.pixelSize: 14
                         font.bold: true
+                        elide: Text.ElideRight
                     }
                     Rectangle {
                         id: mark_dot
@@ -101,20 +111,8 @@ Item {
                         anchors.rightMargin: 6
                         anchors.verticalCenter: title_text.verticalCenter
                     }
-                    Text {
-                        text: summary
-                        anchors.top: title_text.bottom
-                        anchors.left: title_text.left
-                        color: Qt.rgba(0,0,0,0.7);
-                        width: parent.width
-                        elide: Text.ElideRight
-                    }
-                    Text {
-                        text: qsTr("Expired on: %1").arg(end_at)
-                        anchors.right: parent.right
-                        color: Qt.rgba(0,0,0,0.6);
-                    }
                     RecommandButton {
+                        id: fill_btn
                         text: qsTr("Fill In")
                         width: 60
                         height: 26
@@ -124,6 +122,15 @@ Item {
                             read()
                         }
                     }
+                    Text {
+                        text: summary
+                        anchors.left: title_text.left
+                        anchors.verticalCenter: fill_btn.verticalCenter
+                        anchors.right: fill_btn.left
+                        color: Qt.rgba(0,0,0,0.7);
+                        elide: Text.ElideRight
+                    }
+
                 }
 
                 Component.onCompleted: {
