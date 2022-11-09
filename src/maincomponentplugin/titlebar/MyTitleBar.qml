@@ -21,9 +21,16 @@ TitleBar {
     }
 
     menu: Menu {
+        Action {
+            checked: API.autostart
+            text: qsTr("Launch at system startup")
+            onTriggered: {
+                API.setAutoStart(!API.getAutoStart())
+            }
+        }
         AboutAction {
             text: qsTr("About")
-            aboutDialog: control.aboutDialog
+            aboutDialog: root.aboutDialog
         }
         QuitAction {
             text: qsTr("Exit")

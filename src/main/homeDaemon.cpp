@@ -62,10 +62,8 @@ void HomeDaemon::initSysTrayIcon()
         QProcess::startDetached("deepin-home", QStringList());
     });
     auto exitAction = new QAction(tr("Exit"), this);
-    connect(exitAction, &QAction::triggered, this, [this] {
-        emit exited();
-        QCoreApplication::quit();
-    });
+    connect(exitAction, &QAction::triggered, this, &HomeDaemon::exited);
+    connect(exitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
     m_menu->addAction(showMainAction);
     m_menu->addAction(exitAction);
     m_sysTrayIcon->setContextMenu(m_menu);
@@ -380,4 +378,15 @@ void HomeDaemon::openForum()
 void HomeDaemon::quit()
 {
     QCoreApplication::quit();
+}
+
+// 获取开机自启配置
+bool HomeDaemon::getAutoStart()
+{
+    return m_settings.value("autostart", true).toBool();
+}
+// 设置开启自启配置
+void HomeDaemon::setAutoStart(bool enable)
+{
+    return m_settings.setValue("autostart", enable);
 }

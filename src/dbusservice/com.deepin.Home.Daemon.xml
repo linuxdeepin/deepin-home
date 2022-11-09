@@ -57,5 +57,11 @@
     </method>
     <method name="quit">
     </method>
+    <method name="getAutoStart">
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="setAutoStart">
+      <arg name="enable" type="b" direction="in"/>
+    </method>
   </interface>
 </node>

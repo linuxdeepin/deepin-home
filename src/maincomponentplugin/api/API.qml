@@ -10,14 +10,21 @@ Item {
     property string avatar
     property string nickname
     property int msgCount: 0
+    property bool autostart
+    signal networkError()
 
     function get(url, callback) {
         url = worker.getNode() + url
         console.log("send get request", url)
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                callback(JSON.parse(xhr.responseText))
+            if (xhr.readyState == 4) {
+                if(xhr.status == 200) {
+                    callback(JSON.parse(xhr.responseText))
+                } else {
+                    console.log("network error", xhr.status)
+                    networkError()
+                }
             }
         }
         xhr.open("GET", url , true)
@@ -94,9 +101,18 @@ Item {
     function getVersion() {
         return worker.getVersion()
     }
+    function getAutoStart() {
+        return worker.getAutoStart()
+    }
+    function setAutoStart(enable) {
+        worker.setAutoStart(enable);
+        autostart = enable
+    }
+
     Component.onCompleted: {
         refreshAccount()
         messageCount()
+        autostart = getAutoStart()
     }
     Connections {
         target: worker
