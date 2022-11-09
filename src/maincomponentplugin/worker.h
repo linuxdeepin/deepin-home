@@ -37,6 +37,10 @@ public slots:
     void openForum();
     void quit();
     QString getVersion();
+    // 获取开机自启配置
+    bool getAutoStart();
+    // 设置开启自启配置
+    void setAutoStart(bool enable);
 signals:
     void userInfoChanged();
     void messageChanged();

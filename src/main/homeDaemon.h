@@ -39,9 +39,9 @@ private:
     QMap<QString, QString> m_topicChangeID;
 
     QSettings m_settings;
-    QSystemTrayIcon *m_sysTrayIcon;
-    QMenu *m_menu;
-    API *m_api;
+    QSystemTrayIcon *m_sysTrayIcon = nullptr;
+    QMenu *m_menu = nullptr;
+    API *m_api = nullptr;
     Account *m_account = nullptr;
 
 public:
@@ -101,6 +101,10 @@ public slots:
     void openForum();
     // 退出程序
     void quit();
+    // 获取开机自启配置
+    bool getAutoStart();
+    // 设置开启自启配置
+    void setAutoStart(bool enable);
 signals:
     // 用户登录状态变动
     void userInfoChanged();

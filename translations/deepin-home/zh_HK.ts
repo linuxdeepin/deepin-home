@@ -64,6 +64,11 @@
         <source>Community News</source>
         <translation>社區動態</translation>
     </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="278"/>
+        <source>Network error, please try later</source>
+        <translation>網絡錯誤，請稍後再試</translation>
+    </message>
 </context>
 <context>
     <name>List</name>
@@ -81,37 +86,42 @@
 <context>
     <name>MyTitleBar</name>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="25"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
+        <source>Launch at system startup</source>
+        <translation>開機自啟</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
         <source>About</source>
         <translation>關於</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="39"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
         <translation>版本：%1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Messages</source>
         <translation>深度消息</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
         <source>Unlogged</source>
         <translation>未登錄</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="111"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="118"/>
         <source>Sign in</source>
         <translation>登錄</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="123"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="130"/>
         <source>Sign out</source>
         <translation>登出</translation>
     </message>

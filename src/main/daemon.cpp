@@ -26,6 +26,14 @@ int main(int argc, char *argv[])
 
     HomeDaemon daemon;
 
+    // 如果关闭了开机自启，自动退出
+    if (QCoreApplication::arguments().contains("--autostart")) {
+        if (!daemon.getAutoStart()) {
+            qDebug() << "autostart disable";
+            return 0;
+        }
+    }
+
     new HomeDaemonAdaptor(&daemon);
     dbus.registerObject(DEEPIN_HOME_DAEMON_PATH, &daemon);
 

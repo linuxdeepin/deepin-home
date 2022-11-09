@@ -104,3 +104,14 @@ QString Worker::getVersion()
 {
     return DEEPIN_HOME_VERSION;
 }
+
+// 获取开机自启配置
+bool Worker::getAutoStart()
+{
+    return m_daemon->getAutoStart();
+}
+// 设置开启自启配置
+void Worker::setAutoStart(bool enable)
+{
+    m_daemon->setAutoStart(enable);
+}

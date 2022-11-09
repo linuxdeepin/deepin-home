@@ -10,7 +10,7 @@ import org.deepin.dtk 1.0
 import "../api"
 import "../list" as DList
 import "../article" as DArticle
-
+import "../widgets" 
 
 Item {
     id: root
@@ -263,5 +263,28 @@ Item {
 
     Loader {
         id: popup
+    }
+
+    Rectangle {
+        id: error_page
+        visible: false
+        anchors.fill: parent
+        Image {
+            id: err_image
+            anchors.centerIn: parent
+            source: "/images/404.svg"
+        }
+        Text {
+            text: qsTr("Network error, please try later")
+            font.pixelSize: 15
+            anchors.top: err_image.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+    }
+    Connections {
+        target: API
+        function onNetworkError() {
+            error_page.visible = true
+        }
     }
 }
