@@ -123,6 +123,7 @@ Control {
         width: root.width
         height: root.height
         hoverEnabled: true
+        cursorShape: root.disabled ? Qt.ForbiddenCursor : Qt.PointingHandCursor
         onEntered: {
             if(root.disabled){
                 return

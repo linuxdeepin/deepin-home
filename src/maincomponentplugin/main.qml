@@ -8,6 +8,8 @@ import org.deepin.dtk 1.0
 import "index" as DIndex
 import "./titlebar"
 
+import org.deepin.dtk.impl 1.0 as D
+
 AppLoader {
     id: appLoader
     property int listIndex: -1
@@ -41,6 +43,7 @@ AppLoader {
     }
 
     Component.onCompleted: {
+        D.ApplicationHelper.setPaletteType(D.ApplicationHelper.LightType)
         appLoader.window.header = actualTitleBar
     }
 }
