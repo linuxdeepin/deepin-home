@@ -68,3 +68,4 @@ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_NAME}.desktop" DESTINATIO
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_DAEMON_NAME}.desktop" DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg/autostart)
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../dbusservice/com.deepin.Home.Daemon.service" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../maincomponentplugin/images/deepin-home.svg" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps)
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../maincomponentplugin/images/deepin-home.svg" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/locolor/scalable/apps)

@@ -10,8 +10,10 @@ import org.deepin.dtk 1.0
 
 Control {
     id: root
-    clip: true
     property ListModel model
+    function modelInited() {
+        pathView.decrementCurrentIndex()
+    }
     Rectangle {
         id: main
         anchors.fill: parent
@@ -20,7 +22,6 @@ Control {
             id: delegate
             Item {
                 id: item
-                z: PathView.isCurrentItem ? 1 : 0
                 Image {
                     id: raw
                     width: root.width
@@ -32,11 +33,10 @@ Control {
         PathView {
             id: pathView
             model: root.model
-            delegate: delegate 
+            delegate: delegate
             path: Path {
-                startX: 0; startY: 0
-                PathLine { x: root.width; y: pathView.height/2 }
-                PathLine { x: root.width*2; y: pathView.height/2 }
+                startX: -root.width; startY: 0
+                PathLine { x: (model.count-1)*root.width; y: 0 }
             }
         }
     }
@@ -54,8 +54,8 @@ Control {
         maskSource: mask
         MouseArea {
             anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
             onClicked: {
-                console.log("ok");
                 Qt.openUrlExternally(root.model.get(pathView.currentIndex).url);
             }
         }
@@ -70,10 +70,12 @@ Control {
         }
     }
     Rectangle {
+        id: left_arrow_btn
         width: 30
         height: 30
         radius: 15
         color: Qt.rgba(0, 0, 0, 0.1)
+        Behavior on color { PropertyAnimation {} }
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.verticalCenter: parent.verticalCenter
@@ -89,6 +91,13 @@ Control {
         }
         MouseArea {
             anchors.fill: parent
+            hoverEnabled: true
+            onEntered: {
+                left_arrow_btn.color=Qt.rgba(255, 255, 255, 0.3)
+            }
+            onExited: {
+                left_arrow_btn.color=Qt.rgba(0, 0, 0, 0.1)
+            }
             onClicked: {
                 timer.restart()
                 pathView.decrementCurrentIndex()
@@ -96,10 +105,12 @@ Control {
         }
     }
     Rectangle {
+        id: right_arrow_btn
         width: 30
         height: 30
         radius: 15
         color: Qt.rgba(0, 0, 0, 0.1)
+        Behavior on color { PropertyAnimation {} }
         anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.verticalCenter: parent.verticalCenter
@@ -115,6 +126,13 @@ Control {
         }
         MouseArea {
             anchors.fill: parent
+            hoverEnabled: true
+            onEntered: {
+                right_arrow_btn.color=Qt.rgba(255, 255, 255, 0.3)
+            }
+            onExited: {
+                right_arrow_btn.color=Qt.rgba(0, 0, 0, 0.1)
+            }
             onClicked: {
                 timer.restart()
                 pathView.incrementCurrentIndex()

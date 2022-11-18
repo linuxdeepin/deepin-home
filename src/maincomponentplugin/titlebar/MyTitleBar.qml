@@ -100,6 +100,7 @@ TitleBar {
             // 鼠标点击
             MouseArea {
                 anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
                 onClicked:{
                     var pos = Qt.point(avatar_image.x, root.height-12)
                     if(API.isLogin) {

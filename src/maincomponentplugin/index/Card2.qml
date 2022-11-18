@@ -77,6 +77,7 @@ Control {
         width: root.width
         height: root.height
         hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
         onEntered: {
             root.hover = true
         }

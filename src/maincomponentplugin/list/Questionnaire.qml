@@ -50,7 +50,7 @@ Item {
             model: list_model
             delegate: Rectangle {
                 width: sidebar.width - 20
-                height: 66
+                height: 86
                 radius: 8
                 color: index%2==0 ? Qt.rgba(0,0,0,0.05) : 'transparent';
                 function read() {
@@ -61,6 +61,7 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
                     onEntered: {
                         parent.color=index%2==0 ? Qt.rgba(0,0,0,0.2) : Qt.rgba(0,0,0,0.1)
                     }
@@ -117,17 +118,21 @@ Item {
                         width: 60
                         height: 26
                         anchors.right: parent.right
-                        anchors.top: title_text.bottom
+                        anchors.bottom: summary_text.bottom
                         onClicked: () => {
                             read()
                         }
                     }
                     Text {
+                        id: summary_text
                         text: summary
+                        height: 40
                         anchors.left: title_text.left
-                        anchors.verticalCenter: fill_btn.verticalCenter
                         anchors.right: fill_btn.left
-                        color: Qt.rgba(0,0,0,0.7);
+                        anchors.top: title_text.bottom
+                        anchors.topMargin: 2
+                        color: Qt.rgba(0,0,0,0.7)
+                        wrapMode: Text.Wrap
                         elide: Text.ElideRight
                     }
 

@@ -69,6 +69,7 @@ Control {
                     MouseArea {
                         anchors.fill: parent
                         hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
                         onEntered: {
                             parent.color=index%2==0 ? Qt.rgba(0,0,0,0.2) : Qt.rgba(0,0,0,0.1)
                         }
@@ -176,6 +177,7 @@ Control {
                         anchors.left: markread_icon.left
                         anchors.right: markread_button.right
                         height: markread_button.height
+                        cursorShape: Qt.PointingHandCursor
                         hoverEnabled: true
                         onEntered: {
                             parent.hover = true

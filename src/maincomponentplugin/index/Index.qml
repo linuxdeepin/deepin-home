@@ -153,6 +153,7 @@ Item {
                         height: width/4
                         MouseArea {
                             anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
                             onClicked: {
                                 root.articleIndex = 1
                                 popup.sourceComponent = article_component
@@ -166,6 +167,7 @@ Item {
                         height: width/4
                         MouseArea {
                             anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
                             onClicked: {
                                 root.articleIndex = 2
                                 popup.sourceComponent = article_component
@@ -182,6 +184,7 @@ Item {
             for(let item of resp.carousel){
                 carousel.model.append({img: item.img, url: item.url})
             }
+            carousel.modelInited()
             if(resp.links[0]){
                 link1.title = resp.links[0].title
                 link1.image = resp.links[0].img
