@@ -44,7 +44,7 @@ TitleBar {
         width: 400
         modality: Qt.NonModal
         version: qsTr("Version: %1").arg(API.getVersion())
-        productName: qsTr("Deepin Messages")
+        productName: qsTr("Deepin Home")
         // productIcon: "deepin-home"
         companyLogo: "file://" + DTK.deepinDistributionOrgLogo
         websiteName: DTK.deepinWebsiteName
