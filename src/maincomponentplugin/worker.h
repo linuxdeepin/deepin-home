@@ -36,7 +36,6 @@ public slots:
     QString getMessages(QString channel, QString topic);
     void openForum();
     void quit();
-    QString getVersion();
     // 获取开机自启配置
     bool getAutoStart();
     // 设置开启自启配置

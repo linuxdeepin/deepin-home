@@ -69,6 +69,6 @@ Copyright: None
 License: CC-BY-4.0
 
 # translations
-Files: translations/* .tx/config
+Files: translations/* .tx/*
 Copyright: None
 License: CC-BY-4.0
