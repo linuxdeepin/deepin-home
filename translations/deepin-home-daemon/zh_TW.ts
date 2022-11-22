@@ -3,8 +3,8 @@
     <name>HomeDaemon</name>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
-        <source>Deepin Messages</source>
-        <translation>深度消息</translation>
+        <source>Deepin Home</source>
+        <translation>深度之家</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
@@ -17,7 +17,7 @@
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="298"/>
+        <location filename="../src/main/homeDaemon.cpp" line="296"/>
         <source>View</source>
         <translation>查看</translation>
     </message>
