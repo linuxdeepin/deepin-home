@@ -64,6 +64,11 @@
         <source>Community News</source>
         <translation>Новини спільноти</translation>
     </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="278"/>
+        <source>Network error, please try later</source>
+        <translation>Помилка у мережі. Будь ласка, повторіть спробу</translation>
+    </message>
 </context>
 <context>
     <name>List</name>
@@ -81,37 +86,42 @@
 <context>
     <name>MyTitleBar</name>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="25"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
+        <source>Launch at system startup</source>
+        <translation>Запускати при запуску системи</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Вийти</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="39"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
         <translation>Версія: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Messages</source>
         <translation>Повідомлення Deepin</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
         <source>Unlogged</source>
         <translation>Поза системою</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="111"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="118"/>
         <source>Sign in</source>
         <translation>Увійти</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="123"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="130"/>
         <source>Sign out</source>
         <translation>Вийти</translation>
     </message>
