@@ -64,6 +64,11 @@
         <source>Community News</source>
         <translation>Közösségi Hírek</translation>
     </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="278"/>
+        <source>Network error, please try later</source>
+        <translation>Hálózati hiba, próbálja meg később</translation>
+    </message>
 </context>
 <context>
     <name>List</name>
@@ -81,37 +86,42 @@
 <context>
     <name>MyTitleBar</name>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="25"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
+        <source>Launch at system startup</source>
+        <translation>Indítsa el a rendszer indításakor</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
         <source>About</source>
         <translation>Az alkalmazásról</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
         <source>Exit</source>
-        <translation>kilépés</translation>
+        <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="39"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
         <translation>Verzió: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Messages</source>
         <translation>Deepin® Üzenetek</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
         <source>Unlogged</source>
         <translation>Nincs bejelentkezve</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="111"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="118"/>
         <source>Sign in</source>
         <translation>Bejelentkezés</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="123"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="130"/>
         <source>Sign out</source>
         <translation>Kijelentkezés</translation>
     </message>

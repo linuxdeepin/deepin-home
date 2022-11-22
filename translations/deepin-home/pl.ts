@@ -64,6 +64,11 @@
         <source>Community News</source>
         <translation>Wiadomości społeczności</translation>
     </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="278"/>
+        <source>Network error, please try later</source>
+        <translation>Błąd sieci, spróbuj ponownie później</translation>
+    </message>
 </context>
 <context>
     <name>List</name>
@@ -81,37 +86,42 @@
 <context>
     <name>MyTitleBar</name>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="25"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
+        <source>Launch at system startup</source>
+        <translation>Uruchom przy starcie systemu</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>O programie</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Wyjście</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="39"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
         <translation>Wersja: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Messages</source>
         <translation>Wiadomości deepin</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
         <source>Unlogged</source>
         <translation>Niezalogowany</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="111"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="118"/>
         <source>Sign in</source>
         <translation>Zaloguj się</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="123"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="130"/>
         <source>Sign out</source>
         <translation>Wyloguj</translation>
     </message>

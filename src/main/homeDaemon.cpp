@@ -52,7 +52,7 @@ void HomeDaemon::initSysTrayIcon()
     // 系统托盘
     m_sysTrayIcon = new QSystemTrayIcon(this);
     m_sysTrayIcon->setIcon(QIcon::fromTheme("deepin-home"));
-    m_sysTrayIcon->setToolTip(tr("Deepin Messages"));
+    m_sysTrayIcon->setToolTip(tr("Deepin Home"));
     // 托盘菜单
     auto showMainAction = new QAction(tr("Show main window"), this);
     connect(m_sysTrayIcon, &QSystemTrayIcon::activated, this, [] {
