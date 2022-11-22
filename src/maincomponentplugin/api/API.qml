@@ -98,9 +98,6 @@ Item {
     function openForum() {
         worker.openForum()
     }
-    function getVersion() {
-        return worker.getVersion()
-    }
     function getAutoStart() {
         return worker.getAutoStart()
     }

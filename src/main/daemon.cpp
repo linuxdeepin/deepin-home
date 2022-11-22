@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("deepin");
     QCoreApplication::setOrganizationDomain("deepin.org");
     QCoreApplication::setApplicationName(APP_NAME);
+    QCoreApplication::setApplicationVersion(APP_VERSION);
     QApplication app(argc, argv);
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
