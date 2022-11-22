@@ -60,12 +60,12 @@
         <translation>内测交流</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="163"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="164"/>
         <source>Community News</source>
         <translation>社区动态</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="278"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="281"/>
         <source>Network error, please try later</source>
         <translation>网络错误，请稍后再试</translation>
     </message>
@@ -107,8 +107,8 @@
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
-        <source>Deepin Messages</source>
-        <translation>深度消息</translation>
+        <source>Deepin Home</source>
+        <translation>深度之家</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
@@ -116,12 +116,12 @@
         <translation>未登录</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="118"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
         <source>Sign in</source>
         <translation>登录</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="130"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
         <source>Sign out</source>
         <translation>登出</translation>
     </message>
@@ -134,12 +134,12 @@
         <translation>当前无通知信息，感谢您的关注！</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="148"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="149"/>
         <source>%1 messages</source>
         <translation>共%1条</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="152"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="153"/>
         <source>Mark all as read</source>
         <translation>一键已读</translation>
     </message>
@@ -160,12 +160,12 @@
         <translation>当前无问卷信息，感谢您的关注！</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="88"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="89"/>
         <source>Expired on: %1</source>
         <translation>有效期至：%1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="116"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="117"/>
         <source>Fill In</source>
         <translation>填写</translation>
     </message>
