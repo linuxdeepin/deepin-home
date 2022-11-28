@@ -127,6 +127,7 @@ Item {
                         id: summary_text
                         text: summary
                         height: 40
+			font.pixelSize: 13
                         anchors.left: title_text.left
                         anchors.right: fill_btn.left
                         anchors.top: title_text.bottom
