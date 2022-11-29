@@ -19,8 +19,8 @@ TitleBar {
         x: 10
         anchors.verticalCenter: parent.verticalCenter
     }
-
     menu: Menu {
+        width: 250
         Action {
             checked: API.autostart
             text: qsTr("Launch at system startup")

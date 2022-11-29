@@ -56,8 +56,12 @@ Control {
             anchors.fill: parent
             cursorShape: Qt.PointingHandCursor
             onClicked: {
-                Qt.openUrlExternally(root.model.get(pathView.currentIndex).url);
-            }
+                let index = pathView.currentIndex + 1
+                if (index >= pathView.count) {
+                    index = 0
+                }
+                Qt.openUrlExternally(root.model.get(index).url);
+	    }
         }
     }
     Timer {
