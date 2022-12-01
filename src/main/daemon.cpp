@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("deepin.org");
     QCoreApplication::setApplicationName(APP_NAME);
     QCoreApplication::setApplicationVersion(APP_VERSION);
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
