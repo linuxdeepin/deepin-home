@@ -21,5 +21,6 @@ int main(int argc, char *argv[])
 #else
     DAppLoader appLoader(APP_NAME);
 #endif
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     return appLoader.exec(argc, argv);
 }
