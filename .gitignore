@@ -55,3 +55,11 @@ compile_commands.json
 .vscode/
 build/
 .ccls*
+obj-x86_64-linux-gnu
+debian/.debhelper
+debian/deepin-home
+debian/debhelper-build-stamp
+debian/deepin-home.postinst.debhelper
+debian/deepin-home.postrm.debhelper
+debian/deepin-home.substvars
+debian/files

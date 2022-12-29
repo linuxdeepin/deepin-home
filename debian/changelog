@@ -1,3 +1,10 @@
+deepin-home (1.0.10) unstable; urgency=medium
+  
+  * fix: open the wrong link when click carousel
+  * feat: support high dpi
+
+ -- TagBuilder <tagbuilder@deepin.com>  Tue, 29 Dec 2022 12:16:59 +0800
+
 deepin-home (1.0.4) UNRELEASED; urgency=medium
   
   * fix: display in dark theme

@@ -12,13 +12,6 @@ find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core Quick)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 find_package(DtkDeclarative REQUIRED)
 
-execute_process(COMMAND dpkg-parsechangelog "--show-field" "Version"
-                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                TIMEOUT 3
-                OUTPUT_STRIP_TRAILING_WHITESPACE
-                OUTPUT_VARIABLE result_var)
-add_definitions(-DAPP_VERSION="${result_var}")
-
 add_subdirectory(src)
 
 execute_process(COMMAND bash "-c" "lrelease translations/**/*"
