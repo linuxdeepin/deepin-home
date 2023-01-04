@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("deepin");
     QCoreApplication::setOrganizationDomain("deepin.org");
     QCoreApplication::setApplicationName(APP_NAME);
-    QCoreApplication::setApplicationVersion("1.0.0");
+    QCoreApplication::setApplicationVersion(APP_VERSION);
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
 

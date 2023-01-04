@@ -27,7 +27,7 @@ QGuiApplication *PreloadPlugin::creatApplication(int &argc, char **argv)
     QGuiApplication *app = new QGuiApplication(argc, argv);
     app->setOrganizationName("deepin");
     app->setOrganizationDomain("deepin.org");
-    app->setApplicationVersion("1.0.0");
+    app->setApplicationVersion(APP_VERSION);
     auto translator = new QTranslator(app);
     if (translator->load(QLocale::system().name(), ":/resources/deepin-home/")) {
         app->installTranslator(translator);
