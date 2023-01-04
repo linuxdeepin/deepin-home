@@ -11,8 +11,8 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core Quick)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 find_package(DtkDeclarative REQUIRED)
-
+add_definitions(-DAPP_VERSION="${APP_VERSION}")
 add_subdirectory(src)
 
 execute_process(COMMAND bash "-c" "lrelease translations/**/*"
-                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})

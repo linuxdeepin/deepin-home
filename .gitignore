@@ -63,3 +63,4 @@ debian/deepin-home.postinst.debhelper
 debian/deepin-home.postrm.debhelper
 debian/deepin-home.substvars
 debian/files
+debian/deepin-home.debhelper.log
