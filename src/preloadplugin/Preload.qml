@@ -32,6 +32,7 @@ ApplicationWindow {
     minimumWidth: width
     maximumWidth: width
     height: 800
+    minimumHeight: 400
     title: qsTr("Deepin Home")
     flags: Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
     color: "#fff"
