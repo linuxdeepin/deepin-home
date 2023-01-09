@@ -12,6 +12,7 @@ Item {
     property int msgCount: 0
     property bool autostart
     signal networkError()
+    signal showMainWindow()
 
     function get(url, callback) {
         url = worker.getNode() + url
@@ -119,7 +120,11 @@ Item {
         }
         function onMessageChanged() {
             console.log("message change")
-            messageCount();
+            messageCount()
+        }
+        function onShowMainWindow() {
+            console.log("showMainWindow")
+            showMainWindow()
         }
     }
 }

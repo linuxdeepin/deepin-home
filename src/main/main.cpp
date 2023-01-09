@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 {
     QDBusConnection dbus = QDBusConnection::sessionBus();
     if (!dbus.registerService("com.deepin.Home")) {
-        qDebug() << "DBus Error";
+        qDebug() << "DBus Error: register com.deepin.Home";
         return -1;
     }
     Dtk::Gui::DGuiApplicationHelper::instance()->setPaletteType(

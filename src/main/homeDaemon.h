@@ -25,6 +25,7 @@
 class HomeDaemon : public QObject
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "com.deepin.Home.Daemon")
 private:
     // 语言环境
     QString m_language;
@@ -112,6 +113,8 @@ signals:
     void messageChanged();
     // 程序退出时发出信号
     void exited();
+    // 显示主窗口时发出信号
+    void showMainWindow();
 };
 
 #endif // DEEPIN_HOME_DAEMON_H
