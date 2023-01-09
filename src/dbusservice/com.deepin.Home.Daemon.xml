@@ -7,6 +7,8 @@
     </signal>
     <signal name="exited">
     </signal>
+    <signal name="showMainWindow">
+    </signal>
     <method name="getMachineID">
       <arg type="s" direction="out"/>
     </method>

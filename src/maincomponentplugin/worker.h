@@ -43,6 +43,7 @@ public slots:
 signals:
     void userInfoChanged();
     void messageChanged();
+    void showMainWindow();
 };
 
 #endif // WORKER_H

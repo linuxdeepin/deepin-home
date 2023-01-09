@@ -55,11 +55,10 @@ void HomeDaemon::initSysTrayIcon()
     m_sysTrayIcon->setToolTip(tr("Deepin Home"));
     // 托盘菜单
     auto showMainAction = new QAction(tr("Show main window"), this);
-    connect(m_sysTrayIcon, &QSystemTrayIcon::activated, this, [] {
+    connect(m_sysTrayIcon, &QSystemTrayIcon::activated, showMainAction, &QAction::triggered);
+    connect(showMainAction, &QAction::triggered, this, [this] {
         QProcess::startDetached("deepin-home", QStringList());
-    });
-    connect(showMainAction, &QAction::triggered, this, [] {
-        QProcess::startDetached("deepin-home", QStringList());
+        emit showMainWindow();
     });
     auto exitAction = new QAction(tr("Exit"), this);
     connect(exitAction, &QAction::triggered, this, &HomeDaemon::exited);

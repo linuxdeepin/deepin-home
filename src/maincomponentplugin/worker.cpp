@@ -16,6 +16,7 @@ Worker::Worker(QObject *parent)
     connect(m_daemon, &HomeDaemonProxy::exited, this, &Worker::exited);
     connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, &Worker::userInfoChanged);
     connect(m_daemon, &HomeDaemonProxy::messageChanged, this, &Worker::messageChanged);
+    connect(m_daemon, &HomeDaemonProxy::showMainWindow, this, &Worker::showMainWindow);
 }
 
 Worker::~Worker() {}
