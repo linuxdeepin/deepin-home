@@ -53,17 +53,23 @@ void HomeDaemon::initSysTrayIcon()
     m_sysTrayIcon = new QSystemTrayIcon(this);
     m_sysTrayIcon->setIcon(QIcon::fromTheme("deepin-home"));
     m_sysTrayIcon->setToolTip(tr("Deepin Home"));
-    // 托盘菜单
+    // 显示主窗口
     auto showMainAction = new QAction(tr("Show main window"), this);
     connect(m_sysTrayIcon, &QSystemTrayIcon::activated, showMainAction, &QAction::triggered);
     connect(showMainAction, &QAction::triggered, this, [this] {
         QProcess::startDetached("deepin-home", QStringList());
         emit showMainWindow();
     });
+    // 论坛
+    auto bbsAction = new QAction(tr("Communication"), this);
+    connect(bbsAction, &QAction::triggered, this, &HomeDaemon::openForum);
+    // 退出
     auto exitAction = new QAction(tr("Exit"), this);
     connect(exitAction, &QAction::triggered, this, &HomeDaemon::exited);
     connect(exitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+
     m_menu->addAction(showMainAction);
+    m_menu->addAction(bbsAction);
     m_menu->addAction(exitAction);
     m_sysTrayIcon->setContextMenu(m_menu);
     m_sysTrayIcon->show();
