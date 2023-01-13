@@ -294,7 +294,11 @@ Item {
     Connections {
         target: API
         function onShowMainWindow() {
-            window.requestActivate()
+            if (window.active) {
+                window.close()
+            } else {
+                window.requestActivate()
+            }
         }
     }
 }
