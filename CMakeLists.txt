@@ -14,5 +14,6 @@ find_package(DtkDeclarative REQUIRED)
 add_definitions(-DAPP_VERSION="${APP_VERSION}")
 add_subdirectory(src)
 
+set(ENV{QT_SELECT} qt5)
 execute_process(COMMAND bash "-c" "lrelease translations/**/*"
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
