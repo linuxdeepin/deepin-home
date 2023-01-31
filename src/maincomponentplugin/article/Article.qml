@@ -24,22 +24,35 @@ Control {
             }
         }
     }
-    InWindowBlur {
-        id: blur
-        anchors.fill: dialog
-        radius: 20
-        offscreen: false
-    }
-    Rectangle {
+    Item {
         id: dialog
         x: 80
         y: 50
-        radius: 20
         width: parent.width-x*2
         height: parent.height-y*2
-        color: Qt.rgba(1,1,1,0.8)
+        // 防止触发背景点击事件
         MouseArea {
             anchors.fill: parent
+        }
+        InWindowBlur {
+            id: blur
+            anchors.fill: parent
+            radius: 20
+            offscreen: true
+        }
+        // InWindowBlur 圆角无效
+        ItemViewport {
+            id: roundBlur
+            anchors.fill: blur
+            fixed: true
+            sourceItem: blur
+            radius: blur.radius
+            hideSource: false
+        }
+        Rectangle {
+            radius: roundBlur.radius
+            anchors.fill: roundBlur
+            color: Qt.rgba(1,1,1,0.8)
         }
         Button {
             id: btn
@@ -82,11 +95,11 @@ Control {
     }
     Component.onCompleted: {
         if (root.index === 1) {
-            API.getInternalTest((resp)=>{
+            API.getInternalTest((resp) => {
                 content.text = resp.value
             })
         } else {
-            API.getAboutUs((resp)=>{
+            API.getAboutUs((resp) => {
                 content.text = resp.value
             })
         }
