@@ -10,62 +10,62 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Communication</source>
         <translation>Communicatie</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
         <source>Discuss and share here</source>
         <translation>Discussieer mee en deel je ideeën</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="60"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
         <source>Bug Report</source>
         <translation>Bugs</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
         <source>Report issues you found</source>
         <translation>Meld problemen waar je tegenaan loopt</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="68"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
         <source>Suggestions</source>
         <translation>Suggesties</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
         <source>Submit your suggestions</source>
         <translation>Deel je suggesties</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
         <source>Resources</source>
         <translation>Zelfstudies</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="88"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
         <source>Questionaire</source>
         <translation>Vragenlijst</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="145"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
         <source>Join US</source>
         <translation>Doe mee</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
         <source>Internal Testing</source>
         <translation>Interne tests</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="163"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
         <source>Community News</source>
         <translation>Gemeenschapsnieuws</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="278"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
         <source>Network error, please try later</source>
         <translation>Netwerkfout; probeer het later opnieuw</translation>
     </message>
@@ -107,8 +107,8 @@
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
-        <source>Deepin Messages</source>
-        <translation>Deepin Berichten</translation>
+        <source>Deepin Home</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
@@ -116,12 +116,12 @@
         <translation>Uitgelogd</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="118"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
         <source>Sign in</source>
         <translation>Inloggen</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="130"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
         <source>Sign out</source>
         <translation>Uitloggen</translation>
     </message>
@@ -134,12 +134,12 @@
         <translation>Er zijn nog geen berichten.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="148"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="149"/>
         <source>%1 messages</source>
         <translation>Er zijn %1 berichten</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="152"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="153"/>
         <source>Mark all as read</source>
         <translation>Alles markeren als gelezen</translation>
     </message>
@@ -153,6 +153,14 @@
     </message>
 </context>
 <context>
+    <name>Preload</name>
+    <message>
+        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <source>Deepin Home</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Questionnaire</name>
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
@@ -160,12 +168,12 @@
         <translation>Er zijn nog geen vragenlijsten.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="88"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="89"/>
         <source>Expired on: %1</source>
         <translation>Vervallen op %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="116"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="117"/>
         <source>Fill In</source>
         <translation>Invullen</translation>
     </message>

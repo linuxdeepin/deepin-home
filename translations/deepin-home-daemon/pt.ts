@@ -2,22 +2,27 @@
 <context>
     <name>HomeDaemon</name>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="56"/>
-        <source>Deepin Messages</source>
-        <translation>Mensagens Deepin</translation>
+        <location filename="../src/main/homeDaemon.cpp" line="55"/>
+        <source>Deepin Home</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="58"/>
+        <location filename="../src/main/homeDaemon.cpp" line="57"/>
         <source>Show main window</source>
         <translation>Mostrar janela principal</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="65"/>
+        <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <source>Communication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/main/homeDaemon.cpp" line="67"/>
         <source>Exit</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="299"/>
+        <location filename="../src/main/homeDaemon.cpp" line="301"/>
         <source>View</source>
         <translation>Ver</translation>
     </message>

@@ -2,22 +2,27 @@
 <context>
     <name>HomeDaemon</name>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="56"/>
-        <source>Deepin Messages</source>
-        <translation>Depin ismarıcları</translation>
+        <location filename="../src/main/homeDaemon.cpp" line="55"/>
+        <source>Deepin Home</source>
+        <translation>Deepin evi</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="58"/>
+        <location filename="../src/main/homeDaemon.cpp" line="57"/>
         <source>Show main window</source>
         <translation>Əsas menyunu göstərmək</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="65"/>
+        <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <source>Communication</source>
+        <translation>Kommunikasiya</translation>
+    </message>
+    <message>
+        <location filename="../src/main/homeDaemon.cpp" line="67"/>
         <source>Exit</source>
         <translation>Çıxış</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="299"/>
+        <location filename="../src/main/homeDaemon.cpp" line="301"/>
         <source>View</source>
         <translation>Baxış</translation>
     </message>

@@ -3,8 +3,8 @@
     <name>HomeDaemon</name>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
-        <source>Deepin Messages</source>
-        <translation>Wiadomości deepin</translation>
+        <source>Deepin Home</source>
+        <translation>Deepin Home</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
@@ -13,11 +13,16 @@
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="64"/>
-        <source>Exit</source>
-        <translation>Wyjście</translation>
+        <source>Communication</source>
+        <translation>Komunikacja</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="298"/>
+        <location filename="../src/main/homeDaemon.cpp" line="67"/>
+        <source>Exit</source>
+        <translation>Wyjdź</translation>
+    </message>
+    <message>
+        <location filename="../src/main/homeDaemon.cpp" line="301"/>
         <source>View</source>
         <translation>Widok</translation>
     </message>
