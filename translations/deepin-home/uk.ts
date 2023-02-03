@@ -10,62 +10,62 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Communication</source>
         <translation>Спілкування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
         <source>Discuss and share here</source>
         <translation>Тут можна обговорювати і ділитися враженнями</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="60"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
         <source>Bug Report</source>
         <translation>Звіт щодо вади</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
         <source>Report issues you found</source>
         <translation>Повідомте про виявлені вади</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="68"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
         <source>Suggestions</source>
         <translation>Пропозиції</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
         <source>Submit your suggestions</source>
         <translation>Надішліть ваші пропозиції</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
         <source>Resources</source>
         <translation>Ресурси</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="88"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
         <source>Questionaire</source>
         <translation>Опитування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="145"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
         <source>Join US</source>
         <translation>Долучіться до нас</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
         <source>Internal Testing</source>
         <translation>Внутрішнє тестування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="163"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
         <source>Community News</source>
         <translation>Новини спільноти</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="278"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
         <source>Network error, please try later</source>
         <translation>Помилка у мережі. Будь ласка, повторіть спробу</translation>
     </message>
@@ -107,8 +107,8 @@
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
-        <source>Deepin Messages</source>
-        <translation>Повідомлення Deepin</translation>
+        <source>Deepin Home</source>
+        <translation>Домівка Deepin</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
@@ -116,12 +116,12 @@
         <translation>Поза системою</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="118"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
         <source>Sign in</source>
         <translation>Увійти</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="130"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
         <source>Sign out</source>
         <translation>Вийти</translation>
     </message>
@@ -134,12 +134,12 @@
         <translation>Ще немає повідомлень.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="148"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="149"/>
         <source>%1 messages</source>
         <translation>%1 повідомлень</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="152"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="153"/>
         <source>Mark all as read</source>
         <translation>Позначити усі як прочитані</translation>
     </message>
@@ -153,6 +153,14 @@
     </message>
 </context>
 <context>
+    <name>Preload</name>
+    <message>
+        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <source>Deepin Home</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Questionnaire</name>
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
@@ -160,12 +168,12 @@
         <translation>Ще немає опитувань.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="88"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="89"/>
         <source>Expired on: %1</source>
         <translation>Строк дії: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="116"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="117"/>
         <source>Fill In</source>
         <translation>Заповнення</translation>
     </message>

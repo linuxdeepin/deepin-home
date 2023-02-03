@@ -13,11 +13,16 @@
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <source>Communication</source>
+        <translation>互动交流</translation>
+    </message>
+    <message>
+        <location filename="../src/main/homeDaemon.cpp" line="67"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="296"/>
+        <location filename="../src/main/homeDaemon.cpp" line="301"/>
         <source>View</source>
         <translation>查看</translation>
     </message>

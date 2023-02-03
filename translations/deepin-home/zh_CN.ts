@@ -10,62 +10,62 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Communication</source>
         <translation>互动交流</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
         <source>Discuss and share here</source>
         <translation>社区用户交流分享</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="60"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
         <source>Bug Report</source>
         <translation>Bug反馈</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
         <source>Report issues you found</source>
         <translation>日常使用问题反馈</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="68"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
         <source>Suggestions</source>
         <translation>需求反馈</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
         <source>Submit your suggestions</source>
         <translation>对操作系统的好建议</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
         <source>Resources</source>
         <translation>社区相关</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="88"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
         <source>Questionaire</source>
         <translation>问卷调查</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="145"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
         <source>Join US</source>
         <translation>加入我们</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
         <source>Internal Testing</source>
         <translation>内测交流</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="164"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
         <source>Community News</source>
         <translation>社区动态</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="281"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
         <source>Network error, please try later</source>
         <translation>网络错误，请稍后再试</translation>
     </message>
@@ -150,6 +150,14 @@
         <location filename="../src/maincomponentplugin/list/NotifyDetail.qml" line="65"/>
         <source>View more</source>
         <translation>查看更多</translation>
+    </message>
+</context>
+<context>
+    <name>Preload</name>
+    <message>
+        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <source>Deepin Home</source>
+        <translation>深度之家</translation>
     </message>
 </context>
 <context>

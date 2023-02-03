@@ -3,23 +3,28 @@
     <name>HomeDaemon</name>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
-        <source>Deepin Messages</source>
-        <translation type="unfinished"/>
+        <source>Deepin Home</source>
+        <translation>Deepin® Központ</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
         <source>Show main window</source>
-        <translation type="unfinished"/>
+        <translation>Főképernyő megjelenítése</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="64"/>
-        <source>Exit</source>
-        <translation type="unfinished"/>
+        <source>Communication</source>
+        <translation>Kommunikáció</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="294"/>
+        <location filename="../src/main/homeDaemon.cpp" line="67"/>
+        <source>Exit</source>
+        <translation>kilépés</translation>
+    </message>
+    <message>
+        <location filename="../src/main/homeDaemon.cpp" line="301"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>Nézet</translation>
     </message>
 </context>
 </TS>

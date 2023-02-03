@@ -4,65 +4,70 @@
     <message>
         <location filename="../src/maincomponentplugin/index/Card1.qml" line="88"/>
         <source>Coming</source>
-        <translation type="unfinished"/>
+        <translation>Akan Datang</translation>
     </message>
 </context>
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
-        <source>Communication</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
-        <source>Discuss and share here</source>
-        <translation type="unfinished"/>
+        <source>Communication</source>
+        <translation>Komunikasi</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="60"/>
-        <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <source>Discuss and share here</source>
+        <translation>Bincang dan kongsi di sini</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
-        <source>Report issues you found</source>
-        <translation type="unfinished"/>
+        <source>Bug Report</source>
+        <translation>Lapor Pepijat</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="68"/>
-        <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <source>Report issues you found</source>
+        <translation>Lapor apa jua masalah yang anda temui</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <source>Suggestions</source>
+        <translation>Saranan</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
         <source>Submit your suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Serah saranan anda</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
         <source>Resources</source>
-        <translation type="unfinished"/>
+        <translation>Sumber</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="88"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
         <source>Questionaire</source>
-        <translation type="unfinished"/>
+        <translation>Pertanyaan</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="145"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
         <source>Join US</source>
-        <translation type="unfinished"/>
+        <translation>Sertai KAMI</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
         <source>Internal Testing</source>
-        <translation type="unfinished"/>
+        <translation>Pengujian Dalaman</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="163"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
         <source>Community News</source>
-        <translation type="unfinished"/>
+        <translation>Berita Komuniti</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
+        <source>Network error, please try later</source>
+        <translation>Ralat rangkaian, cuba lagi</translation>
     </message>
 </context>
 <context>
@@ -70,40 +75,55 @@
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Mesej</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
         <source>Questionaires</source>
-        <translation type="unfinished"/>
+        <translation>Pertanyaan</translation>
     </message>
 </context>
 <context>
     <name>MyTitleBar</name>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="29"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
+        <source>Launch at system startup</source>
+        <translation>Lancar ketika permulaan sistem</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
+        <source>About</source>
+        <translation>Perihal</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
+        <source>Exit</source>
+        <translation>Keluar</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
+        <translation>Versi: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
+        <source>Deepin Home</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="30"/>
-        <source>Deepin Messages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="66"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>Tidak berlog</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="101"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Daftar masuk</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="113"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Daftar keluar</translation>
     </message>
 </context>
 <context>
@@ -111,17 +131,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Notify.qml" line="51"/>
         <source>No messages yet.</source>
-        <translation type="unfinished"/>
+        <translation>Belum ada mesej.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="149"/>
         <source>%1 messages</source>
-        <translation type="unfinished"/>
+        <translation>%1 mesej</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="150"/>
+        <location filename="../src/maincomponentplugin/list/Notify.qml" line="153"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>Tanda semua sebagai sudah baca</translation>
     </message>
 </context>
 <context>
@@ -129,6 +149,14 @@
     <message>
         <location filename="../src/maincomponentplugin/list/NotifyDetail.qml" line="65"/>
         <source>View more</source>
+        <translation>Lihat lagi</translation>
+    </message>
+</context>
+<context>
+    <name>Preload</name>
+    <message>
+        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <source>Deepin Home</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -137,17 +165,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
         <source>No questionaires yet.</source>
-        <translation type="unfinished"/>
+        <translation>Belum ada pertanyaan</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="113"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="89"/>
         <source>Expired on: %1</source>
-        <translation type="unfinished"/>
+        <translation>Luput pada: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="118"/>
+        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="117"/>
         <source>Fill In</source>
-        <translation type="unfinished"/>
+        <translation>Isi</translation>
     </message>
 </context>
 </TS>
