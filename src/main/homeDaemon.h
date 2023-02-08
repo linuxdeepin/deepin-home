@@ -114,7 +114,7 @@ signals:
     // 程序退出时发出信号
     void exited();
     // 显示主窗口时发出信号
-    void showMainWindow();
+    void showMainWindow(bool isIconClick);
 };
 
 #endif // DEEPIN_HOME_DAEMON_H

@@ -293,9 +293,13 @@ Item {
     }
     Connections {
         target: API
-        function onShowMainWindow() {
+        function onShowMainWindow(isIconClick) {
+            // 关闭窗口特效时需要先恢复窗口显示
+            window.showNormal()
             if (window.active) {
-                window.close()
+                if(isIconClick) {
+                    window.close()
+                }
             } else {
                 window.requestActivate()
             }

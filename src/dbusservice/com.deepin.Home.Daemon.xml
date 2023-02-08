@@ -8,6 +8,7 @@
     <signal name="exited">
     </signal>
     <signal name="showMainWindow">
+      <arg name="isIconClick" type="b" direction="out"/>
     </signal>
     <method name="getMachineID">
       <arg type="s" direction="out"/>
