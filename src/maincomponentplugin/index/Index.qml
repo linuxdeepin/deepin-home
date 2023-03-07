@@ -19,7 +19,8 @@ Item {
     property int articleIndex
 
     signal questionnaireClicked()
-    signal questionnaireCancel()
+    signal listHide()
+    signal pageRefresh()
 
     onListIndexChanged: {
         if(listIndex >= 0){
@@ -244,7 +245,7 @@ Item {
                 }
                 ScriptAction { 
                     script: {
-                        root.questionnaireCancel()
+                        root.listHide()
                     }
                 }
             }
@@ -279,10 +280,20 @@ Item {
             source: "/images/404.svg"
         }
         Text {
+            id: err_title
             text: qsTr("Network error, please try later")
             font.pixelSize: 15
             anchors.top: err_image.bottom
             anchors.horizontalCenter: parent.horizontalCenter
+        }
+        Button {
+            text: qsTr("Refresh")
+            anchors.top: err_title.bottom
+            anchors.topMargin: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+            onClicked: {
+                pageRefresh();
+            }
         }
     }
     Connections {
