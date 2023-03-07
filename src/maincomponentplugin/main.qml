@@ -12,34 +12,49 @@ import org.deepin.dtk.impl 1.0 as D
 
 AppLoader {
     id: appLoader
-    property int listIndex: -1
     Component {
-        Rectangle {
-            DIndex.Index {
-                id: index
-                listIndex: appLoader.listIndex
-                width: appLoader.width
-                height: appLoader.height 
-                onQuestionnaireClicked: {
-                    console.log("onNotifyClicked")
-                    appLoader.listIndex = 1
+        id: main_component
+        Loader {
+            id: index_loader
+            source: "index/Index.qml"
+            width: appLoader.width
+            height: appLoader.height 
+            onLoaded: {
+                if(index_loader.status == Loader.Null) {
+                    return
                 }
-                onQuestionnaireCancel: {
-                    appLoader.listIndex = -1
+                index_loader.item.listIndex = -1
+            }
+            Connections {
+                target: index_loader.item
+                function onQuestionnaireClicked() {
+                    console.log("onQuestionnaireClicked")
+                    index_loader.item.listIndex = 1
+                }
+                function onListHide() {
+                    console.log("onListHide")
+                    index_loader.item.listIndex = -1
+                }
+                function onPageRefresh() {
+                    console.log("onRefresh")
+                    const tmp = index_loader.source
+                    index_loader.source = ""
+                    index_loader.source = tmp
+                }
+            }
+            Connections {
+                target: actualTitleBar.item
+                function onNotifyClicked() {
+                    console.log("onNotifyClicked")
+                    index_loader.item.listIndex = 0
                 }
             }
         }
     }
-
     Loader {
         id: actualTitleBar
         asynchronous: true
-        sourceComponent: MyTitleBar {
-            onNotifyClicked: {
-                console.log("onNotifyClicked")
-                appLoader.listIndex = 0
-            }
-        }
+        sourceComponent: MyTitleBar {}
     }
 
     Component.onCompleted: {

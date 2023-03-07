@@ -14,17 +14,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <location filename="../src/main/homeDaemon.cpp" line="67"/>
         <source>Communication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="67"/>
+        <location filename="../src/main/homeDaemon.cpp" line="70"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="301"/>
+        <location filename="../src/main/homeDaemon.cpp" line="304"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
