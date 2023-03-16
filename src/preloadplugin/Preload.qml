@@ -25,8 +25,6 @@ import "."
  */
 ApplicationWindow {
     id: window
-    x: Screen.width / 2 - width / 2
-    y: Screen.height / 2 - height / 2
     visible: true
     width: 1000
     minimumWidth: width
@@ -36,7 +34,6 @@ ApplicationWindow {
     title: qsTr("Deepin Home")
     flags: Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint
     color: "#fff"
-
     DWindow.enabled: true
     DWindow.loadingOverlay: Rectangle {
         color: palette.window
@@ -56,5 +53,10 @@ ApplicationWindow {
             to: 0
             easing.type: Easing.InBack
         }
+    }
+    // Center the main window
+    Component.onCompleted: {
+        window.x = Screen.width / 2 - width / 2
+        window.y = Screen.height / 2 - height / 2
     }
 }
