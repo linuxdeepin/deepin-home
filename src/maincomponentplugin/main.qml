@@ -7,6 +7,7 @@ import QtQuick.Controls 2.4
 import org.deepin.dtk 1.0
 import "index" as DIndex
 import "./titlebar"
+import "./api"
 
 import org.deepin.dtk.impl 1.0 as D
 
@@ -19,46 +20,42 @@ AppLoader {
             source: "index/Index.qml"
             width: appLoader.width
             height: appLoader.height 
-            onLoaded: {
-                if(index_loader.status == Loader.Null) {
-                    return
-                }
-                index_loader.item.listIndex = -1
-            }
             Connections {
                 target: index_loader.item
-                function onQuestionnaireClicked() {
-                    console.log("onQuestionnaireClicked")
-                    index_loader.item.listIndex = 1
-                }
-                function onListHide() {
-                    console.log("onListHide")
-                    index_loader.item.listIndex = -1
-                }
+                ignoreUnknownSignals: true
+                // 刷新页面
                 function onPageRefresh() {
                     console.log("onRefresh")
-                    const tmp = index_loader.source
-                    index_loader.source = ""
-                    index_loader.source = tmp
+                    index_loader.source = "index/Index.qml"
                 }
             }
             Connections {
                 target: actualTitleBar.item
+                // 显示新闻通知
                 function onNotifyClicked() {
                     console.log("onNotifyClicked")
-                    index_loader.item.listIndex = 0
+                    index_loader.item.showNotifyList()
+                }
+            }
+            Connections {
+                target: API
+                // 显示断网页面
+                function onNetworkError() {
+                    index_loader.source = "offline/Offline.qml"
                 }
             }
         }
     }
+    // 自定义标题栏
     Loader {
         id: actualTitleBar
         asynchronous: true
         sourceComponent: MyTitleBar {}
     }
-
     Component.onCompleted: {
+        // TODO 暂不支持暗色主题，固定为亮色主题
         D.ApplicationHelper.setPaletteType(D.ApplicationHelper.LightType)
+        // 设置标题栏
         appLoader.window.header = actualTitleBar
     }
 }
