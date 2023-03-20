@@ -6,27 +6,65 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
+import "../widgets"
 
 Control {
     id: root
     property var selectedNotify
     property int index
+    signal listHide()
+    
     InWindowBlur {
         id: blur
         anchors.fill: sidebar
         radius: 20
         offscreen: false
     }
+    Rectangle {
+        anchors.fill: parent
+        color: Qt.rgba(0,0,0,0.2)
+        
+        MouseArea {
+            width: parent.width*0.6
+            height: parent.height
+            onClicked: {
+                destroyAnim.start()
+            }
+        }
+        MouseArea {
+            x: parent.width*0.6
+            width: parent.width*0.4
+            height: parent.height
+        }
+    }
+    // 列表隐藏动画
+    SequentialAnimation {
+        id: destroyAnim
+        NumberAnimation { 
+            target: sidebar
+            property: "x"
+            to: parent.width
+        }
+        ScriptAction { 
+            script: {
+                root.listHide()
+            }
+        }
+    }
     RoundRectangle {
         id: sidebar
-        width: root.width
+        x: root.width
+        width: root.width*0.4
         height: root.height
-        anchors.right: root.right
         color: Qt.rgba(1,1,1,0.8)
         radius: 18
         clip: true
         corners: (RoundRectangle.LeftCorner)
-
+        // 列表出现动画
+        Behavior on x { PropertyAnimation {} }
+        Component.onCompleted: {
+            x = root.width * 0.6
+        }
         Component {
             id: list
             Item {
@@ -46,25 +84,21 @@ Control {
                         root.index = currentIndex
                     }
                 }
-                StackLayout {
-                    currentIndex: bar.currentIndex
+                Item {
                     anchors.top: bar.bottom
                     anchors.topMargin: 10
                     anchors.bottom: parent.bottom
                     width: parent.width - 20
                     anchors.horizontalCenter: parent.horizontalCenter
-                    Item {
-                        Notify {
-                            anchors.fill: parent
-                            onSelected: {
+                    Loader {
+                        id: list_loader
+                        anchors.fill: parent
+                        source: ["Notify.qml", "Questionnaire.qml"][root.index]
+                        Connections {
+                            target: list_loader.item
+                            function onSelected(notify) {
                                 root.selectedNotify = notify
-                                console.log("id", notify)
                             }
-                        }
-                    }
-                    Item {
-                        Questionnaire {
-                            anchors.fill: parent
                         }
                     }
                 }

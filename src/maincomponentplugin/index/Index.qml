@@ -7,6 +7,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.4
 import QtGraphicalEffects 1.0
 import org.deepin.dtk 1.0
+import QtQuick.Layouts 1.15
 
 import "../api"
 import "../list" as DList
@@ -15,20 +16,7 @@ import "../widgets"
 
 Item {
     id: root
-    property int listIndex
-    property int articleIndex
-
-    signal questionnaireClicked()
-    signal listHide()
-    signal pageRefresh()
-
-    onListIndexChanged: {
-        if(listIndex >= 0){
-            popup.sourceComponent = list_component
-        } else {
-            popup.sourceComponent = null
-        }
-    }
+    // 首页界面
     ScrollView {
         anchors.fill: parent
         clip: true
@@ -98,7 +86,7 @@ Item {
                         }
                         shadowColor: "#8dc5f0"
                         onClicked: {
-                            root.questionnaireClicked()
+                            showQuestionnaireList()
                         }
                     }
                     Card2 {
@@ -157,8 +145,8 @@ Item {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
                             onClicked: {
-                                root.articleIndex = 1
-                                popup.sourceComponent = article_component
+                                articleLoader.source = ""
+                                articleLoader.setSource("/article/Article.qml", { index: 1 })
                             }
                         }
                     }
@@ -171,8 +159,8 @@ Item {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
                             onClicked: {
-                                root.articleIndex = 2
-                                popup.sourceComponent = article_component
+                                articleLoader.source = ""
+                                articleLoader.setSource("/article/Article.qml", { index: 2 })
                             }
                         }
                     }
@@ -180,11 +168,44 @@ Item {
             }
         }
     }
-
+    // 内容弹框延迟加载
+    Loader {
+        id: articleLoader
+        anchors.fill: root
+    }
+    // 通知弹框延迟加载
+    Loader {
+        id: listLoader
+        anchors.fill: root
+        Connections {
+            target: listLoader.item
+            // 刷新页面
+            function onListHide() {
+                listLoader.source = ""
+            }
+        }
+    }
+    // 显示通知列表
+    function showNotifyList(){
+        if (listLoader.status == Loader.Null) {
+            listLoader.setSource("/list/List.qml", {index: 0})
+        } else {
+            listLoader.item.index = 0
+        }
+    }
+    // 显示调查问卷列表
+    function showQuestionnaireList(){
+        if (listLoader.status == Loader.Null) {
+            listLoader.setSource("/list/List.qml", {index: 1})
+        } else {
+            listLoader.item.index = 1
+        }
+    }
+    // 首页内容加载
     Component.onCompleted: {
         API.getClientHome(resp=>{
             for(let item of resp.carousel){
-                carousel.model.append({img: item.img, url: item.url})
+                carousel.model.append({ img: item.img, url: item.url })
             }
             carousel.modelInited()
             if(resp.links[0]){
@@ -200,120 +221,5 @@ Item {
                 link2.visible = true
             }
         })
-    }
-
-    Component {
-        id: list_component
-        Item {
-            width: root.width
-            height: root.height 
-            Rectangle {
-                anchors.fill: parent
-                color: Qt.rgba(0,0,0,0.2)
-                
-                MouseArea {
-                    width: parent.width*0.6
-                    height: parent.height
-                    onClicked: {
-                        destroyAnim.start()
-                    }
-                }
-                MouseArea {
-                    x: parent.width*0.6
-                    width: parent.width*0.4
-                    height: parent.height
-                }
-            }
-            DList.List {
-                id: list
-                index: root.listIndex
-                width: parent.width * 0.4
-                height: parent.height
-                x: parent.width
-                Behavior on x { PropertyAnimation {} }
-                Component.onCompleted: {
-                    x = parent.width - width
-                    console.log("completed")
-                }
-            }
-            SequentialAnimation {
-                id: destroyAnim
-                NumberAnimation { 
-                    target: list
-                    property:"x"
-                    to: parent.width
-                }
-                ScriptAction { 
-                    script: {
-                        root.listHide()
-                    }
-                }
-            }
-        }
-    }
-
-    Component {
-        id: article_component
-        Item {
-            DArticle.Article {
-                width: root.width
-                height: root.height
-                index: root.articleIndex
-                onCanceled: {
-                    popup.sourceComponent = null
-                }
-            }
-        }
-    }
-
-    Loader {
-        id: popup
-    }
-
-    Rectangle {
-        id: error_page
-        visible: false
-        anchors.fill: parent
-        Image {
-            id: err_image
-            anchors.centerIn: parent
-            source: "/images/404.svg"
-        }
-        Text {
-            id: err_title
-            text: qsTr("Network error, please try later")
-            font.pixelSize: 15
-            anchors.top: err_image.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        Button {
-            text: qsTr("Refresh")
-            anchors.top: err_title.bottom
-            anchors.topMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            onClicked: {
-                pageRefresh();
-            }
-        }
-    }
-    Connections {
-        target: API
-        function onNetworkError() {
-            error_page.visible = true
-        }
-    }
-    Connections {
-        target: API
-        function onShowMainWindow(isIconClick) {
-            // 关闭窗口特效时需要先恢复窗口显示
-            window.showNormal()
-            if (window.active) {
-                if(isIconClick) {
-                    window.close()
-                }
-            } else {
-                window.requestActivate()
-            }
-        }
     }
 }

@@ -17,6 +17,7 @@
         <file>api/qmldir</file>
         <file>widgets/Loading.qml</file>
         <file>titlebar/MyTitleBar.qml</file>
+        <file>offline/Offline.qml</file>
 
         <file>images/bbs.svg</file>
         <file>images/bug.svg</file>
