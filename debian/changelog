@@ -1,3 +1,19 @@
+deepin-home (1.0.20) stable; urgency=medium
+  
+  * feat: Close main window after click tray icon
+  * feat: Lazy loading notify list
+  * fix: dialog rounded corners not working
+  * fix: window cannot activated in effect off mode
+  * fix: 解决在系统托盘中的右键菜单bug
+  * fix: feat: add page refresh button
+  * fix: Can not drap window to extend screen
+  * fix: about dialog in dark theme
+  * fix: dpkg build version error
+  * fix: Activate minimized window when tray is cliced
+  * fix: The minimum window height is not set
+
+ -- myml <wurongjie@deepin.com>  Fri, 31 Mar 2023 15:52:49 +0800
+
 deepin-home (1.0.10) unstable; urgency=medium
   
   * fix: open the wrong link when click carousel
