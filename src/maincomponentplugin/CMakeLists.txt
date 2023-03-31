@@ -1,4 +1,4 @@
-set(MAINCOMPONENT_LIB_NAME dtkqml-${CMAKE_PROJECT_NAME})
+set(MAINCOMPONENT_LIB_NAME ${CMAKE_PROJECT_NAME}-main)
 set(MAINCOMPONENNT_SRC
     maincomponentplugin.h
     maincomponentplugin.cpp
