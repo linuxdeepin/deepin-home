@@ -4,70 +4,75 @@
     <message>
         <location filename="../src/maincomponentplugin/index/Card1.qml" line="88"/>
         <source>Coming</source>
-        <translation>Érkezik</translation>
+        <translation>Hamarosan</translation>
     </message>
 </context>
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
         <source>Communication</source>
         <translation>Kommunikáció</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
         <source>Discuss and share here</source>
         <translation>Beszélgessenek és osszák meg itt</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
         <source>Bug Report</source>
         <translation>Hibajelentés küldése</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
         <source>Report issues you found</source>
         <translation>Jelentse a hibákat, amelyeket talál</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
         <source>Suggestions</source>
         <translation>Javaslatok</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
         <source>Submit your suggestions</source>
         <translation>Küldje be javaslatait</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
         <source>Resources</source>
         <translation>Források</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
         <source>Questionaire</source>
         <translation>Kérdőív</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
         <source>Join US</source>
         <translation>Csatlakozzon hozzánk</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
         <source>Internal Testing</source>
         <translation>Belső tesztelés</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
         <source>Community News</source>
         <translation>Közösségi Hírek</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
         <source>Network error, please try later</source>
         <translation>Hálózati hiba, próbálja meg később</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
+        <source>Refresh</source>
+        <translation>Frissítés</translation>
     </message>
 </context>
 <context>
