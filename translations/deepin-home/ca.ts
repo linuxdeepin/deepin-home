@@ -10,64 +10,69 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
         <source>Communication</source>
         <translation>Comunicació</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
         <source>Discuss and share here</source>
         <translation>Comenteu i compartiu aquí</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
         <source>Bug Report</source>
         <translation>Informe d&apos;error</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
         <source>Report issues you found</source>
         <translation>Informeu d&apos;errors que trobeu</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
         <source>Suggestions</source>
         <translation>Suggeriments</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
         <source>Submit your suggestions</source>
         <translation>Envieu suggeriments</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
         <source>Resources</source>
         <translation>Recursos</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
         <source>Questionaire</source>
         <translation>Qüestionari</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
         <source>Join US</source>
         <translation>Uniu-vos</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
         <source>Internal Testing</source>
         <translation>Proves internes</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
         <source>Community News</source>
         <translation>Notícies de la comunitat</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
         <source>Network error, please try later</source>
         <translation>Error de xarxa. Proveu-ho més tard.</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
+        <source>Refresh</source>
+        <translation>Actualitza</translation>
     </message>
 </context>
 <context>
@@ -157,7 +162,7 @@
     <message>
         <location filename="../src/preloadplugin/Preload.qml" line="36"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Inici del Deepin</translation>
     </message>
 </context>
 <context>

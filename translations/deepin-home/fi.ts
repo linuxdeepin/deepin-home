@@ -4,70 +4,75 @@
     <message>
         <location filename="../src/maincomponentplugin/index/Card1.qml" line="88"/>
         <source>Coming</source>
-        <translation type="unfinished"/>
+        <translation>Tulossa</translation>
     </message>
 </context>
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
-        <source>Communication</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
-        <source>Discuss and share here</source>
-        <translation type="unfinished"/>
+        <source>Communication</source>
+        <translation>Viestintä</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
-        <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
+        <source>Discuss and share here</source>
+        <translation>Keskustele ja jaa täällä</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
-        <source>Report issues you found</source>
-        <translation type="unfinished"/>
+        <source>Bug Report</source>
+        <translation>Virhe raportti</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
-        <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
+        <source>Report issues you found</source>
+        <translation>Ilmoita löytämistäsi ongelmista</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <source>Suggestions</source>
+        <translation>Ehdotukset</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
         <source>Submit your suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä ehdotuksesi</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
         <source>Resources</source>
-        <translation type="unfinished"/>
+        <translation>Resurssit</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
         <source>Questionaire</source>
-        <translation type="unfinished"/>
+        <translation>Kyselylomake</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
         <source>Join US</source>
-        <translation type="unfinished"/>
+        <translation>Liity meihin</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
         <source>Internal Testing</source>
-        <translation type="unfinished"/>
+        <translation>Sisäinen testaus</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
         <source>Community News</source>
-        <translation type="unfinished"/>
+        <translation>Yhteisön uutiset</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
         <source>Network error, please try later</source>
-        <translation type="unfinished"/>
+        <translation>Verkkovirhe, yritä myöhemmin</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
+        <source>Refresh</source>
+        <translation>Virkistä</translation>
     </message>
 </context>
 <context>
@@ -75,12 +80,12 @@
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
         <source>Messages</source>
-        <translation type="unfinished"/>
+        <translation>Viestit</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
         <source>Questionaires</source>
-        <translation type="unfinished"/>
+        <translation>Kyselylomakkeet</translation>
     </message>
 </context>
 <context>
@@ -88,42 +93,42 @@
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
         <source>Launch at system startup</source>
-        <translation type="unfinished"/>
+        <translation>Avaa käynnistyksen yhteydessä</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
         <source>About</source>
-        <translation type="unfinished"/>
+        <translation>Tietoja</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Poistu</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
-        <translation type="unfinished"/>
+        <translation>Versio: %1</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin etusivu</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>Kirjautumaton</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ulos</translation>
     </message>
 </context>
 <context>
@@ -131,17 +136,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Notify.qml" line="51"/>
         <source>No messages yet.</source>
-        <translation type="unfinished"/>
+        <translation>Ei vielä viestejä</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/Notify.qml" line="149"/>
         <source>%1 messages</source>
-        <translation type="unfinished"/>
+        <translation>%1 viestiä</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/Notify.qml" line="153"/>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>Merkitse kaikki luetuksi</translation>
     </message>
 </context>
 <context>
@@ -149,7 +154,7 @@
     <message>
         <location filename="../src/maincomponentplugin/list/NotifyDetail.qml" line="65"/>
         <source>View more</source>
-        <translation type="unfinished"/>
+        <translation>Katso lisää</translation>
     </message>
 </context>
 <context>
@@ -157,7 +162,7 @@
     <message>
         <location filename="../src/preloadplugin/Preload.qml" line="36"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin etusivu</translation>
     </message>
 </context>
 <context>
@@ -165,17 +170,17 @@
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
         <source>No questionaires yet.</source>
-        <translation type="unfinished"/>
+        <translation>Ei vielä kyselyitä.</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="89"/>
         <source>Expired on: %1</source>
-        <translation type="unfinished"/>
+        <translation>Vanhentunut: %1</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="117"/>
         <source>Fill In</source>
-        <translation type="unfinished"/>
+        <translation>Täydennä</translation>
     </message>
 </context>
 </TS>

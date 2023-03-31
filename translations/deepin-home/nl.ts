@@ -10,64 +10,69 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
         <source>Communication</source>
         <translation>Communicatie</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
         <source>Discuss and share here</source>
         <translation>Discussieer mee en deel je ideeën</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
         <source>Bug Report</source>
         <translation>Bugs</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
         <source>Report issues you found</source>
         <translation>Meld problemen waar je tegenaan loopt</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
         <source>Suggestions</source>
         <translation>Suggesties</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
         <source>Submit your suggestions</source>
         <translation>Deel je suggesties</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
         <source>Resources</source>
         <translation>Zelfstudies</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
         <source>Questionaire</source>
         <translation>Vragenlijst</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
         <source>Join US</source>
         <translation>Doe mee</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
         <source>Internal Testing</source>
         <translation>Interne tests</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
         <source>Community News</source>
         <translation>Gemeenschapsnieuws</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
         <source>Network error, please try later</source>
         <translation>Netwerkfout; probeer het later opnieuw</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
+        <source>Refresh</source>
+        <translation>Herladen</translation>
     </message>
 </context>
 <context>
@@ -108,7 +113,7 @@
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Thuis</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
@@ -157,7 +162,7 @@
     <message>
         <location filename="../src/preloadplugin/Preload.qml" line="36"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Thuis</translation>
     </message>
 </context>
 <context>
