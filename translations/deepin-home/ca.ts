@@ -10,80 +10,70 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="40"/>
         <source>Communication</source>
         <translation>Comunicació</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="41"/>
         <source>Discuss and share here</source>
         <translation>Comenteu i compartiu aquí</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Bug Report</source>
         <translation>Informe d&apos;error</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Report issues you found</source>
         <translation>Informeu d&apos;errors que trobeu</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="58"/>
         <source>Suggestions</source>
         <translation>Suggeriments</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="59"/>
         <source>Submit your suggestions</source>
         <translation>Envieu suggeriments</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="73"/>
         <source>Resources</source>
         <translation>Recursos</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="78"/>
         <source>Questionaire</source>
         <translation>Qüestionari</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="135"/>
         <source>Join US</source>
         <translation>Uniu-vos</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="140"/>
         <source>Internal Testing</source>
         <translation>Proves internes</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="154"/>
         <source>Community News</source>
         <translation>Notícies de la comunitat</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
-        <source>Network error, please try later</source>
-        <translation>Error de xarxa. Proveu-ho més tard.</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
-        <source>Refresh</source>
-        <translation>Actualitza</translation>
     </message>
 </context>
 <context>
     <name>List</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="78"/>
         <source>Messages</source>
         <translation>Missatges</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="81"/>
         <source>Questionaires</source>
         <translation>Qüestionaris</translation>
     </message>
@@ -158,9 +148,22 @@
     </message>
 </context>
 <context>
+    <name>Offline</name>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
+        <source>Network error, please try later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
+        <source>Refresh</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Preload</name>
     <message>
-        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <location filename="../src/preloadplugin/Preload.qml" line="34"/>
         <source>Deepin Home</source>
         <translation>Inici del Deepin</translation>
     </message>
