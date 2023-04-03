@@ -10,80 +10,70 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="40"/>
         <source>Communication</source>
         <translation>Viestintä</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="41"/>
         <source>Discuss and share here</source>
         <translation>Keskustele ja jaa täällä</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Bug Report</source>
         <translation>Virhe raportti</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Report issues you found</source>
         <translation>Ilmoita löytämistäsi ongelmista</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="58"/>
         <source>Suggestions</source>
         <translation>Ehdotukset</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="59"/>
         <source>Submit your suggestions</source>
         <translation>Lähetä ehdotuksesi</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="73"/>
         <source>Resources</source>
         <translation>Resurssit</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="78"/>
         <source>Questionaire</source>
         <translation>Kyselylomake</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="135"/>
         <source>Join US</source>
         <translation>Liity meihin</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="140"/>
         <source>Internal Testing</source>
         <translation>Sisäinen testaus</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="154"/>
         <source>Community News</source>
         <translation>Yhteisön uutiset</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
-        <source>Network error, please try later</source>
-        <translation>Verkkovirhe, yritä myöhemmin</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
-        <source>Refresh</source>
-        <translation>Virkistä</translation>
     </message>
 </context>
 <context>
     <name>List</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="78"/>
         <source>Messages</source>
         <translation>Viestit</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="81"/>
         <source>Questionaires</source>
         <translation>Kyselylomakkeet</translation>
     </message>
@@ -116,17 +106,22 @@
         <translation>Deepin etusivu</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="52"/>
+        <source>Quick login to forums, submit suggestions, and report bugs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
         <source>Unlogged</source>
         <translation>Kirjautumaton</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="112"/>
         <source>Sign in</source>
         <translation>Kirjaudu sisään</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="124"/>
         <source>Sign out</source>
         <translation>Kirjaudu ulos</translation>
     </message>
@@ -158,9 +153,22 @@
     </message>
 </context>
 <context>
+    <name>Offline</name>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
+        <source>Network error, please try later</source>
+        <translation>Verkkovirhe, yritä myöhemmin</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
+        <source>Refresh</source>
+        <translation>Virkistä</translation>
+    </message>
+</context>
+<context>
     <name>Preload</name>
     <message>
-        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <location filename="../src/preloadplugin/Preload.qml" line="34"/>
         <source>Deepin Home</source>
         <translation>Deepin etusivu</translation>
     </message>

@@ -10,80 +10,70 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="40"/>
         <source>Communication</source>
         <translation>Спілкування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="41"/>
         <source>Discuss and share here</source>
         <translation>Тут можна обговорювати і ділитися враженнями</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Bug Report</source>
         <translation>Звіт щодо вади</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Report issues you found</source>
         <translation>Повідомте про виявлені вади</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="58"/>
         <source>Suggestions</source>
         <translation>Пропозиції</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="59"/>
         <source>Submit your suggestions</source>
         <translation>Надішліть ваші пропозиції</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="73"/>
         <source>Resources</source>
         <translation>Ресурси</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="78"/>
         <source>Questionaire</source>
         <translation>Опитування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="135"/>
         <source>Join US</source>
         <translation>Долучіться до нас</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="140"/>
         <source>Internal Testing</source>
         <translation>Внутрішнє тестування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="154"/>
         <source>Community News</source>
         <translation>Новини спільноти</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
-        <source>Network error, please try later</source>
-        <translation>Помилка у мережі. Будь ласка, повторіть спробу</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
-        <source>Refresh</source>
-        <translation>Освіжити</translation>
     </message>
 </context>
 <context>
     <name>List</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="78"/>
         <source>Messages</source>
         <translation>Повідомлення</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="81"/>
         <source>Questionaires</source>
         <translation>Опитування</translation>
     </message>
@@ -158,9 +148,22 @@
     </message>
 </context>
 <context>
+    <name>Offline</name>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
+        <source>Network error, please try later</source>
+        <translation>Помилка у мережі. Будь ласка, повторіть спробу</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
+        <source>Refresh</source>
+        <translation>Освіжити</translation>
+    </message>
+</context>
+<context>
     <name>Preload</name>
     <message>
-        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <location filename="../src/preloadplugin/Preload.qml" line="34"/>
         <source>Deepin Home</source>
         <translation>Домівка Deepin</translation>
     </message>

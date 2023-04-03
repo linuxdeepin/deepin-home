@@ -10,75 +10,70 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="40"/>
         <source>Communication</source>
         <translation>Komunikim</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="41"/>
         <source>Discuss and share here</source>
         <translation>Diskutoni dhe ndani ide me të tjerë këtu</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="61"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Bug Report</source>
         <translation>Njoftim të Metash</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Report issues you found</source>
         <translation>Njoftoni probleme që gjetët</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="69"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="58"/>
         <source>Suggestions</source>
         <translation>Sugjerime</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="59"/>
         <source>Submit your suggestions</source>
         <translation>Parashtroni sugjerimet tuaja</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="84"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="73"/>
         <source>Resources</source>
         <translation>Burime</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="89"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="78"/>
         <source>Questionaire</source>
         <translation>Pyetësor</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="146"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="135"/>
         <source>Join US</source>
         <translation>Bëhuni Pjesë e Jona</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="151"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="140"/>
         <source>Internal Testing</source>
         <translation>Testim i Brendshëm</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="165"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="154"/>
         <source>Community News</source>
         <translation>Lajme Nga Bashkësi</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="282"/>
-        <source>Network error, please try later</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>List</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="78"/>
         <source>Messages</source>
         <translation>Mesazhe</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="81"/>
         <source>Questionaires</source>
         <translation>Pyetësorë</translation>
     </message>
@@ -88,7 +83,7 @@
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
         <source>Launch at system startup</source>
-        <translation type="unfinished"/>
+        <translation>Nise gjatë nisjes së sistemit</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
@@ -108,7 +103,7 @@
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Kreu Deepin</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
@@ -153,11 +148,24 @@
     </message>
 </context>
 <context>
+    <name>Offline</name>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
+        <source>Network error, please try later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
+        <source>Refresh</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Preload</name>
     <message>
-        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <location filename="../src/preloadplugin/Preload.qml" line="34"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Kreu Deepin</translation>
     </message>
 </context>
 <context>

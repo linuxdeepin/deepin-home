@@ -10,80 +10,70 @@
 <context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="52"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="40"/>
         <source>Communication</source>
         <translation>互動交流</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="53"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="41"/>
         <source>Discuss and share here</source>
         <translation>社群使用者交流分享</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="62"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Bug Report</source>
         <translation>Bug回饋</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="63"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Report issues you found</source>
         <translation>日常使用問題回饋</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="70"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="58"/>
         <source>Suggestions</source>
         <translation>需求回饋</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="71"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="59"/>
         <source>Submit your suggestions</source>
         <translation>對作業系統的好建議</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="85"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="73"/>
         <source>Resources</source>
         <translation>社群相關</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="90"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="78"/>
         <source>Questionaire</source>
         <translation>問卷調查</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="147"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="135"/>
         <source>Join US</source>
         <translation>加入我們</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="152"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="140"/>
         <source>Internal Testing</source>
         <translation>內測交流</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="166"/>
+        <location filename="../src/maincomponentplugin/index/Index.qml" line="154"/>
         <source>Community News</source>
         <translation>社群動態</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="284"/>
-        <source>Network error, please try later</source>
-        <translation>網路錯誤，請稍後再試</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="290"/>
-        <source>Refresh</source>
-        <translation>重新整理</translation>
     </message>
 </context>
 <context>
     <name>List</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="40"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="78"/>
         <source>Messages</source>
         <translation>系統消息</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="43"/>
+        <location filename="../src/maincomponentplugin/list/List.qml" line="81"/>
         <source>Questionaires</source>
         <translation>調查問卷</translation>
     </message>
@@ -116,17 +106,22 @@
         <translation>深度之家</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="52"/>
+        <source>Quick login to forums, submit suggestions, and report bugs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
         <source>Unlogged</source>
         <translation>未登入</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="112"/>
         <source>Sign in</source>
         <translation>登入</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="124"/>
         <source>Sign out</source>
         <translation>登出</translation>
     </message>
@@ -158,9 +153,22 @@
     </message>
 </context>
 <context>
+    <name>Offline</name>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
+        <source>Network error, please try later</source>
+        <translation>網路錯誤，請稍後再試</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
+        <source>Refresh</source>
+        <translation>重新整理</translation>
+    </message>
+</context>
+<context>
     <name>Preload</name>
     <message>
-        <location filename="../src/preloadplugin/Preload.qml" line="36"/>
+        <location filename="../src/preloadplugin/Preload.qml" line="34"/>
         <source>Deepin Home</source>
         <translation>深度之家</translation>
     </message>

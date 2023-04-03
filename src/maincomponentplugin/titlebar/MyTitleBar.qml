@@ -49,6 +49,7 @@ TitleBar {
         companyLogo: "file://" + DTK.deepinDistributionOrgLogo
         websiteName: DTK.deepinWebsiteName
         websiteLink: DTK.deepinWebsiteLink
+        description: qsTr("Quick login to forums, submit suggestions, and report bugs.")
     }
 
     content: RowLayout {
