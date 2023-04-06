@@ -30,6 +30,6 @@
         <file>images/msg.svg</file>
         <file>images/deepin-home.svg</file>
         <file>images/q.webp</file>
-        <file alias="dsg/built-in-icons/deepin-home.dci">images/deepin-home.dci</file>
+        <file alias="dsg/built-in-icons/home.dci">images/home.dci</file>
     </qresource>
 </RCC>

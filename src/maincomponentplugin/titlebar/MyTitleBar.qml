@@ -45,18 +45,10 @@ TitleBar {
         modality: Qt.NonModal
         version: qsTr("Version: %1").arg(Qt.application.version)
         productName: qsTr("Deepin Home")
-        // productIcon: "deepin-home"
+        productIcon: "deepin-home"
         companyLogo: "file://" + DTK.deepinDistributionOrgLogo
         websiteName: DTK.deepinWebsiteName
         websiteLink: DTK.deepinWebsiteLink
-
-        IconLabel {
-            x: 5
-            anchors.horizontalCenter: parent.horizontalCenter
-            icon.name: "deepin-home"
-            icon.width: 96
-            icon.height: 96
-        }
     }
 
     content: RowLayout {
