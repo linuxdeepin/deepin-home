@@ -43,6 +43,20 @@ AppLoader {
                 function onNetworkError() {
                     index_loader.source = "offline/Offline.qml"
                 }
+                // 托盘激活窗口
+                function onShowMainWindow(isIconClick) {
+                    // 关闭窗口特效的环境需要先恢复窗口才能激活
+                    window.showNormal()
+
+                    if (window.active) {
+                        // 如果窗口已激活，点击托盘将关闭窗口
+                        if(isIconClick) {
+                            window.close()
+                        }
+                    } else {
+                        window.requestActivate()
+                    }
+                }
             }
         }
     }
