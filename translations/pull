@@ -1,3 +1,18 @@
 #!/bin/bash
 tx pull --all
 lrelease translations/**/*
+cd translations
+
+# 生成 qrc 文件
+for target in deepin-home deepin-home-daemon; do
+    lrelease $target/*
+    echo '<RCC>' > $target.qrc
+    echo '    <qresource prefix="/resources">' >>  $target.qrc
+    find $target -type f -name '*.qm' | xargs -i echo -e "        <file>{}</file>" >> $target.qrc
+    echo '    </qresource>' >> $target.qrc
+    echo '</RCC>' >> $target.qrc
+done
+
+# 生成 desktop 文件
+deepin-desktop-ts-convert ts2desktop ../deepin-home.desktop deepin-home-desktop deepin-home.desktop
+mv deepin-home.desktop ../
