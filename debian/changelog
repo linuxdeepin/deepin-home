@@ -1,3 +1,13 @@
+deepin-home (1.0.21) stable; urgency=medium
+  
+  * faet: Add app icon to skel desktop
+  * fix: tray function lost
+  * fix: The app icon in the AboutDialog is incorrect
+  * chore: Invalid qrc path
+  * chore: update translations
+
+ -- myml <wurongjie@deepin.com>  Wed, 12 Apr 2023 09:45:49 +0800
+
 deepin-home (1.0.20) stable; urgency=medium
   
   * feat: Close main window after click tray icon
