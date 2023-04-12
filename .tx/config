@@ -15,3 +15,10 @@ source_file = translations/deepin-home-daemon.ts
 source_lang = en_US
 type = QT
 
+[o:linuxdeepin:p:deepin-home:r:deepin-home-desktop]
+file_filter = translations/deepin-home-desktop/desktop_<lang>.ts
+minimum_perc = 0
+source_file = translations/desktop.ts
+source_lang = en_US
+type = QT
+resource_name = Desktop Icon
