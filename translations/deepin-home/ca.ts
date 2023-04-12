@@ -106,17 +106,22 @@
         <translation>Inici del Deepin</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="52"/>
+        <source>Quick login to forums, submit suggestions, and report bugs.</source>
+        <translation>Inicieu sessió ràpida als fòrums, envieu suggeriments i informeu d&apos;errors.</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
         <source>Unlogged</source>
         <translation>Fora de la sessió</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="112"/>
         <source>Sign in</source>
         <translation>Inicieu la sessió</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="124"/>
         <source>Sign out</source>
         <translation>Surt de la sessió</translation>
     </message>
@@ -152,12 +157,12 @@
     <message>
         <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
         <source>Network error, please try later</source>
-        <translation type="unfinished"/>
+        <translation>Error de xarxa, proveu-ho més tard</translation>
     </message>
     <message>
         <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Actualitza</translation>
     </message>
 </context>
 <context>

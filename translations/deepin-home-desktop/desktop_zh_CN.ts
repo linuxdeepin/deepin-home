@@ -1,0 +1,1 @@
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN"><context><name>desktop</name><message><location filename="Desktop Entry]Name" line="0"/><source>Deepin Home</source><translation>深度之家</translation></message><message><location filename="Desktop Entry]GenericName" line="0"/><source>Message</source><translation>消息</translation></message></context></TS>

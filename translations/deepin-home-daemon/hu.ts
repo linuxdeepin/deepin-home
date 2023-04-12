@@ -12,17 +12,17 @@
         <translation>Főképernyő megjelenítése</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <location filename="../src/main/homeDaemon.cpp" line="69"/>
         <source>Communication</source>
         <translation>Kommunikáció</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="67"/>
+        <location filename="../src/main/homeDaemon.cpp" line="72"/>
         <source>Exit</source>
-        <translation>kilépés</translation>
+        <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="301"/>
+        <location filename="../src/main/homeDaemon.cpp" line="306"/>
         <source>View</source>
         <translation>Nézet</translation>
     </message>

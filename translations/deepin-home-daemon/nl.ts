@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Thuis</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
@@ -12,17 +12,17 @@
         <translation>Hoofdvenster tonen</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <location filename="../src/main/homeDaemon.cpp" line="69"/>
         <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>Communicatie</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="67"/>
+        <location filename="../src/main/homeDaemon.cpp" line="72"/>
         <source>Exit</source>
         <translation>Afsluiten</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="301"/>
+        <location filename="../src/main/homeDaemon.cpp" line="306"/>
         <source>View</source>
         <translation>Bekijken</translation>
     </message>
