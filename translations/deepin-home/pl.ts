@@ -106,17 +106,22 @@
         <translation>Deepin Home</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="52"/>
+        <source>Quick login to forums, submit suggestions, and report bugs.</source>
+        <translation>Szybkie logowanie do forów, wysyłania sugestii i zgłaszania błędów.</translation>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
         <source>Unlogged</source>
         <translation>Niezalogowany</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="112"/>
         <source>Sign in</source>
         <translation>Zaloguj się</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="124"/>
         <source>Sign out</source>
         <translation>Wyloguj</translation>
     </message>

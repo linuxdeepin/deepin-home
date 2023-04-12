@@ -12,17 +12,17 @@
         <translation>顯示主視窗</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <location filename="../src/main/homeDaemon.cpp" line="69"/>
         <source>Communication</source>
         <translation>互動交流</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="67"/>
+        <location filename="../src/main/homeDaemon.cpp" line="72"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="301"/>
+        <location filename="../src/main/homeDaemon.cpp" line="306"/>
         <source>View</source>
         <translation>查看</translation>
     </message>

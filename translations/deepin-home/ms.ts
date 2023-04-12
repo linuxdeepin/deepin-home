@@ -106,17 +106,22 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="83"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="52"/>
+        <source>Quick login to forums, submit suggestions, and report bugs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
         <source>Unlogged</source>
         <translation>Tidak berlog</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="119"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="112"/>
         <source>Sign in</source>
         <translation>Daftar masuk</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="131"/>
+        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="124"/>
         <source>Sign out</source>
         <translation>Daftar keluar</translation>
     </message>

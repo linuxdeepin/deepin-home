@@ -4,27 +4,27 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Home</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
         <source>Show main window</source>
-        <translation type="unfinished"/>
+        <translation>Afficher la fenêtre principale</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="64"/>
+        <location filename="../src/main/homeDaemon.cpp" line="69"/>
         <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>Communication</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="67"/>
+        <location filename="../src/main/homeDaemon.cpp" line="72"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Sortir</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="301"/>
+        <location filename="../src/main/homeDaemon.cpp" line="306"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>Voire</translation>
     </message>
 </context>
 </TS>
