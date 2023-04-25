@@ -57,7 +57,6 @@ Item {
                 icon.width: width
                 icon.height: height
                 onClicked: {
-                    console.log("click")
                     popup.close()
                 }
             }

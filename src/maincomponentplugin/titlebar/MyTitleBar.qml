@@ -13,12 +13,13 @@ TitleBar {
     height: DS.Style.titleBar.height
     signal notifyClicked()
     leftContent: Image {
+        x: 10
         source: "/images/deepin-home.svg"
         sourceSize.width:  root.height - 10
         sourceSize.height: root.height - 10
-        x: 10
         anchors.verticalCenter: parent.verticalCenter
     }
+    embedMode: false
     menu: Menu {
         width: 250
         Action {
@@ -180,5 +181,4 @@ TitleBar {
             }
         }
     }
-    embedMode: false
 }

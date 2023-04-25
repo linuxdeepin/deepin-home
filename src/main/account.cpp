@@ -9,15 +9,17 @@ Account::Account(QObject *parent, API *api, QString server)
 {
     m_api = api;
     m_server = server;
-
+    // DeepinID 客户端 DBUS
     m_deepinidClient = new DeepinidClientProxy("com.deepin.deepinid.Client",
                                                "/com/deepin/deepinid/Client",
                                                QDBusConnection::sessionBus(),
                                                this);
+    // DeepinID服务端 DBUS
     m_deepinidDaemon = new DeepinidDaemonProxy("com.deepin.deepinid",
                                                "/com/deepin/deepinid",
                                                QDBusConnection::sessionBus(),
                                                this);
+    // 监听DBus属性变动
     m_deepinidDaemonPropertiesChanged = new PropertiesChangedProxy("com.deepin.deepinid",
                                                                    "/com/deepin/deepinid",
                                                                    QDBusConnection::sessionBus(),
