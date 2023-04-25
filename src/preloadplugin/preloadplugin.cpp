@@ -4,6 +4,7 @@
 
 #include "preloadplugin.h"
 #include "../base/const.h"
+#include <DGuiApplicationHelper>
 #include <QGuiApplication>
 #include <QTranslator>
 #include <QUrl>
@@ -28,10 +29,15 @@ QGuiApplication *PreloadPlugin::creatApplication(int &argc, char **argv)
     app->setOrganizationName("deepin");
     app->setOrganizationDomain("deepin.org");
     app->setApplicationVersion(APP_VERSION);
+    // 高分屏
+    app->setAttribute(Qt::AA_UseHighDpiPixmaps);
+
     auto translator = new QTranslator(app);
     if (translator->load(QLocale::system().name(), ":/resources/deepin-home/")) {
         app->installTranslator(translator);
     }
-
+    // 固定为亮色主题
+    Dtk::Gui::DGuiApplicationHelper::instance()->setPaletteType(
+        Dtk::Gui::DGuiApplicationHelper::ColorType::LightType);
     return app;
 }

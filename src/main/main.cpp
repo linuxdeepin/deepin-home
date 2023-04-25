@@ -3,9 +3,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include <DAppLoader>
-#include <DGuiApplicationHelper>
 #include <QDBusConnection>
-#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
 DQUICK_USE_NAMESPACE
@@ -17,12 +15,6 @@ int main(int argc, char *argv[])
         qDebug() << "DBus Error: register com.deepin.Home";
         return -1;
     }
-    // 亮色主题
-    Dtk::Gui::DGuiApplicationHelper::instance()->setPaletteType(
-        Dtk::Gui::DGuiApplicationHelper::ColorType::LightType);
-    // 高分屏
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-
     DAppLoader appLoader(APP_NAME);
 #ifdef PLUGINPATH
     appLoader.addPluginPath(PLUGINPATH);
