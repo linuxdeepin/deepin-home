@@ -50,17 +50,23 @@ Item {
                     title: qsTr("Bug Report")
                     subtitle: qsTr("Report issues you found")
                     icon: "/images/bug.svg"
-                    disabled: true
                     width: body.width * 0.3
                     height: width/3
+                    onClicked: {
+                        dialogLoader.source = ""
+                        dialogLoader.setSource("/feedback/Submit.qml", { type: 0 })
+                    }
                 }
                 Card1 {
                     title: qsTr("Suggestions")
                     subtitle: qsTr("Submit your suggestions")
                     icon: "/images/demand.svg"
-                    disabled: true
                     width: body.width * 0.3
                     height: width/3
+                    onClicked: {
+                        dialogLoader.source = ""
+                        dialogLoader.setSource("/feedback/Submit.qml", { type: 1 })
+                    }
                 }
             }
             // 社区相关
@@ -145,8 +151,8 @@ Item {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
                             onClicked: {
-                                articleLoader.source = ""
-                                articleLoader.setSource("/article/Article.qml", { index: 1 })
+                                dialogLoader.source = ""
+                                dialogLoader.setSource("/article/Article.qml", { index: 1 })
                             }
                         }
                     }
@@ -159,8 +165,8 @@ Item {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
                             onClicked: {
-                                articleLoader.source = ""
-                                articleLoader.setSource("/article/Article.qml", { index: 2 })
+                                dialogLoader.source = ""
+                                dialogLoader.setSource("/article/Article.qml", { index: 2 })
                             }
                         }
                     }
@@ -168,12 +174,12 @@ Item {
             }
         }
     }
-    // 内容弹框延迟加载
+    // 对话框加载
     Loader {
-        id: articleLoader
+        id: dialogLoader
         anchors.fill: root
     }
-    // 通知弹框延迟加载
+    // 通知弹框加载
     Loader {
         id: listLoader
         anchors.fill: root
