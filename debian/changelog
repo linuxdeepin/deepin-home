@@ -1,3 +1,9 @@
+deepin-home (1.0.22) stable; urgency=medium
+  
+  * fix: Unable to start after upgrade DTK
+
+ -- myml <wurongjie@deepin.com>  Tue, 25 Apr 2023 15:02:00 +0800
+
 deepin-home (1.0.21) stable; urgency=medium
   
   * faet: Add app icon to skel desktop
