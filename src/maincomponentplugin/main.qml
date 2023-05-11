@@ -8,6 +8,7 @@ import org.deepin.dtk 1.0
 import "index" as DIndex
 import "./titlebar"
 import "./api"
+import "./router"
 
 import org.deepin.dtk.impl 1.0 as D
 
@@ -17,31 +18,34 @@ AppLoader {
         id: main_component
         Loader {
             id: index_loader
-            source: "index/Index.qml"
             width: appLoader.width
-            height: appLoader.height 
+            height: appLoader.height
+            source: "index/Index.qml"
             Connections {
-                target: index_loader.item
-                ignoreUnknownSignals: true
-                // 刷新页面
-                function onPageRefresh() {
-                    console.log("onRefresh")
-                    index_loader.source = "index/Index.qml"
+                target: actualTitleBar.item
+                // 菜单栏的通知按钮点击事件，由于通知侧边栏在首页组件中所以先导航到首页
+                function onNotifyClicked() {
+                    console.log("onNotifyClicked")
+                    Router.showIndex()
+                    index_loader.item.showNotifyList()
                 }
             }
             Connections {
-                target: actualTitleBar.item
-                // 显示新闻通知
-                function onNotifyClicked() {
-                    console.log("onNotifyClicked")
-                    index_loader.item.showNotifyList()
+                target: Router
+                // 路由更改事件
+                function onRouteCurrentChanged() {
+                    if (Router.routeCurrent.data) {
+                        index_loader.setSource(Router.routeCurrent.component, Router.routeCurrent.data)
+                    } else {
+                        index_loader.setSource(Router.routeCurrent.component)
+                    }
                 }
             }
             Connections {
                 target: API
                 // 显示断网页面
                 function onNetworkError() {
-                    index_loader.source = "offline/Offline.qml"
+                    Router.showNetworkError()
                 }
                 // 托盘激活窗口
                 function onShowMainWindow(isIconClick) {

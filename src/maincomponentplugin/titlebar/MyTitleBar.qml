@@ -7,17 +7,28 @@ import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
 import "../api"
+import "../router"
 
+// 窗口图标和返回按钮
 TitleBar {
     id: root
     height: DS.Style.titleBar.height
     signal notifyClicked()
-    leftContent: Image {
-        x: 10
-        source: "/images/deepin-home.svg"
-        sourceSize.width:  root.height - 10
-        sourceSize.height: root.height - 10
-        anchors.verticalCenter: parent.verticalCenter
+    
+    leftContent: RowLayout {
+        Image {
+            x: 10
+            source: "/images/deepin-home.svg"
+            sourceSize.width:  root.height - 10
+            sourceSize.height: root.height - 10
+        }
+        ToolButton {
+            visible: Router.routeCurrent !== Router.routeIndex
+            icon.name: "arrow_ordinary_left"
+            onClicked: {
+                Router.back()
+            }
+        }
     }
     embedMode: false
     menu: Menu {
@@ -53,132 +64,29 @@ TitleBar {
         description: qsTr("Quick login to forums, submit suggestions, and report bugs.")
     }
 
-    content: RowLayout {
-        anchors.fill: parent
-        // 填充空白
-        Item {
-            Layout.fillWidth: true
-        }
-        // 账户相关
+    content: ColumnLayout {
         Rectangle {
-            id: account_item
-            Layout.preferredWidth: 110
-            Layout.preferredHeight: parent.height
-            // 头像
-            Image {
-                id: avatar_image
-                source: API.isLogin ? API.avatar : "/images/avatar.svg"
-                sourceSize.width: 26
-                sourceSize.height: 26
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            // 昵称
-            Text {
-                text: API.isLogin ? API.nickname : qsTr("Unlogged")
-                id: nickname_text
-                width: 60
-                elide: Text.ElideRight
-                anchors.left: avatar_image.right
-                anchors.leftMargin: 10
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            // 下拉箭头
-            DciIcon {
-                name: "arrow_ordinary_down"
-                sourceSize.width: 12
-                sourceSize.height: 12
-                theme: DTK.themeType
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            // 鼠标点击
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                onClicked:{
-                    var pos = Qt.point(avatar_image.x, root.height-12)
-                    if(API.isLogin) {
-                        accountMenu.popup(avatar_image, pos)
-                    } else {
-                        loginMenu.popup(avatar_image, pos)
-                    }
-                }
-            }
-            // 未登录菜单
-            Menu {
-                id: loginMenu
-                width: account_item.width
-                maxVisibleItems: 10
-                MenuItem { 
-                    text: qsTr("Sign in") 
-                    onTriggered: {
-                        worker.login()
-                    }
-                }
-            }
-            // 已登录菜单
-            Menu {
-                id: accountMenu
-                width: account_item.width
-                maxVisibleItems: 10
-                MenuItem {
-                    text: qsTr("Sign out") 
-                    onTriggered: {
-                        worker.logout()
-                    }
-                }
-            }
-        }
-        // 通知图标
-        WindowButton {
-            property bool hover
-            Image {
-                id: notify_icon
-                source: "/images/msg.svg"
-                sourceSize.width: 18
-                sourceSize.height: 14
-                visible: false
-            }
-            ColorOverlay {
-                id: button_icon
-                source: notify_icon
-                width: 18
-                height: 14
+            Layout.fillWidth: true
+            height: root.height
+
+            TabButton {
                 anchors.centerIn: parent
-                color: parent.hover ? "#0081FF" : "black";
-                transform: rotation
-                antialiasing: true
             }
-            Rectangle {
-                color: "red"
-                visible: API.msgCount > 0
-                anchors.left: button_icon.right
-                anchors.leftMargin: -6
-                anchors.bottom: button_icon.top
-                anchors.bottomMargin: -6
-                width: count_text.width + 6
-                height: count_text.height
-                radius: 5
-                Text {
-                    id: count_text
-                    text: API.msgCount
-                    color: "#fff"
-                    anchors.centerIn: parent
-                }
+            AccountButton {
+                anchors.right: notifyButton.left
+                width: parent.height
+                height: parent.height
             }
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    parent.hover = true
-                }
-                onExited: {
-                    parent.hover = false
-                }
+            NotifyButton {
+                id: notifyButton
+                width: parent.height
+                height: parent.height
+                anchors.right: parent.right
                 onClicked: {
                     root.notifyClicked()
                 }
             }
         }
+ 
     }
 }

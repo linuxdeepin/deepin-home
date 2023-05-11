@@ -6,30 +6,61 @@ pragma Singleton
 import QtQuick 2.0
 
 Item {
+    // 当前是否登陆
     property bool isLogin: false
+    // 当前登陆的用户头像
     property string avatar
+    // 当前登陆的用户名
     property string nickname
+    // 未读消息数量
     property int msgCount: 0
+    // 当前自启开关
     property bool autostart
+    // 网络请求发生错误时发送该信号，在前端显示错误提示界面
     signal networkError()
+    // daemon发送的托盘事件，用于控制主窗口的显示
     signal showMainWindow(bool isIconClick)
-
-    function get(url, callback) {
+    // 发送http请求
+    function request(method, url, body, callback) {
         url = worker.getNode() + url
-        console.log("send get request", url)
+        console.log("send %1 request".arg(method), url)
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
-            if (xhr.readyState == 4) {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
                 if(xhr.status == 200) {
-                    callback(JSON.parse(xhr.responseText))
+                    if(xhr.responseText.length == 0) {
+                        callback(null)
+                    } else {
+                        callback(JSON.parse(xhr.responseText))
+                    }
                 } else {
                     console.log("network error", xhr.status)
                     networkError()
                 }
             }
         }
-        xhr.open("GET", url , true)
-        xhr.send()
+        xhr.open(method, url)
+        if(body){
+            xhr.send(JSON.stringify(body))
+        } else {
+            xhr.send()
+        }
+    }
+    // 发送 get 请求
+    function get(url, callback) {
+        return request("GET", url, null, callback)
+    }
+    // 发送 put 请求
+    function put(url, body, callback) {
+        return request("PUT", url, body, callback)
+    }
+    // 发送 post 请求
+    function post(url, body, callback) {
+        return request("POST", url, body, callback)
+    }
+    // 发送 delete 请求， 因为和 delete 关键字冲突，最后加了下划线
+    function delete_(url, callback) {
+        return request("DELETE", url, null, callback)
     }
     // 获取服务器判定语言（归类）
     function getLanguage(callback) {
@@ -59,6 +90,7 @@ Item {
             get("/api/v1/public/setting/aboutus_"+lang, callback)
         })
     }
+    // 获取首页配置
     function getClientHome(callback) {
         getLanguage(lang=>{
             get("/api/v1/public/setting/client-home_"+lang, (resp)=>{
@@ -66,9 +98,89 @@ Item {
             })
         })
     }
+    // 给用户反馈列表填充和用户关联关系，用于显示是否已点赞，已收藏
+    function fill_feedback_user(feedbacks, callback) {
+        let url = "/api/v1/user/feedback?offset=0&limit=20"
+        // 拼接id参数
+        for(let feedback of feedbacks) {
+            feedback.like = false
+            feedback.collect = false
+            url+="&id=" + feedback.public_id
+        }
+        // 填充关联关系到对象中
+        get(url, (relations) => {
+            for(let relation of relations) {
+                const feedback = feedbacks.find(feedback=>feedback.public_id === relation.feedback_id)
+                if(feedback){
+                    switch(relation.relation) {
+                        case "like":
+                            feedback.like = true
+                            break
+                        case "collect":
+                            feedback.collect = true
+                            break
+                    }
+                }
+            }
+            callback(feedbacks)
+        })
+    }
+    // 获取用户反馈
+    function getFeedback(opt, callback) {
+        if(opt.relation) {
+            getRelation(opt, callback)
+            return
+        }
+        // 拼接ID
+        let ids=""
+        if(opt.ids) {
+            for(const id of opt.ids) {
+                ids+="&public_id=" + id
+            }
+        }
+        getLanguage(lang=>{
+            const url = "/api/v1/public/feedback?offset=%1&limit=%2&type=%4%5".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(ids)
+            get(url, (resp)=>{
+                return fill_feedback_user(resp, callback)
+            })
+        })
+    }
+    // 点赞一个反馈
+    function likeFeedback(id, callback) {
+        post("/api/v1/user/feedback/%1/like".arg(id), null, callback)
+    }
+    // 取消点赞
+    function cancelLikeFeedback(id, callback) {
+        delete_("/api/v1/user/feedback/%1/like".arg(id), callback)
+    }
+    // 收藏一个反馈
+    function collectFeedback(id, callback) {
+        post("/api/v1/user/feedback/%1/collect".arg(id), null, callback)
+    }
+    // 取消收藏
+    function cancelCollectFeedback(id, callback) {
+        delete_("/api/v1/user/feedback/%1/collect".arg(id), callback)
+    }
+    // 获取和用户关联的反馈
+    function getRelation(opt, callback) {
+        let url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%3&relation=%4".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(opt.relation)
+        get(url, (relations) => {
+            if(relations.length === 0){
+                callback([])
+                return
+            }
+            let ids = []
+            for(let relation of relations) {
+                ids.push(relation.feedback_id)
+            }
+            getFeedback({offset:"", limit: "",type: opt.type, ids: ids}, callback)
+        })
+    }
+    // 登陆
     function login() {
         worker.login()
     }
+    // 登出
     function logout() {
         worker.logout()
     }
@@ -96,17 +208,19 @@ Item {
             msgCount = unread
         })
     }
+    // 打开论坛
     function openForum() {
         worker.openForum()
     }
+    // 获取自启状态
     function getAutoStart() {
         return worker.getAutoStart()
     }
+    // 设置自启状态
     function setAutoStart(enable) {
         worker.setAutoStart(enable);
         autostart = enable
     }
-
     Component.onCompleted: {
         refreshAccount()
         messageCount()
