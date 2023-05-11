@@ -5,11 +5,10 @@
 import QtQuick 2.11
 import org.deepin.dtk 1.0
 
+import '../router'
+
 // 离线断网界面
 Rectangle {
-    id: error_page
-    anchors.fill: parent
-    signal pageRefresh()
     Image {
         id: err_image
         anchors.centerIn: parent
@@ -28,7 +27,7 @@ Rectangle {
         anchors.topMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
         onClicked: {
-            pageRefresh();
+            Router.showIndex()
         }
     }
 }

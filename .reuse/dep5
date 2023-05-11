@@ -59,7 +59,7 @@ Copyright: None
 License: CC0-1.0
 
 # qmldir
-Files: src/maincomponentplugin/api/qmldir
+Files: src/maincomponentplugin/api/qmldir src/maincomponentplugin/router/qmldir
 Copyright: None
 License: CC0-1.0
 

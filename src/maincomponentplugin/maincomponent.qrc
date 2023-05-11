@@ -11,14 +11,24 @@
         <file>list/Notify.qml</file>
         <file>list/NotifyDetail.qml</file>
         <file>list/Questionnaire.qml</file>
-        <file>list/NotFound.qml</file>
+        <file>widgets/NotFound.qml</file>
         <file>article/Article.qml</file>
         <file>api/API.qml</file>
         <file>api/qmldir</file>
+        <file>router/Router.qml</file>
+        <file>router/qmldir</file>
         <file>widgets/Loading.qml</file>
+
         <file>titlebar/MyTitleBar.qml</file>
+        <file>titlebar/AccountButton.qml</file>
+        <file>titlebar/NotifyButton.qml</file>
+        <file>titlebar/TabButton.qml</file>
+
         <file>offline/Offline.qml</file>
         <file>feedback/Submit.qml</file>
+        <file>feedback/List.qml</file>
+        <file>feedback/Card.qml</file>
+        <file>feedback/Detail.qml</file>
 
         <file>images/bbs.svg</file>
         <file>images/bug.svg</file>
@@ -31,6 +41,10 @@
         <file>images/msg.svg</file>
         <file>images/deepin-home.svg</file>
         <file>images/q.webp</file>
+        <file>images/collect.svg</file>
+        <file>images/collect-1.svg</file>
+        <file>images/hands-up.svg</file>
+        <file>images/hands-up-1.svg</file>
         <file alias="dsg/built-in-icons/home.dci">images/home.dci</file>
     </qresource>
 </RCC>
