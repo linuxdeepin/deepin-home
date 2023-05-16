@@ -64,7 +64,7 @@ Copyright: None
 License: CC0-1.0
 
 # images
-Files: src/maincomponentplugin/images/*
+Files: src/maincomponentplugin/images/* src/maincomponentplugin/images/status/*
 Copyright: None
 License: CC-BY-4.0
 

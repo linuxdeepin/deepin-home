@@ -21,8 +21,8 @@ Item {
     // daemon发送的托盘事件，用于控制主窗口的显示
     signal showMainWindow(bool isIconClick)
     // 发送http请求
-    function request(method, url, body, callback) {
-        url = worker.getNode() + url
+    function request(method, rawUrl, body, callback) {
+        const url = worker.getNode() + rawUrl
         console.log("send %1 request".arg(method), url)
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
@@ -40,6 +40,10 @@ Item {
             }
         }
         xhr.open(method, url)
+        // 调用用户接口时，在 header 添加用户 token
+        if(rawUrl.startsWith("/api/v1/user")) {
+            xhr.setRequestHeader("Authentication", "Bearer " + worker.getToken())
+        }
         if(body){
             xhr.send(JSON.stringify(body))
         } else {
@@ -99,12 +103,19 @@ Item {
         })
     }
     // 给用户反馈列表填充和用户关联关系，用于显示是否已点赞，已收藏
-    function fill_feedback_user(feedbacks, callback) {
-        let url = "/api/v1/user/feedback?offset=0&limit=20"
+    // 顺便把图片地址修正
+    function fill_feedback(feedbacks, callback) {
+        let url = "/api/v1/user/feedback/relation?offset=0&limit=20"
         // 拼接id参数
         for(let feedback of feedbacks) {
             feedback.like = false
             feedback.collect = false
+            if(feedback.screenshots) {
+                feedback.screenshots = feedback.screenshots.map((id)=> {
+                    console.log("index")
+                    return worker.getNode() + "/api/v1/public/upload/" + id
+                })
+            }
             url+="&id=" + feedback.public_id
         }
         // 填充关联关系到对象中
@@ -125,12 +136,8 @@ Item {
             callback(feedbacks)
         })
     }
-    // 获取用户反馈
+    // 获取反馈列表
     function getFeedback(opt, callback) {
-        if(opt.relation) {
-            getRelation(opt, callback)
-            return
-        }
         // 拼接ID
         let ids=""
         if(opt.ids) {
@@ -139,9 +146,28 @@ Item {
             }
         }
         getLanguage(lang=>{
-            const url = "/api/v1/public/feedback?offset=%1&limit=%2&type=%4%5".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(ids)
+            const url = "/api/v1/public/feedback?offset=%1&limit=%2&&type=%4&language=%5%6".
+            arg(opt.offset).
+            arg(opt.limit).
+            arg(opt.type).
+            arg(lang).
+            arg(ids)
+
             get(url, (resp)=>{
-                return fill_feedback_user(resp, callback)
+                return fill_feedback(resp, callback)
+            })
+        })
+    }
+    // 获取我的反馈
+    function getMyFeedback(opt, callback) {
+        getLanguage(lang=>{
+            const url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%4".arg(opt.offset).arg(opt.limit).arg(opt.type)
+            get(url, (resp)=>{
+                for(let feedback of resp) {
+                    feedback.avatar = avatar
+                    feedback.nickname = nickname
+                }
+                return fill_feedback(resp, callback)
             })
         })
     }
@@ -163,7 +189,7 @@ Item {
     }
     // 获取和用户关联的反馈
     function getRelation(opt, callback) {
-        let url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%3&relation=%4".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(opt.relation)
+        let url = "/api/v1/user/feedback/relation?offset=%1&limit=%2&type=%3&relation=%4".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(opt.relation)
         get(url, (relations) => {
             if(relations.length === 0){
                 callback([])
@@ -175,6 +201,41 @@ Item {
             }
             getFeedback({offset:"", limit: "",type: opt.type, ids: ids}, callback)
         })
+    }
+    // 上传文件
+    function upload(filepath, callback) {
+        if(filepath.startsWith("file://")){
+            filepath=filepath.slice("file://".length)
+        }
+        const info = worker.getFileInfo(filepath)
+        post("/api/v1/user/upload/pre", {name: info.filename, size: info.size}, (preInfo) => {
+            let err = worker.uploadFile(preInfo.url, info.filepath, preInfo.form_data)
+            if(err){
+                networkError()
+                return
+            }
+            callback(preInfo.id)
+        })
+    }
+    // 创建反馈
+    function createFeedback(feedback, callback) {
+        post("/api/v1/user/feedback", feedback, callback)
+    }
+    // 记录反馈的查看次数
+    function publicViewFeedback(id) {
+        post("/api/v1/public/feedback/view/"+id, null, ()=>{})
+    }
+    // 用户查看一个反馈，记录浏览历史
+    function userViewFeedback(id) {
+        post("/api/v1/user/feedback/%1/view".arg(id), null, ()=>{})
+    }
+    // 获取统计信息
+    function feedbackStat(id, callback) {
+        get("/api/v1/public/feedback/stat/"+id, callback)
+    }
+    // 获取回复信息
+    function feedbackReply(id, callback) {
+        get("/api/v1/public/feedback/reply?id="+id, callback)
     }
     // 登陆
     function login() {

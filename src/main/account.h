@@ -24,7 +24,9 @@ class Account : public QObject
 {
     Q_OBJECT
 private:
+    bool m_isLogin = false;
     QString m_server;
+    QString m_token;
     API *m_api;
     DeepinidClientProxy *m_deepinidClient;
     DeepinidDaemonProxy *m_deepinidDaemon;
@@ -38,7 +40,9 @@ public:
     void login();
     void logout();
     bool isLogin();
+    void clientLogin();
     UserInfo getUserInfo();
+    QString getToken();
 signals:
     void userInfoChanged();
 };

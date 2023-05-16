@@ -11,6 +11,9 @@
 #include <QDBusReply>
 #include <QDebug>
 #include <QObject>
+#include <QHttpMultiPart>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 #include "homeDaemonProxy.h"
 class Worker : public QObject
@@ -33,6 +36,7 @@ public slots:
     void logout();
     bool isLogin();
     QMap<QString, QVariant> getUserInfo();
+    QString getToken();
     QString getMessages(QString channel, QString topic);
     void openForum();
     void quit();
@@ -40,6 +44,10 @@ public slots:
     bool getAutoStart();
     // 设置开启自启配置
     void setAutoStart(bool enable);
+    // 获取本地文件信息
+    QMap<QString, QVariant> getFileInfo(QString filepath);
+    // 上传本地文件
+    QString uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData);
 signals:
     void userInfoChanged();
     void messageChanged();
