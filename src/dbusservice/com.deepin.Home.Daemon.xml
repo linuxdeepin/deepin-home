@@ -51,6 +51,9 @@
       <arg type="a{sv}" direction="out"/>
       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QMap&lt;QString,QVariant&gt;"/>
     </method>
+    <method name="getToken">
+      <arg type="s" direction="out"/>
+    </method>
     <method name="getMessages">
       <arg type="s" direction="out"/>
       <arg name="channel" type="s" direction="in"/>

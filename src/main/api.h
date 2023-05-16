@@ -55,12 +55,21 @@ struct LoginOption
     QStringList scopes;
 };
 
+struct LoginInfo
+{
+    QString user_id;
+    QString username;
+    QString nickname;
+    QString avatar;
+};
+
 class API : QObject
 {
     Q_OBJECT
 private:
     QNetworkAccessManager *m_http;
 
+    QJsonDocument send(QNetworkRequest req);
     QJsonDocument get(const QUrl &url);
     QJsonDocument post(const QUrl &url, QJsonDocument body);
 
@@ -78,6 +87,8 @@ public:
 
     LoginOption getLoginOption(QString server);
     QString getForumURL(QString server, QString code);
+    QString getClientToken(QString server, QString code);
+    LoginInfo getLoginInfo(QString server, QString token);
 };
 
 #endif // DEEPIN_HOME_API_H

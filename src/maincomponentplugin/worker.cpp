@@ -85,6 +85,12 @@ QMap<QString, QVariant> Worker::getUserInfo()
     qDebug() << "get user info";
     return m_daemon->getUserInfo();
 };
+// 获取客户端登陆用户的token
+QString Worker::getToken()
+{
+    qDebug() << "get message";
+    return m_daemon->getToken();
+}
 
 QString Worker::getMessages(QString channel, QString topic)
 {
@@ -111,4 +117,50 @@ bool Worker::getAutoStart()
 void Worker::setAutoStart(bool enable)
 {
     m_daemon->setAutoStart(enable);
+}
+// 获取本地文件信息
+QMap<QString, QVariant> Worker::getFileInfo(QString filepath)
+{
+    auto info = QFileInfo(filepath);
+    QMap<QString,QVariant> result;
+    result["size"] = info.size();
+    result["filename"] = info.fileName();
+    result["filepath"] = info.filePath();
+    return result;
+}
+// 使用表单上传文件
+QString Worker::uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData)
+{
+    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+    foreach(const QString field, formData.keys()) {
+        auto value = formData[field].toString();
+        QHttpPart textPart;
+        textPart.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"%1\"").arg(field));
+        textPart.setBody(formData[field].toString().toUtf8());
+        multiPart->append(textPart);
+    }
+    QHttpPart imagePart;
+    imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/jpeg"));
+    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"test\""));
+    QFile *file = new QFile(filepath, multiPart);
+    file->open(QIODevice::ReadOnly);
+    imagePart.setBodyDevice(file);
+    multiPart->append(imagePart);
+    
+    QUrl url(uploadURL);
+    QNetworkRequest request(url);
+    QNetworkAccessManager manager;
+    QNetworkReply *reply = manager.post(request, multiPart);
+    reply->deleteLater();
+    multiPart->setParent(reply);
+    QEventLoop eventLoop;
+    connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
+    eventLoop.exec();
+    if (reply->error() != QNetworkReply::NoError) {
+        return reply->errorString();
+    }
+    if(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() >= 400) {
+        return reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
+    }
+    return "";
 }

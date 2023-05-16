@@ -17,6 +17,26 @@ API::API(QObject *parent)
 
 API::~API() {}
 
+
+// 发送http请求
+QJsonDocument API::send(QNetworkRequest req)
+{
+    auto reply = m_http->get(req);
+    QEventLoop eventLoop;
+    connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
+    eventLoop.exec();
+    if (reply->error() != QNetworkReply::NoError) {
+        qWarning() << "Network Error" << reply->errorString();
+        throw reply->errorString();
+    }
+    if(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() >= 400) {
+        throw reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
+    }
+    QByteArray replyData = reply->readAll();
+    reply->deleteLater();
+    return QJsonDocument::fromJson(replyData);
+}
+
 // 封装http get请求
 QJsonDocument API::get(const QUrl &url)
 {
@@ -162,4 +182,29 @@ QString API::getForumURL(QString server, QString code)
     auto url = QString("%1/api/v1/public/login/bbs_url").arg(server);
     auto doc = post(url, QJsonDocument(obj));
     return doc.object().value("url").toString();
+}
+
+// 获取用户Token
+QString API::getClientToken(QString server, QString code)
+{
+    QJsonObject obj;
+    obj["code"] = code;
+    auto url = QString("%1/api/v1/user/login").arg(server);
+    auto doc = post(url, QJsonDocument(obj));
+    return doc.object().value("token").toString();
+}
+
+// 获取当前登陆用户的信息
+LoginInfo API::getLoginInfo(QString server, QString token)
+{
+    auto url = QString("%1/api/v1/user/login").arg(server);
+    auto req = QNetworkRequest(url);
+    req.setRawHeader("Authentication", ("Bearer " + token).toUtf8());
+    auto doc = send(req).object();
+    LoginInfo info;
+    info.user_id=doc.value("user_id").toString();
+    info.username=doc.value("username").toString();
+    info.nickname=doc.value("nickname").toString();
+    info.avatar=doc.value("avatar").toString();
+    return info;
 }

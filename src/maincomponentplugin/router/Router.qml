@@ -47,6 +47,7 @@ Item {
         "component": "feedback/List.qml",
         "data": {relation: "like"}
     }
+    // 反馈详情
     property var routeFeedbackDetail: {
         "path": "feedback/detail",
         "component": "feedback/Detail.qml"
@@ -89,13 +90,17 @@ Item {
     }
     // 显示反馈详情
     function showFeedbackDetail(feedback) {
-        routeFeedbackDetail.data = { feedback: feedback }
-        routeCurrent = routeFeedbackDetail
-        routeHistory.push(routeFeedbackDetail)
+        // 复制对象避免在回退时，拿到相同数据
+        const value = JSON.parse(JSON.stringify(routeFeedbackDetail))
+        value.data = { feedback: feedback }
+        routeCurrent = value
+        routeHistory.push(value)
     }
     // 返回上一页
     function back() {
         routeHistory.pop()
-        routeCurrent = routeHistory[routeHistory.length-1]
+        const r = routeHistory[routeHistory.length-1]
+        console.log("back",JSON.stringify(r.data))
+        routeCurrent = r
     }
 }

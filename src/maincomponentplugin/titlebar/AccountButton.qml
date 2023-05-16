@@ -52,7 +52,7 @@ WindowButton {
                 Layout.fillWidth: true
                 height: 40
                 ColorSelector.family: Palette.CrystalColor
-                text: "我的收藏"
+                text: qsTr("我的收藏")
                 onClicked: {
                     Router.showStarsFeedback()
                     accountMenu.close()
@@ -63,7 +63,7 @@ WindowButton {
                 Layout.fillWidth: true
                 height: 40
                 ColorSelector.family: Palette.CrystalColor
-                text: "反馈广场"
+                text: qsTr("反馈广场")
                 onClicked: {
                     Router.showAllFeedback()
                     accountMenu.close()
@@ -73,7 +73,7 @@ WindowButton {
                 Layout.fillWidth: true
                 height: 40
                 Layout.topMargin: 20
-                text: "退出账号"
+                text: qsTr("退出账号")
                 onClicked: {
                     worker.logout()
                     accountMenu.close()

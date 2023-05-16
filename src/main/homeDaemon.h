@@ -96,6 +96,8 @@ public slots:
     bool isLogin();
     // 当前登录用户信息
     QMap<QString, QVariant> getUserInfo();
+    // 当前登录用户token
+    QString getToken();
     // 获取消息列表
     QString getMessages(QString channel, QString topic);
     // 打开论坛

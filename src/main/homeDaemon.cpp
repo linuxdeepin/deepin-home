@@ -369,6 +369,12 @@ QMap<QString, QVariant> HomeDaemon::getUserInfo()
     m["avatar_url"] = info.avatar_url;
     return m;
 }
+
+// 获取用户token
+QString HomeDaemon::getToken() {
+    return m_account->getToken();
+}
+
 // 获取消息列表数据
 QString HomeDaemon::getMessages(QString channel, QString topic)
 {

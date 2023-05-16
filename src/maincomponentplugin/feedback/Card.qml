@@ -7,6 +7,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
 import "../api"
+import "../router"
 
 // 显示用户反馈的详细信息，在反馈列表和反馈详情中使用
 // 在反馈列表中，截图缩小横排显示，并且不显示回复的信息
@@ -22,38 +23,33 @@ Rectangle {
     property string status: ''
     property bool collect: false
     property bool like: false
+    property var screenshots: []
+    property string nickname: ''
+    property string avatar: ''
     property bool inList: true // 是否在列表中
-    signal titleClicked()
+    property bool isRelay: false // 是否为反馈
+    property int view_count: 0
+    property int like_count: 0
+    property int collect_count: 0
 
-    // 反馈的当前状态
-    RoundRectangle {
+    signal titleClicked()
+    signal likeClicked()
+    signal collectClicked()
+
+    Status {
+        visible: !root.isRelay
         anchors.right: parent.right
         anchors.top: parent.top
-        width: 88
-        height: 36
-        color: "#fff7e9"
-        radius: 18
-        corners: (RoundRectangle.BottomLeftCorner)
-        RowLayout {
-            anchors.centerIn: parent
-            spacing: 5
-            Text {
-                text: "表"
-            }
-            Text {
-                font: DTK.fontManager.t7
-                text: root.status
-            }
-        }
+        type: root.type
+        status: root.status
     }
     // 头像预留位置
-    Rectangle {
+    Image {
         x: 20
         y: 13
         width: 36
         height: 36
-        radius: 36
-        color: "gray"
+        source: root.avatar
     }
     // 详细信息在头像右边显示
     ColumnLayout {
@@ -81,49 +77,62 @@ Rectangle {
             Layout.topMargin: 2
             color: "gray"
             font: DTK.fontManager.t8
-            text: new Date(root.created_at).toLocaleString(locale, Locale.ShortFormat) + " 1080次预览"
+            text: new Date(root.created_at).toLocaleString(locale, Locale.ShortFormat) + " " + (root.isRelay ? '' : qsTr("%1次预览").arg(root.view_count))
         }
         // 内容
         Text {
             id: contentText
-            Layout.topMargin: 10
             Layout.fillWidth: true
+            Layout.topMargin: 10
+            Layout.bottomMargin: 10
             wrapMode: Text.Wrap
             text: root.content
+            // TODO 不知什么原因，无法触发root信号
+            onLinkActivated: (link)=> {
+                if(link.startsWith("#")){
+                    const public_id = link.slice(1)
+                    API.getFeedback({type: '', offset: 0, limit: 1, ids: [public_id]}, (resp)=>{
+                        if(resp && resp[0]) {
+                            const feedback = resp[0]
+                            API.publicViewFeedback(feedback.public_id)
+                            API.userViewFeedback(feedback.public_id)
+                            Router.showFeedbackDetail(feedback)
+                        }
+                    })
+                }
+            }
         }
         // 在反馈列表中横向展示缩小的截图
         Row {
             visible: root.inList
-            Layout.topMargin: 10
             spacing: 10
-            Rectangle {
-                width: 48
-                height: 48
-                color: "gray"
-            }
-            Rectangle {
-                width: 48
-                height: 48
-                color: "gray"
-            }
-            Rectangle {
-                width: 48
-                height: 48
-                color: "gray"
+            Repeater {
+                model: root.screenshots
+                delegate: Image {
+                    source: root.screenshots[index]
+                    width: 48
+                    height: 48
+                }
             }
         }
         // 在反馈详情中纵向展示全尺寸截图
         Repeater {
-            model: root.inList ? [] : [1,2,3,4]
+            model: inList ? [] : root.screenshots
             delegate: Rectangle {
-                width: 48
-                height: 48
-                color: "red"
+                Layout.fillWidth: true
+                Layout.preferredHeight: screenshotImg.height
+                Image {
+                    id: screenshotImg
+                    width: parent.width
+                    fillMode: Image.PreserveAspectFit
+                    source: root.screenshots[index]
+                }
             }
         }
         // 底部信息
         RowLayout {
-            Layout.topMargin: 20
+            visible: !root.isRelay
+            Layout.topMargin: 10
             Layout.bottomMargin: 10
             Layout.fillWidth: true
             // 反馈分类
@@ -147,20 +156,13 @@ Rectangle {
             // 点赞和收藏的数量
             RowLayout {
                 spacing: 30
+                visible: root.status != 'submit'
                 MouseArea {
                     width:  childrenRect.width
                     height: childrenRect.height
                     cursorShape: Qt.PointingHandCursor
                     onClicked: {
-                        // 点击可以收藏和取消收藏
-                        const callback = () => {
-                            root.collect = !root.collect
-                        }
-                        if (root.collect) {
-                            API.cancelCollectFeedback(root.public_id, callback)
-                        } else {
-                            API.collectFeedback(root.public_id, callback)
-                        }
+                        root.collectClicked()
                     }
                     RowLayout {
                         Image {
@@ -169,7 +171,7 @@ Rectangle {
                             source: root.collect ? "/images/collect.svg" : "/images/collect-1.svg"
                         }
                         Text {
-                            text: "1213"
+                            text: root.collect_count
                         }
                     }
                 }
@@ -178,15 +180,7 @@ Rectangle {
                     height: childrenRect.height
                     cursorShape: Qt.PointingHandCursor
                     onClicked: {
-                        // 点击可以点赞和取消点赞
-                        const callback = () => {
-                            root.like = !root.like
-                        }
-                        if (root.like) {
-                            API.cancelLikeFeedback(root.public_id, callback)
-                        } else {
-                            API.likeFeedback(root.public_id, callback)
-                        }
+                        root.likeClicked()
                     }
                     RowLayout {
                         Layout.leftMargin: 30
@@ -196,7 +190,7 @@ Rectangle {
                             source: root.like ? "/images/hands-up.svg" : "/images/hands-up-1.svg"
                         }
                         Text {
-                            text: "111"
+                            text: root.like_count
                         }
                     }
                 }

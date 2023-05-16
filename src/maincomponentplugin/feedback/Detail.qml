@@ -14,23 +14,88 @@ import "../widgets"
 Item {
     id: root
     property var feedback
-    Rectangle {
-        x: 20
-        y: 10
-        width: parent.width - x*2
-        height: card.height
-        Card {
-            id: card
-            width: parent.width
-            inList: false
-            public_id: feedback.public_id
-            title: feedback.title
-            content: feedback.content
-            type: feedback.type
-            status: feedback.status
-            created_at: feedback.created_at
-            like: feedback.like
-            collect: feedback.collect
+
+    ScrollView {
+        anchors.fill: parent
+        clip: true
+        contentHeight: feedbackCard.height
+        Rectangle {
+            id: feedbackCard
+            x: 20
+            y: 10
+            width: parent.width - x*2
+            height: (card.height + 20) + (replyCard.visible ? (replyCard.height + 30) : 0)
+            Card {
+                id: card
+                width: parent.width
+                inList: false
+                public_id: feedback.public_id
+                title: feedback.title
+                content: feedback.content
+                type: feedback.type
+                status: feedback.status
+                created_at: feedback.created_at
+                like: feedback.like
+                collect: feedback.collect
+                screenshots: feedback.screenshots
+                avatar: feedback.avatar
+                // 点赞按钮点击
+                onLikeClicked: {
+                    const callback = () => {
+                        card.like = !card.like
+                        feedback.like = !feedback.like
+                        console.log(feedback.like)
+                    }
+                    if (card.like) {
+                        card.like_count--
+                        API.cancelLikeFeedback(feedback.public_id, callback)
+                    } else {
+                        card.like_count++
+                        API.likeFeedback(feedback.public_id, callback)
+                    }
+                }
+                // 收藏按钮点击
+                onCollectClicked: {
+                    // 点击可以收藏和取消收藏
+                    const callback = () => {
+                        card.collect = !card.collect
+                    }
+                    if (card.collect) {
+                        card.collect_count--
+                        API.cancelCollectFeedback(feedback.public_id, callback)
+                    } else {
+                        card.collect_count++
+                        API.collectFeedback(feedback.public_id, callback)
+                    }
+                }
+                Component.onCompleted: {
+                    API.feedbackStat(feedback.public_id, (stat) => {
+                        card.view_count = stat.view_count
+                        card.like_count = stat.like_count
+                        card.collect_count = stat.collect_count
+                    })
+                    API.feedbackReply(feedback.public_id, (reply) => {
+                        if(reply && reply[0]) {
+                            let content = reply[0].content
+                            replyCard.content = content
+                            replyCard.created_at = reply[0].created_at
+                            replyCard.visible = true
+                        }
+                    })
+                }
+            }
+            Card {
+                id: replyCard
+                visible: false
+                anchors.top: card.bottom
+                anchors.topMargin: 20
+                width: parent.width
+                inList: false
+                title: qsTr("官方回复")
+                content: ""
+                avatar: "http://home-dev.deepin.org/favicon.ico"
+                isRelay: true
+            }
         }
     }
 }
