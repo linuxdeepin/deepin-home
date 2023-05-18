@@ -62,12 +62,18 @@ Rectangle {
             Layout.topMargin: 10
             font: DTK.fontManager.t4
             text: root.title
-
+            color: titleText.hovered ? 'red' : ''
             MouseArea {
+                visible: inList
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
                 onClicked: {
                     root.titleClicked()
+                }
+                ToolTip {
+                    visible: parent.containsMouse
+                    text: qsTr("View details")
                 }
             }
         }
@@ -77,7 +83,7 @@ Rectangle {
             Layout.topMargin: 2
             color: "gray"
             font: DTK.fontManager.t8
-            text: new Date(root.created_at).toLocaleString(locale, Locale.ShortFormat) + " " + (root.isRelay ? '' : qsTr("%1次预览").arg(root.view_count))
+            text: new Date(root.created_at).toLocaleString(locale, Locale.ShortFormat) + "  " + (root.isRelay ? '' : qsTr("%1 views").arg(root.view_count))
         }
         // 内容
         Text {
@@ -138,13 +144,13 @@ Rectangle {
             // 反馈分类
             Rectangle {
                 width: typeText.width+15
-                height: typeText.height
+                height: typeText.height+4
                 border.width: 1
                 border.color: "#eead86"
                 radius: 5
                 Text {
                     id: typeText
-                    text: root.type === 'bug' ? "BUG" : qsTr("需求")
+                    text: root.type === 'bug' ? "BUG" : qsTr("Suggestions")
                     color: root.type === 'bug' ? "#eead86" : '#0d9353'
                     font: DTK.fontManager.t6
                     anchors.centerIn: parent
@@ -161,8 +167,13 @@ Rectangle {
                     width:  childrenRect.width
                     height: childrenRect.height
                     cursorShape: Qt.PointingHandCursor
+                    hoverEnabled: true
                     onClicked: {
                         root.collectClicked()
+                    }
+                    ToolTip {
+                        visible: parent.containsMouse
+                        text: root.collect ? qsTr("Unfavorite") : qsTr("Favorite")
                     }
                     RowLayout {
                         Image {
@@ -179,8 +190,13 @@ Rectangle {
                     width:  childrenRect.width
                     height: childrenRect.height
                     cursorShape: Qt.PointingHandCursor
+                    hoverEnabled: true
                     onClicked: {
                         root.likeClicked()
+                    }
+                    ToolTip {
+                        visible: parent.containsMouse
+                        text: root.like ? qsTr("Cancel the urge") : qsTr("Urge")
                     }
                     RowLayout {
                         Layout.leftMargin: 30

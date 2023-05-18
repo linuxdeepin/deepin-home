@@ -22,15 +22,15 @@ RoundRectangle {
         "req-finish": "/images/status/finish.svg",
     }
     property var statusTextList: {
-        "bug-submit": "待处理",
-        "bug-accept": "已确认",
-        "bug-reject": "已回复",
-        "bug-finish": "已修复",
-        "req-submit": "待处理",
-        "req-evaluate": "评估中",
-        "req-accept": "接受",
-        "req-reject": "已回复",
-        "req-finish": "完成",
+        "bug-submit": qsTr("Pending"),
+        "bug-accept": qsTr("Confirmed"),
+        "bug-reject": qsTr("Replied"),
+        "bug-finish": qsTr("Resolved"),
+        "req-submit": qsTr("Pending"),
+        "req-evaluate": qsTr("Evaluating"),
+        "req-accept": qsTr("Accepted"),
+        "req-reject": qsTr("Replied"),
+        "req-finish": qsTr("Completed"),
     }
     width: statusIcon.width + statusText.width + 40
     height: 36

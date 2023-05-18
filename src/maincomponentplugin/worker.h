@@ -9,7 +9,6 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
-#include <QDebug>
 #include <QObject>
 #include <QHttpMultiPart>
 #include <QNetworkAccessManager>
@@ -48,6 +47,7 @@ public slots:
     QMap<QString, QVariant> getFileInfo(QString filepath);
     // 上传本地文件
     QString uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData);
+    void notify(QString title, QString message);
 signals:
     void userInfoChanged();
     void messageChanged();

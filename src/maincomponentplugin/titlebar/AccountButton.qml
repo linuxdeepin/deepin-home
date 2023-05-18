@@ -36,7 +36,7 @@ WindowButton {
                     id: avatarImg
                     width: 48
                     height: 48
-                    source: API.avatar
+                    source: API.isLogin ? API.avatar : "/images/avatar.svg"
                     sourceSize.width: 48
                     sourceSize.height: 48
                 }
@@ -44,7 +44,8 @@ WindowButton {
                     anchors.left: avatarImg.right
                     anchors.top: avatarImg.top
                     anchors.leftMargin: 20
-                    text: API.nickname
+                    color: API.isLogin ? "black" : "gray"
+                    text: API.isLogin ? API.nickname : qsTr("Unlogged")
                 }
             }
             Button {
@@ -52,8 +53,12 @@ WindowButton {
                 Layout.fillWidth: true
                 height: 40
                 ColorSelector.family: Palette.CrystalColor
-                text: qsTr("我的收藏")
+                text: qsTr("My Favorites")
                 onClicked: {
+                    if(!API.isLogin) {
+                        API.login()
+                        return
+                    }
                     Router.showStarsFeedback()
                     accountMenu.close()
                 }
@@ -63,7 +68,7 @@ WindowButton {
                 Layout.fillWidth: true
                 height: 40
                 ColorSelector.family: Palette.CrystalColor
-                text: qsTr("反馈广场")
+                text: qsTr("Feedback Hub")
                 onClicked: {
                     Router.showAllFeedback()
                     accountMenu.close()
@@ -73,19 +78,16 @@ WindowButton {
                 Layout.fillWidth: true
                 height: 40
                 Layout.topMargin: 20
-                text: qsTr("退出账号")
+                text: API.isLogin ? qsTr("Sign out") : qsTr("Sign in")
                 onClicked: {
                     worker.logout()
+                    Router.showIndex()
                     accountMenu.close()
                 }
             }
         }
     }
     onClicked: {
-        if(!API.isLogin) {
-            worker.login()
-            return
-        }
         accountMenu.open()
     }
 }

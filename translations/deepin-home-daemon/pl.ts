@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
         <source>Deepin Home</source>
-        <translation>Deepin Home</translation>
+        <translation>Strona główna Deepin</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>

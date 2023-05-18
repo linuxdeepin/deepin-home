@@ -128,6 +128,32 @@ QMap<QString, QVariant> Worker::getFileInfo(QString filepath)
     result["filepath"] = info.filePath();
     return result;
 }
+
+void Worker::notify(QString title, QString message) {
+    QStringList actions;
+    QVariantMap hints;
+    QDBusInterface notification("org.freedesktop.Notifications",
+                                "/org/freedesktop/Notifications",
+                                "org.freedesktop.Notifications",
+                                QDBusConnection::sessionBus());
+    QList<QVariant> args;
+    args << QCoreApplication::applicationName() // appname
+         << (unsigned int) 0                    // replaces id
+         << QCoreApplication::applicationName() // icon
+         << title                               // summary (notification title)
+         << message                             // body
+         << actions                             // actions
+         << hints                               // hints
+         << (int) 5000;                         // timeout
+
+    auto res = notification.callWithArgumentList(QDBus::AutoDetect, "Notify", args);
+    auto err = res.errorMessage();
+
+    if (!err.isEmpty()) {
+        qWarning() << "DBus Error" << err;
+    }
+}
+
 // 使用表单上传文件
 QString Worker::uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData)
 {
