@@ -27,15 +27,20 @@ Item {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
             if (xhr.readyState == XMLHttpRequest.DONE) {
-                if(xhr.status == 200) {
-                    if(xhr.responseText.length == 0) {
-                        callback(null)
-                    } else {
-                        callback(JSON.parse(xhr.responseText))
-                    }
-                } else {
-                    console.log("network error", xhr.status)
-                    networkError()
+                switch(xhr.status){
+                    case 200:
+                        if(xhr.responseText.length > 0) {
+                            callback(JSON.parse(xhr.responseText))
+                        } else {
+                            callback(null)
+                        }
+                        break
+                    case 401:
+                        login()
+                        break
+                    default:
+                        console.log("network error", xhr.status)
+                        networkError()
                 }
             }
         }
@@ -154,6 +159,10 @@ Item {
             arg(ids)
 
             get(url, (resp)=>{
+                if(!isLogin){
+                    callback(resp)
+                    return
+                }
                 return fill_feedback(resp, callback)
             })
         })
@@ -202,12 +211,16 @@ Item {
             getFeedback({offset:"", limit: "",type: opt.type, ids: ids}, callback)
         })
     }
-    // 上传文件
-    function upload(filepath, callback) {
+    // 获取文件信息
+    function getFileInfo(filepath) {
         if(filepath.startsWith("file://")){
             filepath=filepath.slice("file://".length)
         }
-        const info = worker.getFileInfo(filepath)
+        return worker.getFileInfo(filepath)
+    }
+    // 上传文件
+    function upload(filepath, callback) {
+        const info = getFileInfo(filepath)
         post("/api/v1/user/upload/pre", {name: info.filename, size: info.size}, (preInfo) => {
             let err = worker.uploadFile(preInfo.url, info.filepath, preInfo.form_data)
             if(err){
@@ -237,8 +250,12 @@ Item {
     function feedbackReply(id, callback) {
         get("/api/v1/public/feedback/reply?id="+id, callback)
     }
+    function notify(title, message) {
+        worker.notify(title, message)
+    }
     // 登陆
     function login() {
+        API.notify(qsTr("Please log in with your Deepin ID."), qsTr("You need to log in to proceed with the subsequent operations."))
         worker.login()
     }
     // 登出

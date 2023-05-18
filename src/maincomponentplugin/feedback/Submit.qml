@@ -30,7 +30,7 @@ Item {
         icon: "deepin-home"
         title: qsTr("Submit Feedback")
         width: root.width*0.8
-        height: 600
+        height: submitLayout.height + 100
         // 表单控件宽度
         property int controlWidth: width - 100 * 2
         component ControlLabel: Text {
@@ -50,6 +50,7 @@ Item {
         }
         // 提交表单
         ColumnLayout {
+            id: submitLayout
             width: parent.width
             spacing: 10
             Label {
@@ -177,6 +178,11 @@ Item {
                             nameFilters: [qsTr("Image files")+" (*.png *.jpg *.gif)"]
                             onAccepted: {
                                 for(const f of fileDialog.fileUrls){
+                                    const info = API.getFileInfo(f)
+                                    if(info.size > 1024*1024) {
+                                        API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file size should be less than 1MB."))
+                                        return
+                                    }
                                     root.appendImage(f)
                                 }
                             }
@@ -246,17 +252,63 @@ Item {
             Row {
                 spacing: 20
                 Layout.alignment: Qt.AlignHCenter
+                DialogWindow {
+                    id: cancelConfirm
+                    width: cancelText.width+80
+                    height: cancelColumn.height+80
+                    ColumnLayout {
+                        id: cancelColumn
+                        width: parent.width
+                        spacing: 20
+                        Text {
+                            id: cancelText
+                            Layout.alignment: Qt.AlignHCenter
+                            font: DTK.fontManager.t5
+                            text: qsTr("Are you sure you want to exit the feedback submission?")
+                        }
+                        Text {
+                            Layout.alignment: Qt.AlignHCenter
+                            font: DTK.fontManager.t7
+                            text: qsTr("The feedback content will not be saved.")
+                        }
+                        Row {
+                            Layout.alignment: Qt.AlignHCenter
+                            spacing: 10
+                            Button {
+                                text: qsTr("Cancel")
+                                onClicked: {
+                                    cancelConfirm.close()
+                                }
+                            }
+                            WarningButton {
+                                text: qsTr("Exit")
+                                onClicked: {
+                                    cancelConfirm.close()
+                                    win.close()
+                                }
+                            }
+                        }
+                        Row {
+
+                        }
+                    }
+                }
                 Button {
                     width: 200
                     text: qsTr("Cancel")
                     onClicked: {
-                        win.close()
+                        cancelConfirm.show()
+                        // win.close()
                     }
                 }
                 RecommandButton {
                     width: 200
                     text: qsTr("Submit")
                     onClicked: {
+                        if(titleText.text.length==0 || contentText.text.length==0){
+                            API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title and content of your feedback."))
+                            return
+                        }
                         let screenshots = []
                         const submit = () => {
                             API.getLanguage(lang=>{
@@ -268,7 +320,7 @@ Item {
                                     email: emailText.text,
                                     screenshots: screenshots,
                                 }, () => {
-                                    router.showMyFeedback()
+                                    Router.showMyFeedback()
                                 })
                             })
                         }

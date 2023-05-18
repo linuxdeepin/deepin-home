@@ -17,7 +17,7 @@ ButtonBox {
         visible: root.allFeedback
         id: allFeedbackBtn
         checked: Router.routeCurrent === Router.routeAllFeedback
-        text: qsTr("反馈广场")
+        text: qsTr("Feedback Hub")
         onClicked: {
             Router.showAllFeedback()
         }
@@ -26,7 +26,7 @@ ButtonBox {
         visible: root.allFeedback
         id: myFeedbackBtn
         checked: Router.routeCurrent === Router.routeMyFeedback
-        text: qsTr("我的反馈")
+        text: qsTr("My Feedbacks")
         onClicked: {
             Router.showMyFeedback()
         }
@@ -36,7 +36,7 @@ ButtonBox {
         visible: root.accountFeedback
         id: starsFeedbackBtn
         checked: Router.routeCurrent === Router.routeStarsFeedback
-        text: qsTr("我的收藏")
+        text: qsTr("My Favorites")
         onClicked: {
             Router.showStarsFeedback()
         }
@@ -46,7 +46,7 @@ ButtonBox {
         visible: root.accountFeedback
         id: watchFeedbackBtn
         checked: Router.routeCurrent === Router.routeWatchFeedback
-        text: qsTr("我的关注")
+        text: qsTr("My Urge")
         onClicked: {
             Router.showWatchFeedback()
         }

@@ -91,7 +91,7 @@ Item {
                 anchors.topMargin: 20
                 width: parent.width
                 inList: false
-                title: qsTr("官方回复")
+                title: qsTr("Official response")
                 content: ""
                 avatar: "http://home-dev.deepin.org/favicon.ico"
                 isRelay: true

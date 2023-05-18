@@ -1,66 +1,118 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="hu">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>Kérjük jelentkezzen be a Deepin® Azonosítójával</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>A további műveletek folytatásához be kell jelentkeznie.</translation>
+    </message>
+</context>
+<context>
+    <name>AccountButton</name>
+    <message>
+        <source>My Favorites</source>
+        <translation>Kedvenceim</translation>
+    </message>
+    <message>
+        <source>Feedback Hub</source>
+        <translation>Visszajelzési központ</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Kijelentkezés</translation>
+    </message>
+</context>
+<context>
+    <name>Card</name>
+    <message>
+        <source>View details</source>
+        <translation>Részletek megjelenítése</translation>
+    </message>
+    <message>
+        <source>%1 views</source>
+        <translation>%1 megtekintés</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Javaslatok</translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation>Levétel a kedvencekről</translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation>Kedvenc</translation>
+    </message>
+    <message>
+        <source>Cancel the urge</source>
+        <translation>Ösztönzés törlése</translation>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation>Ösztönzés</translation>
+    </message>
+</context>
+<context>
     <name>Card1</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Card1.qml" line="88"/>
         <source>Coming</source>
         <translation>Hamarosan</translation>
     </message>
 </context>
 <context>
+    <name>Detail</name>
+    <message>
+        <source>Official response</source>
+        <translation>Hivatalos válasz</translation>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="40"/>
         <source>Communication</source>
         <translation>Kommunikáció</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="41"/>
         <source>Discuss and share here</source>
         <translation>Beszélgessenek és osszák meg itt</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Bug Report</source>
         <translation>Hibajelentés küldése</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Report issues you found</source>
         <translation>Jelentse a hibákat, amelyeket talál</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="58"/>
         <source>Suggestions</source>
         <translation>Javaslatok</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="59"/>
         <source>Submit your suggestions</source>
         <translation>Küldje be javaslatait</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="73"/>
         <source>Resources</source>
         <translation>Források</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="78"/>
         <source>Questionaire</source>
         <translation>Kérdőív</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="135"/>
         <source>Join US</source>
         <translation>Csatlakozzon hozzánk</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="140"/>
         <source>Internal Testing</source>
         <translation>Belső tesztelés</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="154"/>
         <source>Community News</source>
         <translation>Közösségi Hírek</translation>
     </message>
@@ -68,12 +120,26 @@
 <context>
     <name>List</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="78"/>
+        <source>All</source>
+        <translation>Összes</translation>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation>Hiba</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Javaslatok</translation>
+    </message>
+    <message>
+        <source>Load More</source>
+        <translation>Továbbiak betöltése</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Üzenetek</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="81"/>
         <source>Questionaires</source>
         <translation>Kérdőívek</translation>
     </message>
@@ -81,65 +147,41 @@
 <context>
     <name>MyTitleBar</name>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
         <source>Launch at system startup</source>
         <translation>Indítsa el a rendszer indításakor</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
         <source>About</source>
         <translation>Az alkalmazásról</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
         <source>Exit</source>
         <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
         <translation>Verzió: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Home</source>
         <translation>Deepin® Központ</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="52"/>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
         <translation>Gyors bejelentkezés a fórumokba, javaslatok benyújtása és hibák bejelentése.</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
-        <source>Unlogged</source>
-        <translation>Nincs bejelentkezve</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="112"/>
-        <source>Sign in</source>
-        <translation>Bejelentkezés</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="124"/>
-        <source>Sign out</source>
-        <translation>Kijelentkezés</translation>
     </message>
 </context>
 <context>
     <name>Notify</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="51"/>
         <source>No messages yet.</source>
         <translation>Nincsenek üzenetek</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="149"/>
         <source>%1 messages</source>
         <translation>%1 üzenet</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="153"/>
         <source>Mark all as read</source>
         <translation>Összes megjelölése olvasottként</translation>
     </message>
@@ -147,7 +189,6 @@
 <context>
     <name>NotifyDetail</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/NotifyDetail.qml" line="65"/>
         <source>View more</source>
         <translation>Továbbiak megtekintése</translation>
     </message>
@@ -155,12 +196,10 @@
 <context>
     <name>Offline</name>
     <message>
-        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
         <source>Network error, please try later</source>
         <translation>Hálózati hiba, próbálja meg később</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
         <source>Refresh</source>
         <translation>Frissítés</translation>
     </message>
@@ -168,7 +207,6 @@
 <context>
     <name>Preload</name>
     <message>
-        <location filename="../src/preloadplugin/Preload.qml" line="34"/>
         <source>Deepin Home</source>
         <translation>Deepin® Központ</translation>
     </message>
@@ -176,19 +214,161 @@
 <context>
     <name>Questionnaire</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
         <source>No questionaires yet.</source>
         <translation>Nincsenek kérdőívek.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="89"/>
         <source>Expired on: %1</source>
         <translation>Kitöltési idő: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="117"/>
         <source>Fill In</source>
         <translation>Kitöltés</translation>
+    </message>
+</context>
+<context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>A további műveletek folytatásához be kell jelentkeznie.</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Megerősítve</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>Megválaszolva</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>Megoldva</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>Értékelés</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>Elfogadva</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>Befejezve</translation>
+    </message>
+</context>
+<context>
+    <name>Submit</name>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Visszajelzés küldése</translation>
+    </message>
+    <message>
+        <source>Type：</source>
+        <translation>Típus:</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Javaslatok</translation>
+    </message>
+    <message>
+        <source>Bug Report</source>
+        <translation>Hibajelentés küldése</translation>
+    </message>
+    <message>
+        <source>Title：</source>
+        <translation>Cím:</translation>
+    </message>
+    <message>
+        <source>Content：</source>
+        <translation>Tartalom:</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple requirements in one feedback</source>
+        <translation>Ne töltsön ki több követelményt egy visszajelzésben</translation>
+    </message>
+    <message>
+        <source>Email：</source>
+        <translation>E-mail:</translation>
+    </message>
+    <message>
+        <source>Device Info：</source>
+        <translation>Eszköz információ:</translation>
+    </message>
+    <message>
+        <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
+        <translation> &lt;a href=&apos;home://sysinfo&apos;&gt;Eszköz információ feltöltése&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Screenshots：</source>
+        <translation>Képernyőkép:</translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation>Kép fájlok</translation>
+    </message>
+    <message>
+        <source>Drag and drop files or click buttons to add pictures, up to three</source>
+        <translation>Fájlok húzásával, vagy a gombra kattintva adhat hozzá képeket (legfeljebb hármat). </translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation>Küldés</translation>
+    </message>
+    <message>
+        <source>Device Information</source>
+        <translation>Eszköz információ</translation>
+    </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>A képernyőkép hozzáadása sikertelen.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TabButton</name>
+    <message>
+        <source>Feedback Hub</source>
+        <translation>Visszajelzési központ</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Visszajelzéseim</translation>
+    </message>
+    <message>
+        <source>My Favorites</source>
+        <translation>Kedvenceim</translation>
+    </message>
+    <message>
+        <source>My Urge</source>
+        <translation>Ösztönzéseim</translation>
     </message>
 </context>
 </TS>

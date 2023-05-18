@@ -39,6 +39,7 @@ WindowButton {
         Text {
             id: count_text
             text: API.msgCount
+            font: DTK.fontManager.t8
             color: "#fff"
             anchors.centerIn: parent
         }

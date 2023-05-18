@@ -1,66 +1,107 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
 <context>
+    <name>AccountButton</name>
+    <message>
+        <source>My Favorites</source>
+        <translation>Улюблене</translation>
+    </message>
+    <message>
+        <source>Feedback Hub</source>
+        <translation>Вузол відгуків</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Вийти</translation>
+    </message>
+</context>
+<context>
+    <name>Card</name>
+    <message>
+        <source>View details</source>
+        <translation>Переглянути подробиці</translation>
+    </message>
+    <message>
+        <source>%1 views</source>
+        <translation>%1 переглядів</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Пропозиції</translation>
+    </message>
+    <message>
+        <source>Unfavorite</source>
+        <translation>Вилучити з улюблених</translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation>Додати до улюблених</translation>
+    </message>
+    <message>
+        <source>Cancel the urge</source>
+        <translation>Скасувати критичність</translation>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation>Зробити критичним</translation>
+    </message>
+</context>
+<context>
     <name>Card1</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Card1.qml" line="88"/>
         <source>Coming</source>
         <translation>Невдовзі</translation>
     </message>
 </context>
 <context>
+    <name>Detail</name>
+    <message>
+        <source>Official response</source>
+        <translation>Офіційна відповідь</translation>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="40"/>
         <source>Communication</source>
         <translation>Спілкування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="41"/>
         <source>Discuss and share here</source>
         <translation>Тут можна обговорювати і ділитися враженнями</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="50"/>
         <source>Bug Report</source>
         <translation>Звіт щодо вади</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="51"/>
         <source>Report issues you found</source>
         <translation>Повідомте про виявлені вади</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="58"/>
         <source>Suggestions</source>
         <translation>Пропозиції</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="59"/>
         <source>Submit your suggestions</source>
         <translation>Надішліть ваші пропозиції</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="73"/>
         <source>Resources</source>
         <translation>Ресурси</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="78"/>
         <source>Questionaire</source>
         <translation>Опитування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="135"/>
         <source>Join US</source>
         <translation>Долучіться до нас</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="140"/>
         <source>Internal Testing</source>
         <translation>Внутрішнє тестування</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/index/Index.qml" line="154"/>
         <source>Community News</source>
         <translation>Новини спільноти</translation>
     </message>
@@ -68,12 +109,26 @@
 <context>
     <name>List</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="78"/>
+        <source>All</source>
+        <translation>Усі</translation>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation>Вада</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Пропозиції</translation>
+    </message>
+    <message>
+        <source>Load More</source>
+        <translation>Завантажити більше</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Повідомлення</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/List.qml" line="81"/>
         <source>Questionaires</source>
         <translation>Опитування</translation>
     </message>
@@ -81,65 +136,41 @@
 <context>
     <name>MyTitleBar</name>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="26"/>
         <source>Launch at system startup</source>
         <translation>Запускати при запуску системи</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="32"/>
         <source>About</source>
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="36"/>
         <source>Exit</source>
         <translation>Вийти</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="46"/>
         <source>Version: %1</source>
         <translation>Версія: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="47"/>
         <source>Deepin Home</source>
         <translation>Домівка Deepin</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="52"/>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
         <translation>Швидке входження на форуми, сторінки надсилання пропозицій та повідомлення про вади.</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="76"/>
-        <source>Unlogged</source>
-        <translation>Поза системою</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="112"/>
-        <source>Sign in</source>
-        <translation>Увійти</translation>
-    </message>
-    <message>
-        <location filename="../src/maincomponentplugin/titlebar/MyTitleBar.qml" line="124"/>
-        <source>Sign out</source>
-        <translation>Вийти</translation>
     </message>
 </context>
 <context>
     <name>Notify</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="51"/>
         <source>No messages yet.</source>
         <translation>Ще немає повідомлень.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="149"/>
         <source>%1 messages</source>
         <translation>%1 повідомлень</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Notify.qml" line="153"/>
         <source>Mark all as read</source>
         <translation>Позначити усі як прочитані</translation>
     </message>
@@ -147,7 +178,6 @@
 <context>
     <name>NotifyDetail</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/NotifyDetail.qml" line="65"/>
         <source>View more</source>
         <translation>Переглянути ще</translation>
     </message>
@@ -155,12 +185,10 @@
 <context>
     <name>Offline</name>
     <message>
-        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="20"/>
         <source>Network error, please try later</source>
         <translation>Помилка у мережі. Будь ласка, повторіть спробу</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/offline/Offline.qml" line="26"/>
         <source>Refresh</source>
         <translation>Освіжити</translation>
     </message>
@@ -168,7 +196,6 @@
 <context>
     <name>Preload</name>
     <message>
-        <location filename="../src/preloadplugin/Preload.qml" line="34"/>
         <source>Deepin Home</source>
         <translation>Домівка Deepin</translation>
     </message>
@@ -176,19 +203,102 @@
 <context>
     <name>Questionnaire</name>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="43"/>
         <source>No questionaires yet.</source>
         <translation>Ще немає опитувань.</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="89"/>
         <source>Expired on: %1</source>
         <translation>Строк дії: %1</translation>
     </message>
     <message>
-        <location filename="../src/maincomponentplugin/list/Questionnaire.qml" line="117"/>
         <source>Fill In</source>
         <translation>Заповнення</translation>
+    </message>
+</context>
+<context>
+    <name>Submit</name>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Надіслати відгук</translation>
+    </message>
+    <message>
+        <source>Type：</source>
+        <translation>Тип:</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Пропозиції</translation>
+    </message>
+    <message>
+        <source>Bug Report</source>
+        <translation>Звіт щодо вади</translation>
+    </message>
+    <message>
+        <source>Title：</source>
+        <translation>Заголовок:</translation>
+    </message>
+    <message>
+        <source>Content：</source>
+        <translation>Вміст:</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple requirements in one feedback</source>
+        <translation>Не вписуйте декілька вимог до одного відгуку</translation>
+    </message>
+    <message>
+        <source>Email：</source>
+        <translation>Адреса ел. пошти:</translation>
+    </message>
+    <message>
+        <source>Device Info：</source>
+        <translation>Дані щодо пристрою:</translation>
+    </message>
+    <message>
+        <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
+        <translation>Вивантажити &lt;a href=&apos;home://sysinfo&apos;&gt;дані щодо пристрою&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Screenshots：</source>
+        <translation>Знімки вікон:</translation>
+    </message>
+    <message>
+        <source>Image files</source>
+        <translation>Файли зображень</translation>
+    </message>
+    <message>
+        <source>Drag and drop files or click buttons to add pictures, up to three</source>
+        <translation>Перетягніть і скиньте файли або натисніть кнопку додавання зображень у кількості до трьох</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation>Надіслати</translation>
+    </message>
+    <message>
+        <source>Device Information</source>
+        <translation>Дані щодо пристрою</translation>
+    </message>
+</context>
+<context>
+    <name>TabButton</name>
+    <message>
+        <source>Feedback Hub</source>
+        <translation>Вузол відгуків</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Відгуки</translation>
+    </message>
+    <message>
+        <source>My Favorites</source>
+        <translation>Улюблене</translation>
+    </message>
+    <message>
+        <source>My Urge</source>
+        <translation>Критичне</translation>
     </message>
 </context>
 </TS>
