@@ -1,3 +1,12 @@
+deepin-home (1.1.0) unstable; urgency=medium
+
+  * feat: add create feedback dialog
+  * feat: add feedback list compeont
+  * feat: Support client login and submit feedback
+  * feat: update translation files
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 18 May 2023 14:50:36 +0800
+
 deepin-home (1.0.22) stable; urgency=medium
   
   * fix: Unable to start after upgrade DTK
