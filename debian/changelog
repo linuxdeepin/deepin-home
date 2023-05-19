@@ -1,3 +1,14 @@
+deepin-home (1.1.1) unstable; urgency=medium
+
+  * fix: login button not working
+  * feat: The character limit for the title and content input fields
+  * feat: Limit maximun display lines for title and content in the feedback list
+  * fix: Popup login dialog when click on feedback detail
+  * chore: update translations
+  * fix: depends missing quick dialog module
+
+ -- Deepin Packages Builder <packages@deepin.org>  Fri, 19 May 2023 14:48:35 +0800
+
 deepin-home (1.1.0) unstable; urgency=medium
 
   * feat: add create feedback dialog
