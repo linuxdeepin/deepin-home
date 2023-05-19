@@ -22,7 +22,15 @@
     </message>
     <message>
         <source>Sign out</source>
-        <translation>登出</translation>
+        <translation>退出帐号</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation>未登陆</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登陆账号</translation>
     </message>
 </context>
 <context>
@@ -289,7 +297,7 @@
     </message>
     <message>
         <source>Email：</source>
-        <translation>信箱：</translation>
+        <translation>邮箱：</translation>
     </message>
     <message>
         <source>Device Info：</source>

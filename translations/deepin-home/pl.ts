@@ -1,5 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>Zaloguj się za pomocą swojego Deepin ID</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>Musisz się zalogować, aby kontynuować.</translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
@@ -12,6 +23,14 @@
     <message>
         <source>Sign out</source>
         <translation>Wyloguj</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -38,11 +57,11 @@
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj prośbę o aktualizację</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Prośby o aktualizacje</translation>
     </message>
 </context>
 <context>
@@ -216,6 +235,37 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>Oczekująca</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Potwierdzona</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>Z odpowiedzią</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>Rozwiązana</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>W trakcie oceny</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>Zaakceptowana</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>Zakończona</translation>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
@@ -281,6 +331,34 @@
         <source>Device Information</source>
         <translation>Informacje urządzenia</translation>
     </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Nie można dodać zrzutu ekranu.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Rozmiar pliku obrazu nie może przekraczać 1MB.</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation>Czy na pewno chcesz przerwać wysyłanie opinii?</translation>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation>Zawartość opinii nie zostanie zachowana.</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Wyjdź</translation>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation>Nie można wysłać opinii.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Wprowadź tytuł i zawartość opinii.</translation>
+    </message>
 </context>
 <context>
     <name>TabButton</name>
@@ -298,7 +376,7 @@
     </message>
     <message>
         <source>My Urge</source>
-        <translation type="unfinished"/>
+        <translation>Moje prośby</translation>
     </message>
 </context>
 </TS>
