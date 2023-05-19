@@ -95,6 +95,11 @@ Item {
                     id: titleText
                     width: win.controlWidth
                     text: ""
+                    onTextChanged: {
+                        if (length > 60) {
+                            remove(60, length)
+                        }
+                    }
                 }
             }
             // 内容
@@ -111,6 +116,11 @@ Item {
                             id: contentText
                             selectByMouse: true
                             wrapMode: Text.Wrap
+                            onTextChanged: {
+                                if (length > 1000) {
+                                    remove(1000, length)
+                                }
+                            }
                         }
                     }
                     Label {
