@@ -74,14 +74,28 @@ WindowButton {
                     accountMenu.close()
                 }
             }
+            // 登出按钮
             Button {
+                visible: API.isLogin
                 Layout.fillWidth: true
                 height: 40
                 Layout.topMargin: 20
-                text: API.isLogin ? qsTr("Sign out") : qsTr("Sign in")
+                text: qsTr("Sign out")
                 onClicked: {
-                    worker.logout()
+                    API.logout()
                     Router.showIndex()
+                    accountMenu.close()
+                }
+            }
+            // 登陆按钮
+            RecommandButton {
+                visible: !API.isLogin
+                Layout.fillWidth: true
+                height: 40
+                Layout.topMargin: 20
+                text: qsTr("Sign in")
+                onClicked: {
+                    API.login()
                     accountMenu.close()
                 }
             }
