@@ -36,13 +36,6 @@ Rectangle {
     signal likeClicked()
     signal collectClicked()
 
-    Status {
-        visible: !root.isRelay
-        anchors.right: parent.right
-        anchors.top: parent.top
-        type: root.type
-        status: root.status
-    }
     // 头像预留位置
     Image {
         x: 20
@@ -56,11 +49,16 @@ Rectangle {
         id: column
         x: 20+36+10
         width: parent.width - x - 20
+        clip: true
         // 标题
         Text {
             id: titleText
+            Layout.maximumWidth: parent.width - 100
             Layout.topMargin: 10
             font: DTK.fontManager.t4
+            wrapMode: Text.WrapAnywhere
+            elide: Text.ElideRight
+            maximumLineCount: inList ? 1 : 0
             text: root.title
             color: titleText.hovered ? 'red' : ''
             MouseArea {
@@ -91,7 +89,9 @@ Rectangle {
             Layout.fillWidth: true
             Layout.topMargin: 10
             Layout.bottomMargin: 10
-            wrapMode: Text.Wrap
+            wrapMode: Text.WrapAnywhere
+            elide: Text.ElideRight
+            maximumLineCount: inList ? 2 : 0
             text: root.content
             // TODO 不知什么原因，无法触发root信号
             onLinkActivated: (link)=> {
@@ -212,6 +212,13 @@ Rectangle {
                 }
             }
         }
+    }
+    Status {
+        visible: !root.isRelay
+        anchors.right: parent.right
+        anchors.top: parent.top
+        type: root.type
+        status: root.status
     }
     // 阴影
     BoxShadow {
