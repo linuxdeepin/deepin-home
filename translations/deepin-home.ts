@@ -26,6 +26,14 @@
         <source>Sign out</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Unlogged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Card</name>

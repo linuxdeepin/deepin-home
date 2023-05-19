@@ -1,5 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="nl">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>Log in met je Deepin ID.</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>Log in om de vervolgstappen te kunnen volgen.</translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
@@ -12,6 +23,14 @@
     <message>
         <source>Sign out</source>
         <translation>Uitloggen</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -216,6 +235,37 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>In afwachting</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bevestigd</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>Beantwoord</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>Opgelost</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>In behandeling</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>Goedgekeurd</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>Voltooid</translation>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
@@ -280,6 +330,34 @@
     <message>
         <source>Device Information</source>
         <translation>Apparaatinformatie</translation>
+    </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>De schermfoto kan niet worden toegevoegd.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>De afbeelding mag maximaal 1 MB groot zijn.</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation>Weet je zeker dat je je feedback niet wilt versturen?</translation>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation>De inhoud ervan wordt niet opgeslagen.</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Afsluiten</translation>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation>De feedback kan niet worden verstuurd.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Geef de feedback een naam en voorzie deze van inhoud.</translation>
     </message>
 </context>
 <context>
