@@ -12,11 +12,15 @@ Build-Depends:
  libdtkgui-dev,
  libdtkdeclarative-dev,
  qttools5-dev-tools,
+ qml-module-qtquick-dialogs,
 Standards-Version: 4.6.0
 Rules-Requires-Root: no
 
 Package: deepin-home
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: 
+ ${shlibs:Depends}, 
+ ${misc:Depends},
+ qml-module-qtquick-dialogs,
 Description: deepin home
  quick login bbs, bug report.
