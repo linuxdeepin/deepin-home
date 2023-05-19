@@ -31,7 +31,9 @@ Item {
     }
     function goDetail(feedback) {
         API.publicViewFeedback(feedback.public_id)
-        API.userViewFeedback(feedback.public_id)
+        if(API.isLogin) {
+            API.userViewFeedback(feedback.public_id)
+        }
         Router.showFeedbackDetail(feedback)
     }
     // 获取反馈列表
@@ -89,6 +91,7 @@ Item {
             id: selectBox
             width: 150
             anchors.right: parent.right
+            anchors.rightMargin: 10
             anchors.verticalCenter: parent.verticalCenter
             textRole: "text"
             model: ListModel {
