@@ -1,3 +1,14 @@
+deepin-home (1.1.2) unstable; urgency=medium
+
+  * fix: The title input cannot be selected with the mouse(Issue: https://github.com/linuxdeepin/developer-center/issues/4453)
+  * fix: Taskbar menu dose not activate main windows(Issue: https://github.com/linuxdeepin/developer-center/issues/4076)
+  * chore: update translation(Issue: https://github.com/linuxdeepin/developer-center/issues/4451)
+  * fix: Error in notify prompt text(Issue: https://github.com/linuxdeepin/developer-center/issues/4461)
+  * feat: screenshots images validate format(Issue: https://github.com/linuxdeepin/developer-center/issues/4459)
+  * feat: email input add validator(Issue: https://github.com/linuxdeepin/developer-center/issues/4458)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Wed, 24 May 2023 16:24:45 +0800
+
 deepin-home (1.1.1) unstable; urgency=medium
 
   * fix: login button not working
