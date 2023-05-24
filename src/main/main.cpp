@@ -5,13 +5,24 @@
 #include <DAppLoader>
 #include <QDBusConnection>
 #include <QQmlApplicationEngine>
+#include "../base/const.h"
+#include "homeDaemonProxy.h"
 
 DQUICK_USE_NAMESPACE
+
+void activeMainWindows()
+{
+    HomeDaemonProxy daemon(DEEPIN_HOME_DAEMON_SERVICE,
+                                DEEPIN_HOME_DAEMON_PATH,
+                                QDBusConnection::sessionBus());
+    daemon.activeMainWindows();
+}
 
 int main(int argc, char *argv[])
 {
     QDBusConnection dbus = QDBusConnection::sessionBus();
     if (!dbus.registerService("com.deepin.Home")) {
+        activeMainWindows();
         qDebug() << "DBus Error: register com.deepin.Home";
         return -1;
     }

@@ -69,5 +69,7 @@
     <method name="setAutoStart">
       <arg name="enable" type="b" direction="in"/>
     </method>
+    <method name="activeMainWindows">
+    </method>
   </interface>
 </node>
