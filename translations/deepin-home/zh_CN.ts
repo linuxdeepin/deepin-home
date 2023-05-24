@@ -363,6 +363,14 @@
         <source>Please provide the content of your feedback.</source>
         <translation>请填写反馈的内容</translation>
     </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation>输入的邮件地址不正确</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>图片的文件格式不支持上传</translation>
+    </message>
 </context>
 <context>
     <name>TabButton</name>

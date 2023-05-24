@@ -35,7 +35,7 @@ Item {
             }
         }
         if(!allow){
-            API.notify(qsTr("Unable to add a screenshot."), qsTr("This image file format is not supported for uploading."))
+            API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file format is not supported for uploading."))
             return
         }
         imgListModel.append({"source": src})
@@ -154,6 +154,7 @@ Item {
                 }
                 LineEdit {
                     id: emailText
+                    validator: RegExpValidator { regExp: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ }
                     width: win.controlWidth
                     text: ""
                 }
@@ -227,7 +228,7 @@ Item {
                                     source: model.source
                                     onStatusChanged: {
                                         if (status == Image.Error) {
-                                            API.notify(qsTr("Unable to add a screenshot."), qsTr("This image file format is not supported for uploading."))
+                                            API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file format is not supported for uploading."))
                                             imgList.model.remove(index)
                                         }
                                     }
@@ -338,6 +339,10 @@ Item {
                         }
                         if(contentText.text.length==0){
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the content of your feedback."))
+                            return
+                        }
+                        if(emailText.text.length>0 && !emailText.acceptableInput){
+                            API.notify(qsTr("Unable to submit feedback."), qsTr("Incorrect email address entered."))
                             return
                         }
                         let screenshots = []

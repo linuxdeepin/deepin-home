@@ -365,6 +365,14 @@
         <source>Please provide the content of your feedback.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TabButton</name>

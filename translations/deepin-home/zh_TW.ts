@@ -357,10 +357,22 @@
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>請填寫回饋的標題</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
+        <translation>請填寫回饋的內容</translation>
+    </message>
+    <message>
+        <source>This image file format is not supported for uploading.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
         <translation type="unfinished"/>
     </message>
 </context>
