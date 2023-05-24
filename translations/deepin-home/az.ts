@@ -356,8 +356,12 @@
         <translation>Rəyi göndərmək mümkün olmadı.</translation>
     </message>
     <message>
-        <source>Please provide the title and content of your feedback.</source>
-        <translation>Lütfən, rəyinizin başlığını və məzmununu təqdim edin.</translation>
+        <source>Please provide the title of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -356,8 +356,12 @@
         <translation>无法提交反馈</translation>
     </message>
     <message>
-        <source>Please provide the title and content of your feedback.</source>
-        <translation>请填写反馈的标题和内容</translation>
+        <source>Please provide the title of your feedback.</source>
+        <translation>请填写反馈的标题</translation>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation>请填写反馈的内容</translation>
     </message>
 </context>
 <context>

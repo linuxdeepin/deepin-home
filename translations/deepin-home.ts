@@ -358,7 +358,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Please provide the title and content of your feedback.</source>
+        <source>Please provide the title of your feedback.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
