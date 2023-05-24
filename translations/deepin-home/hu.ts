@@ -24,6 +24,14 @@
         <source>Sign out</source>
         <translation>Kijelentkezés</translation>
     </message>
+    <message>
+        <source>Unlogged</source>
+        <translation>Nincs bejelentkezve</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Bejelentkezés</translation>
+    </message>
 </context>
 <context>
     <name>Card</name>
@@ -329,27 +337,27 @@
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"/>
+        <translation>A képfájl mérete 1 MB-nál kisebb lehet.</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>Biztosan kilép a visszajelzés küldéséből?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>A visszajelzés tartalma nem kerül mentésre.</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Kilépés</translation>
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation type="unfinished"/>
+        <translation>A visszajelzés küldése sikertelen.</translation>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Kérjük, adja meg visszajelzésének címét, és tartalmát.</translation>
     </message>
 </context>
 <context>

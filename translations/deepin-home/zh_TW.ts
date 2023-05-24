@@ -1,48 +1,67 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_TW">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>請登入您的Deepin ID帳號</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>您需要登入才能進行後續操作。</translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>我的收藏</translation>
     </message>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>回饋廣場</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>退出帳號</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation>未登入</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>登入帳號</translation>
     </message>
 </context>
 <context>
     <name>Card</name>
     <message>
         <source>View details</source>
-        <translation type="unfinished"/>
+        <translation>查看詳情</translation>
     </message>
     <message>
         <source>%1 views</source>
-        <translation type="unfinished"/>
+        <translation>%1次查看</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>需求</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>取消收藏</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>收藏</translation>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>不催了</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>催一下</translation>
     </message>
 </context>
 <context>
@@ -56,7 +75,7 @@
     <name>Detail</name>
     <message>
         <source>Official response</source>
-        <translation type="unfinished"/>
+        <translation>官方回復</translation>
     </message>
 </context>
 <context>
@@ -110,19 +129,19 @@
     <name>List</name>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>全部</translation>
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>BUG</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>需求</translation>
     </message>
     <message>
         <source>Load More</source>
-        <translation type="unfinished"/>
+        <translation>載入更多</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -216,89 +235,148 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>待處理</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>已確認</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>已回復</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>已解決</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>評估中</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>已接受</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>已完成</translation>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>提交回饋</translation>
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>類型：</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>需求回饋</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>BUG回饋</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>標題：</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>內容：</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>請勿在一條回饋中填寫多條需求</translation>
     </message>
     <message>
         <source>Email：</source>
-        <translation type="unfinished"/>
+        <translation>信箱：</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>裝置訊息：</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>上傳&lt;a href=&apos;home://sysinfo&apos;&gt;裝置訊息&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>截圖：</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>圖片文件</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>拖曳文件或者點擊“+”添加圖片，最多添加三張</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>提交</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>裝置訊息</translation>
+    </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>無法添加截圖</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>圖像檔案大小應小於 1MB</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation>您確定要退出回饋訊息建立嗎？</translation>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation>回饋內容不會被儲存</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>退出</translation>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation>無法提交回饋</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>請填寫回饋的標題和內容</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>回饋廣場</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>我的回饋</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>我的收藏</translation>
     </message>
     <message>
         <source>My Urge</source>
-        <translation type="unfinished"/>
+        <translation>我的催促</translation>
     </message>
 </context>
 </TS>

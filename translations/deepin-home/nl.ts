@@ -26,11 +26,11 @@
     </message>
     <message>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>Uitgelogd</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Inloggen</translation>
     </message>
 </context>
 <context>
