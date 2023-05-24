@@ -356,8 +356,12 @@
         <translation>Nie można wysłać opinii.</translation>
     </message>
     <message>
-        <source>Please provide the title and content of your feedback.</source>
-        <translation>Wprowadź tytuł i zawartość opinii.</translation>
+        <source>Please provide the title of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

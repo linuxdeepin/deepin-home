@@ -316,8 +316,12 @@ Item {
                     width: 200
                     text: qsTr("Submit")
                     onClicked: {
-                        if(titleText.text.length==0 || contentText.text.length==0){
-                            API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title and content of your feedback."))
+                        if(titleText.text.length==0){
+                            API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title of your feedback."))
+                            return
+                        }
+                        if(contentText.text.length==0){
+                            API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the content of your feedback."))
                             return
                         }
                         let screenshots = []

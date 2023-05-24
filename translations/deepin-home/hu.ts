@@ -356,8 +356,12 @@
         <translation>A visszajelzés küldése sikertelen.</translation>
     </message>
     <message>
-        <source>Please provide the title and content of your feedback.</source>
-        <translation>Kérjük, adja meg visszajelzésének címét, és tartalmát.</translation>
+        <source>Please provide the title of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

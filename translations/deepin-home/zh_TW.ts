@@ -356,8 +356,12 @@
         <translation>無法提交回饋</translation>
     </message>
     <message>
-        <source>Please provide the title and content of your feedback.</source>
-        <translation>請填寫回饋的標題和內容</translation>
+        <source>Please provide the title of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

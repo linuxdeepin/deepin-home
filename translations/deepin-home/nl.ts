@@ -356,8 +356,12 @@
         <translation>De feedback kan niet worden verstuurd.</translation>
     </message>
     <message>
-        <source>Please provide the title and content of your feedback.</source>
-        <translation>Geef de feedback een naam en voorzie deze van inhoud.</translation>
+        <source>Please provide the title of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
