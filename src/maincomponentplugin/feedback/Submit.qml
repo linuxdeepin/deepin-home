@@ -94,6 +94,7 @@ Item {
                 TextField {
                     id: titleText
                     width: win.controlWidth
+                    selectByMouse: true
                     text: ""
                     onTextChanged: {
                         if (length > 60) {
