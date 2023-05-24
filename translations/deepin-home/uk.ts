@@ -1,5 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>Будь ласка, увійдіть до вашого облікового запису Deepin.</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>Для виконання наступних дій вам слід увійти до системи.</translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
@@ -12,6 +23,14 @@
     <message>
         <source>Sign out</source>
         <translation>Вийти</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation>Поза системою</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Увійти</translation>
     </message>
 </context>
 <context>
@@ -216,6 +235,37 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>У черзі</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Підтверджено</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>Надано відповідь</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>Розв&apos;язано</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>Оцінка</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>Прийнято</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>Завершено</translation>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
@@ -280,6 +330,34 @@
     <message>
         <source>Device Information</source>
         <translation>Дані щодо пристрою</translation>
+    </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Не вдалося додати знімок вікна.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Розмір файла зображення має бути меншим за 1 МБ.</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation>Ви справді хочете перервати надсилання відгуку?</translation>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation>Вміст відгуку не буде збережено.</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Вийти</translation>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation>Не вдалося надіслати відгук.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Будь ласка, надайте заголовок та дані вашого відгуку.</translation>
     </message>
 </context>
 <context>

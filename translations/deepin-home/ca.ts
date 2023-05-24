@@ -1,5 +1,16 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>Inicieu sessió amb l&apos;identificador del Deepin.</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>Cal iniciar sessió per continuar amb les operacions posteriors.</translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
@@ -12,6 +23,14 @@
     <message>
         <source>Sign out</source>
         <translation>Surt de la sessió</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation>Fora de la sessió</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Inicieu la sessió</translation>
     </message>
 </context>
 <context>
@@ -114,15 +133,15 @@
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Error</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Suggeriments</translation>
     </message>
     <message>
         <source>Load More</source>
-        <translation type="unfinished"/>
+        <translation>Carrega&apos;n més</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -216,89 +235,148 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>Pendent</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Confirmat</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>Respost</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>Resolt</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>En avaluació</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>Acceptat</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>Completat</translation>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Envieu comentaris</translation>
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>Tipus:</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Suggeriments</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Informe d&apos;error</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>Títol:</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>Contingut:</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>No ompliu diversos requisits en un sol comentari.</translation>
     </message>
     <message>
         <source>Email：</source>
-        <translation type="unfinished"/>
+        <translation>Adreça electrònica:</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>Informació del dispositiu:</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Carrega la &lt;a href=&apos;home://sysinfo&apos;&gt;informació del dispositiu&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Captures de pantalla:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers d&apos;imatge</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Arrossegueu i deixeu-hi anar fitxers o cliqueu als botons per afegir-hi imatges, fins a tres.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Envia</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>Informació del dispositiu</translation>
+    </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>No es pot afegir una captura de pantalla.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>La mida del fitxer d&apos;imatge ha de ser inferior a 1 MB.</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation>Segur que voleu sortir de l&apos;enviament de comentaris?</translation>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation>El contingut del comentari no es desarà.</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Surt</translation>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation>No es poden enviar comentaris.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Si us plau, proporcioneu el títol i el contingut del comentari.</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Centre d&apos;informació de retorn</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Els meus comentaris</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favorits</translation>
     </message>
     <message>
         <source>My Urge</source>
-        <translation type="unfinished"/>
+        <translation>Urgències</translation>
     </message>
 </context>
 </TS>

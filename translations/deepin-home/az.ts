@@ -1,48 +1,67 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="az">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>Deepin İD ilə daxil olun.</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>Sonrakı əmələiyyatlara davam etmək üçün daxil olmalısınız.</translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Seçilmişlər</translation>
     </message>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Geri əlaqə mərkəzi</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Çıxın</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation>Hesabdan çıxmış</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Daxil olun</translation>
     </message>
 </context>
 <context>
     <name>Card</name>
     <message>
         <source>View details</source>
-        <translation type="unfinished"/>
+        <translation>Ətraflı baxış</translation>
     </message>
     <message>
         <source>%1 views</source>
-        <translation type="unfinished"/>
+        <translation>%1 baxış</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Təkliflər</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>Seçilməmiş</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Seçilmiş</translation>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>Bu istəyi ləğv edin</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>İstək</translation>
     </message>
 </context>
 <context>
@@ -56,7 +75,7 @@
     <name>Detail</name>
     <message>
         <source>Official response</source>
-        <translation type="unfinished"/>
+        <translation>Rəsmi cavab</translation>
     </message>
 </context>
 <context>
@@ -110,19 +129,19 @@
     <name>List</name>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Hamısı</translation>
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Xəta</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Təkliflər</translation>
     </message>
     <message>
         <source>Load More</source>
-        <translation type="unfinished"/>
+        <translation>Daha çox yükləmək</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -216,89 +235,148 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>Gözləyən</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Təsdiq olunmuş</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>Cavab verilən</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>Həll olunan</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>Qiymətləndirmə</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>Qəbul edilmiş</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>Tamamlanmış</translation>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Rəy göndərin</translation>
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>Növ:</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Təkliflər</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Xəta bildirişi</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>Başlıq:</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>Məzmun :</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Bir rəydə çox sayda tələblər yerləşdirməyin</translation>
     </message>
     <message>
         <source>Email：</source>
-        <translation type="unfinished"/>
+        <translation>E-poçt :</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>Cihaz haqqında məlumat :</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;home://sysinfo&apos;&gt;Cihaz məumatlarını&lt;/a&gt; yükləyin</translation>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Ekran şəkilləri :</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Şəkil faylları</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Sürüşdürüb atmaqla və ya düymələrə vurmaqla şəkillər (3-ə qədər) əlavə edin,</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Ləğv edin</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Göndərin</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>Cihaz haqqında məlumat</translation>
+    </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Ekran şəkli əlavə etmək mümkün olmadı.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Şəkil faylının ölçüsü 1MB-dan az olmalıdır.</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation>Rəy göndərilməsindən çıxmaq istədiyinizə əminsiniz?</translation>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation>Rəyin məzmunu saxlanılmayacaq.</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Çıxın</translation>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation>Rəyi göndərmək mümkün olmadı.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Lütfən, rəyinizin başlığını və məzmununu təqdim edin.</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Geri əlaqə mərkəzi</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Mənim rəylərim</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Seçilmişlər</translation>
     </message>
     <message>
         <source>My Urge</source>
-        <translation type="unfinished"/>
+        <translation>İstəklərim</translation>
     </message>
 </context>
 </TS>

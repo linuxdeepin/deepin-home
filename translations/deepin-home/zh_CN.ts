@@ -3,7 +3,7 @@
     <name>API</name>
     <message>
         <source>Please log in with your Deepin ID.</source>
-        <translation>请登陆您的Deepin ID账号</translation>
+        <translation>请登录您的Deepin ID帐号</translation>
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
@@ -18,19 +18,19 @@
     </message>
     <message>
         <source>Feedback Hub</source>
-        <translation>回馈广场</translation>
+        <translation>反馈广场</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>退出帐号</translation>
+        <translation>退出帐户</translation>
     </message>
     <message>
         <source>Unlogged</source>
-        <translation>未登陆</translation>
+        <translation>未登录</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>登陆账号</translation>
+        <translation>登录帐号</translation>
     </message>
 </context>
 <context>
@@ -90,15 +90,15 @@
     </message>
     <message>
         <source>Bug Report</source>
-        <translation>Bug回馈</translation>
+        <translation>Bug反馈</translation>
     </message>
     <message>
         <source>Report issues you found</source>
-        <translation>日常使用问题回馈</translation>
+        <translation>日常使用问题反馈</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation>需求回馈</translation>
+        <translation>需求反馈</translation>
     </message>
     <message>
         <source>Submit your suggestions</source>
@@ -269,7 +269,7 @@
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
-        <translation>提交回馈</translation>
+        <translation>提交反馈</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -277,11 +277,11 @@
     </message>
     <message>
         <source>Suggestions</source>
-        <translation>需求回馈</translation>
+        <translation>需求反馈</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation>BUG回馈</translation>
+        <translation>BUG反馈</translation>
     </message>
     <message>
         <source>Title：</source>
@@ -293,7 +293,7 @@
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation>请勿在一条回馈中填写多条需求</translation>
+        <translation>请勿在一条反馈中填写多条需求</translation>
     </message>
     <message>
         <source>Email：</source>
@@ -364,11 +364,11 @@
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation>回馈广场</translation>
+        <translation>反馈广场</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>我的回馈</translation>
+        <translation>我的反馈</translation>
     </message>
     <message>
         <source>My Favorites</source>
