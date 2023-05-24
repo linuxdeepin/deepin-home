@@ -23,6 +23,21 @@ Item {
         if(imgListModel.count >= 3){
             return
         }
+        const info = API.getFileInfo(src)
+        if(info.size > 1024*1024) {
+            API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file size should be less than 1MB."))
+            return
+        }
+        let allow=false
+        for(const ext of [".png", ".jpg", ".gif"]){
+            if(info.filename.endsWith(ext)){
+                allow=true
+            }
+        }
+        if(!allow){
+            API.notify(qsTr("Unable to add a screenshot."), qsTr("This image file format is not supported for uploading."))
+            return
+        }
         imgListModel.append({"source": src})
     }
     DialogWindow {
@@ -189,11 +204,6 @@ Item {
                             nameFilters: [qsTr("Image files")+" (*.png *.jpg *.gif)"]
                             onAccepted: {
                                 for(const f of fileDialog.fileUrls){
-                                    const info = API.getFileInfo(f)
-                                    if(info.size > 1024*1024) {
-                                        API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file size should be less than 1MB."))
-                                        return
-                                    }
                                     root.appendImage(f)
                                 }
                             }
@@ -215,6 +225,12 @@ Item {
                                     anchors.fill: parent
                                     fillMode: Image.PreserveAspectFit
                                     source: model.source
+                                    onStatusChanged: {
+                                        if (status == Image.Error) {
+                                            API.notify(qsTr("Unable to add a screenshot."), qsTr("This image file format is not supported for uploading."))
+                                            imgList.model.remove(index)
+                                        }
+                                    }
                                 }
                                 // 鼠标点击移除已添加的图片
                                 MouseArea {
@@ -380,7 +396,7 @@ Item {
             onDropped: {
                 dropRect.visible = false
                 for(const f of drop.urls){
-                    win.appendImage(f)
+                    root.appendImage(f)
                 }
             }
         }
