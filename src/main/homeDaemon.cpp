@@ -406,3 +406,8 @@ void HomeDaemon::setAutoStart(bool enable)
 {
     return m_settings.setValue("autostart", enable);
 }
+// 发出showMainWindow信号，通知客户端激活窗口
+void HomeDaemon::activeMainWindows()
+{
+    emit showMainWindow(false);
+}

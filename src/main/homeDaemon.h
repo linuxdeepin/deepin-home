@@ -48,7 +48,9 @@ private:
 public:
     explicit HomeDaemon(QObject *parent = nullptr);
     ~HomeDaemon();
+    // 初始化托盘
     void initSysTrayIcon();
+    // 生成UUID
     QString newUUID();
     // 每个消息的状态存储在配置文件中
     QString messageSettingKey(QString channel, QString topic, QString uuid);
@@ -56,8 +58,9 @@ public:
     void start();
     // 主流程，更新node信息，并启动定时器刷新渠道消息
     void run();
+    // 定时刷新节点
     void refreshNode();
-    // 定时刷新单个渠道
+    // 定时刷新渠道
     void refreshChannel(QString cronID, QString channel);
     // 处理消息
     void message(QString channel, QString topic, QString changeID);
@@ -65,9 +68,10 @@ public:
     void notify(QString title, QString summary, QString url);
     // 在固定时机提醒填写调查问卷
     void execFirstNotify();
+    // 记录运行时间，用于判断是否可以提示填写调查问卷
     void runTimeRecord();
 
-    // 记录主题的change id，避免返回刷新消息列表
+    // 记录主题的change id，change id发生变动才会抓取消息列表
     QString getTopicChangeID(QString channel, QString topic);
     void setTopicChangeID(QString channel, QString topic, QString changeID);
 
@@ -108,14 +112,18 @@ public slots:
     bool getAutoStart();
     // 设置开启自启配置
     void setAutoStart(bool enable);
+    // 因为客户端是单例应用，重复启动会自动退出，并调用daemon的这个接口来通知已存在的客户端激活自己的窗口。
+    void activeMainWindows();
 signals:
-    // 用户登录状态变动
+    // 用户登录状态变动，客户端收到通知后，可以调用daemon获取新的用户状态
     void userInfoChanged();
-    // 消息列表变动
+    // 消息列表变动，客户端收到通知后，可以调用daemon获取新的消息列表
     void messageChanged();
-    // 程序退出时发出信号
+    // 服务程序退出时发出这个信号，通知客户端同步退出
     void exited();
-    // 显示主窗口时发出信号
+    // 启动客户端后发出这个信号
+    // 因为客户端是单例应用，重复启动会自动退出，用这个信号通知客户端激活自己被最小化窗口
+    // 如果客户端的窗口已经是激活状态，单击托盘图标会关闭窗口
     void showMainWindow(bool isIconClick);
 };
 
