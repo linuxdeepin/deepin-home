@@ -64,24 +64,32 @@ Item {
         routeHistory.push(routeIndex)
     }
     // 显示反馈广场
-    function showAllFeedback() {
+    function showAllFeedback(push=true) {
         routeCurrent = routeAllFeedback
-        routeHistory.push(routeAllFeedback)
+        if(push){
+            routeHistory.push(routeAllFeedback)
+        }
     }
     // 显示我的反馈
-    function showMyFeedback() {
+    function showMyFeedback(push=true) {
         routeCurrent = routeMyFeedback
-        routeHistory.push(routeMyFeedback)
+        if(push){
+            routeHistory.push(routeMyFeedback)
+        }
     }
     // 显示我的收藏
-    function showStarsFeedback() {
+    function showStarsFeedback(push=true) {
         routeCurrent = routeStarsFeedback
-        routeHistory.push(routeStarsFeedback)
+        if(push){
+            routeHistory.push(routeStarsFeedback)
+        }
     }
     // 显示我的关注
-    function showWatchFeedback() {
+    function showWatchFeedback(push=true) {
         routeCurrent = routeWatchFeedback
-        routeHistory.push(routeWatchFeedback)
+        if(push){
+            routeHistory.push(routeWatchFeedback)
+        }
     }
     // 显示网络错误
     function showNetworkError() {

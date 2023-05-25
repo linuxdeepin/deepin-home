@@ -19,7 +19,7 @@ ButtonBox {
         checked: Router.routeCurrent === Router.routeAllFeedback
         text: qsTr("Feedback Hub")
         onClicked: {
-            Router.showAllFeedback()
+            Router.showAllFeedback(false)
         }
     }
     ToolButton {
@@ -28,7 +28,7 @@ ButtonBox {
         checked: Router.routeCurrent === Router.routeMyFeedback
         text: qsTr("My Feedbacks")
         onClicked: {
-            Router.showMyFeedback()
+            Router.showMyFeedback(false)
         }
     }
 
@@ -38,7 +38,7 @@ ButtonBox {
         checked: Router.routeCurrent === Router.routeStarsFeedback
         text: qsTr("My Favorites")
         onClicked: {
-            Router.showStarsFeedback()
+            Router.showStarsFeedback(false)
         }
     }
 
@@ -48,7 +48,7 @@ ButtonBox {
         checked: Router.routeCurrent === Router.routeWatchFeedback
         text: qsTr("My Urge")
         onClicked: {
-            Router.showWatchFeedback()
+            Router.showWatchFeedback(false)
         }
     }
 }
