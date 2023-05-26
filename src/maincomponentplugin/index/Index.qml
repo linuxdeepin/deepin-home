@@ -10,6 +10,7 @@ import org.deepin.dtk 1.0
 import QtQuick.Layouts 1.15
 
 import "../api"
+import "../router"
 import "../list" as DList
 import "../article" as DArticle
 import "../widgets" 
@@ -53,8 +54,7 @@ Item {
                     width: body.width * 0.3
                     height: width/3
                     onClicked: {
-                        dialogLoader.source = ""
-                        dialogLoader.setSource("/feedback/Submit.qml", { type: 0 })
+                        Router.showAllFeedback(true, "bug")
                     }
                 }
                 Card1 {
@@ -64,8 +64,7 @@ Item {
                     width: body.width * 0.3
                     height: width/3
                     onClicked: {
-                        dialogLoader.source = ""
-                        dialogLoader.setSource("/feedback/Submit.qml", { type: 1 })
+                        Router.showAllFeedback(true, "req")
                     }
                 }
             }

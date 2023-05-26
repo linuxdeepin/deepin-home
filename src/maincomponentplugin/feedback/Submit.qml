@@ -14,11 +14,14 @@ import "../router"
 
 Item {
     id: root
+    // 对话框窗口关闭后发出信号
+    signal closed()
+    // 反馈类型
     property int type: 0
     // 表单图片列表
     property ListModel imgListModel: ListModel {}
-    // 追加表单图片
 
+    // 追加表单图片
     function appendImage(src) {
         if(imgListModel.count >= 3){
             return
@@ -48,6 +51,11 @@ Item {
         height: submitLayout.height + 100
         // 表单控件宽度
         property int controlWidth: width - 100 * 2
+
+        onClosing: {
+            root.closed()
+        }
+
         component ControlLabel: Text {
             font: DTK.fontManager.t6
             width: 100
@@ -276,7 +284,7 @@ Item {
                     }
                 }
             }
-            // 提交按钮
+            // 底部按钮
             Row {
                 spacing: 20
                 Layout.alignment: Qt.AlignHCenter
@@ -316,8 +324,8 @@ Item {
                                 }
                             }
                         }
+                        // 增加底部间距
                         Row {
-
                         }
                     }
                 }
@@ -325,8 +333,12 @@ Item {
                     width: 200
                     text: qsTr("Cancel")
                     onClicked: {
-                        cancelConfirm.show()
-                        // win.close()
+                        // 如果已填写标题或内容，弹出提示
+                        if(titleText.text.length>0 || contentText.text.length>0){
+                            cancelConfirm.show()
+                        } else {
+                            win.close()
+                        }
                     }
                 }
                 RecommandButton {

@@ -10,13 +10,13 @@ import "../router"
 // 标题栏的菜单切换按钮
 ButtonBox {
     id: root
-    property bool allFeedback: Router.routeCurrent === Router.routeAllFeedback || Router.routeCurrent === Router.routeMyFeedback
-    property bool accountFeedback: Router.routeCurrent === Router.routeStarsFeedback || Router.routeCurrent === Router.routeWatchFeedback
+    property bool allFeedback: Router.routeCurrent.path === Router.routeAllFeedback.path || Router.routeCurrent.path === Router.routeMyFeedback.path
+    property bool accountFeedback: Router.routeCurrent.path === Router.routeFavoriteFeedback.path || Router.routeCurrent.path === Router.routeUrgeFeedback.path
     visible: allFeedback || accountFeedback
     ToolButton {
         visible: root.allFeedback
         id: allFeedbackBtn
-        checked: Router.routeCurrent === Router.routeAllFeedback
+        checked: Router.routeCurrent.path === Router.routeAllFeedback.path
         text: qsTr("Feedback Hub")
         onClicked: {
             Router.showAllFeedback(false)
@@ -25,7 +25,7 @@ ButtonBox {
     ToolButton {
         visible: root.allFeedback
         id: myFeedbackBtn
-        checked: Router.routeCurrent === Router.routeMyFeedback
+        checked: Router.routeCurrent.path === Router.routeMyFeedback.path
         text: qsTr("My Feedbacks")
         onClicked: {
             Router.showMyFeedback(false)
@@ -35,20 +35,20 @@ ButtonBox {
     ToolButton {
         visible: root.accountFeedback
         id: starsFeedbackBtn
-        checked: Router.routeCurrent === Router.routeStarsFeedback
+        checked: Router.routeCurrent.path === Router.routeFavoriteFeedback.path
         text: qsTr("My Favorites")
         onClicked: {
-            Router.showStarsFeedback(false)
+            Router.showFavoriteFeedback(false)
         }
     }
 
     ToolButton {
         visible: root.accountFeedback
         id: watchFeedbackBtn
-        checked: Router.routeCurrent === Router.routeWatchFeedback
+        checked: Router.routeCurrent.path === Router.routeUrgeFeedback.path
         text: qsTr("My Urge")
         onClicked: {
-            Router.showWatchFeedback(false)
+            Router.showUrgeFeedback(false)
         }
     }
 }

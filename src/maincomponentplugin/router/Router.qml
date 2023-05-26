@@ -36,13 +36,13 @@ Item {
         "data": {typeFilter: true}
     }
     // 我的收藏
-    property var routeStarsFeedback: {
+    property var routeFavoriteFeedback: {
         "path": "feedback/collect",
         "component": "feedback/List.qml",
         "data": {relation: "collect"}
     }
     // 我的关注
-    property var routeWatchFeedback: {
+    property var routeUrgeFeedback: {
         "path": "feedback/like",
         "component": "feedback/List.qml",
         "data": {relation: "like"}
@@ -64,10 +64,12 @@ Item {
         routeHistory.push(routeIndex)
     }
     // 显示反馈广场
-    function showAllFeedback(push=true) {
-        routeCurrent = routeAllFeedback
+    function showAllFeedback(push=true, type="") {
+        const r = clone(routeAllFeedback)
+        r.data = {typeFilter: true, type: type}
+        routeCurrent = r
         if(push){
-            routeHistory.push(routeAllFeedback)
+            routeHistory.push(r)
         }
     }
     // 显示我的反馈
@@ -78,17 +80,17 @@ Item {
         }
     }
     // 显示我的收藏
-    function showStarsFeedback(push=true) {
-        routeCurrent = routeStarsFeedback
+    function showFavoriteFeedback(push=true) {
+        routeCurrent = routeFavoriteFeedback
         if(push){
-            routeHistory.push(routeStarsFeedback)
+            routeHistory.push(routeFavoriteFeedback)
         }
     }
-    // 显示我的关注
-    function showWatchFeedback(push=true) {
-        routeCurrent = routeWatchFeedback
+    // 显示我的催促
+    function showUrgeFeedback(push=true) {
+        routeCurrent = routeUrgeFeedback
         if(push){
-            routeHistory.push(routeWatchFeedback)
+            routeHistory.push(routeUrgeFeedback)
         }
     }
     // 显示网络错误
@@ -99,10 +101,14 @@ Item {
     // 显示反馈详情
     function showFeedbackDetail(feedback) {
         // 复制对象避免在回退时，拿到相同数据
-        const value = JSON.parse(JSON.stringify(routeFeedbackDetail))
+        const value = clone(routeFeedbackDetail)
         value.data = { feedback: feedback }
         routeCurrent = value
         routeHistory.push(value)
+    }
+    // 复制对象
+    function clone(route) {
+        return JSON.parse(JSON.stringify(route))
     }
     // 返回上一页
     function back() {

@@ -104,6 +104,15 @@ Item {
                 root.type = selectOptions.get(currentIndex).value
                 root.getList(true)
             }
+            Component.onCompleted:{
+                if(root.type === "bug") {
+                    currentIndex = 1
+                } else if(root.type === "req") {
+                    currentIndex = 2
+                } else {
+                    currentIndex = 0
+                }
+            }
         }
     }
     
@@ -129,7 +138,9 @@ Item {
                     width: parent.width
                     height: visible ? 57 : 10
                     Button {
-                        anchors.centerIn: parent
+                        // 由于“提交反馈”的按钮放在底部居中，“加载更多”的按钮只能放到右边了
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
                         text: qsTr("Load More")
                         onClicked: {
                             getList(false)
@@ -203,5 +214,32 @@ Item {
         visible: feedbackList.count === 0
         anchors.centerIn: parent
         title: ""
+    }
+
+    // 只在需求广场显示的“提交反馈”的按钮，点击后弹出提交反馈的对话框
+    FloatingButton {
+        id: submitButton
+        visible: submitLoader.source=="" && Router.routeCurrent.path === Router.routeAllFeedback.path
+        width: 48
+        height: 48
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 27
+        anchors.horizontalCenter: parent.horizontalCenter
+        icon.name: "action_add"
+        icon.width: 14
+        icon.height: 14
+        onClicked: {
+            submitLoader.source="Submit.qml"
+        }
+    }
+    Loader {
+        id: submitLoader
+        anchors.fill: root
+        Connections {
+            target: submitLoader.item
+            function onClosed() {
+                submitLoader.source=""
+            }
+        }
     }
 }

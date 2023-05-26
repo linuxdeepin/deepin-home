@@ -59,7 +59,7 @@ WindowButton {
                         API.login()
                         return
                     }
-                    Router.showStarsFeedback()
+                    Router.showFavoriteFeedback()
                     accountMenu.close()
                 }
             }
@@ -68,9 +68,9 @@ WindowButton {
                 Layout.fillWidth: true
                 height: 40
                 ColorSelector.family: Palette.CrystalColor
-                text: qsTr("Feedback Hub")
+                text: qsTr("My Feedbacks")
                 onClicked: {
-                    Router.showAllFeedback()
+                    Router.showMyFeedback()
                     accountMenu.close()
                 }
             }
