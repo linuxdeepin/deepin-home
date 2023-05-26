@@ -211,6 +211,10 @@ Item {
             getFeedback({offset:"", limit: "",type: opt.type, ids: ids}, callback)
         })
     }
+    // 获取系统版本
+    function sysVersion() {
+        return worker.sysVersion();
+    }
     // 获取文件信息
     function getFileInfo(filepath) {
         if(filepath.startsWith("file://")){

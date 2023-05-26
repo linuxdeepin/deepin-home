@@ -13,6 +13,7 @@
 #include <QHttpMultiPart>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <DSysInfo>
 
 #include "homeDaemonProxy.h"
 class Worker : public QObject
@@ -48,6 +49,7 @@ public slots:
     // 上传本地文件
     QString uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData);
     void notify(QString title, QString message);
+    QString sysVersion();
 signals:
     void userInfoChanged();
     void messageChanged();

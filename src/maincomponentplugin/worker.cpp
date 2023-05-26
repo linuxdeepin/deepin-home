@@ -12,7 +12,6 @@ Worker::Worker(QObject *parent)
                                    DEEPIN_HOME_DAEMON_PATH,
                                    QDBusConnection::sessionBus(),
                                    this);
-
     connect(m_daemon, &HomeDaemonProxy::exited, this, &Worker::exited);
     connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, &Worker::userInfoChanged);
     connect(m_daemon, &HomeDaemonProxy::messageChanged, this, &Worker::messageChanged);
@@ -122,14 +121,20 @@ void Worker::setAutoStart(bool enable)
 QMap<QString, QVariant> Worker::getFileInfo(QString filepath)
 {
     auto info = QFileInfo(filepath);
-    QMap<QString,QVariant> result;
+    QMap<QString, QVariant> result;
     result["size"] = info.size();
     result["filename"] = info.fileName();
     result["filepath"] = info.filePath();
     return result;
 }
 
-void Worker::notify(QString title, QString message) {
+QString Worker::sysVersion()
+{
+    return Dtk::Core::DSysInfo::minorVersion();
+}
+
+void Worker::notify(QString title, QString message)
+{
     QStringList actions;
     QVariantMap hints;
     QDBusInterface notification("org.freedesktop.Notifications",
@@ -158,21 +163,23 @@ void Worker::notify(QString title, QString message) {
 QString Worker::uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData)
 {
     QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
-    foreach(const QString field, formData.keys()) {
+    foreach (const QString field, formData.keys()) {
         auto value = formData[field].toString();
         QHttpPart textPart;
-        textPart.setHeader(QNetworkRequest::ContentDispositionHeader, QString("form-data; name=\"%1\"").arg(field));
+        textPart.setHeader(QNetworkRequest::ContentDispositionHeader,
+                           QString("form-data; name=\"%1\"").arg(field));
         textPart.setBody(formData[field].toString().toUtf8());
         multiPart->append(textPart);
     }
     QHttpPart imagePart;
     imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/jpeg"));
-    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"file\"; filename=\"test\""));
+    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader,
+                        QVariant("form-data; name=\"file\"; filename=\"test\""));
     QFile *file = new QFile(filepath, multiPart);
     file->open(QIODevice::ReadOnly);
     imagePart.setBodyDevice(file);
     multiPart->append(imagePart);
-    
+
     QUrl url(uploadURL);
     QNetworkRequest request(url);
     QNetworkAccessManager manager;
@@ -185,7 +192,7 @@ QString Worker::uploadFile(QString uploadURL, QString filepath, QMap<QString, QV
     if (reply->error() != QNetworkReply::NoError) {
         return reply->errorString();
     }
-    if(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() >= 400) {
+    if (reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() >= 400) {
         return reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
     }
     return "";
