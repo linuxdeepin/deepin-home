@@ -162,9 +162,26 @@ Item {
                 }
                 LineEdit {
                     id: emailText
+                    selectByMouse: true
                     validator: RegExpValidator { regExp: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ }
                     width: win.controlWidth
                     text: ""
+                }
+            }
+
+            // 系统版本
+            Row {
+                spacing: 10
+                ControlLabel {
+                    text: qsTr("System Version:")
+                    verticalAlignment: Text.AlignVCenter
+                }
+                TextField {
+                    id: versionText
+                    selectByMouse: true
+                    width: win.controlWidth
+                    readOnly: true
+                    text: API.sysVersion()
                 }
             }
             // 上传设备信息
@@ -366,6 +383,7 @@ Item {
                                     title: titleText.text,
                                     content: contentText.text,
                                     email: emailText.text,
+                                    version: versionText.text,
                                     screenshots: screenshots,
                                 }, () => {
                                     Router.showMyFeedback()
