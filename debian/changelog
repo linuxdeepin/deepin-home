@@ -1,3 +1,11 @@
+deepin-home (1.1.3) unstable; urgency=medium
+
+  * feat: Home Page navigate to feedback hub
+  * feat: upload system version when submitting feedback
+  * feat: Support building on deepin v20
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 01 Jun 2023 15:35:08 +0800
+
 deepin-home (1.1.2) unstable; urgency=medium
 
   * fix: The title input cannot be selected with the mouse(Issue: https://github.com/linuxdeepin/developer-center/issues/4453)
