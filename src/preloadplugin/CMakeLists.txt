@@ -1,4 +1,8 @@
-set(PRELOAD_LIB_NAME ${CMAKE_PROJECT_NAME}-preload)
+if(${DTK_OLD_VERSION})
+    set(PRELOAD_LIB_NAME dtkqml-${CMAKE_PROJECT_NAME}-Preload)
+else()
+    set(PRELOAD_LIB_NAME ${CMAKE_PROJECT_NAME}-preload)
+endif()
 set(PRELOAD_SRC
     preloadplugin.cpp
     )

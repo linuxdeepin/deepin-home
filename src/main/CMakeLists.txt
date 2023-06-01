@@ -4,7 +4,9 @@ set(APP_NAME ${CMAKE_PROJECT_NAME})
 set(APP_DAEMON_NAME ${CMAKE_PROJECT_NAME}-daemon)
 set(CMAKE_AUTORCC ON)
 add_definitions(-DAPP_NAME="${APP_NAME}")
-
+if(${DTK_OLD_VERSION})
+  add_definitions(-DDTK_OLD_VERSION)
+endif()
 ###! main目录创建出二进制可执行文件，但启动方式由 DAppLoader
 ###! 中提供, 请不要在 main 中实现额外内容，请将需要实现的部分
 ###! 移动到 preload 插件和 maincomponent 插件中。
