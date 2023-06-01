@@ -1,4 +1,8 @@
-set(MAINCOMPONENT_LIB_NAME ${CMAKE_PROJECT_NAME}-main)
+if(${DTK_OLD_VERSION})
+    set(MAINCOMPONENT_LIB_NAME dtkqml-${CMAKE_PROJECT_NAME})
+else()
+    set(MAINCOMPONENT_LIB_NAME ${CMAKE_PROJECT_NAME}-main)
+endif()
 set(MAINCOMPONENNT_SRC
     maincomponentplugin.h
     maincomponentplugin.cpp

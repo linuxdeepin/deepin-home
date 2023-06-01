@@ -26,15 +26,24 @@ int main(int argc, char *argv[])
         qDebug() << "DBus Error: register com.deepin.Home";
         return -1;
     }
+// 兼容旧版本 DtkDeclarative
+#ifdef DTK_OLD_VERSION
+    #ifdef LOCALLIBPATH
+        DAppLoader appLoader(APP_NAME, LOCALLIBPATH);
+    #else
+        DAppLoader appLoader(APP_NAME);
+    #endif
+#else
     DAppLoader appLoader(APP_NAME);
-#ifdef PLUGINPATH
-    appLoader.addPluginPath(PLUGINPATH);
-#endif
-#ifdef APP_PLUGIN_PATH
-    appLoader.addPluginPath(APP_PLUGIN_PATH);
-#endif
-#ifdef LOCALLIBPATH
-    appLoader.addPluginPath(LOCALLIBPATH);
+    #ifdef PLUGINPATH
+        appLoader.addPluginPath(PLUGINPATH);
+    #endif
+    #ifdef APP_PLUGIN_PATH
+        appLoader.addPluginPath(APP_PLUGIN_PATH);
+    #endif
+    #ifdef LOCALLIBPATH
+        appLoader.addPluginPath(LOCALLIBPATH);
+    #endif
 #endif
     return appLoader.exec(argc, argv);
 }
