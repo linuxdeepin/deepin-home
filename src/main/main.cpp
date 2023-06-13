@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
         DAppLoader appLoader(APP_NAME);
     #endif
 #else
+    // 避免窗口菜单背景显示灰色 https://github.com/linuxdeepin/dtk/issues/70
+    // 在v20.9会导致菜单延迟显示，所以只在v23使用
+    qputenv("D_POPUP_MODE", "embed");
     DAppLoader appLoader(APP_NAME);
     #ifdef PLUGINPATH
         appLoader.addPluginPath(PLUGINPATH);

@@ -25,8 +25,6 @@ QUrl PreloadPlugin::preloadComponentPath() const
 
 QGuiApplication *PreloadPlugin::creatApplication(int &argc, char **argv)
 {
-    // 避免窗口菜单背景显示灰色 https://github.com/linuxdeepin/dtk/issues/70
-    qputenv("D_POPUP_MODE", "embed");
     QGuiApplication *app = new QGuiApplication(argc, argv);
     app->setOrganizationName("deepin");
     app->setOrganizationDomain("deepin.org");
