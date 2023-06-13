@@ -17,10 +17,6 @@
         <translation>我的收藏</translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation>反馈广场</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>退出帐户</translation>
     </message>
@@ -31,6 +27,10 @@
     <message>
         <source>Sign in</source>
         <translation>登录帐号</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>我的反馈</translation>
     </message>
 </context>
 <context>
@@ -370,6 +370,14 @@
     <message>
         <source>The image file format is not supported for uploading.</source>
         <translation>图片的文件格式不支持上传</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation>系统版本：</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>请填写反馈的标题和内容</translation>
     </message>
 </context>
 <context>

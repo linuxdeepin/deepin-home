@@ -17,10 +17,6 @@
         <translation>Seçilmişlər</translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation>Geri əlaqə mərkəzi</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Çıxın</translation>
     </message>
@@ -31,6 +27,10 @@
     <message>
         <source>Sign in</source>
         <translation>Daxil olun</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Mənim rəylərim</translation>
     </message>
 </context>
 <context>
@@ -357,11 +357,19 @@
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Rəyinizin başlığını təqdim etməniz xahiş olunur.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Rəyinizin məzmununu təqdim etməniz xahiş olunur.</translation>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation>Səhv e-poçt ünvanı daxil edilib.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Yükləmək üçün şəklin fayl formatı dəstəklənmir.</translation>
     </message>
 </context>
 <context>

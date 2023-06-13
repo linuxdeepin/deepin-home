@@ -17,10 +17,6 @@
         <translation>Moje ulubione</translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation>Centrum opinii</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Wyloguj</translation>
     </message>
@@ -31,6 +27,10 @@
     <message>
         <source>Sign in</source>
         <translation>Zaloguj</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Moje opinie</translation>
     </message>
 </context>
 <context>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>Urge</source>
-        <translation>Prośby o aktualizacje</translation>
+        <translation>Poproś o aktualizacje</translation>
     </message>
 </context>
 <context>
@@ -357,11 +357,19 @@
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Wprowadź tytuł Twojej opinii.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Wprowadź zawartość Twojej opinii.</translation>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation>Nieprawidłowy adres e-mail.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Format obrazu nie jest wspierany do załadowania.</translation>
     </message>
 </context>
 <context>

@@ -19,10 +19,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32,6 +28,10 @@
     </message>
     <message>
         <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -371,6 +371,14 @@
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
