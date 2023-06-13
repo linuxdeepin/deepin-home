@@ -17,10 +17,6 @@
         <translation>Favorits</translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation>Centre d&apos;informació de retorn</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Surt de la sessió</translation>
     </message>
@@ -31,6 +27,10 @@
     <message>
         <source>Sign in</source>
         <translation>Inicieu la sessió</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Els meus comentaris</translation>
     </message>
 </context>
 <context>
@@ -357,11 +357,19 @@
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, proporcioneu el títol i el contingut del comentari.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, proporcioneu el contingut del comentari.</translation>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation>S&apos;ha introduït una adreça de correu electrònic incorrecta.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>El format de fitxer d&apos;imatge no és compatible per a la càrrega.</translation>
     </message>
 </context>
 <context>

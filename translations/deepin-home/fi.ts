@@ -1,48 +1,67 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation>Kirjaudu sisään sinun Deepin ID:llä.</translation>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>Sinun tulee kirjautua sisään jatkaaksesi seuraavia toimintoja.</translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Suosikkini</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu ulos</translation>
+    </message>
+    <message>
+        <source>Unlogged</source>
+        <translation>Kirjautumaton</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Kirjaudu sisään</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Palautteeni</translation>
     </message>
 </context>
 <context>
     <name>Card</name>
     <message>
         <source>View details</source>
-        <translation type="unfinished"/>
+        <translation>Näytä tiedot</translation>
     </message>
     <message>
         <source>%1 views</source>
-        <translation type="unfinished"/>
+        <translation>%1 katselukertaa</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Ehdotukset</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>Poista suosikki</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Suosikki</translation>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta vaatimus</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Vaatimus</translation>
     </message>
 </context>
 <context>
@@ -56,7 +75,7 @@
     <name>Detail</name>
     <message>
         <source>Official response</source>
-        <translation type="unfinished"/>
+        <translation>Virallinen vastaus</translation>
     </message>
 </context>
 <context>
@@ -110,19 +129,19 @@
     <name>List</name>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki</translation>
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Bugi</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Ehdotukset</translation>
     </message>
     <message>
         <source>Load More</source>
-        <translation type="unfinished"/>
+        <translation>Lataa lisää</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -216,89 +235,160 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation>Vireillä</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Vahvistettu</translation>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation>Vastattu</translation>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation>Ratkaistu</translation>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation>Arviointi</translation>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation>Hyväksytty</translation>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation>Valmis</translation>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Anna palautetta</translation>
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>Typpi：</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Ehdotukset</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Virhe raportti</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>Otsikko：</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>Sisältö：</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Älä täytä montaa vaatimusta yhteen palautteeseen</translation>
     </message>
     <message>
         <source>Email：</source>
-        <translation type="unfinished"/>
+        <translation>Sähköposti：</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>Laitteen tiedot：</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä &lt;a href=&apos;home://sysinfo&apos;&gt;laitteen tiedot&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Ruudunkaappaus：</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Kuvatiedostot</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Vedä ja pudota tiedostoja tai paina painikkeita ja lisää kuvia, enintään kolme</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Lähetä</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>Laitteen tiedot</translation>
+    </message>
+    <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Kuvien lisääminen ei onnistu.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Kuvatiedoston koon tulee olla alle 1 Mt.</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation>Haluatko varmasti poistua palautteen lähettämisestä?</translation>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation>Palautteen sisältöä ei tallenneta.</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Poistu</translation>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation>Palautteen lähettäminen ei onnistu.</translation>
+    </message>
+    <message>
+        <source>Please provide the title of your feedback.</source>
+        <translation>Anna palautteesi otsikko.</translation>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation>Anna palautteesi sisältö.</translation>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation>Virheellinen sähköpostiosoite.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Lähetettävää kuvan tiedostomuotoa ei tueta.</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Palautekeskus</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Palautteeni</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Suosikkini</translation>
     </message>
     <message>
         <source>My Urge</source>
-        <translation type="unfinished"/>
+        <translation>Vaatimukseni</translation>
     </message>
 </context>
 </TS>

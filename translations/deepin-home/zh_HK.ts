@@ -17,10 +17,6 @@
         <translation>我的收藏</translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation>反饋廣場</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>退出帳號</translation>
     </message>
@@ -31,6 +27,10 @@
     <message>
         <source>Sign in</source>
         <translation>登錄帳號</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>我的反饋</translation>
     </message>
 </context>
 <context>
@@ -364,16 +364,12 @@
         <translation>請填寫反饋的內容</translation>
     </message>
     <message>
-        <source>This image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Incorrect email address entered.</source>
-        <translation type="unfinished"/>
+        <translation>輸入的郵件地址不正確</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
+        <translation>圖片的文件格式不支持上傳</translation>
     </message>
 </context>
 <context>

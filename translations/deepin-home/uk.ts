@@ -17,10 +17,6 @@
         <translation>Улюблене</translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation>Вузол відгуків</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Вийти</translation>
     </message>
@@ -31,6 +27,10 @@
     <message>
         <source>Sign in</source>
         <translation>Увійти</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Відгуки</translation>
     </message>
 </context>
 <context>
@@ -357,11 +357,19 @@
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, надайте заголовок вашого відгуку.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, надайте дані вашого відгуку.</translation>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation>Введено некоректну адресу електронної пошти.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Не передбачено підтримки вивантаження файлів зображень у цьому форматі.</translation>
     </message>
 </context>
 <context>

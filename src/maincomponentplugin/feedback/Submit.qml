@@ -17,7 +17,7 @@ Item {
     // 对话框窗口关闭后发出信号
     signal closed()
     // 反馈类型
-    property int type: 0
+    property string type: "req"
     // 表单图片列表
     property ListModel imgListModel: ListModel {}
 
@@ -65,10 +65,10 @@ Item {
         // 默认显示出窗口
         Component.onCompleted: {
             show()
-            if(type == 0){
-                bugType.checked = true
-            } else {
+            if(root.type == "req"){
                 reqType.checked = true
+            } else {
+                bugType.checked = true
             } 
         }
         // 提交表单
@@ -362,6 +362,10 @@ Item {
                     width: 200
                     text: qsTr("Submit")
                     onClicked: {
+                        if(titleText.text.length==0 && contentText.text.length==0){
+                            API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title and content of your feedback."))
+                            return
+                        }
                         if(titleText.text.length==0){
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title of your feedback."))
                             return

@@ -237,7 +237,7 @@ Item {
         icon.width: 14
         icon.height: 14
         onClicked: {
-            submitLoader.source="Submit.qml"
+            submitLoader.setSource("Submit.qml", {type: root.type})
         }
     }
     Loader {
