@@ -1,3 +1,12 @@
+deepin-home (1.1.4) unstable; urgency=medium
+
+  * fix: increase the number of likes when clicking the like button without logging in.(Issue: https://github.com/linuxdeepin/developer-center/issues/4665)
+  * fix: deepin home not being able to popup the menu in deepin v20(Issue: https://github.com/linuxdeepin/developer-center/issues/4663)
+  * fix: display multiple login notify simultaneously(Issue: https://github.com/linuxdeepin/developer-center/issues/4652)
+  * chore: update translation(Issue: https://github.com/linuxdeepin/developer-center/issues/4645)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Tue, 13 Jun 2023 10:50:18 +0800
+
 deepin-home (1.1.3) unstable; urgency=medium
 
   * feat: Home Page navigate to feedback hub
@@ -11,7 +20,7 @@ deepin-home (1.1.2) unstable; urgency=medium
   * fix: The title input cannot be selected with the mouse(Issue: https://github.com/linuxdeepin/developer-center/issues/4453)
   * fix: Taskbar menu dose not activate main windows(Issue: https://github.com/linuxdeepin/developer-center/issues/4076)
   * chore: update translation(Issue: https://github.com/linuxdeepin/developer-center/issues/4451)
-  * fix: Error in notify prompt text(Issue: https://github.com/linuxdeepin/developer-center/issues/4461)
+  * fix: Error in notify prompt text(Issue: https://github.com/linuxdeepin/developer-center/issues/4460)
   * feat: screenshots images validate format(Issue: https://github.com/linuxdeepin/developer-center/issues/4459)
   * feat: email input add validator(Issue: https://github.com/linuxdeepin/developer-center/issues/4458)
 
