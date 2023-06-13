@@ -374,6 +374,10 @@ Item {
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Incorrect email address entered."))
                             return
                         }
+                        if(!API.isLogin){
+                            API.login()
+                            return
+                        }
                         let screenshots = []
                         const submit = () => {
                             API.getLanguage(lang=>{
@@ -390,7 +394,7 @@ Item {
                                 })
                             })
                         }
-                        if(root.imgListModel.count==0){
+                        if(root.imgListModel.count == 0){
                             submit()
                             return
                         }
