@@ -170,6 +170,10 @@ Item {
                     }
                     // 点赞按钮点击
                     onLikeClicked: {
+                        if(!API.isLogin){
+                            API.login()
+                            return
+                        }
                         const callback = () => {
                             card.like = !card.like
                             feedback.like = !feedback.like
@@ -185,6 +189,10 @@ Item {
                     }
                     // 收藏按钮点击
                     onCollectClicked: {
+                        if(!API.isLogin){
+                            API.login()
+                            return
+                        }
                         // 点击可以收藏和取消收藏
                         const callback = () => {
                             card.collect = !card.collect
