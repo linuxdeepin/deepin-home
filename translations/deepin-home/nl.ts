@@ -140,10 +140,6 @@
         <translation>Suggesties</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>Meer laden</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Berichten</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Afsluiten</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Versie %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>De schermfoto kan niet worden toegevoegd.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>De afbeelding mag maximaal 1 MB groot zijn.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Het bestandsformaat wordt niet ondersteund.</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>Feedback versturen</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>Titel:</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>Inhoud:</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>E-mailadres:</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation>Systeemversie:</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>Sleep bestanden hierheen of klik op de knoppen (max. 3 afbeeldingen)</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Versturen</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>Apparaatinformatie</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>De schermfoto kan niet worden toegevoegd.</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>De afbeelding mag maximaal 1 MB groot zijn.</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>Weet je zeker dat je je feedback niet wilt versturen?</translation>
     </message>
@@ -348,12 +352,24 @@
         <translation>De inhoud ervan wordt niet opgeslagen.</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Annuleren</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>Afsluiten</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>Versturen</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>De feedback kan niet worden verstuurd.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Geef de feedback een naam en voorzie deze van inhoud.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,8 +384,8 @@
         <translation>Het e-mailadres is onjuist.</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>Het bestandsformaat wordt niet ondersteund.</translation>
+        <source>Device Information</source>
+        <translation>Apparaatinformatie</translation>
     </message>
 </context>
 <context>

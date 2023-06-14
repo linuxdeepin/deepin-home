@@ -140,10 +140,6 @@
         <translation>Suggeriments</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>Carrega&apos;n més</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Missatges</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Surt</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Versió: %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>No es pot afegir una captura de pantalla.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>La mida del fitxer d&apos;imatge ha de ser inferior a 1 MB.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>El format de fitxer d&apos;imatge no és compatible per a la càrrega.</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>Envieu comentaris</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>Títol:</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>Contingut:</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>Adreça electrònica:</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>Arrossegueu i deixeu-hi anar fitxers o cliqueu als botons per afegir-hi imatges, fins a tres.</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Cancel·la</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Envia</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>Informació del dispositiu</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>No es pot afegir una captura de pantalla.</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>La mida del fitxer d&apos;imatge ha de ser inferior a 1 MB.</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>Segur que voleu sortir de l&apos;enviament de comentaris?</translation>
     </message>
@@ -348,12 +352,24 @@
         <translation>El contingut del comentari no es desarà.</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>Surt</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>Envia</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>No es poden enviar comentaris.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,8 +384,8 @@
         <translation>S&apos;ha introduït una adreça de correu electrònic incorrecta.</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>El format de fitxer d&apos;imatge no és compatible per a la càrrega.</translation>
+        <source>Device Information</source>
+        <translation>Informació del dispositiu</translation>
     </message>
 </context>
 <context>

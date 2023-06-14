@@ -142,10 +142,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation type="unfinished"></translation>
     </message>
@@ -166,10 +162,6 @@
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -270,7 +262,31 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -290,6 +306,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Content：</source>
         <translation type="unfinished"></translation>
     </message>
@@ -299,6 +319,10 @@
     </message>
     <message>
         <source>Email：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -322,26 +346,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -350,11 +354,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -370,15 +386,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System Version:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please provide the title and content of your feedback.</source>
+        <source>Device Information</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

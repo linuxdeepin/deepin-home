@@ -140,10 +140,6 @@
         <translation>需求</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>载入更多</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>系统消息</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>退出</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>版本：%1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,36 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>无法添加截图</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>图像文件大小应小于 1MB</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>图片的文件格式不支持上传</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>提交反馈</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation>【产品现状】： 
+【产品期望】： </translation>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation>【前置条件】： 
+【复现步骤】： 
+【预期结果】： 
+【实际结果】： </translation>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +308,10 @@
         <translation>标题：</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation>请简单描述你的问题</translation>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>内容：</translation>
     </message>
@@ -298,6 +322,10 @@
     <message>
         <source>Email：</source>
         <translation>邮箱：</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation>系统版本：</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +348,6 @@
         <translation>拖曳文件或者点击“+”添加图片，最多添加三张</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>提交</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>设备信息</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>无法添加截图</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>图像文件大小应小于 1MB</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>您确定要退出反馈信息创建吗？</translation>
     </message>
@@ -348,12 +356,24 @@
         <translation>反馈内容不会被保存</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>无法提交反馈</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>请填写反馈的标题和内容</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,16 +388,8 @@
         <translation>输入的邮件地址不正确</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>图片的文件格式不支持上传</translation>
-    </message>
-    <message>
-        <source>System Version:</source>
-        <translation>系统版本：</translation>
-    </message>
-    <message>
-        <source>Please provide the title and content of your feedback.</source>
-        <translation>请填写反馈的标题和内容</translation>
+        <source>Device Information</source>
+        <translation>设备信息</translation>
     </message>
 </context>
 <context>

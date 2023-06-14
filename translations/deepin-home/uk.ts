@@ -140,10 +140,6 @@
         <translation>Пропозиції</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>Завантажити більше</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Повідомлення</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Вийти</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Версія: %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Не вдалося додати знімок вікна.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Розмір файла зображення має бути меншим за 1 МБ.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Не передбачено підтримки вивантаження файлів зображень у цьому форматі.</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>Надіслати відгук</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>Заголовок:</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>Вміст:</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>Адреса ел. пошти:</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>Перетягніть і скиньте файли або натисніть кнопку додавання зображень у кількості до трьох</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Надіслати</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>Дані щодо пристрою</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>Не вдалося додати знімок вікна.</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>Розмір файла зображення має бути меншим за 1 МБ.</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>Ви справді хочете перервати надсилання відгуку?</translation>
     </message>
@@ -348,12 +352,24 @@
         <translation>Вміст відгуку не буде збережено.</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>Вийти</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>Надіслати</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>Не вдалося надіслати відгук.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,8 +384,8 @@
         <translation>Введено некоректну адресу електронної пошти.</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>Не передбачено підтримки вивантаження файлів зображень у цьому форматі.</translation>
+        <source>Device Information</source>
+        <translation>Дані щодо пристрою</translation>
     </message>
 </context>
 <context>

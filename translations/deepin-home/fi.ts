@@ -140,10 +140,6 @@
         <translation>Ehdotukset</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>Lataa lisää</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Viestit</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Poistu</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Versio: %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Kuvien lisääminen ei onnistu.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Kuvatiedoston koon tulee olla alle 1 Mt.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Lähetettävää kuvan tiedostomuotoa ei tueta.</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>Anna palautetta</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>Otsikko：</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>Sisältö：</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>Sähköposti：</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>Vedä ja pudota tiedostoja tai paina painikkeita ja lisää kuvia, enintään kolme</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Lähetä</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>Laitteen tiedot</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>Kuvien lisääminen ei onnistu.</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>Kuvatiedoston koon tulee olla alle 1 Mt.</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>Haluatko varmasti poistua palautteen lähettämisestä?</translation>
     </message>
@@ -348,12 +352,24 @@
         <translation>Palautteen sisältöä ei tallenneta.</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>Poistu</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>Lähetä</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>Palautteen lähettäminen ei onnistu.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,8 +384,8 @@
         <translation>Virheellinen sähköpostiosoite.</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>Lähetettävää kuvan tiedostomuotoa ei tueta.</translation>
+        <source>Device Information</source>
+        <translation>Laitteen tiedot</translation>
     </message>
 </context>
 <context>
