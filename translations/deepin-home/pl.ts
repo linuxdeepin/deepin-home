@@ -140,10 +140,6 @@
         <translation>Sugestie</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>Załaduj więcej</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Wiadomości</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Wyjdź</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Wersja: %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Nie można dodać zrzutu ekranu.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Rozmiar pliku obrazu nie może przekraczać 1MB.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Format obrazu nie jest wspierany do załadowania.</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>Wyślij opinię</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>Tytuł:</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>Zawartość:</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>E-mail:</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation>Wersja systemu:</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>Przeciągnij tutaj lub kliknij przycisk, aby dodać zdjęcia. Maks. trzy</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Anuluj</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Wyślij</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>Informacje urządzenia</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>Nie można dodać zrzutu ekranu.</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>Rozmiar pliku obrazu nie może przekraczać 1MB.</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>Czy na pewno chcesz przerwać wysyłanie opinii?</translation>
     </message>
@@ -348,12 +352,24 @@
         <translation>Zawartość opinii nie zostanie zachowana.</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>Wyjdź</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>Wyślij</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>Nie można wysłać opinii.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Wprowadź tytuł i zawartość opinii.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,8 +384,8 @@
         <translation>Nieprawidłowy adres e-mail.</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>Format obrazu nie jest wspierany do załadowania.</translation>
+        <source>Device Information</source>
+        <translation>Informacje urządzenia</translation>
     </message>
 </context>
 <context>

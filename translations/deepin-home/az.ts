@@ -140,10 +140,6 @@
         <translation>Təkliflər</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>Daha çox yükləmək</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>İsmarıclar</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Çıxış</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Versiya: %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>Ekran şəkli əlavə etmək mümkün olmadı.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>Şəkil faylının ölçüsü 1MB-dan az olmalıdır.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>Yükləmək üçün şəklin fayl formatı dəstəklənmir.</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>Rəy göndərin</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>Başlıq:</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>Məzmun :</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>E-poçt :</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>Sürüşdürüb atmaqla və ya düymələrə vurmaqla şəkillər (3-ə qədər) əlavə edin,</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Ləğv edin</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Göndərin</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>Cihaz haqqında məlumat</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>Ekran şəkli əlavə etmək mümkün olmadı.</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>Şəkil faylının ölçüsü 1MB-dan az olmalıdır.</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>Rəy göndərilməsindən çıxmaq istədiyinizə əminsiniz?</translation>
     </message>
@@ -348,12 +352,24 @@
         <translation>Rəyin məzmunu saxlanılmayacaq.</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Ləğv edin</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>Çıxın</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>Göndərin</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>Rəyi göndərmək mümkün olmadı.</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,8 +384,8 @@
         <translation>Səhv e-poçt ünvanı daxil edilib.</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>Yükləmək üçün şəklin fayl formatı dəstəklənmir.</translation>
+        <source>Device Information</source>
+        <translation>Cihaz haqqında məlumat</translation>
     </message>
 </context>
 <context>

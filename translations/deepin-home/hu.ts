@@ -17,10 +17,6 @@
         <translation>Kedvenceim</translation>
     </message>
     <message>
-        <source>Feedback Hub</source>
-        <translation>Visszajelzési központ</translation>
-    </message>
-    <message>
         <source>Sign out</source>
         <translation>Kijelentkezés</translation>
     </message>
@@ -31,6 +27,10 @@
     <message>
         <source>Sign in</source>
         <translation>Bejelentkezés</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Visszajelzéseim</translation>
     </message>
 </context>
 <context>
@@ -140,10 +140,6 @@
         <translation>Javaslatok</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>Továbbiak betöltése</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Üzenetek</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Kilépés</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Verzió: %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>A képernyőkép hozzáadása sikertelen.</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>A képfájl mérete 1 MB-nál kisebb lehet.</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>A képfájl formátuma nem támogatott a feltöltéshez.</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>Visszajelzés küldése</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>Cím:</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>Tartalom:</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>E-mail:</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation>Rendszer verzió:</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>Fájlok húzásával, vagy a gombra kattintva adhat hozzá képeket (legfeljebb hármat). </translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>Küldés</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>Eszköz információ</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>A képernyőkép hozzáadása sikertelen.</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>A képfájl mérete 1 MB-nál kisebb lehet.</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>Biztosan kilép a visszajelzés küldéséből?</translation>
     </message>
@@ -348,20 +352,40 @@
         <translation>A visszajelzés tartalma nem kerül mentésre.</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>Kilépés</translation>
+    </message>
+    <message>
+        <source>Submit</source>
+        <translation>Küldés</translation>
     </message>
     <message>
         <source>Unable to submit feedback.</source>
         <translation>A visszajelzés küldése sikertelen.</translation>
     </message>
     <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation>Kérjük, adja meg visszajelzésének címét, és tartalmát.</translation>
+    </message>
+    <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Kérjük, adja meg visszajelzésének címét.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Kérjük, adja meg visszajelzésének tartalmát.</translation>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
+        <translation>Érvénytelen E-mail cím került megadásra.</translation>
+    </message>
+    <message>
+        <source>Device Information</source>
+        <translation>Eszköz információ</translation>
     </message>
 </context>
 <context>

@@ -1,16 +1,35 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es">
 <context>
+    <name>API</name>
+    <message>
+        <source>Please log in with your Deepin ID.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Feedback Hub</source>
+        <source>Sign out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sign out</source>
+        <source>Unlogged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -121,10 +140,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Load More</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Mensajes</translation>
     </message>
@@ -146,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>Salir</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Versión: %1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -216,9 +227,64 @@
     </message>
 </context>
 <context>
+    <name>Status</name>
+    <message>
+        <source>Pending</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Replied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Resolved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Evaluating</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Accepted</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Completed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Submit Feedback</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -238,6 +304,10 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation type="unfinished"/>
     </message>
@@ -247,6 +317,10 @@
     </message>
     <message>
         <source>Email：</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Version:</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -270,11 +344,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Are you sure you want to exit the feedback submission?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The feedback content will not be saved.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Exit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Submit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Unable to submit feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the title of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please provide the content of your feedback.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Incorrect email address entered.</source>
         <translation type="unfinished"/>
     </message>
     <message>

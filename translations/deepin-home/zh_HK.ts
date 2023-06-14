@@ -140,10 +140,6 @@
         <translation>需求</translation>
     </message>
     <message>
-        <source>Load More</source>
-        <translation>加載更多</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>系統消息</translation>
     </message>
@@ -165,10 +161,6 @@
     <message>
         <source>Exit</source>
         <translation>退出</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>版本：%1</translation>
     </message>
     <message>
         <source>Deepin Home</source>
@@ -268,8 +260,32 @@
 <context>
     <name>Submit</name>
     <message>
+        <source>Unable to add a screenshot.</source>
+        <translation>無法添加截圖</translation>
+    </message>
+    <message>
+        <source>The image file size should be less than 1MB.</source>
+        <translation>圖像文件大小應小於 1MB</translation>
+    </message>
+    <message>
+        <source>The image file format is not supported for uploading.</source>
+        <translation>圖片的文件格式不支持上傳</translation>
+    </message>
+    <message>
         <source>Submit Feedback</source>
         <translation>提交反饋</translation>
+    </message>
+    <message>
+        <source>[Current Status of the Product]: 
+[Desired Product]: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>[Preconditions]: 
+[Reproducibility Steps]: 
+[Expected Results]: 
+[Actual Results]: </source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
@@ -288,6 +304,10 @@
         <translation>標題：</translation>
     </message>
     <message>
+        <source>Please provide a brief description of your issue</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Content：</source>
         <translation>內容：</translation>
     </message>
@@ -298,6 +318,10 @@
     <message>
         <source>Email：</source>
         <translation>郵箱：</translation>
+    </message>
+    <message>
+        <source>System Version:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device Info：</source>
@@ -320,26 +344,6 @@
         <translation>拖拽文件或者點擊“+”添加圖片，最多添加三張</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <source>Submit</source>
-        <translation>提交</translation>
-    </message>
-    <message>
-        <source>Device Information</source>
-        <translation>設備訊息</translation>
-    </message>
-    <message>
-        <source>Unable to add a screenshot.</source>
-        <translation>無法添加截圖</translation>
-    </message>
-    <message>
-        <source>The image file size should be less than 1MB.</source>
-        <translation>圖像文件大小應小於 1MB</translation>
-    </message>
-    <message>
         <source>Are you sure you want to exit the feedback submission?</source>
         <translation>您確定要退出反饋訊息創建嗎？</translation>
     </message>
@@ -348,12 +352,24 @@
         <translation>反饋內容不會被保存</translation>
     </message>
     <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
+        <source>Submit</source>
+        <translation>提交</translation>
+    </message>
+    <message>
         <source>Unable to submit feedback.</source>
         <translation>無法提交反饋</translation>
+    </message>
+    <message>
+        <source>Please provide the title and content of your feedback.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -368,8 +384,8 @@
         <translation>輸入的郵件地址不正確</translation>
     </message>
     <message>
-        <source>The image file format is not supported for uploading.</source>
-        <translation>圖片的文件格式不支持上傳</translation>
+        <source>Device Information</source>
+        <translation>設備訊息</translation>
     </message>
 </context>
 <context>
