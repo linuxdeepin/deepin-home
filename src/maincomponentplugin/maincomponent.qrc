@@ -18,6 +18,7 @@
         <file>router/Router.qml</file>
         <file>router/qmldir</file>
         <file>widgets/Loading.qml</file>
+        <file>widgets/Avatar.qml</file>
 
         <file>titlebar/MyTitleBar.qml</file>
         <file>titlebar/AccountButton.qml</file>
@@ -53,5 +54,6 @@
         <file>images/status/finish.svg</file>
         <file>images/status/reject.svg</file>
         <file>images/status/req-accept.svg</file>
+        <file>images/dotted.svg</file>
     </qresource>
 </RCC>

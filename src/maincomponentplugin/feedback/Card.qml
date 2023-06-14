@@ -8,12 +8,13 @@ import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
 import "../api"
 import "../router"
+import "../widgets" 
 
 // 显示用户反馈的详细信息，在反馈列表和反馈详情中使用
 // 在反馈列表中，截图缩小横排显示，并且不显示回复的信息
 Rectangle { 
     id: root
-    radius: 10
+    radius: 18
     height: column.height
     property string public_id: ''
     property string title: ''
@@ -37,7 +38,7 @@ Rectangle {
     signal collectClicked()
 
     // 头像预留位置
-    Image {
+    Avatar {
         x: 20
         y: 13
         width: 36
@@ -50,12 +51,13 @@ Rectangle {
         x: 20+36+10
         width: parent.width - x - 20
         clip: true
+        spacing: 0
         // 标题
         Text {
             id: titleText
             Layout.maximumWidth: parent.width - 100
             Layout.topMargin: 10
-            font: DTK.fontManager.t4
+            font: DTK.fontManager.t5
             wrapMode: Text.WrapAnywhere
             elide: Text.ElideRight
             maximumLineCount: inList ? 1 : 0
@@ -70,6 +72,7 @@ Rectangle {
                     root.titleClicked()
                 }
                 ToolTip {
+                    delay: 300
                     visible: parent.containsMouse
                     text: qsTr("View details")
                 }
@@ -80,7 +83,7 @@ Rectangle {
             id: subtitleText
             Layout.topMargin: 2
             color: "gray"
-            font: DTK.fontManager.t8
+            font: DTK.fontManager.t9
             text: new Date(root.created_at).toLocaleString(locale, Locale.ShortFormat) + "  " + (root.isRelay ? '' : qsTr("%1 views").arg(root.view_count))
         }
         // 内容
@@ -88,11 +91,12 @@ Rectangle {
             id: contentText
             Layout.fillWidth: true
             Layout.topMargin: 10
-            Layout.bottomMargin: 10
+            Layout.bottomMargin: 5
             wrapMode: Text.WrapAnywhere
             elide: Text.ElideRight
             maximumLineCount: inList ? 2 : 0
             text: root.content
+            color: Qt.rgba(0,0,0,0.7)
             // TODO 不知什么原因，无法触发root信号
             onLinkActivated: (link)=> {
                 if(link.startsWith("#")){
@@ -129,6 +133,7 @@ Rectangle {
                 Layout.preferredHeight: screenshotImg.height
                 Image {
                     id: screenshotImg
+                    visible: !root.inList
                     width: parent.width
                     fillMode: Image.PreserveAspectFit
                     source: root.screenshots[index]
@@ -146,12 +151,12 @@ Rectangle {
                 width: typeText.width+15
                 height: typeText.height+4
                 border.width: 1
-                border.color: "#eead86"
+                border.color: root.type === 'bug' ? "#eead86" : "#0d9353"
                 radius: 5
                 Text {
                     id: typeText
                     text: root.type === 'bug' ? "BUG" : qsTr("Suggestions")
-                    color: root.type === 'bug' ? "#eead86" : '#0d9353'
+                    color: root.type === 'bug' ? "#eead86" : "#0d9353"
                     font: DTK.fontManager.t6
                     anchors.centerIn: parent
                 }
@@ -172,6 +177,7 @@ Rectangle {
                         root.collectClicked()
                     }
                     ToolTip {
+                        delay: 300
                         visible: parent.containsMouse
                         text: root.collect ? qsTr("Unfavorite") : qsTr("Favorite")
                     }
@@ -182,6 +188,8 @@ Rectangle {
                             source: root.collect ? "/images/collect.svg" : "/images/collect-1.svg"
                         }
                         Text {
+                            color: "gray"
+                            font: DTK.fontManager.t9
                             text: root.collect_count
                         }
                     }
@@ -195,6 +203,7 @@ Rectangle {
                         root.likeClicked()
                     }
                     ToolTip {
+                        delay: 300
                         visible: parent.containsMouse
                         text: root.like ? qsTr("Cancel the urge") : qsTr("Urge")
                     }
@@ -206,6 +215,8 @@ Rectangle {
                             source: root.like ? "/images/hands-up.svg" : "/images/hands-up-1.svg"
                         }
                         Text {
+                            color: "gray"
+                            font: DTK.fontManager.t9
                             text: root.like_count
                         }
                     }
@@ -223,7 +234,7 @@ Rectangle {
     // 阴影
     BoxShadow {
         anchors.fill: parent
-        shadowBlur : 18
+        shadowBlur : 10
         shadowColor : Qt.rgba(0,0,0,0.10)
         shadowOffsetX : 0
         shadowOffsetY : 1

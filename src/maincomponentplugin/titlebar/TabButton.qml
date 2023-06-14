@@ -16,6 +16,9 @@ ButtonBox {
     ToolButton {
         visible: root.allFeedback
         id: allFeedbackBtn
+        leftPadding: 20
+        rightPadding: 20
+        implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeAllFeedback.path
         text: qsTr("Feedback Hub")
         onClicked: {
@@ -25,16 +28,21 @@ ButtonBox {
     ToolButton {
         visible: root.allFeedback
         id: myFeedbackBtn
+        leftPadding: 20
+        rightPadding: 20
+        implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeMyFeedback.path
         text: qsTr("My Feedbacks")
         onClicked: {
             Router.showMyFeedback(false)
         }
     }
-
     ToolButton {
         visible: root.accountFeedback
         id: starsFeedbackBtn
+        leftPadding: 20
+        rightPadding: 20
+        implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeFavoriteFeedback.path
         text: qsTr("My Favorites")
         onClicked: {
@@ -45,6 +53,9 @@ ButtonBox {
     ToolButton {
         visible: root.accountFeedback
         id: watchFeedbackBtn
+        leftPadding: 20
+        rightPadding: 20
+        implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeUrgeFeedback.path
         text: qsTr("My Urge")
         onClicked: {

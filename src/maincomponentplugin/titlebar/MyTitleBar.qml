@@ -22,9 +22,13 @@ TitleBar {
             sourceSize.width:  root.height - 10
             sourceSize.height: root.height - 10
         }
-        ToolButton {
+        Button {
             visible: Router.routeCurrent !== Router.routeIndex
+            Layout.maximumWidth: 36
+            height: 36
             icon.name: "arrow_ordinary_left"
+            icon.width: 7
+            icon.height: 12
             onClicked: {
                 Router.back()
             }
@@ -68,9 +72,9 @@ TitleBar {
         Rectangle {
             Layout.fillWidth: true
             height: root.height
-
             TabButton {
                 anchors.centerIn: parent
+                height: 36
             }
             AccountButton {
                 anchors.right: notifyButton.left
@@ -87,6 +91,15 @@ TitleBar {
                 }
             }
         }
- 
+    }
+    // 阴影
+    BoxShadow {
+        anchors.fill: parent
+        shadowBlur : 10
+        shadowColor : Qt.rgba(0,0,0,0.03)
+        shadowOffsetX : 0
+        shadowOffsetY : 4
+        cornerRadius: root.radius
+        hollow: true
     }
 }

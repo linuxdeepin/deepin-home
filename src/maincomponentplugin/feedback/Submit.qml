@@ -43,12 +43,17 @@ Item {
         }
         imgListModel.append({"source": src})
     }
+
     DialogWindow {
         id: win
         icon: "deepin-home"
         title: qsTr("Submit Feedback")
         width: root.width*0.8
-        height: submitLayout.height + 100
+        height: submitLayout.height + 36 + 36
+        // 反馈内容的提示占位，提前定义用于比较用户是否补充过信息
+        property string reqPlaceholder: qsTr("[Current Status of the Product]: \n[Desired Product]: ")
+        property string bugPlaceholder: qsTr("[Preconditions]: \n[Reproducibility Steps]: \n[Expected Results]: \n[Actual Results]: ")
+        property string placeholder: reqType.checked ? reqPlaceholder : bugPlaceholder;
         // 表单控件宽度
         property int controlWidth: width - 100 * 2
 
@@ -57,7 +62,7 @@ Item {
         }
 
         component ControlLabel: Text {
-            font: DTK.fontManager.t6
+            font.pixelSize: DTK.fontManager.t6.pixelSize
             width: 100
             height: parent.height
             horizontalAlignment: Text.AlignRight
@@ -78,8 +83,10 @@ Item {
             spacing: 10
             Label {
                 Layout.alignment: Qt.AlignHCenter
-                font: DTK.fontManager.t5
                 text: win.title
+                Layout.bottomMargin: 5
+                font.pixelSize: DTK.fontManager.t6.pixelSize
+                font.bold: true
             }
             // 反馈类型
             Row {
@@ -124,6 +131,13 @@ Item {
                             remove(60, length)
                         }
                     }
+                    Text {
+                        x: 10
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Please provide a brief description of your issue")
+                        color: "#555"
+                        visible: !titleText.text && !titleText.activeFocus
+                    }
                 }
             }
             // 内容
@@ -145,6 +159,7 @@ Item {
                                     remove(1000, length)
                                 }
                             }
+                            text: win.placeholder
                         }
                     }
                     Label {
@@ -168,7 +183,6 @@ Item {
                     text: ""
                 }
             }
-
             // 系统版本
             Row {
                 spacing: 10
@@ -282,16 +296,27 @@ Item {
                                 }
                             }
                         }
-                        // 添加图片的按钮
-                        Button {
-                            visible: root.imgListModel.count < 3
+                        Rectangle {
                             width: 48
                             height: 48
-                            icon.name: "action_add"
-                            icon.width: 14
-                            icon.height: 14 
-                            onClicked: {
-                                fileDialog.visible = true
+                            Image {
+                                source: "qrc:///images/dotted.svg"
+                                sourceSize.width: 48
+                                sourceSize.height: 48
+                            }
+                            // 添加图片的按钮
+                            Button {
+                                x: 1
+                                y: 1
+                                width: 46
+                                height: 46
+                                visible: root.imgListModel.count < 3
+                                icon.name: "action_add"
+                                icon.width: 14
+                                icon.height: 14 
+                                onClicked: {
+                                    fileDialog.visible = true
+                                }
                             }
                         }
                     }
@@ -302,7 +327,7 @@ Item {
                 }
             }
             // 底部按钮
-            Row {
+            RowLayout {
                 spacing: 20
                 Layout.alignment: Qt.AlignHCenter
                 DialogWindow {
@@ -349,9 +374,12 @@ Item {
                 Button {
                     width: 200
                     text: qsTr("Cancel")
+                    leftPadding: 100
+                    rightPadding: 100
+                    font.letterSpacing: 10
                     onClicked: {
                         // 如果已填写标题或内容，弹出提示
-                        if(titleText.text.length>0 || contentText.text.length>0){
+                        if(titleText.text.length > 0 || contentText.text!=win.placeholder){
                             cancelConfirm.show()
                         } else {
                             win.close()
@@ -361,8 +389,11 @@ Item {
                 RecommandButton {
                     width: 200
                     text: qsTr("Submit")
+                    leftPadding: 100
+                    rightPadding: 100
+                    font.letterSpacing: 10
                     onClicked: {
-                        if(titleText.text.length==0 && contentText.text.length==0){
+                        if(titleText.text.length==0 && (contentText.text.length==0 || contentText.text == win.placeholder)){
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title and content of your feedback."))
                             return
                         }
@@ -370,7 +401,7 @@ Item {
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title of your feedback."))
                             return
                         }
-                        if(contentText.text.length==0){
+                        if(contentText.text.length==0 || contentText.text == win.placeholder){
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the content of your feedback."))
                             return
                         }
