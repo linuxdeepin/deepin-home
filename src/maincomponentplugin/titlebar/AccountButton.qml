@@ -7,11 +7,12 @@ import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
 import "../api"
 import "../router"
+import "../widgets"
 
 // 账户信息按钮
 WindowButton {
     // 头像
-    Image {
+    Avatar {
         id: avatar_image
         source: API.isLogin ? API.avatar : "/images/avatar.svg"
         sourceSize.width: 26
@@ -25,6 +26,9 @@ WindowButton {
         y: parent.height
         width: 266
         height: 244
+        background: FloatingPanel {
+            blurRadius: 20
+        }
         ColumnLayout {
             anchors.centerIn: parent
             width: 226
@@ -32,7 +36,7 @@ WindowButton {
                 width: 48
                 height: 48
                 radius: 24
-                Image {
+                Avatar {
                     id: avatarImg
                     width: 48
                     height: 48

@@ -25,6 +25,7 @@ Item {
     property string type: ""
     // 是否显示“加载更多”按钮
     property bool hasMore: true
+    property bool loadMore: false
 
     ListModel {
         id: feedbackList
@@ -61,6 +62,7 @@ Item {
                     feedback: feedback
                 })
             }
+            root.loadMore = false
         }
         switch(root.relation){
             case "create":
@@ -122,6 +124,13 @@ Item {
         width: parent.width
         height: parent.height - y - 10
         clip: true
+        ScrollBar.vertical.onPositionChanged: () => {
+            const position = ScrollBar.vertical.position + ScrollBar.vertical.size
+            if(position==1 && !root.loadMore && root.hasMore) {
+                root.loadMore = true
+                timer.start()
+            }
+        }
         ListView {
             id: listView
             spacing: 10
@@ -129,24 +138,7 @@ Item {
             delegate: Item {
                 x: 20
                 width: listView.width - x*2
-                height: card.height + card.y + moreBtn.height
-                // 在底部显示“加载更多”按钮
-                Rectangle {
-                    id: moreBtn
-                    anchors.top: card.bottom
-                    visible: index === feedbackList.count - 1 && root.hasMore
-                    width: parent.width
-                    height: visible ? 57 : 10
-                    Button {
-                        // 由于“提交反馈”的按钮放在底部居中，“加载更多”的按钮只能放到右边了
-                        anchors.right: parent.right
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("Load More")
-                        onClicked: {
-                            getList(false)
-                        }
-                    }
-                }
+                height: card.height + card.y + ( index == feedbackList.count-1 ? 20 : 0)
                 Card {
                     id: card
                     y: index === 0 ? 10 : 0;
@@ -216,14 +208,30 @@ Item {
             }
         }
     }
-
+    Timer {
+        id: timer
+        interval: 1000
+        repeat: false
+        onTriggered: {
+            getList(false)
+        }
+    }
+    BusyIndicator {
+        id: indicator
+        visible: root.loadMore
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: root.bottom
+        anchors.bottomMargin: 2
+        running: true
+        width: 16
+        height: 16
+    }
     // 没有反馈数据时，显示提示
     NotFound {
         visible: feedbackList.count === 0
         anchors.centerIn: parent
         title: ""
     }
-
     // 只在需求广场显示的“提交反馈”的按钮，点击后弹出提交反馈的对话框
     FloatingButton {
         id: submitButton
@@ -234,8 +242,8 @@ Item {
         anchors.bottomMargin: 27
         anchors.horizontalCenter: parent.horizontalCenter
         icon.name: "action_add"
-        icon.width: 14
-        icon.height: 14
+        icon.width: 18
+        icon.height: 18
         onClicked: {
             submitLoader.setSource("Submit.qml", {type: root.type})
         }

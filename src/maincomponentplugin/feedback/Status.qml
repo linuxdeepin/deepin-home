@@ -32,11 +32,33 @@ RoundRectangle {
         "req-reject": qsTr("Replied"),
         "req-finish": qsTr("Completed"),
     }
+    property var statusBgColor: {
+        "bug-submit": "#FFF7E9",
+        "bug-accept": "#D6F7FF",
+        "bug-reject": "#F5FFE1",
+        "bug-finish": "#E1FFF1",
+        "req-submit": "#FFF7E9",
+        "req-evaluate": "#E0E5FF",
+        "req-accept": "#FFF7E9",
+        "req-reject": "#F5FFE1",
+        "req-finish": "#E1FAFF",
+    }
+    property var statusTextColor: {
+        "bug-submit": "#B78C45",
+        "bug-accept": "#0261BF",
+        "bug-reject": "#17794B",
+        "bug-finish": "#17794B",
+        "req-submit": "#B78C45",
+        "req-evaluate": "#0050A9",
+        "req-accept": "#B78C45",
+        "req-reject": "#F5FFE1",
+        "req-finish": "#17794B",
+    }
     width: statusIcon.width + statusText.width + 40
     height: 36
-    color: "#fff7e9"
+    color: root.statusBgColor["%1-%2".arg(root.type).arg(root.status)]
     radius: 18
-    corners: (RoundRectangle.BottomLeftCorner)
+    corners: (RoundRectangle.BottomLeftCorner | RoundRectangle.TopRightCorner)
     Image {
         id: statusIcon
         source: root.statusiconList["%1-%2".arg(root.type).arg(root.status)]
@@ -44,6 +66,7 @@ RoundRectangle {
         anchors.verticalCenter: parent.verticalCenter
     }
     Text {
+        color: root.statusTextColor["%1-%2".arg(root.type).arg(root.status)]
         id: statusText
         anchors.left: statusIcon.right
         anchors.leftMargin: 6
