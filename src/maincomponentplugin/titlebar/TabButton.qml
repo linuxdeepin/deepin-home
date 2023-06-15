@@ -57,7 +57,7 @@ ButtonBox {
         rightPadding: 20
         implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeUrgeFeedback.path
-        text: qsTr("My Urge")
+        text: qsTr("My Urged")
         onClicked: {
             Router.showUrgeFeedback(false)
         }

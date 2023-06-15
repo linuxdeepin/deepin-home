@@ -42,15 +42,16 @@ Item {
                 // 点赞按钮点击
                 onLikeClicked: {
                     const callback = () => {
+                        if(card.like){
+                            card.like_count--
+                        } else {
+                            card.like_count++
+                        }
                         card.like = !card.like
-                        feedback.like = !feedback.like
-                        console.log(feedback.like)
                     }
                     if (card.like) {
-                        card.like_count--
                         API.cancelLikeFeedback(feedback.public_id, callback)
                     } else {
-                        card.like_count++
                         API.likeFeedback(feedback.public_id, callback)
                     }
                 }
@@ -58,13 +59,16 @@ Item {
                 onCollectClicked: {
                     // 点击可以收藏和取消收藏
                     const callback = () => {
+                        if (card.collect) {
+                            card.collect_count--
+                        } else {
+                            card.collect_count++
+                        }
                         card.collect = !card.collect
                     }
                     if (card.collect) {
-                        card.collect_count--
                         API.cancelCollectFeedback(feedback.public_id, callback)
                     } else {
-                        card.collect_count++
                         API.collectFeedback(feedback.public_id, callback)
                     }
                 }

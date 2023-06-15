@@ -1,3 +1,9 @@
+deepin-home (1.1.6) unstable; urgency=medium
+
+  * feat: prompt the user when triggering API restrictions
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 15 Jun 2023 10:35:30 +0800
+
 deepin-home (1.1.5) unstable; urgency=medium
 
   * feat: refining the interface details
@@ -20,7 +26,7 @@ deepin-home (1.1.3) unstable; urgency=medium
   * feat: upload system version when submitting feedback
   * feat: Support building on deepin v20
 
- -- Deepin Packages Builder <packages@deepin.org>  Thu, 00 Jun 2023 15:35:08 +0800
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 01 Jun 2023 15:35:08 +0800
 
 deepin-home (1.1.2) unstable; urgency=medium
 

@@ -9,6 +9,10 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation>Cal iniciar sessió per continuar amb les operacions posteriors.</translation>
     </message>
+    <message>
+        <source>You&apos;ve been making too many requests. Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AccountButton</name>
@@ -278,14 +282,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Estat actual del producte]:
+[Producte desitjat]:</translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Condicions prèvies]:
+[Passos de reproductibilitat]:
+[Resultats esperats]:
+[Resultats reals]:</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -305,7 +313,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, proporcioneu una descripció breu del problema.</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -321,7 +329,7 @@
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>Versió del sistema:</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -369,7 +377,7 @@
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, proporcioneu el títol i el contingut del comentari.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -403,8 +411,8 @@
         <translation>Favorits</translation>
     </message>
     <message>
-        <source>My Urge</source>
-        <translation>Urgències</translation>
+        <source>My Urged</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

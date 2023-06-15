@@ -9,6 +9,10 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation>A további műveletek folytatásához be kell jelentkeznie.</translation>
     </message>
+    <message>
+        <source>You&apos;ve been making too many requests. Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AccountButton</name>
@@ -278,14 +282,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[A termék jelenlegi állapota]: 
+[Kívánt termék]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Előfeltételek]: 
+[Reprodukálási lépések]: 
+[Várható eredmények]: 
+[Jelenlegi eredmények]:</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -305,7 +313,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Kérjük röviden írja le az észlelt problémát</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -403,8 +411,8 @@
         <translation>Kedvenceim</translation>
     </message>
     <message>
-        <source>My Urge</source>
-        <translation>Ösztönzéseim</translation>
+        <source>My Urged</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
