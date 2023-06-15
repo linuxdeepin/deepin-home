@@ -38,6 +38,9 @@ Item {
                     case 401:
                         login()
                         break
+                    case 429:
+                        notify(qsTr("You've been making too many requests. Please try again later."))
+                        break
                     default:
                         console.log("network error", xhr.status)
                         networkError()

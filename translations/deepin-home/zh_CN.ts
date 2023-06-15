@@ -9,6 +9,10 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation>您需要登录才能进行后续操作。</translation>
     </message>
+    <message>
+        <source>You&apos;ve been making too many requests. Please try again later.</source>
+        <translation>您的操作太频繁了，请稍后再试。</translation>
+    </message>
 </context>
 <context>
     <name>AccountButton</name>
@@ -407,7 +411,7 @@
         <translation>我的收藏</translation>
     </message>
     <message>
-        <source>My Urge</source>
+        <source>My Urged</source>
         <translation>我的催促</translation>
     </message>
 </context>

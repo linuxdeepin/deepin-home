@@ -9,6 +9,10 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation>您需要登錄才能進行後續操作。</translation>
     </message>
+    <message>
+        <source>You&apos;ve been making too many requests. Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AccountButton</name>
@@ -278,14 +282,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>【產品現狀】： 
+【產品期望】： </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>【前置條件】： 
+【復現步驟】： 
+【預期結果】： 
+【實際結果】： </translation>
     </message>
     <message>
         <source>Type：</source>
@@ -305,7 +313,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>請簡單描述你的問題</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -321,7 +329,7 @@
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>系統版本：</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -369,7 +377,7 @@
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>請填寫反饋的標題和內容</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -403,7 +411,7 @@
         <translation>我的收藏</translation>
     </message>
     <message>
-        <source>My Urge</source>
+        <source>My Urged</source>
         <translation>我的催促</translation>
     </message>
 </context>

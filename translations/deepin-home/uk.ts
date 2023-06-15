@@ -9,6 +9,10 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation>Для виконання наступних дій вам слід увійти до системи.</translation>
     </message>
+    <message>
+        <source>You&apos;ve been making too many requests. Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AccountButton</name>
@@ -403,8 +407,8 @@
         <translation>Улюблене</translation>
     </message>
     <message>
-        <source>My Urge</source>
-        <translation>Критичне</translation>
+        <source>My Urged</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

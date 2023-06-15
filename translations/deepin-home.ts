@@ -11,6 +11,10 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>You&apos;ve been making too many requests. Please try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AccountButton</name>
@@ -405,7 +409,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>My Urge</source>
+        <source>My Urged</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
