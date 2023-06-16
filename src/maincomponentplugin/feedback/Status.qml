@@ -51,7 +51,7 @@ RoundRectangle {
         "req-submit": "#B78C45",
         "req-evaluate": "#0050A9",
         "req-accept": "#B78C45",
-        "req-reject": "#F5FFE1",
+        "req-reject": "#17794B",
         "req-finish": "#17794B",
     }
     width: statusIcon.width + statusText.width + 40
