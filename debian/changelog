@@ -1,3 +1,10 @@
+deepin-home (1.1.7) unstable; urgency=medium
+
+  * fix: status text not display
+  * fix: feedback submit button is display abnormally in english env
+
+ -- Deepin Packages Builder <packages@deepin.org>  Fri, 16 Jun 2023 15:49:19 +0800
+
 deepin-home (1.1.6) unstable; urgency=medium
 
   * feat: prompt the user when triggering API restrictions
