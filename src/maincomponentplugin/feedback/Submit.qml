@@ -376,7 +376,7 @@ Item {
                     text: qsTr("Cancel")
                     leftPadding: 100
                     rightPadding: 100
-                    font.letterSpacing: 10
+                    font.letterSpacing: API.isZH() ? 10 : 1;
                     onClicked: {
                         // 如果已填写标题或内容，弹出提示
                         if(titleText.text.length > 0 || contentText.text!=win.placeholder){
@@ -391,7 +391,7 @@ Item {
                     text: qsTr("Submit")
                     leftPadding: 100
                     rightPadding: 100
-                    font.letterSpacing: 10
+                    font.letterSpacing: API.isZH() ? 10 : 1;
                     onClicked: {
                         if(titleText.text.length==0 && (contentText.text.length==0 || contentText.text == win.placeholder)){
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title and content of your feedback."))

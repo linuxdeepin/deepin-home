@@ -167,7 +167,7 @@ Rectangle {
             // 点赞和收藏的数量
             RowLayout {
                 spacing: 30
-                visible: root.status != 'submit'
+                visible: root.status != 'submit' // 待处理的反馈不会展示在广场，也不需要展示统计数据
                 MouseArea {
                     width:  childrenRect.width
                     height: childrenRect.height
