@@ -12,6 +12,7 @@ Item {
     property string avatar
     // 当前登陆的用户名
     property string nickname
+    property string language
     // 未读消息数量
     property int msgCount: 0
     // 当前自启开关
@@ -306,10 +307,14 @@ Item {
         worker.setAutoStart(enable);
         autostart = enable
     }
+    function isZH() {
+        return language.startsWith("zh")
+    }
     Component.onCompleted: {
         refreshAccount()
         messageCount()
         autostart = getAutoStart()
+        language = worker.getLanguage()
     }
     Connections {
         target: worker
