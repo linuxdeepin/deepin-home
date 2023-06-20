@@ -26,6 +26,7 @@ Item {
     // 是否显示“加载更多”按钮
     property bool hasMore: true
     property bool loadMore: false
+    property string imagePreview: ""
 
     ListModel {
         id: feedbackList
@@ -180,6 +181,11 @@ Item {
                             API.likeFeedback(feedback.public_id, callback)
                         }
                     }
+                    onImageClicked: (img) => {
+                        console.log("view screenshot", img)
+                        imagePreview = img
+                        imagePreviewWindow.open()
+                    }
                     // 收藏按钮点击
                     onCollectClicked: {
                         if(!API.isLogin){
@@ -250,6 +256,22 @@ Item {
         icon.height: 18
         onClicked: {
             submitLoader.setSource("Submit.qml", {type: root.type})
+        }
+    }
+    Popup {
+        id: imagePreviewWindow
+        x: 80
+        y: 50
+        width: parent.width-x*2
+        height: parent.height-y*2
+        background: FloatingPanel {
+            blurRadius: 20
+        }
+        Image {
+            width: parent.width
+            height: parent.height
+            fillMode: Image.PreserveAspectFit
+            source: imagePreview
         }
     }
     Loader {

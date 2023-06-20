@@ -36,6 +36,7 @@ Rectangle {
     signal titleClicked()
     signal likeClicked()
     signal collectClicked()
+    signal imageClicked(string url)
 
     // 头像预留位置
     Avatar {
@@ -122,6 +123,12 @@ Rectangle {
                     source: root.screenshots[index]
                     width: 48
                     height: 48
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            imageClicked(root.screenshots[index])
+                        }
+                    }
                 }
             }
         }
