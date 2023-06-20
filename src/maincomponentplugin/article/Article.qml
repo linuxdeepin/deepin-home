@@ -23,6 +23,9 @@ Item {
             id: loading
             visible: true
         }
+        background: FloatingPanel {
+            blurRadius: 25
+        }
         Component.onCompleted: {
             open()
         }
