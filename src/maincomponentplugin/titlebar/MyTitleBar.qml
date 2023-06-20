@@ -57,7 +57,7 @@ TitleBar {
     }
     
     aboutDialog: AboutDialog {
-        width: 400
+        maximumWidth: 400
         modality: Qt.NonModal
         version: Qt.application.version
         productName: qsTr("Deepin Home")
