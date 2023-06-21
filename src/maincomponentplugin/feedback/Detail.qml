@@ -39,6 +39,7 @@ Item {
                 collect: feedback.collect
                 screenshots: feedback.screenshots
                 avatar: feedback.avatar
+                system_version: feedback.system_version
                 // 点赞按钮点击
                 onLikeClicked: {
                     const callback = () => {

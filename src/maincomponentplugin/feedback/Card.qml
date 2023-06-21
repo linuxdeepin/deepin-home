@@ -32,6 +32,7 @@ Rectangle {
     property int view_count: 0
     property int like_count: 0
     property int collect_count: 0
+    property string system_version: ''
 
     signal titleClicked()
     signal likeClicked()
@@ -161,6 +162,24 @@ Rectangle {
                     anchors.centerIn: parent
                 }
             }
+
+            Rectangle {
+                visible: root.system_version
+                Layout.leftMargin: 5
+                width: versionText.width+15
+                height: versionText.height+4
+                border.width: 1
+                border.color: "#b6b6b6"
+                radius: 5
+                Text {
+                    id: versionText
+                    color: "#838383"
+                    text: "V"+root.system_version
+                    font: DTK.fontManager.t6
+                    anchors.centerIn: parent
+                }
+            }
+
             Item {
                 Layout.fillWidth: true
             }

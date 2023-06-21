@@ -152,6 +152,7 @@ Item {
                     like: feedback.like
                     collect: feedback.collect
                     screenshots: feedback.screenshots
+                    system_version: feedback.system_version
                     avatar: feedback.avatar
                     // 点击标题时，进入详情
                     onTitleClicked: {
