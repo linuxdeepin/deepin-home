@@ -260,6 +260,50 @@
         <source>Completed</source>
         <translation>已完成</translation>
     </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>复现中</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>问题未做任何处理，不会出现在需求广场</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>暂时无法定位，需持续跟进问题</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>明确复现并已经定位原因</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>非Bug类型问题</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>完成修复，待推送内容</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>需求未做任何处理，不会出现在需求广场</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>已经明确接受并转入内部需求评估</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>纳入后期版本规划</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>暂不接受或无法处理需求问题</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>完成开发，待正式发布</translation>
+    </message>
 </context>
 <context>
     <name>Submit</name>

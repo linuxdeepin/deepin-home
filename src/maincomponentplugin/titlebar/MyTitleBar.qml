@@ -99,7 +99,6 @@ TitleBar {
         shadowColor : Qt.rgba(0,0,0,0.03)
         shadowOffsetX : 0
         shadowOffsetY : 4
-        cornerRadius: root.radius
         hollow: true
     }
 }
