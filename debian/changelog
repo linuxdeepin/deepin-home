@@ -1,3 +1,13 @@
+deepin-home (1.2.0) unstable; urgency=medium
+
+  * feat: feedback card add 'reproducing' status
+  * feat: show system version in feedback card
+  * fix: feedback type filter and router conflicts(Issue: https://github.com/linuxdeepin/developer-center/issues/4707)
+  * feat: Click on the screenshot to preview(Issue: https://github.com/linuxdeepin/developer-center/issues/4701)
+  * chore: update translation
+
+ -- Deepin Packages Builder <packages@deepin.org>  Wed, 21 Jun 2023 15:48:48 +0800
+
 deepin-home (1.1.7) unstable; urgency=medium
 
   * fix: status text not display
