@@ -12,6 +12,7 @@ RoundRectangle {
     property string status
     property var statusiconList: {
         "bug-submit": "/images/status/submit.svg",
+        "bug-reproducing": "/images/status/evaluate.svg",
         "bug-accept": "/images/status/bug-accept.svg",
         "bug-reject": "/images/status/reject.svg",
         "bug-finish": "/images/status/finish.svg",
@@ -23,6 +24,7 @@ RoundRectangle {
     }
     property var statusTextList: {
         "bug-submit": qsTr("Pending"),
+        "bug-reproducing": qsTr("Reproducing"),
         "bug-accept": qsTr("Confirmed"),
         "bug-reject": qsTr("Replied"),
         "bug-finish": qsTr("Resolved"),
@@ -32,8 +34,21 @@ RoundRectangle {
         "req-reject": qsTr("Replied"),
         "req-finish": qsTr("Completed"),
     }
+    property var statusTextTip: {
+        "bug-submit": qsTr("The issue has not been processed and will not be displayed in the public listing."),
+        "bug-reproducing": qsTr("Currently unable to identify the cause; continuous monitoring and investigation are required."),
+        "bug-accept": qsTr("The issue has been reproduced and the root cause has been identified."),
+        "bug-reject": qsTr("The issue is not a bug or of a different nature."),
+        "bug-finish": qsTr("The issue has been resolved and awaiting formal release"),
+        "req-submit": qsTr("The requirement has not been processed and will not be displayed in the public listing"),
+        "req-evaluate": qsTr("The issue has been acknowledged and is being internally assessed"),
+        "req-accept": qsTr("Included in the plans for a future release"),
+        "req-reject": qsTr("The requirement is either not accepted or unable to be addressed"),
+        "req-finish": qsTr("Development work is finished, awaiting formal release"),
+    }
     property var statusBgColor: {
         "bug-submit": "#FFF7E9",
+        "bug-reproducing": "#E0E5FF",
         "bug-accept": "#D6F7FF",
         "bug-reject": "#F5FFE1",
         "bug-finish": "#E1FFF1",
@@ -45,6 +60,7 @@ RoundRectangle {
     }
     property var statusTextColor: {
         "bug-submit": "#B78C45",
+        "bug-reproducing": "#0050A9",
         "bug-accept": "#0261BF",
         "bug-reject": "#17794B",
         "bug-finish": "#17794B",
@@ -72,5 +88,14 @@ RoundRectangle {
         anchors.leftMargin: 6
         text: root.statusTextList["%1-%2".arg(root.type).arg(root.status)]
         anchors.verticalCenter: statusIcon.verticalCenter
+    }
+    MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        ToolTip {
+            delay: 300
+            visible: parent.containsMouse
+            text: root.statusTextTip["%1-%2".arg(root.type).arg(root.status)]
+        }
     }
 }
