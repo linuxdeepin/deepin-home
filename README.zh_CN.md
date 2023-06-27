@@ -32,6 +32,7 @@
 - libdtkgui-dev
 - libdtkdeclarative-dev
 - qttools5-dev-tools
+- qml-module-qtquick-dialogs
 
 ## 从源码构建
 

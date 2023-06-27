@@ -4,11 +4,11 @@
 
 - [x] Quick Login Forum (SSO)
 
-- [ ] Bug Report & Suggestions
+- [x] Bug Report & Suggestions
 
 - [ ] Forum Message Notification
 
-[中文文档](README.zh_CN.md)
+[中文说明](README.zh_CN.md)
 
 ## Screenshot
 
@@ -31,6 +31,7 @@
 - libdtkgui-dev
 - libdtkdeclarative-dev
 - qttools5-dev-tools
+- qml-module-qtquick-dialogs
 
 ## Build from source code
 

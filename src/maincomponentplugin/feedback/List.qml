@@ -267,7 +267,7 @@ Item {
         background: FloatingPanel {
             blurRadius: 20
         }
-        Image {
+        AnimatedImage {
             width: parent.width
             height: parent.height
             fillMode: Image.PreserveAspectFit
