@@ -139,7 +139,7 @@ Rectangle {
             delegate: Rectangle {
                 Layout.fillWidth: true
                 Layout.preferredHeight: screenshotImg.height
-                Image {
+                AnimatedImage {
                     id: screenshotImg
                     visible: !root.inList
                     width: parent.width
