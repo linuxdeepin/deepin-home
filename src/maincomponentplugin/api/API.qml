@@ -119,12 +119,6 @@ Item {
         for(let feedback of feedbacks) {
             feedback.like = false
             feedback.collect = false
-            if(feedback.screenshots) {
-                feedback.screenshots = feedback.screenshots.map((id)=> {
-                    console.log("index")
-                    return worker.getNode() + "/api/v1/public/upload/" + id
-                })
-            }
             url+="&id=" + feedback.public_id
         }
         // 填充关联关系到对象中
@@ -163,6 +157,13 @@ Item {
             arg(ids)
 
             get(url, (resp)=>{
+                for(let feedback of resp){
+                    if(feedback.screenshots) {
+                        feedback.screenshots = feedback.screenshots.map((id)=> {
+                            return worker.getNode() + "/api/v1/public/upload/" + id
+                        })
+                    }
+                }
                 if(!isLogin){
                     callback(resp)
                     return
