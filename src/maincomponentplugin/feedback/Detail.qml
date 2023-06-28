@@ -73,6 +73,10 @@ Item {
                         API.collectFeedback(feedback.public_id, callback)
                     }
                 }
+                onImageClicked: (img) => {
+                    console.log("open screenshot", img)
+                    API.imagePreview(img)
+                }
                 Component.onCompleted: {
                     API.feedbackStat(feedback.public_id, (stat) => {
                         card.view_count = stat.view_count

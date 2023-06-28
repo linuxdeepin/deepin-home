@@ -14,6 +14,10 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <DSysInfo>
+#include <QTemporaryFile>
+#include <QDesktopServices>
+#include <QStandardPaths>
+#include <QLoggingCategory>
 
 #include "homeDaemonProxy.h"
 class Worker : public QObject
@@ -21,7 +25,8 @@ class Worker : public QObject
     Q_OBJECT
 private:
     HomeDaemonProxy *m_daemon;
-
+    QLoggingCategory logger = QLoggingCategory("worker");
+    QString previewImageDir = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/.deepin-home";
 public:
     explicit Worker(QObject *parent = nullptr);
     ~Worker();
@@ -50,6 +55,7 @@ public slots:
     QString uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData);
     void notify(QString title, QString message);
     QString sysVersion();
+    void previewImage(QByteArray data);
 signals:
     void userInfoChanged();
     void messageChanged();
