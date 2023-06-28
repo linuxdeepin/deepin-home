@@ -16,31 +16,36 @@ Worker::Worker(QObject *parent)
     connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, &Worker::userInfoChanged);
     connect(m_daemon, &HomeDaemonProxy::messageChanged, this, &Worker::messageChanged);
     connect(m_daemon, &HomeDaemonProxy::showMainWindow, this, &Worker::showMainWindow);
+    // 在启动时清理截图预览的缓存目录
+    QDir dir(this->previewImageDir);
+    dir.removeRecursively();
+    qCInfo(this->logger) << "clean up saved screenshots";
+    dir.mkpath(this->previewImageDir);
 }
 
 Worker::~Worker() {}
 
 QString Worker::getNode()
 {
-    qDebug() << "get node";
+    qCDebug(this->logger) << "get node";
     return m_daemon->getNode();
 };
 
 QString Worker::getLanguage()
 {
-    qDebug() << "get language";
+    qCDebug(this->logger) << "get language";
     return m_daemon->getLanguage();
 };
 
 QString Worker::getMachineID()
 {
-    qDebug() << "get machine id";
+    qCDebug(this->logger) << "get machine id";
     return m_daemon->getMachineID();
 };
 
 void Worker::markRead(QString channel, QString topic, QString uuid)
 {
-    qDebug() << "mark read";
+    qCDebug(this->logger) << "mark read";
     QList<QVariant> args;
     args << channel << topic << uuid;
     m_daemon->callWithArgumentList(QDBus::NoBlock, "markRead", args);
@@ -48,7 +53,7 @@ void Worker::markRead(QString channel, QString topic, QString uuid)
 
 bool Worker::isRead(QString channel, QString topic, QString uuid)
 {
-    qDebug() << "is read";
+    qCDebug(this->logger) << "is read";
     QList<QVariant> args;
     args << channel << topic << uuid;
     QDBusReply<bool> reply = m_daemon->callWithArgumentList(QDBus::BlockWithGui, "isRead", args);
@@ -57,53 +62,53 @@ bool Worker::isRead(QString channel, QString topic, QString uuid)
 
 void Worker::exited()
 {
-    qDebug() << "daemon exit";
+    qCDebug(this->logger) << "daemon exit";
     QCoreApplication::quit();
 };
 
 void Worker::login()
 {
-    qDebug() << "login";
+    qCDebug(this->logger) << "login";
     m_daemon->login();
 };
 
 void Worker::logout()
 {
-    qDebug() << "logout";
+    qCDebug(this->logger) << "logout";
     m_daemon->logout();
 };
 
 bool Worker::isLogin()
 {
-    qDebug() << "is login";
+    qCDebug(this->logger) << "is login";
     return m_daemon->isLogin();
 };
 
 QMap<QString, QVariant> Worker::getUserInfo()
 {
-    qDebug() << "get user info";
+    qCDebug(this->logger) << "get user info";
     return m_daemon->getUserInfo();
 };
 // 获取客户端登陆用户的token
 QString Worker::getToken()
 {
-    qDebug() << "get message";
+    qCDebug(this->logger) << "get message";
     return m_daemon->getToken();
 }
 
 QString Worker::getMessages(QString channel, QString topic)
 {
-    qDebug() << "get message";
+    qCDebug(this->logger) << "get message";
     return m_daemon->getMessages(channel, topic);
 }
 void Worker::openForum()
 {
-    qDebug() << "login bbs";
+    qCDebug(this->logger) << "login bbs";
     m_daemon->openForum();
 }
 void Worker::quit()
 {
-    qDebug() << "quit";
+    qCDebug(this->logger) << "quit";
     m_daemon->quit();
 }
 
@@ -197,3 +202,18 @@ QString Worker::uploadFile(QString uploadURL, QString filepath, QMap<QString, QV
     }
     return "";
 }
+// 使用系统默认的看图工具预览图片
+void Worker::previewImage(QByteArray data)
+{
+    QTemporaryFile tempFile(this->previewImageDir + "/preview");
+    tempFile.setAutoRemove(false);
+    if (!tempFile.open()) {
+        qWarning() << "can not create temp file in " << this->previewImageDir;
+        return;
+    }
+    tempFile.write(data);
+    tempFile.close();
+    QString filePath = tempFile.fileName();
+    qCInfo(this->logger) << "save screenshots to" << filePath << "filesize" << data.length();
+    QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
+};

@@ -126,6 +126,8 @@ Rectangle {
                     height: 48
                     MouseArea {
                         anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        hoverEnabled: true
                         onClicked: {
                             imageClicked(root.screenshots[index])
                         }
@@ -145,6 +147,14 @@ Rectangle {
                     width: parent.width
                     fillMode: Image.PreserveAspectFit
                     source: root.screenshots[index]
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        hoverEnabled: true
+                        onClicked: {
+                            imageClicked(root.screenshots[index])
+                        }
+                    }
                 }
             }
         }

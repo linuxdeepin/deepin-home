@@ -139,6 +139,18 @@ Item {
             callback(feedbacks)
         })
     }
+    // 预览图片，使用qml下载图片可以重用缓存
+    function imagePreview(url: string) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                xhr.responseType="arraybuffer"
+                worker.previewImage(xhr.response)
+            }
+        }
+        xhr.open("GET", url)
+        xhr.send()
+    }
     // 获取反馈列表
     function getFeedback(opt, callback) {
         // 拼接ID
