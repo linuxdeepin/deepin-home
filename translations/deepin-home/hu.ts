@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Túl sok kérést nyújtott be. Kérjük próbálja újra később. </translation>
     </message>
 </context>
 <context>
@@ -260,6 +260,50 @@
         <source>Completed</source>
         <translation>Befejezve</translation>
     </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>Reprodukálás</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>A probléma feldolgozása nem történt meg, és nem jelenik meg a nyilvános listán.</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>Jelenleg nem lehet azonosítani az okot; folyamatos ellenőrzésre és vizsgálatra van szükség.</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>A probléma megismételhető, és a kiváltó ok azonosítva.</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>A probléma nem hiba vagy más jellegű probléma.</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>A probléma megoldva, javítva, és hivatalos kiadásra vár.</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>A követelmény feldolgozása nem történt meg, és nem jelenik meg a nyilvános listán.</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>A problémát elismerték, és belső értékelés alatt áll.</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>A jövőbeni kiadás tervei között szerepel.</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>A követelményt vagy nem fogadták el, vagy nem lehet teljesíteni.</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>A fejlesztői munka befejeződött, hivatalos megjelenésre vár. </translation>
+    </message>
 </context>
 <context>
     <name>Submit</name>
@@ -412,7 +456,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Ösztönzéseim</translation>
     </message>
 </context>
 </TS>

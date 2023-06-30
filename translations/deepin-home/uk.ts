@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Вами надіслано надто багато запитів. Будь ласка, повторіть спробу пізніше.</translation>
     </message>
 </context>
 <context>
@@ -260,6 +260,50 @@
         <source>Completed</source>
         <translation>Завершено</translation>
     </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>Відтворюваність</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>Запис вади не було оброблено, і його не буде показано у загальнодоступному списку.</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>Зараз неможливо визначити причину; потрібне неперервне спостереження та вивчення.</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>Ваду вдалося відтворити, а основну причину визначено.</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>Проблема не є вадою або має іншу природу.</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>Проблему розв&apos;язано, вона очікує на формальний випуск</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>Запис вимоги не було оброблено, і його не буде показано у загальнодоступному списку.</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>Проблему усвідомлено, триває внутрішня оцінка</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>Включено до планів щодо майбутнього випуску</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>Вимогу або не прийнято, або її неможливо обробити</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>Розробку завершено, очікуємо на формальний вираз</translation>
+    </message>
 </context>
 <context>
     <name>Submit</name>
@@ -282,14 +326,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Поточний стан продукту]: 
+[Бажаний продукт]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Попередні умови]: 
+[Кроки відтворення]: 
+[Очікувані результати]: 
+[Поточні результати]: </translation>
     </message>
     <message>
         <source>Type：</source>
@@ -309,7 +357,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, надайте короткий опис вашої проблеми</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -325,7 +373,7 @@
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>Версія системи:</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -373,7 +421,7 @@
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, надайте заголовок та дані вашого відгуку.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -408,7 +456,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Критичне</translation>
     </message>
 </context>
 </TS>

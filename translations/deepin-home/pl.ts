@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Wysyłasz zbyt wiele żądań. Spróbuj ponownie później.</translation>
     </message>
 </context>
 <context>
@@ -260,6 +260,50 @@
         <source>Completed</source>
         <translation>Zakończona</translation>
     </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>Odtwarzanie</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>Nie przetworzono problemu i nie pojawi się on na liście publicznej.</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>Nie można zidentyfikować przyczyny; wymagana jest dodatkowa analiza.</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>Udało się odtworzyć problem i główna przyczyna została znaleziona.</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>Problem nie jest bugiem lub jest sprawą innej natury.</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>Udało się rozwiązać problem i oczekuje na oficjalne wydanie.</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>Wymaganie nie zostało przetworzone i nie pojawi się na liście publicznej.</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>Problem został uznany i oczekuje na wewnętrzną analizę.</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>Zawarto w planie przyszłego wydania</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>Wymaganie nie zostało zaakceptowane lub nie można go spełnić</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>Praca deweloperska została zakończona, oczekiwanie na oficjalne wydanie</translation>
+    </message>
 </context>
 <context>
     <name>Submit</name>
@@ -282,14 +326,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Bieżący status produktu]: 
+[Oczekiwany produkt]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Warunki wstępne]: 
+[Podjęte kroki]: 
+[Spodziewany wynik]: 
+[Rzeczywisty wynik]: </translation>
     </message>
     <message>
         <source>Type：</source>
@@ -309,7 +357,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Podaj krótki opis swojego problemu</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -408,7 +456,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Moje prośby</translation>
     </message>
 </context>
 </TS>
