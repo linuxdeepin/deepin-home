@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>您的操作太頻繁了，請稍後再試。</translation>
     </message>
 </context>
 <context>
@@ -259,6 +259,50 @@
     <message>
         <source>Completed</source>
         <translation>已完成</translation>
+    </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>復現中</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>問題未做任何處理，不會出現在需求廣場</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>暫時無法定位，需持續跟進問題</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>明確復現並已經定位原因</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>非Bug類型問題</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>完成修復，待推送內容</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>需求未做任何處理，不會出現在需求廣場</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>已經明確接受並轉入內部需求評估</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>納入後期版本規劃</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>暫不接受或無法處理需求問題</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>完成開發，待正式發佈</translation>
     </message>
 </context>
 <context>
