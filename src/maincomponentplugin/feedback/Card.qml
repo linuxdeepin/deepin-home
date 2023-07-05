@@ -143,7 +143,22 @@ Rectangle {
                 Layout.preferredHeight: screenshotImg.height
                 AnimatedImage {
                     id: screenshotImg
-                    visible: !root.inList
+                    visible: !root.inList && root.screenshots[index].endsWith(".gif")
+                    width: parent.width
+                    fillMode: Image.PreserveAspectFit
+                    source: root.screenshots[index]
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        hoverEnabled: true
+                        onClicked: {
+                            imageClicked(root.screenshots[index])
+                        }
+                    }
+                }
+                Image {
+                    id: screenshotImgStatic
+                    visible: !root.inList && !root.screenshots[index].endsWith(".gif")
                     width: parent.width
                     fillMode: Image.PreserveAspectFit
                     source: root.screenshots[index]
