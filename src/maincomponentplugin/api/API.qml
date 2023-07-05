@@ -192,6 +192,11 @@ Item {
                 for(let feedback of resp) {
                     feedback.avatar = avatar
                     feedback.nickname = nickname
+                    if(feedback.screenshots) {
+                        feedback.screenshots = feedback.screenshots.map((id)=> {
+                            return worker.getNode() + "/api/v1/public/upload/" + id
+                        })
+                    }
                 }
                 return fill_feedback(resp, callback)
             })
