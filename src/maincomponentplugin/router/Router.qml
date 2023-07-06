@@ -64,11 +64,18 @@ Item {
         routeHistory.push(routeIndex)
     }
     // 显示反馈广场
-    function showAllFeedback(push=true, type="") {
+    // push 为true是会记录到路由，可以避免标签之前反复切换导致路由回退过多
+    // type 类型筛选
+    // overlay 为true时会覆盖上一个路由，避免路由失去参数
+    function showAllFeedback(push=true, type="", overlay = false) {
         const r = clone(routeAllFeedback)
         r.data = {typeFilter: true, type: type}
         routeCurrent = r
         if(push){
+            if (overlay) {
+                routeHistory[routeHistory.length-1] = r
+                return
+            }
             routeHistory.push(r)
         }
     }
@@ -114,7 +121,7 @@ Item {
     function back() {
         routeHistory.pop()
         const r = routeHistory[routeHistory.length-1]
-        console.log("back",JSON.stringify(r.data))
+        console.log("back",JSON.stringify(r))
         routeCurrent = r
     }
 }
