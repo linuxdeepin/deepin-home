@@ -1,3 +1,12 @@
+deepin-home (1.2.2) unstable; urgency=medium
+
+  * fix: screenshots are not display on the 'My Feedback' page(Issue: https://github.com/linuxdeepin/developer-center/issues/4903)
+  * fix: AnimatedImage cannot display png image on the deepin v20(Issue: https://github.com/linuxdeepin/developer-center/issues/4902)
+  * feat: overwrite pre routes when the feedback filter conditions change(Issue: https://github.com/linuxdeepin/developer-center/issues/4901)
+  * fix: My feedback cannot be filterd(Issue: https://github.com/linuxdeepin/developer-center/issues/4898)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 06 Jul 2023 10:15:43 +0800
+
 deepin-home (1.2.1) unstable; urgency=medium
 
   * feat: support gif image play
