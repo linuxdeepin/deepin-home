@@ -103,7 +103,7 @@ Item {
                 ListElement { text: qsTr("Suggestions"); value: "req" }
             }
             onActivated: {
-                Router.showAllFeedback(true, selectOptions.get(currentIndex).value)
+                Router.showAllFeedback(true, selectOptions.get(currentIndex).value, true)
             }
             Component.onCompleted:{
                 if(root.type === "bug") {
