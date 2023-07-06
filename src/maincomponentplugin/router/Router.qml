@@ -64,9 +64,9 @@ Item {
         routeHistory.push(routeIndex)
     }
     // 显示反馈广场
-    // push 为true是会记录到路由，可以避免标签之前反复切换导致路由回退过多
+    // push 为true时才会记录到路由，可以避免标签之前反复切换导致路由回退过多
     // type 类型筛选
-    // overlay 为true时会覆盖上一个路由，避免路由失去参数
+    // overlay 为true时会覆盖上一个路由，避免路由切换丢失参数
     function showAllFeedback(push=true, type="", overlay = false) {
         const r = clone(routeAllFeedback)
         r.data = {typeFilter: true, type: type}
@@ -80,9 +80,15 @@ Item {
         }
     }
     // 显示我的反馈
-    function showMyFeedback(push=true) {
-        routeCurrent = routeMyFeedback
+    function showMyFeedback(push=true, type="", overlay = false) {
+        const r = clone(routeMyFeedback)
+        r.data = {typeFilter: true, type: type, relation: "create"}
+        routeCurrent = r
         if(push){
+            if (overlay) {
+                routeHistory[routeHistory.length-1] = r
+                return
+            }
             routeHistory.push(routeMyFeedback)
         }
     }

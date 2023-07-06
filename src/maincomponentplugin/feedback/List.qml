@@ -103,6 +103,10 @@ Item {
                 ListElement { text: qsTr("Suggestions"); value: "req" }
             }
             onActivated: {
+                if(root.relation=="create"){
+                    Router.showMyFeedback(true, selectOptions.get(currentIndex).value, true)
+                    return
+                }
                 Router.showAllFeedback(true, selectOptions.get(currentIndex).value, true)
             }
             Component.onCompleted:{
