@@ -3,7 +3,11 @@ set(APP_BIN_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/bin/)
 set(APP_NAME ${CMAKE_PROJECT_NAME})
 set(APP_DAEMON_NAME ${CMAKE_PROJECT_NAME}-daemon)
 set(CMAKE_AUTORCC ON)
+
 add_definitions(-DAPP_NAME="${APP_NAME}")
+add_definitions(-DAPP_DAEMON_NAME="${APP_DAEMON_NAME}")
+add_definitions(-DAPP_BIN_INSTALL_DIR="${APP_BIN_INSTALL_DIR}")
+
 if(${DTK_OLD_VERSION})
   add_definitions(-DDTK_OLD_VERSION)
 endif()
@@ -31,7 +35,7 @@ set(DAEMON_SRC
 find_package(Qt5Quick CONFIG REQUIRED)
 find_package(Qt5DBus CONFIG REQUIRED)
 find_package(Qt5Widgets CONFIG REQUIRED)
-
+find_package(OpenSSL REQUIRED)
 
 # 通过 dbus 接口的 xml 描述文件，生成调用dbus的 cpp 代码
 set_source_files_properties(../dbusservice/org.freedesktop.DBus.Properties.xml PROPERTIES CLASSNAME PropertiesChangedProxy)
@@ -70,6 +74,7 @@ target_link_libraries(${APP_DAEMON_NAME}
     Qt5::Network
     Qt5::DBus
     Qt5::Widgets
+    OpenSSL::SSL
     )
 
 set_target_properties(${APP_NAME} PROPERTIES INSTALL_RPATH ${DTK_QML_APP_PLUGIN_PATH})

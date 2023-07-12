@@ -52,7 +52,8 @@
       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QMap&lt;QString,QVariant&gt;"/>
     </method>
     <method name="getToken">
-      <arg type="s" direction="out"/>
+      <arg type="as" direction="out"/>
+      <arg name="publicKey" type="s" direction="in"/>
     </method>
     <method name="getMessages">
       <arg type="s" direction="out"/>

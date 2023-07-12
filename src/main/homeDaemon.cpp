@@ -55,12 +55,15 @@ void HomeDaemon::initSysTrayIcon()
     m_sysTrayIcon->setToolTip(tr("Deepin Home"));
     // 显示主窗口
     auto showMainAction = new QAction(tr("Show main window"), this);
-    connect(m_sysTrayIcon, &QSystemTrayIcon::activated, this, [&](QSystemTrayIcon::ActivationReason reason) {
-        if (reason == QSystemTrayIcon::Trigger) {
-            QProcess::startDetached("deepin-home", QStringList());
-            emit showMainWindow(true);
-        }
-    });
+    connect(m_sysTrayIcon,
+            &QSystemTrayIcon::activated,
+            this,
+            [&](QSystemTrayIcon::ActivationReason reason) {
+                if (reason == QSystemTrayIcon::Trigger) {
+                    QProcess::startDetached("deepin-home", QStringList());
+                    emit showMainWindow(true);
+                }
+            });
     connect(showMainAction, &QAction::triggered, this, [this] {
         QProcess::startDetached("deepin-home", QStringList());
         emit showMainWindow(false);
@@ -216,7 +219,7 @@ void HomeDaemon::refreshChannel(QString cronID, QString channel)
         for (auto topic : topics.list) {
             auto lastChangeID = getTopicChangeID(channel, topic.name);
             if (topic.change_id != lastChangeID) {
-                message(channel, topic.name, topic.change_id);
+                refreshMessage(channel, topic.name, topic.change_id);
                 setTopicChangeID(channel, topic.name, topic.change_id);
                 changed = true;
             }
@@ -263,7 +266,7 @@ void HomeDaemon::execFirstNotify()
     }
 }
 // 处理消息
-void HomeDaemon::message(QString channel, QString topic, QString changeID)
+void HomeDaemon::refreshMessage(QString channel, QString topic, QString changeID)
 {
     qDebug() << "refresh message" << channel << topic;
     auto messages = m_api->getMessages(getNode(), channel, topic, getLanguage(), changeID);
@@ -371,8 +374,51 @@ QMap<QString, QVariant> HomeDaemon::getUserInfo()
 }
 
 // 获取用户token
-QString HomeDaemon::getToken() {
-    return m_account->getToken();
+QStringList HomeDaemon::getToken(QString publicKey)
+{
+    qDebug() << "get token";
+#ifndef DEBUG
+    auto pid = connection().interface()->servicePid(message().service());
+    qDebug() << "sender pid" << pid;
+    auto sender = QFile::symLinkTarget(QString("/proc/%1/exe").arg(pid));
+    if (sender != QString("%1%2").arg(APP_BIN_INSTALL_DIR).arg(APP_NAME)) {
+        qDebug() << "Not allow";
+        return {};
+    };
+#endif
+    auto token = m_account->getToken();
+    if (token.isEmpty()) {
+        qDebug() << "No token";
+        return {};
+    }
+    // 解析公钥
+    auto publicStr = publicKey.toStdString();
+    auto mem = BIO_new_mem_buf(publicStr.c_str(), publicStr.length());
+    auto pkey = PEM_read_bio_PUBKEY(mem, NULL, NULL, NULL);
+    BIO_free_all(mem);
+    // 使用公钥加密token，由于rsa无法加密过长的数据，对token进行分段加密
+    auto ectx = EVP_PKEY_CTX_new(pkey, NULL);
+    EVP_PKEY_encrypt_init(ectx);
+    QStringList result;
+    // token按100字节分段
+    for (int i = 0; i < token.length(); i += 100) {
+        auto plaintext = token.mid(i, 100).toStdString();
+        // 使用公钥加密分段的数据
+        char encData[256] = {0};
+        size_t enclen = 256;
+        EVP_PKEY_encrypt(ectx,
+                         (unsigned char *) encData,
+                         &enclen,
+                         (unsigned char *) plaintext.c_str(),
+                         plaintext.length());
+        // 加密后的数据使用base64编码，便于传输
+        auto cipherdata = QString(QByteArray(encData, enclen).toBase64());
+        result.append(cipherdata);
+    }
+    // 释放资源
+    EVP_PKEY_CTX_free(ectx);
+    EVP_PKEY_free(pkey);
+    return result;
 }
 
 // 获取消息列表数据

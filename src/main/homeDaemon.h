@@ -8,11 +8,14 @@
 #include "../base/const.h"
 #include "account.h"
 #include "api.h"
+#include <openssl/pem.h>
+#include <openssl/rsa.h>
 #include <QAction>
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDebug>
+#include <QFile>
 #include <QHash>
 #include <QLocale>
 #include <QMenu>
@@ -20,9 +23,8 @@
 #include <QSettings>
 #include <QSystemTrayIcon>
 #include <QTimer>
-#include <QUuid>
 
-class HomeDaemon : public QObject
+class HomeDaemon : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "com.deepin.Home.Daemon")
@@ -63,7 +65,7 @@ public:
     // 定时刷新渠道
     void refreshChannel(QString cronID, QString channel);
     // 处理消息
-    void message(QString channel, QString topic, QString changeID);
+    void refreshMessage(QString channel, QString topic, QString changeID);
     // 消息发送到控制中心
     void notify(QString title, QString summary, QString url);
     // 在固定时机提醒填写调查问卷
@@ -101,7 +103,7 @@ public slots:
     // 当前登录用户信息
     QMap<QString, QVariant> getUserInfo();
     // 当前登录用户token
-    QString getToken();
+    QStringList getToken(QString publicKey);
     // 获取消息列表
     QString getMessages(QString channel, QString topic);
     // 打开论坛

@@ -2,6 +2,7 @@
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(LIBRARY_OUTPUT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib")
     add_definitions(-DLOCALLIBPATH="${LIBRARY_OUTPUT_PATH}")
+    add_definitions(-DDEBUG)
 endif()
 
 add_subdirectory(main)
