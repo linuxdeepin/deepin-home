@@ -14,6 +14,7 @@ set(MAINCOMPONENNT_SRC
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
 find_package(Qt5QuickCompiler REQUIRED)
 find_package(Qt5DBus CONFIG REQUIRED)
+find_package(OpenSSL REQUIRED)
 
 set_source_files_properties(../dbusservice/com.deepin.Home.Daemon.xml PROPERTIES CLASSNAME HomeDaemonProxy)
 qt5_add_dbus_interface(MAINCOMPONENNT_SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemonProxy)
@@ -32,6 +33,7 @@ target_link_libraries(${MAINCOMPONENT_LIB_NAME}
     Qt5::Quick
     Qt5::Widgets
     Qt5::DBus
+    OpenSSL::SSL
     ${DtkDeclarative_LIBRARIES}
 )
 install(TARGETS ${MAINCOMPONENT_LIB_NAME} DESTINATION ${DTK_QML_APP_PLUGIN_PATH})

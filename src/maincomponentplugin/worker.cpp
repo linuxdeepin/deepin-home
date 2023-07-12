@@ -90,10 +90,45 @@ QMap<QString, QVariant> Worker::getUserInfo()
     return m_daemon->getUserInfo();
 };
 // 获取客户端登陆用户的token
+// 为保证token的传输安全，daemon使用client生成的公钥加密token
 QString Worker::getToken()
 {
-    qCDebug(this->logger) << "get message";
-    return m_daemon->getToken();
+    qCDebug(this->logger) << "get token";
+
+    // 生成RSA密钥
+    auto pkey = EVP_RSA_gen(2048);
+    // 写入公钥到内存缓存
+    auto mem = BIO_new(BIO_s_mem());
+    auto ret = PEM_write_bio_PUBKEY(mem, pkey);
+    // 读取公钥到字符串
+    char *data;
+    ret = BIO_get_mem_data(mem, &data);
+    auto publicKey = QString::fromLatin1(data, ret);
+    BIO_free_all(mem);
+    // 发送公钥给daemon，获取公钥加密后的token
+    auto result = m_daemon->getToken(publicKey);
+    // 加密可能会分段进行，解密所有分段后拼接到一个字符串
+    auto dctx = EVP_PKEY_CTX_new(pkey, NULL);
+    EVP_PKEY_decrypt_init(dctx);
+    QString token;
+    for (auto cipherdata : result.value()) {
+        // 加密后的数据进行了base64编码，需要先解码
+        auto cipherStr = QByteArray::fromBase64(cipherdata.toLatin1()).toStdString();
+        // 使用密钥解密数据
+        char decData[256] = {0};
+        size_t declen = 256;
+        auto rett = EVP_PKEY_decrypt(dctx,
+                                     (unsigned char *) decData,
+                                     &declen,
+                                     (unsigned char *) cipherStr.c_str(),
+                                     cipherStr.length());
+        // 拼接token
+        token += QString::fromLatin1(decData, declen);
+    }
+    // 释放资源
+    EVP_PKEY_CTX_free(dctx);
+    EVP_PKEY_free(pkey);
+    return token;
 }
 
 QString Worker::getMessages(QString channel, QString topic)

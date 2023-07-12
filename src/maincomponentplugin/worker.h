@@ -5,19 +5,22 @@
 #ifndef WORKER_H
 #define WORKER_H
 
+#include <DSysInfo>
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
-#include <QObject>
+#include <QDesktopServices>
 #include <QHttpMultiPart>
+#include <QLoggingCategory>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <DSysInfo>
-#include <QTemporaryFile>
-#include <QDesktopServices>
+#include <QObject>
 #include <QStandardPaths>
-#include <QLoggingCategory>
+#include <QTemporaryFile>
+
+#include <openssl/pem.h>
+#include <openssl/rsa.h>
 
 #include "homeDaemonProxy.h"
 class Worker : public QObject
@@ -26,7 +29,9 @@ class Worker : public QObject
 private:
     HomeDaemonProxy *m_daemon;
     QLoggingCategory logger = QLoggingCategory("worker");
-    QString previewImageDir = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + "/.deepin-home";
+    QString previewImageDir = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)
+                              + "/.deepin-home";
+
 public:
     explicit Worker(QObject *parent = nullptr);
     ~Worker();

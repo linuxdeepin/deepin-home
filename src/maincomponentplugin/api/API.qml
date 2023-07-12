@@ -8,10 +8,13 @@ import QtQuick 2.0
 Item {
     // 当前是否登陆
     property bool isLogin: false
+    // 当前登陆的用户token
+    property string token
     // 当前登陆的用户头像
     property string avatar
     // 当前登陆的用户名
     property string nickname
+    // 当前的语言环境
     property string language
     // 未读消息数量
     property int msgCount: 0
@@ -51,7 +54,7 @@ Item {
         xhr.open(method, url)
         // 调用用户接口时，在 header 添加用户 token
         if(rawUrl.startsWith("/api/v1/user")) {
-            xhr.setRequestHeader("Authentication", "Bearer " + worker.getToken())
+            xhr.setRequestHeader("Authentication", "Bearer " + token)
         }
         if(body){
             xhr.send(JSON.stringify(body))
@@ -303,6 +306,7 @@ Item {
             let info = worker.getUserInfo()
             nickname = info.nickname
             avatar = info.avatar_url
+            token = worker.getToken()
         }
     }
     // 统计未读通知
