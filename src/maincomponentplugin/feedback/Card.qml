@@ -137,13 +137,13 @@ Rectangle {
         }
         // 在反馈详情中纵向展示全尺寸截图
         Repeater {
-            model: inList ? [] : root.screenshots
+            model: root.inList ? [] : root.screenshots
             delegate: Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: screenshotImg.height
+                Layout.preferredHeight: root.screenshots[index].endsWith(".gif") ? screenshotImg.height : screenshotImgStatic.height
                 AnimatedImage {
                     id: screenshotImg
-                    visible: !root.inList && root.screenshots[index].endsWith(".gif")
+                    visible: root.screenshots[index].endsWith(".gif")
                     width: parent.width
                     fillMode: Image.PreserveAspectFit
                     source: root.screenshots[index]
@@ -158,7 +158,7 @@ Rectangle {
                 }
                 Image {
                     id: screenshotImgStatic
-                    visible: !root.inList && !root.screenshots[index].endsWith(".gif")
+                    visible: !root.screenshots[index].endsWith(".gif")
                     width: parent.width
                     fillMode: Image.PreserveAspectFit
                     source: root.screenshots[index]
