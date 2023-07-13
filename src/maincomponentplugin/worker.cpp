@@ -95,8 +95,13 @@ QString Worker::getToken()
 {
     qCDebug(this->logger) << "get token";
 
-    // 生成RSA密钥
-    auto pkey = EVP_RSA_gen(2048);
+    // 生成RSA密钥，v20的 libssl 不支持 EVP_RSA_gen 函数，所以改用 EVP_PKEY_keygen
+    auto gctx = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, NULL);
+    EVP_PKEY_keygen_init(gctx);
+    EVP_PKEY_CTX_set_rsa_keygen_bits(gctx, 2048);
+    EVP_PKEY *pkey = NULL;
+    EVP_PKEY_keygen(gctx, &pkey);
+    EVP_PKEY_CTX_free(gctx);
     // 写入公钥到内存缓存
     auto mem = BIO_new(BIO_s_mem());
     auto ret = PEM_write_bio_PUBKEY(mem, pkey);
