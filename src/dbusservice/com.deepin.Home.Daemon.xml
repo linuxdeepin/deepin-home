@@ -72,5 +72,8 @@
     </method>
     <method name="activeMainWindows">
     </method>
+    <method name="getVersion">
+      <arg type="s" direction="out"/>
+    </method>
   </interface>
 </node>

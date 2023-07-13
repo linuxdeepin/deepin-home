@@ -12,10 +12,19 @@ Worker::Worker(QObject *parent)
                                    DEEPIN_HOME_DAEMON_PATH,
                                    QDBusConnection::sessionBus(),
                                    this);
+    // 绑定信号
     connect(m_daemon, &HomeDaemonProxy::exited, this, &Worker::exited);
     connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, &Worker::userInfoChanged);
     connect(m_daemon, &HomeDaemonProxy::messageChanged, this, &Worker::messageChanged);
     connect(m_daemon, &HomeDaemonProxy::showMainWindow, this, &Worker::showMainWindow);
+    // 为避免应用升级后接口不兼容，如果客户端和daemon版本不一致，重启一次daemon
+    auto clientVersion = QString(APP_VERSION);
+    if (!clientVersion.isEmpty()) {
+        auto daemonVersion = m_daemon->getVersion();
+        if (clientVersion != daemonVersion) {
+            m_daemon->quit();
+        }
+    }
     // 在启动时清理截图预览的缓存目录
     QDir dir(this->previewImageDir);
     dir.removeRecursively();
