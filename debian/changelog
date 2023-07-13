@@ -1,3 +1,14 @@
+deepin-home (1.3.0) unstable; urgency=medium
+
+  * chore: Sync by https://github.com/linuxdeepin/.github/commit/559e91167d4919644f37bbcf123eb0651c1528ea(Influence: none)
+  * fix: screenshot and buttons overlap(Issue: https://github.com/linuxdeepin/developer-center/issues/4930)
+  * feat: Ensuring the security of user token
+  * fix: Build fails on v20
+  * feat: Restart daemon after upgrade
+  * fix: Revert the app name change of deepin-home-daemon
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 13 Jul 2023 14:23:13 +0800
+
 deepin-home (1.2.2) unstable; urgency=medium
 
   * fix: screenshots are not display on the 'My Feedback' page(Issue: https://github.com/linuxdeepin/developer-center/issues/4903)
