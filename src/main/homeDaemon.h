@@ -116,6 +116,8 @@ public slots:
     void setAutoStart(bool enable);
     // 因为客户端是单例应用，重复启动会自动退出，并调用daemon的这个接口来通知已存在的客户端激活自己的窗口。
     void activeMainWindows();
+    // 获取当前应用版本信息
+    QString getVersion();
 signals:
     // 用户登录状态变动，客户端收到通知后，可以调用daemon获取新的用户状态
     void userInfoChanged();

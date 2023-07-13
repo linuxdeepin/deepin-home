@@ -441,7 +441,6 @@ void HomeDaemon::quit()
 {
     QCoreApplication::quit();
 }
-
 // 获取开机自启配置
 bool HomeDaemon::getAutoStart()
 {
@@ -456,4 +455,9 @@ void HomeDaemon::setAutoStart(bool enable)
 void HomeDaemon::activeMainWindows()
 {
     emit showMainWindow(false);
+}
+// 返回应用版本号
+QString HomeDaemon::getVersion()
+{
+    return APP_VERSION;
 }
