@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 {
     QApplication::setOrganizationName("deepin");
     QApplication::setOrganizationDomain("deepin.org");
-    QApplication::setApplicationName(APP_DAEMON_NAME);
+    // daemon也使用client的应用名
+    QApplication::setApplicationName(APP_NAME);
     QApplication::setApplicationVersion(APP_VERSION);
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
