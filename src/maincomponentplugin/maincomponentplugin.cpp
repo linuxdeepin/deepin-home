@@ -27,6 +27,8 @@ QUrl MainComponentPlugin::mainComponentPath() const
 
 void MainComponentPlugin::initialize(QQmlApplicationEngine *engine)
 {
+    // 设置上下文，用于在qml环境抛出异常
+    QQmlEngine::setContextForObject(&m_worker, engine->rootContext());
     engine->setNetworkAccessManagerFactory(&m_network);
     engine->rootContext()->setContextProperty("worker", &m_worker);
 }

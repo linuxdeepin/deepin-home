@@ -266,3 +266,22 @@ void Worker::previewImage(QByteArray data)
     qCInfo(this->logger) << "save screenshots to" << filePath << "filesize" << data.length();
     QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
 };
+// 将异步回调转为同步调用，避免回调嵌套
+QVariant Worker::awaitPromise(QJSValue func)
+{
+    // 初始化promise对象
+    auto promise = new MyPromise(this);
+    // 设置上下文，用于在qml中抛出异常
+    QQmlEngine::setContextForObject(promise, qmlContext(this));
+    // 调用func将promise传递到qml
+    auto ret = func.call(QJSValueList{qmlEngine(this)->newQObject(promise)});
+    // 如果func发生错误，在qml中抛出异常
+    if (ret.isError()) {
+        qmlEngine(this)->throwError(QJSValue::GenericError, ret.toString());
+        return QVariant();
+    }
+    // 等待promise结束，需要在qml中调用promise对象的resolve/reject,promise才会结束
+    // 如果在qml中调用reject，promise会在qml上下文中抛出异常，await反馈空结果
+    // 如果在qml中调用resolve，await返回resolve传递的result
+    return promise->await();
+};
