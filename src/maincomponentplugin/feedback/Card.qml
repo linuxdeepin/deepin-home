@@ -11,7 +11,7 @@ import "../router"
 import "../widgets" 
 
 // 显示用户反馈的详细信息，在反馈列表和反馈详情中使用
-// 在反馈列表中，截图缩小横排显示，并且不显示回复的信息
+// 在反馈列表中，截图缩小横排显示
 Rectangle { 
     id: root
     radius: 18
@@ -27,8 +27,8 @@ Rectangle {
     property var screenshots: []
     property string nickname: ''
     property string avatar: ''
-    property bool inList: true // 是否在列表中
-    property bool isRelay: false // 是否为反馈
+    property bool inList: true // 卡片是否在列表中
+    property bool isReply: false // 卡片是否为回复
     property int view_count: 0
     property int like_count: 0
     property int collect_count: 0
@@ -86,10 +86,11 @@ Rectangle {
             Layout.topMargin: 2
             color: "gray"
             font: DTK.fontManager.t9
-            text: new Date(root.created_at).toLocaleString(locale, Locale.ShortFormat) + "  " + (root.isRelay ? '' : qsTr("%1 views").arg(root.view_count))
+            text: new Date(root.created_at).toLocaleString(locale, Locale.ShortFormat) + "  " + (root.isReply ? '' : qsTr("%1 views").arg(root.view_count))
         }
         // 内容
         Text {
+            visible: !isReply
             id: contentText
             Layout.fillWidth: true
             Layout.topMargin: 10
@@ -97,6 +98,17 @@ Rectangle {
             wrapMode: Text.WrapAnywhere
             elide: Text.ElideRight
             maximumLineCount: inList ? 2 : 0
+            text: root.content
+            color: Qt.rgba(0,0,0,0.7)
+        }
+        // 回复
+        TextEdit {
+            visible: isReply
+            Layout.fillWidth: true
+            Layout.topMargin: 10
+            Layout.bottomMargin: 5
+            textFormat: TextEdit.MarkdownText
+            selectByMouse: true
             text: root.content
             color: Qt.rgba(0,0,0,0.7)
             // TODO 不知什么原因，无法触发root信号
@@ -107,11 +119,15 @@ Rectangle {
                         if(resp && resp[0]) {
                             const feedback = resp[0]
                             API.publicViewFeedback(feedback.public_id)
-                            API.userViewFeedback(feedback.public_id)
+                            if(API.isLogin) {
+                                API.userViewFeedback(feedback.public_id)
+                            }
                             Router.showFeedbackDetail(feedback)
                         }
                     })
+                    return
                 }
+                Qt.openUrlExternally(link)
             }
         }
         // 在反馈列表中横向展示缩小的截图
@@ -175,7 +191,7 @@ Rectangle {
         }
         // 底部信息
         RowLayout {
-            visible: !root.isRelay
+            visible: !root.isReply
             Layout.topMargin: 10
             Layout.bottomMargin: 10
             Layout.fillWidth: true
@@ -276,7 +292,7 @@ Rectangle {
         }
     }
     Status {
-        visible: !root.isRelay
+        visible: !root.isReply
         anchors.right: parent.right
         anchors.top: parent.top
         type: root.type

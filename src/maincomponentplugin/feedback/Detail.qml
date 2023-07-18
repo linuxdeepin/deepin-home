@@ -103,7 +103,7 @@ Item {
                 title: qsTr("Official response")
                 content: ""
                 avatar: "http://home-dev.deepin.org/favicon.ico"
-                isRelay: true
+                isReply: true
             }
         }
     }
