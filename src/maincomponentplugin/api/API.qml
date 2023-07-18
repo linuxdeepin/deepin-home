@@ -163,29 +163,37 @@ Item {
                 ids+="&public_id=" + id
             }
         }
-        getLanguage(lang=>{
-            const url = "/api/v1/public/feedback?offset=%1&limit=%2&&type=%4&language=%5%6".
-            arg(opt.offset).
-            arg(opt.limit).
-            arg(opt.type).
-            arg(lang).
-            arg(ids)
-
-            get(url, (resp)=>{
-                for(let feedback of resp){
-                    if(feedback.screenshots) {
-                        feedback.screenshots = feedback.screenshots.map((id)=> {
-                            return worker.getNode() + "/api/v1/public/upload/" + id
-                        })
-                    }
-                }
-                if(!isLogin){
-                    callback(resp)
-                    return
-                }
-                return fill_feedback(resp, callback)
-            })
+        const lang = worker.awaitPromise(promise=>{
+            getLanguage(promise.resolve)
         })
+        const url = "/api/v1/public/feedback?offset=%1&limit=%2&&type=%4&language=%5%6".
+                    arg(opt.offset).
+                    arg(opt.limit).
+                    arg(opt.type).
+                    arg(lang).
+                    arg(ids)
+        const resp = worker.awaitPromise(promise=>{
+            get(url, promise.resolve)
+        })
+        for(let feedback of resp){
+            const id = feedback.public_id
+            const stat = worker.awaitPromise(promise=>{
+                feedbackStat(id, promise.resolve)
+            })
+            feedback.view_count = stat.view_count
+            feedback.like_count = stat.like_count
+            feedback.collect_count = stat.collect_count
+            if(feedback.screenshots) {
+                feedback.screenshots = feedback.screenshots.map((id)=> {
+                    return worker.getNode() + "/api/v1/public/upload/" + id
+                })
+            }
+        }
+        if(!isLogin){
+            callback(resp)
+            return
+        }
+        return fill_feedback(resp, callback)
     }
     // 获取我的反馈
     function getMyFeedback(opt, callback) {
@@ -193,6 +201,13 @@ Item {
             const url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%4".arg(opt.offset).arg(opt.limit).arg(opt.type)
             get(url, (resp)=>{
                 for(let feedback of resp) {
+                    const id = feedback.public_id
+                    const stat = worker.awaitPromise(promise=>{
+                        feedbackStat(id, promise.resolve)
+                    })
+                    feedback.view_count = stat.view_count
+                    feedback.like_count = stat.like_count
+                    feedback.collect_count = stat.collect_count
                     feedback.avatar = avatar
                     feedback.nickname = nickname
                     if(feedback.screenshots) {

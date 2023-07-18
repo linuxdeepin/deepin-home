@@ -10,6 +10,8 @@ set(MAINCOMPONENNT_SRC
     worker.cpp
     network.h
     network.cpp
+    promise.h
+    promise.cpp
 )
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
 find_package(Qt5QuickCompiler REQUIRED)

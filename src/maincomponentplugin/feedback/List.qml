@@ -157,6 +157,9 @@ Item {
                     screenshots: feedback.screenshots
                     system_version: feedback.system_version || ""
                     avatar: feedback.avatar
+                    view_count: feedback.view_count
+                    like_count: feedback.like_count
+                    collect_count: feedback.collect_count
                     // 点击标题时，进入详情
                     onTitleClicked: {
                         const value = feedback
@@ -208,13 +211,6 @@ Item {
                         } else {
                             API.collectFeedback(feedback.public_id, callback)
                         }
-                    }
-                    Component.onCompleted: {
-                        API.feedbackStat(feedback.public_id, (stat)=> {
-                            card.view_count = stat.view_count
-                            card.like_count = stat.like_count
-                            card.collect_count = stat.collect_count
-                        })
                     }
                 }
             }
