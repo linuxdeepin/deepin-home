@@ -32,6 +32,7 @@
 - libdtkdeclarative-dev
 - qttools5-dev-tools
 - qml-module-qtquick-dialogs
+- libssl-dev
 
 ## Build from source code
 

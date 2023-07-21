@@ -4,7 +4,7 @@
 
 - [x] 快速（单点）登录社区论坛
 
-- [ ] 提交问题反馈和需求
+- [x] 提交问题反馈和需求
 
 - [ ] 社区论坛消息提醒
 
@@ -33,6 +33,7 @@
 - libdtkdeclarative-dev
 - qttools5-dev-tools
 - qml-module-qtquick-dialogs
+- libssl-dev
 
 ## 从源码构建
 
@@ -69,7 +70,7 @@ cmake -DCMAKE_BUILD_TYPE=Release ..
 make -j && sudo make install
 ```
 
-### deb打包
+### deb 打包
 
 ```sh
 # in the deepin-home/ directory
