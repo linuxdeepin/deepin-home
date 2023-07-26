@@ -59,7 +59,8 @@ Rectangle {
             id: titleText
             Layout.maximumWidth: parent.width - 100
             Layout.topMargin: 10
-            font: DTK.fontManager.t5
+            font.pixelSize: DTK.fontManager.t5.pixelSize
+            font.weight: Font.Medium
             wrapMode: Text.WrapAnywhere
             elide: Text.ElideRight
             maximumLineCount: inList ? 1 : 0
@@ -90,7 +91,7 @@ Rectangle {
             id: contentText
             Layout.fillWidth: true
             Layout.topMargin: 10
-            Layout.bottomMargin: 5
+            Layout.bottomMargin: 10
             wrapMode: Text.WrapAnywhere
             elide: Text.ElideRight
             maximumLineCount: inList ? 2 : 0
@@ -102,7 +103,7 @@ Rectangle {
             visible: isReply
             Layout.fillWidth: true
             Layout.topMargin: 10
-            Layout.bottomMargin: 5
+            Layout.bottomMargin: 10
             textFormat: TextEdit.MarkdownText
             selectByMouse: true
             text: root.content
@@ -195,6 +196,7 @@ Rectangle {
             Rectangle {
                 width: typeText.width+15
                 height: typeText.height+4
+                
                 border.width: 1
                 border.color: root.type === 'bug' ? "#eead86" : "#0d9353"
                 radius: 5
@@ -202,7 +204,7 @@ Rectangle {
                     id: typeText
                     text: root.type === 'bug' ? "BUG" : qsTr("Suggestions")
                     color: root.type === 'bug' ? "#eead86" : "#0d9353"
-                    font: DTK.fontManager.t6
+                    font: DTK.fontManager.t9
                     anchors.centerIn: parent
                 }
             }
@@ -219,7 +221,7 @@ Rectangle {
                     id: versionText
                     color: "#838383"
                     text: "V"+root.system_version
-                    font: DTK.fontManager.t6
+                    font: DTK.fontManager.t9
                     anchors.centerIn: parent
                 }
             }
@@ -248,6 +250,7 @@ Rectangle {
                         Image {
                             width: 22
                             height: 22
+                            opacity: root.collect ? 0.7 : 1
                             source: root.collect ? "/images/collect.svg" : "/images/collect-1.svg"
                         }
                         Text {
@@ -275,6 +278,7 @@ Rectangle {
                         Image {
                             width: 22
                             height: 22
+                            opacity: root.like ? 0.7 : 1
                             source: root.like ? "/images/hands-up.svg" : "/images/hands-up-1.svg"
                         }
                         Text {
@@ -305,7 +309,7 @@ Rectangle {
     // 阴影
     BoxShadow {
         anchors.fill: parent
-        shadowBlur : 10
+        shadowBlur : 6
         shadowColor : Qt.rgba(0,0,0,0.10)
         shadowOffsetX : 0
         shadowOffsetY : 1

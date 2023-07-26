@@ -75,5 +75,8 @@ AppLoader {
         D.ApplicationHelper.setPaletteType(D.ApplicationHelper.LightType)
         // 设置标题栏
         appLoader.window.header = actualTitleBar
+        for(let i = 1; i <= 10; i++){
+            console.log("font_size_t"+i, DTK.fontManager["t"+i].pixelSize)
+        }
     }
 }

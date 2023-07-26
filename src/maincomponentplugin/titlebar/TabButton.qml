@@ -21,6 +21,8 @@ ButtonBox {
         implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeAllFeedback.path
         text: qsTr("Feedback Hub")
+        font.weight: Font.Medium
+        font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
             Router.showAllFeedback(false)
         }
@@ -33,6 +35,8 @@ ButtonBox {
         implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeMyFeedback.path
         text: qsTr("My Feedbacks")
+        font.weight: Font.Medium
+        font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
             Router.showMyFeedback(false)
         }
@@ -45,6 +49,8 @@ ButtonBox {
         implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeFavoriteFeedback.path
         text: qsTr("My Favorites")
+        font.weight: Font.Medium
+        font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
             Router.showFavoriteFeedback(false)
         }
@@ -58,6 +64,8 @@ ButtonBox {
         implicitHeight: root.height-6
         checked: Router.routeCurrent.path === Router.routeUrgeFeedback.path
         text: qsTr("My Urged")
+        font.weight: Font.Medium
+        font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
             Router.showUrgeFeedback(false)
         }

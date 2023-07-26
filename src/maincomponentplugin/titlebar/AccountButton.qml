@@ -32,6 +32,7 @@ WindowButton {
         ColumnLayout {
             anchors.centerIn: parent
             width: 226
+            spacing: 0
             Rectangle {
                 width: 48
                 height: 48

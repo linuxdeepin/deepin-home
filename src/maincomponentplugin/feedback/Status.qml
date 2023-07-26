@@ -87,6 +87,7 @@ RoundRectangle {
         anchors.left: statusIcon.right
         anchors.leftMargin: 6
         text: root.statusTextList["%1-%2".arg(root.type).arg(root.status)]
+        font.pixelSize: DTK.fontManager.t7.pixelSize
         anchors.verticalCenter: statusIcon.verticalCenter
     }
     MouseArea {
