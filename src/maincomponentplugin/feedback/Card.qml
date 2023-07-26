@@ -64,19 +64,15 @@ Rectangle {
             elide: Text.ElideRight
             maximumLineCount: inList ? 1 : 0
             text: root.title
-            color: titleText.hovered ? 'red' : ''
+            color: titleTextArea.containsMouse ? "#1979ff" : ''
             MouseArea {
+                id: titleTextArea
                 visible: inList
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 hoverEnabled: true
                 onClicked: {
                     root.titleClicked()
-                }
-                ToolTip {
-                    delay: 300
-                    visible: parent.containsMouse
-                    text: qsTr("View details")
                 }
             }
         }
@@ -291,12 +287,20 @@ Rectangle {
             }
         }
     }
-    Status {
-        visible: !root.isReply
+    // 反馈状态
+    Component {
+        id: statusComponent
+        Status {
+            visible: !root.isReply
+            type: root.type
+            status: root.status
+        }
+    }
+    // 反馈状态加载器
+    Loader {
         anchors.right: parent.right
         anchors.top: parent.top
-        type: root.type
-        status: root.status
+        sourceComponent: !root.isReply ? statusComponent : null
     }
     // 阴影
     BoxShadow {
