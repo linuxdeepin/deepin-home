@@ -96,21 +96,25 @@ Item {
                     verticalAlignment: Text.AlignVCenter
                 }
                 Rectangle {
-                    color: Qt.rgba(0,0,0,0.08);
-                    height: reqType.height
+                    color: Qt.rgba(0,0,0,0.05);
+                    height: titleText.height
                     width: win.controlWidth
                     radius: 8
                     RadioButton {
                         id: reqType
+                        anchors.verticalCenter: parent.verticalCenter
                         checked: true
                         width: 150 // 控件宽度没自适应
                         text: qsTr("Suggestions")
+                        font.pixelSize: DTK.fontManager.t7.pixelSize
                     }
                     RadioButton {
                         id: bugType
+                        anchors.verticalCenter: parent.verticalCenter
                         width: 150 // 控件宽度没自适应
                         anchors.left: reqType.right
                         text: qsTr("Bug Report")
+                        font.pixelSize: DTK.fontManager.t7.pixelSize
                     }
                 }
             }
@@ -126,6 +130,7 @@ Item {
                     width: win.controlWidth
                     selectByMouse: true
                     text: ""
+                    font.pixelSize: DTK.fontManager.t6.pixelSize
                     onTextChanged: {
                         if (length > 60) {
                             remove(60, length)
@@ -135,7 +140,9 @@ Item {
                         x: 10
                         anchors.verticalCenter: parent.verticalCenter
                         text: qsTr("Please provide a brief description of your issue")
+                        font.pixelSize: DTK.fontManager.t6.pixelSize
                         color: "#555"
+                        opacity: 0.4
                         visible: !titleText.text && !titleText.activeFocus
                     }
                 }
@@ -154,6 +161,8 @@ Item {
                             id: contentText
                             selectByMouse: true
                             wrapMode: Text.Wrap
+                            color: "#555"
+                            opacity: (cursorVisible || text != win.placeholder ) ? 1 : 0.4
                             onTextChanged: {
                                 if (length > 1000) {
                                     remove(1000, length)
@@ -163,7 +172,8 @@ Item {
                         }
                     }
                     Label {
-                        font: DTK.fontManager.t8
+                        font: DTK.fontManager.t9
+                        color: Qt.rgba(0,0,0,0.6)
                         text: qsTr("Do not fill in multiple requirements in one feedback")
                     }
                 }
@@ -179,8 +189,17 @@ Item {
                     id: emailText
                     selectByMouse: true
                     validator: RegExpValidator { regExp: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ }
-                    width: win.controlWidth
+                    width: win.controlWidth / 2
                     text: ""
+                    Text {
+                        x: 10
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Please enter your email")
+                        font.pixelSize: DTK.fontManager.t6.pixelSize
+                        color: "#555"
+                        opacity: 0.4
+                        visible: !emailText.text && !emailText.activeFocus
+                    }
                 }
             }
             // 系统版本
@@ -193,7 +212,7 @@ Item {
                 TextField {
                     id: versionText
                     selectByMouse: true
-                    width: win.controlWidth
+                    width: win.controlWidth / 2
                     readOnly: true
                     text: API.sysVersion()
                 }
@@ -321,62 +340,67 @@ Item {
                         }
                     }
                     Label {
-                        font: DTK.fontManager.t8
+                        font: DTK.fontManager.t9
+                        color: Qt.rgba(0,0,0,0.6)
                         text: qsTr("Drag and drop files or click buttons to add pictures, up to three")
                     }
                 }
             }
             // 底部按钮
             RowLayout {
-                spacing: 20
+                spacing: 10
                 Layout.alignment: Qt.AlignHCenter
                 DialogWindow {
                     id: cancelConfirm
-                    width: cancelText.width+80
-                    height: cancelColumn.height+80
+                    width: 400
+                    height: cancelColumn.height+60
+                    icon: "deepin-home"
+                    modality: Qt.WindowModal
                     ColumnLayout {
                         id: cancelColumn
                         width: parent.width
-                        spacing: 20
+                        spacing: 0
                         Text {
                             id: cancelText
                             Layout.alignment: Qt.AlignHCenter
-                            font: DTK.fontManager.t5
+                            font.pixelSize: DTK.fontManager.t5.pixelSize
+                            font.weight: Font.Medium
                             text: qsTr("Are you sure you want to exit the feedback submission?")
                         }
                         Text {
                             Layout.alignment: Qt.AlignHCenter
-                            font: DTK.fontManager.t7
+                            font: DTK.fontManager.t8
+                            color: Qt.rgba(0, 0, 0, 0.7)
                             text: qsTr("The feedback content will not be saved.")
                         }
-                        Row {
+                        RowLayout {
+                            Layout.topMargin: 30
                             Layout.alignment: Qt.AlignHCenter
                             spacing: 10
                             Button {
+                                Layout.preferredWidth: 180
                                 text: qsTr("Cancel")
+                                font.letterSpacing: API.isZH() ? 5 : 1;
                                 onClicked: {
                                     cancelConfirm.close()
                                 }
                             }
                             WarningButton {
+                                Layout.preferredWidth: 180
                                 text: qsTr("Exit")
+                                font.letterSpacing: API.isZH() ? 5 : 1;
                                 onClicked: {
                                     cancelConfirm.close()
                                     win.close()
                                 }
                             }
                         }
-                        // 增加底部间距
-                        Row {
-                        }
                     }
                 }
                 Button {
-                    width: 200
+                    Layout.preferredWidth: 200
                     text: qsTr("Cancel")
-                    leftPadding: 100
-                    rightPadding: 100
-                    font.letterSpacing: API.isZH() ? 10 : 1;
+                    font.letterSpacing: API.isZH() ? 5 : 1;
                     onClicked: {
                         // 如果已填写标题或内容，弹出提示
                         if(titleText.text.length > 0 || contentText.text!=win.placeholder){
@@ -387,11 +411,9 @@ Item {
                     }
                 }
                 RecommandButton {
-                    width: 200
+                    Layout.preferredWidth: 200
                     text: qsTr("Submit")
-                    leftPadding: 100
-                    rightPadding: 100
-                    font.letterSpacing: API.isZH() ? 10 : 1;
+                    font.letterSpacing: API.isZH() ? 5 : 1;
                     onClicked: {
                         if(titleText.text.length==0 && (contentText.text.length==0 || contentText.text == win.placeholder)){
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title and content of your feedback."))

@@ -87,7 +87,7 @@ Item {
     Rectangle {
         id: headerRect
         width: parent.width
-        height: 56
+        height: selectBox.height + 20
         visible: root.typeFilter
         ComboBox {
             id: selectBox
@@ -123,7 +123,7 @@ Item {
     
     ScrollView {
         // 给分类下拉框留空
-        y: root.typeFilter ? 56 : 10
+        y: root.typeFilter ? headerRect.height - 10 : 10
         width: parent.width
         height: parent.height - y - 10
         clip: true
