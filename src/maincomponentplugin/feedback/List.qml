@@ -129,7 +129,7 @@ Item {
         clip: true
         ScrollBar.vertical.onPositionChanged: () => {
             const position = ScrollBar.vertical.position + ScrollBar.vertical.size
-            if(position==1 && !root.loadMore && root.hasMore) {
+            if(position > 0.98 && !root.loadMore && root.hasMore) {
                 root.loadMore = true
                 timer.start()
             }
@@ -152,8 +152,8 @@ Item {
                     type: feedback.type
                     status: feedback.status
                     created_at: feedback.created_at
-                    like: feedback.like
-                    collect: feedback.collect
+                    like: feedback.like || false
+                    collect: feedback.collect || false
                     screenshots: feedback.screenshots
                     system_version: feedback.system_version || ""
                     avatar: feedback.avatar
