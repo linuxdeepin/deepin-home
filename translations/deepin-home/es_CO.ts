@@ -1,462 +1,458 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es_CO">
 <context>
     <name>API</name>
     <message>
         <source>Please log in with your Deepin ID.</source>
-        <translation>Zaloguj się za pomocą swojego Deepin ID</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
-        <translation>Zaloguj się, aby kontynuować.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation>Wysyłasz zbyt wiele żądań. Spróbuj ponownie później.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
-        <translation>Moje ulubione</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign out</source>
-        <translation>Wyloguj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unlogged</source>
-        <translation>Niezalogowany</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sign in</source>
-        <translation>Zaloguj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>Moje opinie</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Card</name>
     <message>
         <source>View details</source>
-        <translation>Wyświetl szczegóły</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 views</source>
-        <translation>%1 wyświetleń</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation>Sugestie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation>Usuń z ulubionych</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Favorite</source>
-        <translation>Ulubione</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation>Cofnij ponaglenie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Urge</source>
-        <translation>Ponaglij</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Card1</name>
     <message>
         <source>Coming</source>
-        <translation>Wkrótce</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Detail</name>
     <message>
         <source>Official response</source>
-        <translation>Oficjalna odpowiedź</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Index</name>
     <message>
         <source>Communication</source>
-        <translation>Komunikacja</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Discuss and share here</source>
-        <translation>Dołącz do dyskusji</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation>Zgłoś błąd</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Report issues you found</source>
-        <translation>Zgłoś znalezione błędy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation>Sugestie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Submit your suggestions</source>
-        <translation>Wyślij swoje sugestie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resources</source>
-        <translation>Zasoby</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Questionaire</source>
-        <translation>Ankieta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Join US</source>
-        <translation>Dołącz do nas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Internal Testing</source>
-        <translation>Testy wewnętrzne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Community News</source>
-        <translation>Wiadomości społeczności</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>List</name>
     <message>
         <source>All</source>
-        <translation>Wszystkie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bug</source>
-        <translation>Bugi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation>Sugestie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Messages</source>
-        <translation>Wiadomości</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Questionaires</source>
-        <translation>Ankiety</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MyTitleBar</name>
     <message>
         <source>Launch at system startup</source>
-        <translation>Uruchom przy starcie systemu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>About</source>
-        <translation>O programie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Wyjdź</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Deepin Home</source>
-        <translation>Główna Deepin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation>Aplikacja do szybkiego logowania się na forum, wysyłania sugestii i zgłaszania błędów.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Notify</name>
     <message>
         <source>No messages yet.</source>
-        <translation>Brak wiadomości</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 messages</source>
-        <translation>%1 wiadomości</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mark all as read</source>
-        <translation>Zaznacz wszystkie jako przeczytane</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NotifyDetail</name>
     <message>
         <source>View more</source>
-        <translation>Zobacz więcej</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Offline</name>
     <message>
         <source>Network error, please try later</source>
-        <translation>Błąd sieci, spróbuj ponownie później</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Odśwież</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Preload</name>
     <message>
         <source>Deepin Home</source>
-        <translation>Główna Deepin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Questionnaire</name>
     <message>
         <source>No questionaires yet.</source>
-        <translation>Brak ankiet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Expired on: %1</source>
-        <translation>Wygasło: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fill In</source>
-        <translation>Uzupełnij</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Status</name>
     <message>
         <source>Pending</source>
-        <translation>Oczekiwanie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation>Potwierdzono</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Replied</source>
-        <translation>Z odpowiedzią</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resolved</source>
-        <translation>Rozwiązano</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Evaluating</source>
-        <translation>W trakcie oceny</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Accepted</source>
-        <translation>Zaakceptowano</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Completed</source>
-        <translation>Zakończono</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Reproducing</source>
-        <translation>Odtwarzanie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation>Nie przetworzono problemu i nie pojawi się on na liście publicznej.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation>Nie można zidentyfikować przyczyny; wymagana jest dodatkowa analiza.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation>Udało się odtworzyć problem i główna przyczyna została znaleziona.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation>Problem nie jest bugiem lub jest sprawą innej natury.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation>Udało się rozwiązać problem i oczekuje na oficjalne wydanie.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation>Żądanie nie zostało przetworzone i nie pojawi się na liście publicznej.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation>Problem został uznany i oczekuje na wewnętrzną analizę.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation>Zawarto w planie przyszłego wydania</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation>Żądanie nie zostało zaakceptowane lub nie można go spełnić</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation>Praca deweloperska została zakończona, oczekiwanie na oficjalne wydanie</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation>Nie można dodać zrzutu ekranu.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation>Rozmiar pliku obrazu nie może przekraczać 1MB.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation>Format obrazu nie jest wspierany do załadowania.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Submit Feedback</source>
-        <translation>Wyślij opinię</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation>[Bieżący status produktu]: 
-[Oczekiwany produkt]: </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation>[Warunki wstępne]: 
-[Podjęte kroki]: 
-[Spodziewany wynik]: 
-[Rzeczywisty wynik]: </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Type：</source>
-        <translation>Typ:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation>Sugestie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation>Zgłoszenie błędu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Title：</source>
-        <translation>Tytuł:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation>Podaj krótki opis swojego problemu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Content：</source>
-        <translation>Zawartość:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation>Nie uwzględniaj wielu problemów w jednym zgłoszeniu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Email：</source>
-        <translation>E-mail:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System Version:</source>
-        <translation>Wersja systemu:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation>Info urządzenia:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation>Załaduj &lt;a href=&apos;home://sysinfo&apos;&gt;informacje urządzenia&lt;/a&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation>Zrzuty ekranu:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Image files</source>
-        <translation>Pliki obrazów</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation>Przeciągnij tutaj lub kliknij przycisk, aby dodać zdjęcia. Maks. trzy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation>Czy na pewno chcesz przerwać wysyłanie opinii?</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation>Zawartość opinii nie zostanie zachowana.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Wyjdź</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Submit</source>
-        <translation>Wyślij</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation>Nie można wysłać opinii.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation>Wprowadź tytuł i zawartość opinii.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation>Wprowadź tytuł Twojej opinii.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation>Wprowadź zawartość Twojej opinii.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Incorrect email address entered.</source>
-        <translation>Nieprawidłowy adres e-mail.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device Information</source>
-        <translation>Informacje urządzenia</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation>Centrum opinii</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>Moje opinie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation>Moje ulubione</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>My Urged</source>
-        <translation>Moje ponaglenia</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

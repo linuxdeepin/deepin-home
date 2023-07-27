@@ -1,3 +1,13 @@
+deepin-home (1.3.1) unstable; urgency=medium
+
+  * feat: Reply content can be selected by mouse(Issue: https://github.com/linuxdeepin/developer-center/issues/4928)
+  * feat: add promise support
+  * fix: problem of incomplete loading of the feedback list(Issue: https://github.com/linuxdeepin/developer-center/issues/5042)
+  * feat: add mouse hover effect to feedbakc title(Issue: https://github.com/linuxdeepin/developer-center/issues/5045)
+  * feat: fine-tuning UI details
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 27 Jul 2023 10:57:28 +0800
+
 deepin-home (1.3.0) unstable; urgency=medium
 
   * chore: Sync by https://github.com/linuxdeepin/.github/commit/559e91167d4919644f37bbcf123eb0651c1528ea(Influence: none)
