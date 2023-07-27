@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Olet tehnyt liian monta pyyntöä. Yritä myöhemmin uudelleen.</translation>
     </message>
 </context>
 <context>
@@ -260,6 +260,50 @@
         <source>Completed</source>
         <translation>Valmis</translation>
     </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>Kopiointi</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>Ongelmaa ei ole käsitelty, eikä näytetä julkisessa listauksessa.</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>Syytä ei tällä hetkellä voida tunnistaa; tarvitaan syyn seurantaa ja tutkimusta.</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>Ongelma on toistettu ja perimmäinen syy on löydetty.</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>Ongelma ei ole bugi tai luonteeltaan erilainen.</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>Ongelma on ratkaistu ja odottaa virallista julkaisua</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>Ilmoitusta ei ole käsitelty, eikä näytetä julkisessa listauksessa.</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>Ongelma on tunnustettu ja sitä arvioidaan</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>Mukana tulevan julkaisun suunnitelmissa</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>Ilmoitusta ei joko hyväksytä tai siihen ei voida vastata</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>Kehitystyö on päättynyt ja odottaa virallista julkaisua</translation>
+    </message>
 </context>
 <context>
     <name>Submit</name>
@@ -282,14 +326,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Tuotteen nykyinen tila]: 
+[Tuote]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Edellytykset]: 
+[Toistettavuuden vaiheet]: 
+[Odotetut tulokset]: 
+[Todelliset tulokset]: </translation>
     </message>
     <message>
         <source>Type：</source>
@@ -309,7 +357,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Anna lyhyt kuvaus ongelmasta</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -325,7 +373,7 @@
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmän versio:</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -373,7 +421,7 @@
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Anna palautteen otsikko ja sisältö.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -408,7 +456,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Minun ilmoitus</translation>
     </message>
 </context>
 </TS>

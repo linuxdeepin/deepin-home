@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Siz həddindən çox sorğu etmisiniz. Lütfən, sonra yenidən cəhd edin.</translation>
     </message>
 </context>
 <context>
@@ -260,6 +260,50 @@
         <source>Completed</source>
         <translation>Tamamlanmış</translation>
     </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>Çoxalma</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>Problem ələ alınmayıb və ümumu siyahıda göstərilməyəcək.</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>Hal-hazırda səbəbi müəyyən etmək mümkün deyil, davamlı izləmə və araşdırma tələb olunur.</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>Problem təkrarlandı və səbəbin kökü müəyyən edilmişdir.</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>Problem bir xəta deyil və ya başqa xüsusiyyət daşımır.</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>Problem həll olunub və rəsmi buraxılışı göslənilir</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>Tələb üzərində iş görülməyib və ümumi siyahıda göstərilməyəcək</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>Problem nəzərdən keçirilib və daxili qiymətləndirmə aparılır</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>Gələcək buraxılış planlarına daxil edilib</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>Tələb ya qəbul edilməyib, ya da yerinə yetirilə bilməz</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>Tərtibat işləri başa çatıb və rəsmi buraxılışı göslənilir</translation>
+    </message>
 </context>
 <context>
     <name>Submit</name>
@@ -282,14 +326,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Məhsulun cari vəziyyəti]
+[Arzuolunan məhsul]</translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Ön şərt]:
+[Repreduksiya addımları]:
+[Gözlənilən Nəticələr]:
+[Aktual nəticələr]:</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -309,7 +357,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Xahiş edirəm, problemləriniz ilə bağlı qısa məlumat verəsiniz</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -325,7 +373,7 @@
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>Sistemin versiyası</translation>
     </message>
     <message>
         <source>Device Info：</source>
@@ -373,7 +421,7 @@
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Lütfən, rəyinizin başlığını və məzmununu təqdim edin.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
@@ -408,7 +456,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>İstədiklərim</translation>
     </message>
 </context>
 </TS>

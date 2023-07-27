@@ -88,5 +88,6 @@
         <file>deepin-home-daemon/zh_CN.qm</file>
         <file>deepin-home-daemon/zh_HK.qm</file>
         <file>deepin-home-daemon/zh_TW.qm</file>
+        <file>deepin-home-daemon/es_CO.qm</file>
     </qresource>
 </RCC>
