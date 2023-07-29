@@ -102,7 +102,7 @@ Item {
                 inList: false
                 title: qsTr("Official response")
                 content: ""
-                avatar: "http://home-dev.deepin.org/favicon.ico"
+                avatar: "http://home.deepin.org/favicon.ico"
                 isReply: true
             }
         }
