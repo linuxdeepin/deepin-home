@@ -40,10 +40,6 @@
 <context>
     <name>Card</name>
     <message>
-        <source>View details</source>
-        <translation>Details bekijken</translation>
-    </message>
-    <message>
         <source>%1 views</source>
         <translation>%1 weergaven</translation>
     </message>
@@ -438,6 +434,10 @@
     <message>
         <source>Device Information</source>
         <translation>Apparaatinformatie</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

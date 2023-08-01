@@ -40,10 +40,6 @@
 <context>
     <name>Card</name>
     <message>
-        <source>View details</source>
-        <translation>Näytä tiedot</translation>
-    </message>
-    <message>
         <source>%1 views</source>
         <translation>%1 katselukertaa</translation>
     </message>
@@ -438,6 +434,10 @@
     <message>
         <source>Device Information</source>
         <translation>Laitteen tiedot</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -40,10 +40,6 @@
 <context>
     <name>Card</name>
     <message>
-        <source>View details</source>
-        <translation>Mostra&apos;n els detalls</translation>
-    </message>
-    <message>
         <source>%1 views</source>
         <translation>%1 visualitzacions</translation>
     </message>
@@ -262,47 +258,47 @@
     </message>
     <message>
         <source>Reproducing</source>
-        <translation type="unfinished"/>
+        <translation>Reproducció</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>El problema no s&apos;ha processat i no es mostrarà a la llista pública.</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>Actualment no se&apos;n pot identificar la causa; calen un seguiment i una investigació contínues.</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>El problema s&apos;ha reproduït i se n&apos;ha identificat la causa.</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>El problema no és un error o té una naturalesa diferent.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>El problema s&apos;ha resolt i se n&apos;espera l&apos;alliberament formal.</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>El requisit no s&apos;ha processat i no es mostrarà a la llista pública.</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>El problema ha estat reconegut i s&apos;està avaluant internament.</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>Inclòs en els plans per a un llançament futur</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>El requisit no s&apos;accepta o no es pot atendre.</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>La feina de desenvolupament s&apos;ha acabat. Se n&apos;espera l&apos;alliberament formal.</translation>
     </message>
 </context>
 <context>
@@ -438,6 +434,10 @@
     <message>
         <source>Device Information</source>
         <translation>Informació del dispositiu</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

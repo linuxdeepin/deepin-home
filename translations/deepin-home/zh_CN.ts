@@ -40,10 +40,6 @@
 <context>
     <name>Card</name>
     <message>
-        <source>View details</source>
-        <translation>查看详情</translation>
-    </message>
-    <message>
         <source>%1 views</source>
         <translation>%1次查看</translation>
     </message>
@@ -438,6 +434,10 @@
     <message>
         <source>Device Information</source>
         <translation>设备信息</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>请输入您的电子邮件</translation>
     </message>
 </context>
 <context>
