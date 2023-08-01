@@ -42,10 +42,6 @@
 <context>
     <name>Card</name>
     <message>
-        <source>View details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 views</source>
         <translation type="unfinished"></translation>
     </message>
@@ -435,6 +431,10 @@
     </message>
     <message>
         <source>Device Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
