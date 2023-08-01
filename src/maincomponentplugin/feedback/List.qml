@@ -17,14 +17,18 @@ Item {
     id: root
     // 反馈和用户的关联关系，值有 like(点赞) collect(收藏) 为空时，则获取所有反馈
     property string relation: ""
+    // 是否正在初始化加载
+    property bool initing: true
     // 分页显示
     property int offset: 0
     property int limit: 5
     // 是否显示反馈类型过滤
     property bool typeFilter: false
+    // 当前反馈类型
     property string type: ""
     // 是否显示“加载更多”按钮
     property bool hasMore: true
+    // 是否正在“加载更多”
     property bool loadMore: false
 
     ListModel {
@@ -63,6 +67,7 @@ Item {
                 })
             }
             root.loadMore = false
+            root.initing = false
         }
         switch(root.relation){
             case "create":
@@ -79,6 +84,7 @@ Item {
                 break
         }
     }
+
     Component.onCompleted: {
         getList(true)
     }
@@ -131,6 +137,7 @@ Item {
             const position = ScrollBar.vertical.position + ScrollBar.vertical.size
             if(position > 0.98 && !root.loadMore && root.hasMore) {
                 root.loadMore = true
+                console.log("loading")
                 timer.start()
             }
         }
@@ -256,14 +263,23 @@ Item {
             submitLoader.setSource("Submit.qml", {type: root.type})
         }
     }
+
     Loader {
         id: submitLoader
         anchors.fill: root
         Connections {
             target: submitLoader.item
             function onClosed() {
-                submitLoader.source=""
+                submitLoader.source = ""
             }
+        }
+    }
+
+    Rectangle {
+        visible: initing
+        anchors.fill: root
+        Loading {
+            anchors.centerIn: parent
         }
     }
 }
