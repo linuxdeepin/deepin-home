@@ -41,6 +41,24 @@ Item {
         }
         Router.showFeedbackDetail(feedback)
     }
+
+    Connections {
+        target: API
+        // 列表刷新信号
+        function onSignalFeedbackListUpdate(feedbacks) {
+            root.offset += root.limit
+            // 返回的条数小于要求的条数，则不再显示“加载更多”按钮
+            if(feedbacks.length != root.limit) {
+                root.hasMore = false
+            }
+            for(const feedback of feedbacks){
+                feedbackList.append({ feedback })
+            }
+            root.loadMore = false
+            root.initing = false
+        }
+    }
+
     // 获取反馈列表
     function getList(clear) {
         // 在切换分类过滤时，重置列表
@@ -55,32 +73,18 @@ Item {
             "relation": root.relation,
             "type": root.type,
         }
-        const callback = (resp)=>{
-            root.offset += root.limit
-            // 返回的条数小于要求的条数，则不再显示“加载更多”按钮
-            if(resp.length != root.limit) {
-                root.hasMore = false
-            }
-            for(const feedback of resp){
-                feedbackList.append({
-                    feedback: feedback
-                })
-            }
-            root.loadMore = false
-            root.initing = false
-        }
         switch(root.relation){
             case "create":
-                API.getMyFeedback(opt, callback)
+                API.getMyFeedback(opt)
                 break
             case "collect":
             case "like":
                 // 获取我的收藏和我的关注
-                API.getRelation(opt, callback)
+                API.getRelation(opt)
                 break
             case "":
                 // 获取反馈广场
-                API.getFeedback(opt, callback)
+                API.getFeedback(opt)
                 break
         }
     }
@@ -228,7 +232,8 @@ Item {
         interval: 1000
         repeat: false
         onTriggered: {
-            getList(false)
+            console.log("timer trigger")
+            Qt.callLater(getList, false)
         }
     }
     BusyIndicator {

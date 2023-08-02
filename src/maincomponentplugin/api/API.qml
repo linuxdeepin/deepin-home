@@ -24,6 +24,8 @@ Item {
     signal networkError()
     // daemon发送的托盘事件，用于控制主窗口的显示
     signal showMainWindow(bool isIconClick)
+    // 反馈列表更新
+    signal signalFeedbackListUpdate(var feedbacks)
     // 发送http请求
     function request(method, rawUrl, body, callback) {
         const url = worker.getNode() + rawUrl
@@ -116,7 +118,7 @@ Item {
     }
     // 给用户反馈列表填充和用户关联关系，用于显示是否已点赞，已收藏
     // 顺便把图片地址修正
-    function fill_feedback(feedbacks, callback) {
+    function fill_feedback(feedbacks) {
         let url = "/api/v1/user/feedback/relation?offset=0&limit=20"
         // 拼接id参数
         for(let feedback of feedbacks) {
@@ -139,7 +141,7 @@ Item {
                     }
                 }
             }
-            callback(feedbacks)
+            signalFeedbackListUpdate(feedbacks)
         })
     }
     // 预览图片，使用qml下载图片可以重用缓存
@@ -155,7 +157,7 @@ Item {
         xhr.send()
     }
     // 获取反馈列表
-    function getFeedback(opt, callback) {
+    function getFeedback(opt) {
         // 拼接ID
         let ids=""
         if(opt.ids) {
@@ -190,13 +192,13 @@ Item {
             }
         }
         if(!isLogin){
-            callback(resp)
+            signalFeedbackListUpdate(resp)
             return
         }
-        return fill_feedback(resp, callback)
+        return fill_feedback(resp)
     }
     // 获取我的反馈
-    function getMyFeedback(opt, callback) {
+    function getMyFeedback(opt) {
         getLanguage(lang=>{
             const url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%4".arg(opt.offset).arg(opt.limit).arg(opt.type)
             get(url, (resp)=>{
@@ -216,7 +218,7 @@ Item {
                         })
                     }
                 }
-                return fill_feedback(resp, callback)
+                return fill_feedback(resp)
             })
         })
     }
@@ -237,18 +239,18 @@ Item {
         delete_("/api/v1/user/feedback/%1/collect".arg(id), callback)
     }
     // 获取和用户关联的反馈
-    function getRelation(opt, callback) {
+    function getRelation(opt) {
         let url = "/api/v1/user/feedback/relation?offset=%1&limit=%2&type=%3&relation=%4".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(opt.relation)
         get(url, (relations) => {
             if(relations.length === 0){
-                callback([])
+                signalFeedbackListUpdate([])
                 return
             }
             let ids = []
             for(let relation of relations) {
                 ids.push(relation.feedback_id)
             }
-            getFeedback({offset:"", limit: "",type: opt.type, ids: ids}, callback)
+            getFeedback({offset:"", limit: "",type: opt.type, ids: ids})
         })
     }
     // 获取系统版本
