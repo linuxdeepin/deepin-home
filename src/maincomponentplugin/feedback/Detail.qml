@@ -7,6 +7,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
 import "../api"
+import "../router"
 import "../widgets"
 
 // 显示反馈的详情，在反馈列表中点击标题进入
@@ -14,6 +15,21 @@ import "../widgets"
 Item {
     id: root
     property var feedback
+
+    Connections {
+        target: API
+        // 列表刷新信号
+        function onSignalFeedbackListUpdate(feedbacks) {
+            if(feedbacks.length==1) {
+                const feedback = feedbacks[0]
+                API.publicViewFeedback(feedback.public_id)
+                if(API.isLogin) {
+                    API.userViewFeedback(feedback.public_id)
+                }
+                Router.showFeedbackDetail(feedback)
+            }
+        }
+    }
 
     ScrollView {
         anchors.fill: parent
