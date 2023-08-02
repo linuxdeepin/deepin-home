@@ -105,6 +105,7 @@ Rectangle {
             Layout.topMargin: 10
             Layout.bottomMargin: 10
             wrapMode: TextEdit.WrapAnywhere
+            textFormat: TextEdit.RichText
             selectByMouse: true
             text: root.content
             color: Qt.rgba(0,0,0,0.7)
@@ -112,16 +113,7 @@ Rectangle {
             onLinkActivated: (link)=> {
                 if(link.startsWith("#")){
                     const public_id = link.slice(1)
-                    API.getFeedback({type: '', offset: 0, limit: 1, ids: [public_id]}, (resp)=>{
-                        if(resp && resp[0]) {
-                            const feedback = resp[0]
-                            API.publicViewFeedback(feedback.public_id)
-                            if(API.isLogin) {
-                                API.userViewFeedback(feedback.public_id)
-                            }
-                            Router.showFeedbackDetail(feedback)
-                        }
-                    })
+                    API.getFeedback({type: '', offset: 0, limit: 1, ids: [public_id]})
                     return
                 }
                 Qt.openUrlExternally(link)
