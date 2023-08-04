@@ -447,7 +447,7 @@ Item {
                                     version: versionText.text,
                                     screenshots: screenshots,
                                 }, () => {
-                                    Router.showMyFeedback()
+                                    Router.showMyFeedback(true)
                                 })
                             })
                         }

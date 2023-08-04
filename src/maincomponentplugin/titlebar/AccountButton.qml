@@ -64,7 +64,7 @@ WindowButton {
                         API.login()
                         return
                     }
-                    Router.showFavoriteFeedback()
+                    Router.showFavoriteFeedback(false)
                     accountMenu.close()
                 }
             }
@@ -75,7 +75,7 @@ WindowButton {
                 ColorSelector.family: Palette.CrystalColor
                 text: qsTr("My Feedbacks")
                 onClicked: {
-                    Router.showMyFeedback()
+                    Router.showMyFeedback(false)
                     accountMenu.close()
                 }
             }

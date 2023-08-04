@@ -114,10 +114,10 @@ Item {
             }
             onActivated: {
                 if(root.relation=="create"){
-                    Router.showMyFeedback(true, selectOptions.get(currentIndex).value, true)
+                    Router.showMyFeedback(true, selectOptions.get(currentIndex).value)
                     return
                 }
-                Router.showAllFeedback(true, selectOptions.get(currentIndex).value, true)
+                Router.showAllFeedback(true, selectOptions.get(currentIndex).value)
             }
             Component.onCompleted:{
                 if(root.type === "bug") {
