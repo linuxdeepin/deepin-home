@@ -24,7 +24,7 @@ ButtonBox {
         font.weight: Font.Medium
         font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
-            Router.showAllFeedback(false)
+            Router.showAllFeedback(true)
         }
     }
     ToolButton {
@@ -38,7 +38,7 @@ ButtonBox {
         font.weight: Font.Medium
         font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
-            Router.showMyFeedback(false)
+            Router.showMyFeedback(true)
         }
     }
     ToolButton {
@@ -52,7 +52,7 @@ ButtonBox {
         font.weight: Font.Medium
         font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
-            Router.showFavoriteFeedback(false)
+            Router.showFavoriteFeedback(true)
         }
     }
 
@@ -67,7 +67,7 @@ ButtonBox {
         font.weight: Font.Medium
         font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
-            Router.showUrgeFeedback(false)
+            Router.showUrgeFeedback(true)
         }
     }
 }

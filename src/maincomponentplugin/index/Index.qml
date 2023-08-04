@@ -17,6 +17,7 @@ import "../widgets"
 
 Item {
     id: root
+    property bool showNotify
     // 首页界面
     ScrollView {
         anchors.fill: parent
@@ -54,7 +55,7 @@ Item {
                     width: body.width * 0.3
                     height: width/3
                     onClicked: {
-                        Router.showAllFeedback(true, "bug")
+                        Router.showAllFeedback(false, "bug")
                     }
                 }
                 Card1 {
@@ -64,7 +65,7 @@ Item {
                     width: body.width * 0.3
                     height: width/3
                     onClicked: {
-                        Router.showAllFeedback(true, "req")
+                        Router.showAllFeedback(false, "req")
                     }
                 }
             }
@@ -208,6 +209,9 @@ Item {
     }
     // 首页内容加载
     Component.onCompleted: {
+        if (showNotify) {
+            showNotifyList()
+        }
         API.getClientHome(resp=>{
             for(let item of resp.carousel){
                 carousel.model.append({ img: item.img, url: item.url })

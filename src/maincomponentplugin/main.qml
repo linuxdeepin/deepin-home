@@ -1,82 +1,144 @@
 // SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
-
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
+import "./api"
+import "./router"
+import "./titlebar"
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 import org.deepin.dtk 1.0
-import "index" as DIndex
-import "./titlebar"
-import "./api"
-import "./router"
-
 import org.deepin.dtk.impl 1.0 as D
 
 AppLoader {
     id: appLoader
+
+    Component.onCompleted: {
+        // TODO 暂不支持暗色主题，固定为亮色主题
+        D.ApplicationHelper.setPaletteType(D.ApplicationHelper.LightType);
+        // 设置标题栏
+        appLoader.window.header = actualTitleBar;
+        for (let i = 1; i <= 10; i++) {
+            console.log("font_size_t" + i, DTK.fontManager["t" + i].pixelSize);
+        }
+    }
+
     Component {
         id: main_component
-        Loader {
-            id: index_loader
+
+        Rectangle {
             width: appLoader.width
             height: appLoader.height
-            source: "index/Index.qml"
-            Connections {
-                target: actualTitleBar.item
-                // 菜单栏的通知按钮点击事件，由于通知侧边栏在首页组件中所以先导航到首页
-                function onNotifyClicked() {
-                    console.log("onNotifyClicked")
-                    Router.showIndex()
-                    index_loader.item.showNotifyList()
-                }
-            }
-            Connections {
-                target: Router
-                // 路由更改事件
-                function onRouteCurrentChanged() {
-                    if (Router.routeCurrent.data) {
-                        index_loader.setSource(Router.routeCurrent.component, Router.routeCurrent.data)
+
+            // 通过路由控制，多个页面叠加显示
+            Repeater {
+                id: pages
+
+                onItemAdded: {
+                    const index = pages.count - 1;
+                    const model = pages.model.get(index);
+                    const loader = pages.itemAt(index).children[0];
+                    if(model.data) {
+                        loader.setSource(model.source, model.data);
                     } else {
-                        index_loader.setSource(Router.routeCurrent.component)
+                        loader.setSource(model.source);
                     }
                 }
+
+                // 使用Rectangle做背景
+                Rectangle {
+                    anchors.fill: parent
+
+                    Loader {
+                        anchors.fill: parent
+                    }
+
+                }
+
+                model: ListModel {
+                    ListElement {
+                        source: "index/Index.qml"
+                    }
+
+                }
+
             }
+
             Connections {
-                target: API
+                // 路由导航，添加一个页面
+                function onSignalNavigate(route, overlay) {
+                    if (overlay)
+                        pages.model.remove(pages.count - 1);
+
+                    pages.model.append({
+                        "source": route.component,
+                        "data": route.data
+                    });
+                }
+
+                // 路由反馈，删除一个页面
+                function onSignalBack() {
+                    pages.model.remove(pages.count - 1);
+                }
+
+                // 回到首页，清空多于页面，释放内存
+                function onSignalGoHome(route) {
+                    console.log("go home");
+                    pages.model.clear();
+                    pages.model.append({
+                        "source": route.component,
+                        "data": route.data
+                    });
+                }
+
+                target: Router
+            }
+
+            Connections {
+                // 菜单栏的通知按钮点击事件，由于通知侧边栏在首页组件中所以先导航到首页
+                function onNotifyClicked() {
+                    console.log("onNotifyClicked");
+                    Router.showNotify();
+                }
+
+                target: actualTitleBar.item
+            }
+
+            Connections {
                 // 显示断网页面
                 function onNetworkError() {
-                    Router.showNetworkError()
+                    Router.showNetworkError();
                 }
+
                 // 托盘激活窗口
                 function onShowMainWindow(isIconClick) {
                     // 关闭窗口特效的环境需要先恢复窗口才能激活
-                    window.showNormal()
-
+                    window.showNormal();
                     if (window.active) {
                         // 如果窗口已激活，点击托盘将关闭窗口
-                        if(isIconClick) {
-                            window.close()
-                        }
+                        if (isIconClick)
+                            window.close();
+
                     } else {
-                        window.requestActivate()
+                        window.requestActivate();
                     }
                 }
+
+                target: API
             }
+
         }
+
     }
     // 自定义标题栏
+
     Loader {
         id: actualTitleBar
+
         asynchronous: true
-        sourceComponent: MyTitleBar {}
-    }
-    Component.onCompleted: {
-        // TODO 暂不支持暗色主题，固定为亮色主题
-        D.ApplicationHelper.setPaletteType(D.ApplicationHelper.LightType)
-        // 设置标题栏
-        appLoader.window.header = actualTitleBar
-        for(let i = 1; i <= 10; i++){
-            console.log("font_size_t"+i, DTK.fontManager["t"+i].pixelSize)
+
+        sourceComponent: MyTitleBar {
         }
+
     }
+
 }
