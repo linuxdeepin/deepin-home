@@ -96,6 +96,7 @@ Control {
                         source: ["Notify.qml", "Questionnaire.qml"][root.index]
                         Connections {
                             target: list_loader.item
+                            ignoreUnknownSignals: true
                             function onSelected(notify) {
                                 root.selectedNotify = notify
                             }

@@ -115,10 +115,13 @@ AppLoader {
                     window.showNormal();
                     if (window.active) {
                         // 如果窗口已激活，点击托盘将关闭窗口
-                        if (isIconClick)
+                        if (isIconClick) {
+                            console.log("close window")
                             window.close();
+                        }
 
                     } else {
+                        console.log("active window")
                         window.requestActivate();
                     }
                 }

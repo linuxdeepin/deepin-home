@@ -41,7 +41,7 @@ Account::Account(QObject *parent, API *api, QString server)
             });
     // 启动后检查deepinid是否登陆
     QTimer::singleShot(1000, [this]() {
-        qDebug() << m_deepinidDaemon->isLogin();
+        qCDebug(logger) << "deepinid is login" << m_deepinidDaemon->isLogin();
         if(m_deepinidDaemon->isLogin()) {
             this->clientLogin();
         }
@@ -53,7 +53,7 @@ Account::~Account() {}
 // state 用于区分登录用途
 void Account::authorized(QString code, QString state)
 {
-    qDebug() << "account authorized";
+    qCDebug(logger) << "account authorized";
     // 论坛登陆
     if (state == "bbs") {
         auto url = m_api->getForumURL(m_server, code);
@@ -106,7 +106,7 @@ bool Account::isLogin()
 // 客户端自己的登陆
 void Account::clientLogin()
 {
-    qDebug() << "client login";
+    qCDebug(logger) << "client login";
     // 已登录，则先获取code，再用code获取自动登录的论坛地址
     auto opt = m_api->getLoginOption(m_server);
     // 注册登录回调接口
@@ -120,7 +120,7 @@ void Account::clientLogin()
 UserInfo Account::getUserInfo()
 {
     auto logininfo = m_api->getLoginInfo(m_server, m_token);
-    qDebug() << logininfo.user_id;
+    qCDebug(logger) << logininfo.user_id;
     UserInfo info;
     info.uid = logininfo.user_id;
     info.nickname = logininfo.nickname;

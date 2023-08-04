@@ -46,6 +46,7 @@ private:
     QMenu *m_menu = nullptr;
     API *m_api = nullptr;
     Account *m_account = nullptr;
+    QLoggingCategory logger = QLoggingCategory("daemon");
 
 public:
     explicit HomeDaemon(QObject *parent = nullptr);

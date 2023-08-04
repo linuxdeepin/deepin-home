@@ -100,7 +100,7 @@ WindowButton {
                 Layout.topMargin: 20
                 text: qsTr("Sign in")
                 onClicked: {
-                    API.login()
+                    API.login(false)
                     accountMenu.close()
                 }
             }

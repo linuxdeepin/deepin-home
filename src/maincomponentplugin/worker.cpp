@@ -8,6 +8,7 @@
 Worker::Worker(QObject *parent)
     : QObject(parent)
 {
+    qDebug() << "worker install";
     m_daemon = new HomeDaemonProxy(DEEPIN_HOME_DAEMON_SERVICE,
                                    DEEPIN_HOME_DAEMON_PATH,
                                    QDBusConnection::sessionBus(),
@@ -21,7 +22,9 @@ Worker::Worker(QObject *parent)
     auto clientVersion = QString(APP_VERSION);
     if (!clientVersion.isEmpty()) {
         auto daemonVersion = m_daemon->getVersion();
+        qCInfo(logger) << "client version" << clientVersion << "daemon version" << daemonVersion;
         if (clientVersion != daemonVersion) {
+            qCDebug(logger) << "restart daemon";
             m_daemon->quit();
         }
     }

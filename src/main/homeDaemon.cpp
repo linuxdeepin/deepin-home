@@ -86,13 +86,13 @@ void HomeDaemon::initSysTrayIcon()
 QString HomeDaemon::getMachineID()
 {
     auto machineID = m_settings.value("machineID").toString();
-    qDebug() << "try to get machine id from setting";
+    qCDebug(logger) << "try to get machine id from setting";
     if (!machineID.isEmpty()) {
         return machineID;
     }
     machineID = newUUID();
     m_settings.setValue("machineID", machineID);
-    qDebug() << "new machine id saved to setting";
+    qCDebug(logger) << "new machine id saved to setting";
     return machineID;
 }
 
@@ -138,7 +138,7 @@ QStringList HomeDaemon::getChannels()
 void HomeDaemon::markRead(QString channel, QString topic, QString uuid)
 {
     auto settingKey = messageSettingKey(channel, topic, uuid);
-    qDebug() << "mark read" << settingKey;
+    qCDebug(logger) << "mark read" << settingKey;
     m_settings.beginGroup("messages");
     m_settings.setValue(settingKey, "read");
     m_settings.endGroup();
@@ -150,7 +150,7 @@ bool HomeDaemon::isRead(QString channel, QString topic, QString uuid)
     m_settings.beginGroup("messages");
     auto value = m_settings.value(settingKey).toString();
     m_settings.endGroup();
-    qDebug() << "get message status" << settingKey << value;
+    qCDebug(logger) << "get message status" << settingKey << value;
     return value == "read";
 }
 
@@ -176,7 +176,7 @@ void HomeDaemon::start()
 // 主流程，更新node信息，并启动定时器刷新渠道消息
 void HomeDaemon::run()
 {
-    qDebug() << "Refresh Node";
+    qCDebug(logger) << "Refresh Node";
     // 用于停止旧的定时器
     auto cronID = newUUID();
     m_refreshChannelCronID = cronID;
@@ -195,7 +195,7 @@ void HomeDaemon::run()
     } catch (...) {
         qWarning() << "Refresh Node Error";
     }
-    qDebug() << "node next refresh will be in the" << nextRefreshTime << "seconds";
+    qCDebug(logger) << "node next refresh will be in the" << nextRefreshTime << "seconds";
     QTimer::singleShot(nextRefreshTime * 1000, this, &HomeDaemon::run);
 }
 void HomeDaemon::refreshNode()
@@ -209,7 +209,7 @@ void HomeDaemon::refreshNode()
 // 定时刷新单个渠道
 void HomeDaemon::refreshChannel(QString cronID, QString channel)
 {
-    qDebug() << "Refresh Channel" << channel;
+    qCDebug(logger) << "Refresh Channel" << channel;
 
     // 如果执行发生异常，在十分钟后重试
     auto nextRefreshTime = 60 * 10;
@@ -231,7 +231,7 @@ void HomeDaemon::refreshChannel(QString cronID, QString channel)
     } catch (...) {
         qWarning() << "Refresh Channel Error";
     }
-    qDebug() << "topic next refresh will be in the" << nextRefreshTime << "seconds";
+    qCDebug(logger) << "topic next refresh will be in the" << nextRefreshTime << "seconds";
     // 延迟再次运行
     QTimer::singleShot(nextRefreshTime * 1000, this, [this, cronID, channel] {
         // 如果cron id刷新，则任务中断
@@ -244,7 +244,7 @@ void HomeDaemon::refreshChannel(QString cronID, QString channel)
 // 在固定时机提醒填写调查问卷
 void HomeDaemon::execFirstNotify()
 {
-    qDebug() << "execFirstNotify";
+    qCDebug(logger) << "execFirstNotify";
     try {
         auto messages = m_api->getMessages(getNode(),
                                            DEEPIN_HOME_CHANNEL_PUBLIC,
@@ -259,7 +259,7 @@ void HomeDaemon::execFirstNotify()
             // 发送消息通知
             notify(message.title, message.summary, message.url);
             m_settings.setValue("firstNotify", true);
-            qDebug() << "send first notify" << message.title << message.summary;
+            qCDebug(logger) << "send first notify" << message.title << message.summary;
         }
     } catch (...) {
         qWarning() << "Network Error";
@@ -268,7 +268,7 @@ void HomeDaemon::execFirstNotify()
 // 处理消息
 void HomeDaemon::refreshMessage(QString channel, QString topic, QString changeID)
 {
-    qDebug() << "refresh message" << channel << topic;
+    qCDebug(logger) << "refresh message" << channel << topic;
     auto messages = m_api->getMessages(getNode(), channel, topic, getLanguage(), changeID);
     QStringList ids;
     m_settings.beginGroup("messages");
@@ -287,13 +287,13 @@ void HomeDaemon::refreshMessage(QString channel, QString topic, QString changeID
         m_settings.setValue(settingKey, "notify");
         // 发送消息通知
         notify(message.title, message.summary, message.url);
-        qDebug() << "send notify" << settingKey << message.title << message.summary;
+        qCDebug(logger) << "send notify" << settingKey << message.title << message.summary;
     }
     // 清理过期的消息
     auto prefix = QString("%1_%2").arg(channel).arg(topic);
     for (auto key : m_settings.childKeys()) {
         if (key.startsWith(prefix) && !ids.contains(key)) {
-            qDebug() << "remove" << key;
+            qCDebug(logger) << "remove" << key;
             m_settings.remove(key);
         }
     }
@@ -376,19 +376,19 @@ QMap<QString, QVariant> HomeDaemon::getUserInfo()
 // 获取用户token
 QStringList HomeDaemon::getToken(QString publicKey)
 {
-    qDebug() << "get token";
-#ifndef DEBUG
+    qCDebug(logger) << "get token";
+#ifndef QT_DEBUG
     auto pid = connection().interface()->servicePid(message().service());
-    qDebug() << "sender pid" << pid;
+    qCDebug(logger) << "sender pid" << pid;
     auto sender = QFile::symLinkTarget(QString("/proc/%1/exe").arg(pid));
     if (sender != QString("%1%2").arg(APP_BIN_INSTALL_DIR).arg(APP_NAME)) {
-        qDebug() << "Not allow";
+        qCDebug(logger) << "Not allow";
         return {};
     };
 #endif
     auto token = m_account->getToken();
     if (token.isEmpty()) {
-        qDebug() << "No token";
+        qCDebug(logger) << "No token";
         return {};
     }
     // 解析公钥
@@ -439,6 +439,7 @@ void HomeDaemon::openForum()
 // 退出daemon
 void HomeDaemon::quit()
 {
+    qCInfo(logger) << "quic by dbus call";
     QCoreApplication::quit();
 }
 // 获取开机自启配置
