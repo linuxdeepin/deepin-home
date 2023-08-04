@@ -31,7 +31,7 @@ private:
     DeepinidClientProxy *m_deepinidClient;
     DeepinidDaemonProxy *m_deepinidDaemon;
     PropertiesChangedProxy *m_deepinidDaemonPropertiesChanged;
-
+    QLoggingCategory logger = QLoggingCategory("account");
 public:
     explicit Account(QObject *parent, API *api, QString node);
     ~Account();

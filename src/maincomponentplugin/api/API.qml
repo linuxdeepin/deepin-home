@@ -6,6 +6,8 @@ pragma Singleton
 import QtQuick 2.0
 
 Item {
+    // 服务器节点
+    property string node: "" 
     // 当前是否登陆
     property bool isLogin: false
     // 当前登陆的用户token
@@ -28,7 +30,7 @@ Item {
     signal signalFeedbackListUpdate(var feedbacks)
     // 发送http请求
     function request(method, rawUrl, body, callback) {
-        const url = worker.getNode() + rawUrl
+        const url = node + rawUrl
         console.log("send %1 request".arg(method), url)
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
@@ -80,10 +82,6 @@ Item {
     function delete_(url, callback) {
         return request("DELETE", url, null, callback)
     }
-    // 获取服务器判定语言（归类）
-    function getLanguage(callback) {
-        callback(worker.getLanguage())
-    }
     // 获取通知列表
     function getNotify(callback) {
         // p: public channel
@@ -98,22 +96,16 @@ Item {
     }
     // 获取内测渠道内容
     function getInternalTest(callback){
-        getLanguage(lang=>{
-            get("/api/v1/public/setting/internal-test_"+lang, callback)
-        })
+        get("/api/v1/public/setting/internal-test_"+language, callback)
     }
     // 获取社区动态内容
     function getAboutUs(callback){
-        getLanguage(lang=>{
-            get("/api/v1/public/setting/aboutus_"+lang, callback)
-        })
+        get("/api/v1/public/setting/aboutus_"+language, callback)
     }
     // 获取首页配置
     function getClientHome(callback) {
-        getLanguage(lang=>{
-            get("/api/v1/public/setting/client-home_"+lang, (resp)=>{
-                callback(JSON.parse(resp.value))
-            })
+        get("/api/v1/public/setting/client-home_"+language, (resp)=>{
+            callback(JSON.parse(resp.value))
         })
     }
     // 给用户反馈列表填充和用户关联关系，用于显示是否已点赞，已收藏
@@ -165,14 +157,11 @@ Item {
                 ids+="&public_id=" + id
             }
         }
-        const lang = worker.awaitPromise(promise=>{
-            getLanguage(promise.resolve)
-        })
         const url = "/api/v1/public/feedback?offset=%1&limit=%2&&type=%4&language=%5%6".
                     arg(opt.offset).
                     arg(opt.limit).
                     arg(opt.type).
-                    arg(lang).
+                    arg(language).
                     arg(ids)
         const resp = worker.awaitPromise(promise=>{
             get(url, promise.resolve)
@@ -187,7 +176,7 @@ Item {
             feedback.collect_count = stat.collect_count
             if(feedback.screenshots) {
                 feedback.screenshots = feedback.screenshots.map((id)=> {
-                    return worker.getNode() + "/api/v1/public/upload/" + id
+                    return node + "/api/v1/public/upload/" + id
                 })
             }
         }
@@ -199,27 +188,25 @@ Item {
     }
     // 获取我的反馈
     function getMyFeedback(opt) {
-        getLanguage(lang=>{
-            const url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%4".arg(opt.offset).arg(opt.limit).arg(opt.type)
-            get(url, (resp)=>{
-                for(let feedback of resp) {
-                    const id = feedback.public_id
-                    const stat = worker.awaitPromise(promise=>{
-                        feedbackStat(id, promise.resolve)
+        const url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%4".arg(opt.offset).arg(opt.limit).arg(opt.type)
+        get(url, (resp)=>{
+            for(let feedback of resp) {
+                const id = feedback.public_id
+                const stat = worker.awaitPromise(promise=>{
+                    feedbackStat(id, promise.resolve)
+                })
+                feedback.view_count = stat.view_count
+                feedback.like_count = stat.like_count
+                feedback.collect_count = stat.collect_count
+                feedback.avatar = avatar
+                feedback.nickname = nickname
+                if(feedback.screenshots) {
+                    feedback.screenshots = feedback.screenshots.map((id)=> {
+                        return node + "/api/v1/public/upload/" + id
                     })
-                    feedback.view_count = stat.view_count
-                    feedback.like_count = stat.like_count
-                    feedback.collect_count = stat.collect_count
-                    feedback.avatar = avatar
-                    feedback.nickname = nickname
-                    if(feedback.screenshots) {
-                        feedback.screenshots = feedback.screenshots.map((id)=> {
-                            return worker.getNode() + "/api/v1/public/upload/" + id
-                        })
-                    }
                 }
-                return fill_feedback(resp)
-            })
+            }
+            return fill_feedback(resp)
         })
     }
     // 点赞一个反馈
@@ -300,8 +287,10 @@ Item {
         worker.notify(title, message)
     }
     // 登陆
-    function login() {
-        API.notify(qsTr("Please log in with your Deepin ID."), qsTr("You need to log in to proceed with the subsequent operations."))
+    function login(notify = true) {
+        if(notify) {
+            API.notify(qsTr("Please log in with your Deepin ID."), qsTr("You need to log in to proceed with the subsequent operations."))
+        }
         worker.login()
     }
     // 登出
@@ -350,10 +339,11 @@ Item {
         return language.startsWith("zh")
     }
     Component.onCompleted: {
-        refreshAccount()
-        messageCount()
+        node = worker.getNode()
         autostart = getAutoStart()
         language = worker.getLanguage()
+        refreshAccount()
+        messageCount()
     }
     Connections {
         target: worker

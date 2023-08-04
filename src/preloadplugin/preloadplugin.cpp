@@ -31,7 +31,7 @@ QGuiApplication *PreloadPlugin::creatApplication(int &argc, char **argv)
     app->setApplicationVersion(APP_VERSION);
     // 高分屏
     app->setAttribute(Qt::AA_UseHighDpiPixmaps);
-
+    // 加载翻译
     auto translator = new QTranslator(app);
     if (translator->load(QLocale::system().name(), ":/resources/deepin-home/")) {
         app->installTranslator(translator);
