@@ -13,16 +13,12 @@ import "../router"
 TitleBar {
     id: root
     height: DS.Style.titleBar.height
+    icon.name: "deepin-home"
     signal notifyClicked()
     
     leftContent: RowLayout {
-        Image {
-            x: 10
-            source: "/images/deepin-home.svg"
-            sourceSize.width:  root.height - 10
-            sourceSize.height: root.height - 10
-        }
         Button {
+            Layout.leftMargin: 5
             visible: Router.routeCurrent !== Router.routeIndex
             Layout.maximumWidth: 36
             height: 36
