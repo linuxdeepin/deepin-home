@@ -34,6 +34,7 @@ Item {
     ListModel {
         id: feedbackList
     }
+
     function goDetail(feedback) {
         API.publicViewFeedback(feedback.public_id)
         if(API.isLogin) {
