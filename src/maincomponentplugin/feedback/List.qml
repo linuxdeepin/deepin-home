@@ -30,10 +30,12 @@ Item {
     property bool hasMore: true
     // 是否正在“加载更多”
     property bool loadMore: false
-
+    // 记录请求ID，避免信号干扰
+    property string reqID: ''
     ListModel {
         id: feedbackList
     }
+
     function goDetail(feedback) {
         API.publicViewFeedback(feedback.public_id)
         if(API.isLogin) {
@@ -45,7 +47,10 @@ Item {
     Connections {
         target: API
         // 列表刷新信号
-        function onSignalFeedbackListUpdate(feedbacks) {
+        function onSignalFeedbackListUpdate(reqID, feedbacks) {
+            if(reqID != root.reqID) {
+                return
+            }
             root.offset += root.limit
             // 返回的条数小于要求的条数，则不再显示“加载更多”按钮
             if(feedbacks.length != root.limit) {
@@ -67,6 +72,7 @@ Item {
             root.hasMore = true
             feedbackList.clear()
         }
+        root.reqID = API.genUUID()
         const opt = {
             "offset": root.offset,
             "limit": root.limit,
@@ -75,16 +81,16 @@ Item {
         }
         switch(root.relation){
             case "create":
-                API.getMyFeedback(opt)
+                API.getMyFeedback(root.reqID, opt)
                 break
             case "collect":
             case "like":
                 // 获取我的收藏和我的关注
-                API.getRelation(opt)
+                API.getRelation(root.reqID, opt)
                 break
             case "":
                 // 获取反馈广场
-                API.getFeedback(opt)
+                API.getFeedback(root.reqID, opt)
                 break
         }
     }

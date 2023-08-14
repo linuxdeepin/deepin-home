@@ -113,7 +113,7 @@ Rectangle {
             onLinkActivated: (link)=> {
                 if(link.startsWith("#")){
                     const public_id = link.slice(1)
-                    API.getFeedback({type: '', offset: 0, limit: 1, ids: [public_id]})
+                    API.getFeedback("", {type: '', offset: 0, limit: 1, ids: [public_id]})
                     return
                 }
                 Qt.openUrlExternally(link)
