@@ -19,7 +19,7 @@ Item {
     Connections {
         target: API
         // 列表刷新信号
-        function onSignalFeedbackListUpdate(feedbacks) {
+        function onSignalFeedbackListUpdate(reqID, feedbacks) {
             if(feedbacks.length==1) {
                 const feedback = feedbacks[0]
                 API.publicViewFeedback(feedback.public_id)

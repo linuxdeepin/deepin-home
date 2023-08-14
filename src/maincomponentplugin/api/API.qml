@@ -27,7 +27,7 @@ Item {
     // daemon发送的托盘事件，用于控制主窗口的显示
     signal showMainWindow(bool isIconClick)
     // 反馈列表更新
-    signal signalFeedbackListUpdate(var feedbacks)
+    signal signalFeedbackListUpdate(string reqID, var feedbacks)
     // 发送http请求
     function request(method, rawUrl, body, callback) {
         const url = node + rawUrl
@@ -108,34 +108,53 @@ Item {
             callback(JSON.parse(resp.value))
         })
     }
-    // 给用户反馈列表填充和用户关联关系，用于显示是否已点赞，已收藏
-    // 顺便把图片地址修正
+
+    // 补全反馈信息，包括：图片地址、用户关联、统计数据
     function fill_feedback(feedbacks) {
-        let url = "/api/v1/user/feedback/relation?offset=0&limit=20"
-        // 拼接id参数
-        for(let feedback of feedbacks) {
-            feedback.like = false
-            feedback.collect = false
-            url+="&id=" + feedback.public_id
+        let relationURL = "/api/v1/user/feedback/relation?offset=0&limit=20";
+        for (let feedback of feedbacks) {
+            feedback.like = false;
+            feedback.collect = false;
+            relationURL += "&id=" + feedback.public_id;
+            // 补全图片前缀
+            if (feedback.screenshots)
+                feedback.screenshots = feedback.screenshots.map((id) => {
+                return node + "/api/v1/public/upload/" + id;
+            });
+
+            // 补全统计信息
+            const stat = worker.awaitPromise((promise) => {
+                feedbackStat(feedback.public_id, promise.resolve);
+            });
+            feedback.view_count = stat.view_count;
+            feedback.like_count = stat.like_count;
+            feedback.collect_count = stat.collect_count;
         }
-        // 填充关联关系到对象中
-        get(url, (relations) => {
-            for(let relation of relations) {
-                const feedback = feedbacks.find(feedback=>feedback.public_id === relation.feedback_id)
-                if(feedback){
-                    switch(relation.relation) {
-                        case "like":
-                            feedback.like = true
-                            break
-                        case "collect":
-                            feedback.collect = true
-                            break
-                    }
-                }
+        if (isLogin)
+            return ;
+
+        // 用户已登陆，补全用户和反馈的关联关系（点赞、收藏等）
+        const relations = worker.awaitPromise((promise) => {
+            get(urlrelationURL, promise.resolve);
+        });
+        for (let relation of relations) {
+            const feedback = feedbacks.find((feedback) => {
+                return feedback.public_id === relation.feedback_id;
+            });
+            if (!feedback)
+                continue;
+
+            switch (relation.relation) {
+            case "like":
+                feedback.like = true;
+                break;
+            case "collect":
+                feedback.collect = true;
+                break;
             }
-            signalFeedbackListUpdate(feedbacks)
-        })
+        }
     }
+
     // 预览图片，使用qml下载图片可以重用缓存
     function imagePreview(url: string) {
         var xhr = new XMLHttpRequest();
@@ -148,67 +167,38 @@ Item {
         xhr.open("GET", url)
         xhr.send()
     }
+
     // 获取反馈列表
-    function getFeedback(opt) {
+    function getFeedback(reqID, opt) {
         // 拼接ID
-        let ids=""
-        if(opt.ids) {
-            for(const id of opt.ids) {
-                ids+="&public_id=" + id
+        let ids = "";
+        if (opt.ids) {
+            for (const id of opt.ids) {
+                ids += "&public_id=" + id;
             }
         }
-        const url = "/api/v1/public/feedback?offset=%1&limit=%2&&type=%4&language=%5%6".
-                    arg(opt.offset).
-                    arg(opt.limit).
-                    arg(opt.type).
-                    arg(language).
-                    arg(ids)
-        const resp = worker.awaitPromise(promise=>{
-            get(url, promise.resolve)
-        })
-        for(let feedback of resp){
-            const id = feedback.public_id
-            const stat = worker.awaitPromise(promise=>{
-                feedbackStat(id, promise.resolve)
-            })
-            feedback.view_count = stat.view_count
-            feedback.like_count = stat.like_count
-            feedback.collect_count = stat.collect_count
-            if(feedback.screenshots) {
-                feedback.screenshots = feedback.screenshots.map((id)=> {
-                    return node + "/api/v1/public/upload/" + id
-                })
-            }
-        }
-        if(!isLogin){
-            signalFeedbackListUpdate(resp)
-            return
-        }
-        return fill_feedback(resp)
+        const url = "/api/v1/public/feedback?offset=%1&limit=%2&&type=%4&language=%5%6".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(language).arg(ids);
+        const resp = worker.awaitPromise((promise) => {
+            get(url, promise.resolve);
+        });
+        fill_feedback(resp);
+        signalFeedbackListUpdate(reqID, resp);
     }
+
     // 获取我的反馈
-    function getMyFeedback(opt) {
-        const url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%4".arg(opt.offset).arg(opt.limit).arg(opt.type)
-        get(url, (resp)=>{
-            for(let feedback of resp) {
-                const id = feedback.public_id
-                const stat = worker.awaitPromise(promise=>{
-                    feedbackStat(id, promise.resolve)
-                })
-                feedback.view_count = stat.view_count
-                feedback.like_count = stat.like_count
-                feedback.collect_count = stat.collect_count
-                feedback.avatar = avatar
-                feedback.nickname = nickname
-                if(feedback.screenshots) {
-                    feedback.screenshots = feedback.screenshots.map((id)=> {
-                        return node + "/api/v1/public/upload/" + id
-                    })
-                }
-            }
-            return fill_feedback(resp)
-        })
+    function getMyFeedback(reqID, opt) {
+        const url = "/api/v1/user/feedback?offset=%1&limit=%2&type=%4".arg(opt.offset).arg(opt.limit).arg(opt.type);
+        const resp = worker.awaitPromise((promise) => {
+            get(url, promise.resolve);
+        });
+        fill_feedback(resp);
+        for (let feedback of resp) {
+            feedback.avatar = avatar
+            feedback.nickname = nickname
+        }
+        signalFeedbackListUpdate(reqID, resp);
     }
+
     // 点赞一个反馈
     function likeFeedback(id, callback) {
         post("/api/v1/user/feedback/%1/like".arg(id), null, callback)
@@ -225,21 +215,26 @@ Item {
     function cancelCollectFeedback(id, callback) {
         delete_("/api/v1/user/feedback/%1/collect".arg(id), callback)
     }
+
     // 获取和用户关联的反馈
-    function getRelation(opt) {
-        let url = "/api/v1/user/feedback/relation?offset=%1&limit=%2&type=%3&relation=%4".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(opt.relation)
-        get(url, (relations) => {
-            if(relations.length === 0){
-                signalFeedbackListUpdate([])
-                return
-            }
-            let ids = []
-            for(let relation of relations) {
-                ids.push(relation.feedback_id)
-            }
-            getFeedback({offset:"", limit: "",type: opt.type, ids: ids})
-        })
+    function getRelation(reqID, opt) {
+        const url = "/api/v1/user/feedback/relation?offset=%1&limit=%2&type=%3&relation=%4".arg(opt.offset).arg(opt.limit).arg(opt.type).arg(opt.relation);
+        const relations = worker.awaitPromise((promise) => {
+            get(url, promise.resolve);
+        });
+        if (relations.length === 0) {
+            signalFeedbackListUpdate(reqID, []);
+            return ;
+        }
+        const ids = relations.map((r) => r.feedback_id);
+        getFeedback(reqID, {
+            "offset": 0,
+            "limit": ids.length,
+            "type": opt.type,
+            "ids": ids
+        });
     }
+
     // 获取系统版本
     function sysVersion() {
         return worker.sysVersion();
@@ -338,6 +333,12 @@ Item {
     function isZH() {
         return language.startsWith("zh")
     }
+
+    // 生成UUID
+    function genUUID() {
+        return worker.genUUID();
+    }
+
     Component.onCompleted: {
         node = worker.getNode()
         autostart = getAutoStart()

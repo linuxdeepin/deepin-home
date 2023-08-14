@@ -71,6 +71,8 @@ public slots:
     // 类似js中的await Promise()
     // 可在qml中将异步函数转为同步执行
     QVariant awaitPromise(QJSValue func);
+    // 生成UUID
+    QString genUUID();
 signals:
     void userInfoChanged();
     void messageChanged();

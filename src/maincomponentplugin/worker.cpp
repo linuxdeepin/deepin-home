@@ -288,3 +288,9 @@ QVariant Worker::awaitPromise(QJSValue func)
     // 如果在qml中调用resolve，await返回resolve传递的result
     return promise->await();
 };
+
+// 生成UUID
+QString Worker::genUUID()
+{
+    return QUuid::createUuid().toString(QUuid::WithoutBraces);
+}
