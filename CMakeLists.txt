@@ -10,6 +10,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core Quick)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
+
+execute_process(COMMAND ls /lib)
+execute_process(COMMAND ls /)
+
 find_package(DtkDeclarative REQUIRED)
 
 # 旧版本Dtk不支持使用cmake find_package 获取版本号， 使用 PkgConfig 来获取版本号
