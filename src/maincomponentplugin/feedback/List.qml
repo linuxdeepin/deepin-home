@@ -90,7 +90,7 @@ Item {
     }
 
     Component.onCompleted: {
-        getList(true)
+        Qt.callLater(getList, true)
     }
 
     // 分类过滤下拉框
