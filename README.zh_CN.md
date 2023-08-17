@@ -15,10 +15,6 @@
 
 ![Screenshot](docs/screenshots/home_zh.webp)
 
-## 运行依赖
-
-- build-essential:amd64
-
 ## 构建依赖
 
 - build-essential:amd64
@@ -33,23 +29,26 @@
 - libdtkdeclarative-dev
 - qttools5-dev-tools
 - qml-module-qtquick-dialogs
+- libssl-dev
 
 ## 从源码构建
 
 ### 安装构建依赖
 
 ```shell
-sudo apt build-dep deepin-home
+sudo apt install devscripts
+git clone https://github.com/linuxdeepin/deepin-home.git
+cd deepin-home
+mk-build-deps
+sudo apt install ./*.deb
 ```
-
 ### 调试构建
 
 ```shell
-git clone https://github.com/linuxdeepin/deepin-home.git
-cd deepin-home
+# in the deepin-home/ directory
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DAPP_VERSION=1.3.4 ..
 make -j
 ```
 
@@ -65,7 +64,7 @@ make -j
 
 ```sh
 # in the deepin-home/build/ directory
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_BUILD_TYPE=Release -DAPP_VERSION=1.3.4 ..
 make -j && sudo make install
 ```
 

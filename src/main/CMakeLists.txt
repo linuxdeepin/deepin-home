@@ -75,6 +75,7 @@ target_link_libraries(${APP_DAEMON_NAME}
     Qt5::DBus
     Qt5::Widgets
     OpenSSL::SSL
+    QtDeepinHomeAPI
     )
 
 set_target_properties(${APP_NAME} PROPERTIES INSTALL_RPATH ${DTK_QML_APP_PLUGIN_PATH})

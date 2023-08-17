@@ -14,81 +14,39 @@
 #include <QNetworkReply>
 #include <QObject>
 #include <QStandardPaths>
+#include <DHClientApi.h>
 
-struct Node
-{
-    int refresh_time;
-    QString server;
-    QStringList channels;
-};
+using namespace DeepinHomeAPI;
 
-struct Topic
-{
-    QString name;
-    QString change_id;
-};
-
-struct Topics
-{
-    int refresh_time;
-    QList<Topic> list;
-};
-
-struct Message
-{
-    QString uuid;
-    QString url;
-    QString title;
-    QString summary;
-    QString content;
-    QString start_at;
-    QString end_at;
-    bool notify;
-    bool top;
-};
-Q_DECLARE_METATYPE(Message)
-
-struct LoginOption
-{
-    QString client_id;
-    QString redirect_url;
-    QStringList scopes;
-};
-
-struct LoginInfo
-{
-    QString user_id;
-    QString username;
-    QString nickname;
-    QString avatar;
-};
-
-class API : QObject
+class API : public QObject
 {
     Q_OBJECT
 private:
     QNetworkAccessManager *m_http;
-
-    QJsonDocument send(QNetworkRequest req);
-    QJsonDocument get(const QUrl &url);
-    QJsonDocument post(const QUrl &url, QJsonDocument body);
+    DHClientApi *_m_client = nullptr;
 
 public:
     explicit API(QObject *parent = nullptr);
     ~API();
 
-    Node getNode(QString server, QString machineID);
-    QString getLanguage(QString server);
-    Topics getTopics(QString server, QString channel);
-    QList<Message> getMessages(
+    DHHandlers_NodeSelectResponse getNode(QString server, QString machineID);
+    DHHandlers_LanguageCodeResponse getLanguage(QString server);
+    DHHandlers_PublicTopicsResponse getTopics(QString server, QString channel);
+    QList<DHHandlers_ClientMessagesResponse> getMessages(
         QString server, QString channel, QString topic, QString language, QString changeID);
     QJsonDocument getMessagesJSON(
         QString server, QString channel, QString topic, QString language, QString changeID);
 
-    LoginOption getLoginOption(QString server);
-    QString getForumURL(QString server, QString code);
-    QString getClientToken(QString server, QString code);
-    LoginInfo getLoginInfo(QString server, QString token);
+    DHHandlers_LoginConfigResponse getLoginOption(QString server);
+    DHHandlers_BBSURLResponse getForumURL(QString server, QString code);
+    DHHandlers_ClientLoginResponse getClientToken(QString server, QString code);
+    DHHandlers_ClientUserInfoResponse getLoginInfo(QString server, QString token);
+    DHClientApi *getClient(QString server);
+    template<typename T, typename Func1, typename Func2>
+    T waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender, Func1 signal, Func2 errSignal);
+
+signals:
+    void signalClientError(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 };
 
 #endif // DEEPIN_HOME_API_H

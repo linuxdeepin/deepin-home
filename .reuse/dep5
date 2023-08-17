@@ -82,3 +82,13 @@ License: CC-BY-4.0
 Files: src/**/plugin.json
 Copyright: None
 License: CC0-1.0
+
+# 3rdparty
+Files: 3rdparty/**
+Copyright: None
+License: CC-BY-4.0
+
+# openapitools.json
+Files: openapitools.json
+Copyright: None
+License: CC0-1.0

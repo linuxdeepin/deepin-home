@@ -1,11 +1,13 @@
 #!/bin/bash
-tx pull --all
-lrelease translations/**/*
-cd translations
 
-# 生成 qrc 文件
+# 拉取翻译
+tx pull --all
+
+cd translations
 for target in deepin-home deepin-home-daemon; do
+    # 生成qm文件
     lrelease $target/*
+    # 生成qrc文件
     echo '<RCC>' > $target.qrc
     echo '    <qresource prefix="/resources">' >>  $target.qrc
     find $target -type f -name '*.qm' | xargs -i echo -e "        <file>{}</file>" >> $target.qrc

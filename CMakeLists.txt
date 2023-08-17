@@ -22,6 +22,7 @@ endif()
 
 add_definitions(-DAPP_VERSION="${APP_VERSION}")
 add_subdirectory(src)
+add_subdirectory(3rdparty/apiserver/client)
 
 set(ENV{QT_SELECT} qt5)
 execute_process(COMMAND bash "-c" "lrelease translations/**/*"

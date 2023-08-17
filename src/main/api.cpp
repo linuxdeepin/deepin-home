@@ -13,198 +13,142 @@ API::API(QObject *parent)
     diskCache->setCacheDirectory(cacheDir + "/http_cache");
     m_http = new QNetworkAccessManager(this);
     m_http->setCache(diskCache);
+    m_http->setRedirectPolicy(QNetworkRequest::SameOriginRedirectPolicy);
 }
 
-API::~API() {}
-
-
-// 发送http请求
-QJsonDocument API::send(QNetworkRequest req)
+API::~API()
 {
-    auto reply = m_http->get(req);
-    QEventLoop eventLoop;
-    connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
-    eventLoop.exec();
-    if (reply->error() != QNetworkReply::NoError) {
-        qWarning() << "Network Error" << reply->errorString();
-        throw reply->errorString();
+    if (_m_client != nullptr) {
+        delete _m_client;
     }
-    if(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() >= 400) {
-        throw reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
-    }
-    QByteArray replyData = reply->readAll();
-    reply->deleteLater();
-    return QJsonDocument::fromJson(replyData);
 }
 
-// 封装http get请求
-QJsonDocument API::get(const QUrl &url)
+// 阻塞性等待信号发生，并返回信号发射的值
+template<typename T, typename Func1, typename Func2>
+T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender,
+                  Func1 signal,
+                  Func2 errSignal)
 {
+    T result;
     QString err;
-    // 如果网络错误，再重试2次
-    for (auto i = 0; i < 3; i++) {
-        auto req = QNetworkRequest(url);
-        req.setHeader(QNetworkRequest::UserAgentHeader,
-                      QString("DeepinHomeClient/%1").arg(DEEPIN_HOME_VERSION));
-        auto reply = m_http->get(req);
-        QEventLoop eventLoop;
-        connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
-        eventLoop.exec();
-        if (reply->error() != QNetworkReply::NoError) {
-            qWarning() << "Network Error" << reply->errorString();
-            err = reply->errorString();
-            continue;
+    QEventLoop loop;
+    connect(sender, signal, &loop, [&loop, &result, &err](DHHttpRequestWorker *worker, T resp) {
+        if (worker->getHttpResponseCode() >= 400) {
+            err = QString("http code %1").arg(worker->getHttpResponseCode());
         }
-        QByteArray replyData = reply->readAll();
-        reply->deleteLater();
-        reply = nullptr;
-        return QJsonDocument::fromJson(replyData);
-    }
-    throw err;
-}
-// 封装http post请求
-QJsonDocument API::post(const QUrl &url, QJsonDocument body)
-{
-    QNetworkRequest req(url);
-    req.setHeader(QNetworkRequest::UserAgentHeader,
-                  QString("DeepinHomeClient/%1").arg(DEEPIN_HOME_VERSION));
-    req.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    auto reply = m_http->post(req, body.toJson());
-    QEventLoop eventLoop;
-    connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
-    eventLoop.exec();
-    if (reply->error() != QNetworkReply::NoError) {
-        qWarning() << "Network Error" << reply->errorString();
-        throw reply->errorString();
-    }
-    QByteArray replyData = reply->readAll();
-    reply->deleteLater();
-    reply = nullptr;
-    return QJsonDocument::fromJson(replyData);
-}
-
-// 从服务器获取语言映射
-QString API::getLanguage(QString server)
-{
-    auto local = QLocale::system();
-    auto url = QString("%1/api/v1/public/language/%2").arg(server).arg(local.name());
-    auto doc = get(url).object();
-    return doc.value("code").toString();
-}
-// 获取分发节点和消息渠道列表
-Node API::getNode(QString server, QString machineID)
-{
-    Node node;
-    auto url = QString("%1/api/v1/public/machine/%2/node").arg(server).arg(machineID);
-    auto doc = get(url).object();
-    node.server = doc.value("server").toString();
-    node.channels = doc.value("channels").toVariant().toStringList();
-    node.refresh_time = doc.value("refresh_time").toInt();
-    return node;
-}
-// 获取消息主题列表
-Topics API::getTopics(QString server, QString channel)
-{
-    Topics topics;
-    auto url = QString("%1/api/v1/public/channel/%2/topics").arg(server).arg(channel);
-    auto doc = get(url).object();
-    topics.refresh_time = doc.value("refresh_time").toInt();
-    topics.list = QList<Topic>();
-    for (auto v : doc.value("topics").toArray()) {
-        auto t = v.toObject();
-        Topic topic;
-        topic.name = t.value("name").toString();
-        topic.change_id = t.value("change_id").toString();
-        topics.list << topic;
-    }
-    return topics;
-}
-// 获取消息列表
-QList<Message> API::getMessages(
-    QString server, QString channel, QString topic, QString language, QString changeID)
-{
-    auto url = QString("%1/api/v1/public/channel/%2/topic/%3/messages?language=%4&change_id=%5")
-                   .arg(server)
-                   .arg(channel)
-                   .arg(topic)
-                   .arg(language)
-                   .arg(changeID);
-    auto list = get(url).array();
-
-    QList<Message> result;
-    for (auto v : list) {
-        auto obj = v.toObject();
-        Message msg;
-        msg.uuid = obj.value("uuid").toString();
-        msg.url = obj.value("url").toString();
-        msg.title = obj.value("title").toString();
-        msg.summary = obj.value("summary").toString();
-        msg.content = obj.value("content").toString();
-        msg.start_at = obj.value("start_at").toString();
-        msg.end_at = obj.value("end_at").toString();
-        msg.notify = obj.value("notify").toBool();
-        msg.top = obj.value("top").toBool();
-        result << msg;
+        auto headers = worker->getResponseHeaders();
+        if(!headers["Content-Type"].startsWith("application/json")) {
+            err = QString("http content: %1 != application/json").arg(headers["Content-Type"]);
+        }
+        result = resp;
+        loop.quit();
+    });
+    connect(sender, errSignal, &loop, [&loop, &err](T resp, auto error_type, QString error_str) {
+        err = error_str;
+        loop.quit();
+    });
+    loop.exec();
+    if (!err.isEmpty()) {
+        qWarning() << "http request error:" << err;
+        throw err;
     }
     return result;
 }
-// 获取消息列表的原始json数据，便于传递给qml
-QJsonDocument API::getMessagesJSON(
+
+// 获取客户端实例，暂时先共用同一个实例，之后会根据server初始化多个实例
+DHClientApi *API::getClient(QString server)
+{
+    if (_m_client != nullptr) {
+        return _m_client;
+    }
+    _m_client = new DHClientApi();
+    _m_client->setNetworkAccessManager(m_http);
+    _m_client->setNewServerForAllOperations(server + "/api/v1");
+    _m_client->addHeaders("User-Agent", QString("DeepinHomeClient/%1").arg(APP_VERSION));
+    return _m_client;
+}
+
+// 从服务器获取语言映射
+DHHandlers_LanguageCodeResponse API::getLanguage(QString server)
+{
+    auto client = getClient(server);
+    client->getLanguageCode(QLocale::system().name());
+    return waitSignal<DHHandlers_LanguageCodeResponse>(client,
+                                                       &DHClientApi::getLanguageCodeSignalFull,
+                                                       &DHClientApi::getLanguageCodeSignalE);
+}
+// 获取分发节点和消息渠道列表
+DHHandlers_NodeSelectResponse API::getNode(QString server, QString machineID)
+{
+    auto client = getClient(server);
+    client->getNodes(machineID);
+    return waitSignal<DHHandlers_NodeSelectResponse>(client,
+                                                     &DHClientApi::getNodesSignalFull,
+                                                     &DHClientApi::getNodesSignalE);
+}
+// 获取消息主题列表
+DHHandlers_PublicTopicsResponse API::getTopics(QString server, QString channel)
+{
+    auto client = getClient(server);
+    client->getTopics(channel);
+    return waitSignal<DHHandlers_PublicTopicsResponse>(client,
+                                                       &DHClientApi::getTopicsSignalFull,
+                                                       &DHClientApi::getTopicsSignalE);
+}
+
+// 获取消息列表
+QList<DHHandlers_ClientMessagesResponse> API::getMessages(
     QString server, QString channel, QString topic, QString language, QString changeID)
 {
-    auto url = QString("%1/api/v1/public/channel/%2/topic/%3/messages?language=%4&change_id=%5")
-                   .arg(server)
-                   .arg(channel)
-                   .arg(topic)
-                   .arg(language)
-                   .arg(changeID);
-    return get(url);
+    auto client = getClient(server);
+    client->getMessages(channel, topic, language);
+    return waitSignal<QList<DHHandlers_ClientMessagesResponse>>(client,
+                                                                &DHClientApi::getMessagesSignalFull,
+                                                                &DHClientApi::getMessagesSignalE);
 }
 
 // 获取登录选项，包含oauth2 id、scope等
-LoginOption API::getLoginOption(QString server)
+DHHandlers_LoginConfigResponse API::getLoginOption(QString server)
 {
-    LoginOption opt;
-    auto url = QString("%1/api/v1/public/login/info").arg(server);
-    auto obj = get(url).object();
-    opt.client_id = obj.value("client_id").toString();
-    opt.redirect_url = obj.value("redirect_url").toString();
-    opt.scopes = obj.value("scopes").toVariant().toStringList();
-    return opt;
+    auto client = getClient(server);
+    client->getLoginConfig();
+    return waitSignal<DHHandlers_LoginConfigResponse>(client,
+                                                      &DHClientApi::getLoginConfigSignalFull,
+                                                      &DHClientApi::getLoginConfigSignalE);
 }
 
 // 获取论坛地址
-// 如果code不为空，服务器会论坛自动登录的地址
-QString API::getForumURL(QString server, QString code)
+// 如果code不为空，服务器生成论坛自动登录的地址
+DHHandlers_BBSURLResponse API::getForumURL(QString server, QString code)
 {
-    QJsonObject obj;
-    obj["code"] = code;
-    auto url = QString("%1/api/v1/public/login/bbs_url").arg(server);
-    auto doc = post(url, QJsonDocument(obj));
-    return doc.object().value("url").toString();
+    auto client = getClient(server);
+    client->getBBSURL(code);
+    return waitSignal<DHHandlers_BBSURLResponse>(client,
+                                                 &DHClientApi::getBBSURLSignalFull,
+                                                 &DHClientApi::getBBSURLSignalE);
 }
 
 // 获取用户Token
-QString API::getClientToken(QString server, QString code)
+DHHandlers_ClientLoginResponse API::getClientToken(QString server, QString code)
 {
-    QJsonObject obj;
-    obj["code"] = code;
-    auto url = QString("%1/api/v1/user/login").arg(server);
-    auto doc = post(url, QJsonDocument(obj));
-    return doc.object().value("token").toString();
+    qDebug() << "get token";
+    auto client = getClient(server);
+    DHHandlers_ClientLoginRequest req;
+    req.setCode(code);
+    client->clientLogin(req);
+    return waitSignal<DHHandlers_ClientLoginResponse>(client,
+                                                      &DHClientApi::clientLoginSignalFull,
+                                                      &DHClientApi::clientLoginSignalE);
 }
 
 // 获取当前登陆用户的信息
-LoginInfo API::getLoginInfo(QString server, QString token)
+DHHandlers_ClientUserInfoResponse API::getLoginInfo(QString server, QString token)
 {
-    auto url = QString("%1/api/v1/user/login").arg(server);
-    auto req = QNetworkRequest(url);
-    req.setRawHeader("Authentication", ("Bearer " + token).toUtf8());
-    auto doc = send(req).object();
-    LoginInfo info;
-    info.user_id=doc.value("user_id").toString();
-    info.username=doc.value("username").toString();
-    info.nickname=doc.value("nickname").toString();
-    info.avatar=doc.value("avatar").toString();
-    return info;
+    qDebug() << "login info";
+    auto client = getClient(server);
+    client->setApiKey("Authorization", "Bearer " + token);
+    client->getLoginInfo();
+    return waitSignal<DHHandlers_ClientUserInfoResponse>(client,
+                                                         &DHClientApi::getLoginInfoSignalFull,
+                                                         &DHClientApi::getLoginInfoSignalE);
 }
