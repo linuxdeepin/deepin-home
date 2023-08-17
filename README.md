@@ -14,10 +14,6 @@
 
 ![Screenshot](docs/screenshots/home_en.webp)
 
-## Dependencies
-
-- build-essential:amd64
-
 ## Build dependencies
 
 - build-essential:amd64
@@ -32,23 +28,27 @@
 - libdtkdeclarative-dev
 - qttools5-dev-tools
 - qml-module-qtquick-dialogs
+- libssl-dev
 
 ## Build from source code
 
 ### Make sure you have installed all dependencies
 
 ```shell
-sudo apt build-dep deepin-home
+sudo apt install devscripts
+git clone https://github.com/linuxdeepin/deepin-home.git
+cd deepin-home
+mk-build-deps
+sudo apt install ./*.deb
 ```
 
 ### Build
 
 ```shell
-git clone https://github.com/linuxdeepin/deepin-home.git
-cd deepin-home
+# in the deepin-home directory
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DAPP_VERSION=1.3.4 ..
 make -j
 ```
 
@@ -64,7 +64,7 @@ make -j
 
 ```sh
 # in the deepin-home/build/ directory
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_BUILD_TYPE=Release -DAPP_VERSION=1.3.4 ..
 make -j && sudo make install
 ```
 

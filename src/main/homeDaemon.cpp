@@ -112,7 +112,8 @@ QString HomeDaemon::getServer()
 QString HomeDaemon::getLanguage()
 {
     if (m_language.isEmpty()) {
-        m_language = m_api->getLanguage(getServer());
+        auto resp = m_api->getLanguage(getServer());
+        m_language = resp.getCode();
     }
     return m_language;
 };
@@ -202,9 +203,9 @@ void HomeDaemon::refreshNode()
 {
     auto node = m_api->getNode(getServer(), getMachineID());
 
-    m_node = node.server;
-    m_channels = node.channels;
-    m_nodeRefreshTime = node.refresh_time;
+    m_node = node.getServer();
+    m_channels = node.getChannels();
+    m_nodeRefreshTime = node.getRefreshTime();
 }
 // 定时刷新单个渠道
 void HomeDaemon::refreshChannel(QString cronID, QString channel)
@@ -216,18 +217,18 @@ void HomeDaemon::refreshChannel(QString cronID, QString channel)
     try {
         auto topics = m_api->getTopics(getNode(), channel);
         auto changed = false;
-        for (auto topic : topics.list) {
-            auto lastChangeID = getTopicChangeID(channel, topic.name);
-            if (topic.change_id != lastChangeID) {
-                refreshMessage(channel, topic.name, topic.change_id);
-                setTopicChangeID(channel, topic.name, topic.change_id);
+        for (auto topic : topics.getTopics()) {
+            auto lastChangeID = getTopicChangeID(channel, topic.getName());
+            if (topic.getChangeId() != lastChangeID) {
+                refreshMessage(channel, topic.getName(), topic.getChangeId());
+                setTopicChangeID(channel, topic.getName(), topic.getChangeId());
                 changed = true;
             }
         }
         if (changed) {
             emit messageChanged();
         }
-        nextRefreshTime = topics.refresh_time;
+        nextRefreshTime = topics.getRefreshTime();
     } catch (...) {
         qWarning() << "Refresh Channel Error";
     }
@@ -241,7 +242,7 @@ void HomeDaemon::refreshChannel(QString cronID, QString channel)
         refreshChannel(cronID, channel);
     });
 }
-// 在固定时机提醒填写调查问卷
+// 在恰当的时机提醒填写装机调查问卷
 void HomeDaemon::execFirstNotify()
 {
     qCDebug(logger) << "execFirstNotify";
@@ -253,13 +254,13 @@ void HomeDaemon::execFirstNotify()
                                            getTopicChangeID(DEEPIN_HOME_CHANNEL_PUBLIC,
                                                             DEEPIN_HOME_TOPIC_QUESTIONS));
         for (auto message : messages) {
-            if (!message.top) {
-                continue;
+            if (message.isTop()) {
+                // 发送消息通知
+                notify(message.getTitle(), message.getSummary(), message.getUrl());
+                m_settings.setValue("firstNotify", true);
+                qCDebug(logger) << "send first notify" << message.getTitle() << message.getUrl();
+                break;
             }
-            // 发送消息通知
-            notify(message.title, message.summary, message.url);
-            m_settings.setValue("firstNotify", true);
-            qCDebug(logger) << "send first notify" << message.title << message.summary;
         }
     } catch (...) {
         qWarning() << "Network Error";
@@ -273,11 +274,11 @@ void HomeDaemon::refreshMessage(QString channel, QString topic, QString changeID
     QStringList ids;
     m_settings.beginGroup("messages");
     for (auto message : messages) {
-        auto settingKey = messageSettingKey(channel, topic, message.uuid);
+        auto settingKey = messageSettingKey(channel, topic, message.getUuid());
         // 记录所有消息，便于下面进行清理
         ids << settingKey;
 
-        if (!message.notify) {
+        if (!message.isNotify()) {
             continue;
         }
         // 是否已通知
@@ -286,8 +287,9 @@ void HomeDaemon::refreshMessage(QString channel, QString topic, QString changeID
         }
         m_settings.setValue(settingKey, "notify");
         // 发送消息通知
-        notify(message.title, message.summary, message.url);
-        qCDebug(logger) << "send notify" << settingKey << message.title << message.summary;
+        notify(message.getTitle(), message.getSummary(), message.getUrl());
+        qCDebug(logger) << "send notify" << settingKey << message.getTitle()
+                        << message.getSummary();
     }
     // 清理过期的消息
     auto prefix = QString("%1_%2").arg(channel).arg(topic);
@@ -424,11 +426,17 @@ QStringList HomeDaemon::getToken(QString publicKey)
 // 获取消息列表数据
 QString HomeDaemon::getMessages(QString channel, QString topic)
 {
-    auto doc = m_api->getMessagesJSON(getNode(),
-                                      channel,
-                                      topic,
-                                      getLanguage(),
-                                      getTopicChangeID(channel, topic));
+    auto messages = m_api->getMessages(getNode(),
+                                  channel,
+                                  topic,
+                                  getLanguage(),
+                                  getTopicChangeID(channel, topic));
+    QJsonArray arr;
+    for(auto msg: messages) {
+        arr.append(msg.asJsonObject());
+    }
+    QJsonDocument doc;
+    doc.setArray(arr);
     return QString(doc.toJson());
 }
 // 打开论坛

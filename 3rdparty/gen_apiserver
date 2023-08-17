@@ -1,0 +1,10 @@
+#!/bin/bash
+
+doc_path=https://home.deepin.org/api/v1/public/swagger/doc.json
+code_path="3rdparty/apiserver"
+
+openapi-generator-cli generate \
+    -i $doc_path \
+    -o $code_path \
+    -g cpp-qt-client \
+    --additional-properties="optionalProjectFile=false,modelNamePrefix=DH,packageName=QtDeepinHomeAPI,cppNamespace=DeepinHomeAPI"

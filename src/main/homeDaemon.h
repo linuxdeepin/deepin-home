@@ -51,14 +51,15 @@ private:
 public:
     explicit HomeDaemon(QObject *parent = nullptr);
     ~HomeDaemon();
+    // 启动定时器，循环刷新消息
+    void start();
+private:
     // 初始化托盘
     void initSysTrayIcon();
     // 生成UUID
     QString newUUID();
     // 每个消息的状态存储在配置文件中
     QString messageSettingKey(QString channel, QString topic, QString uuid);
-    // 启动定时器，循环刷新消息
-    void start();
     // 主流程，更新node信息，并启动定时器刷新渠道消息
     void run();
     // 定时刷新节点
@@ -79,7 +80,9 @@ public:
     void setTopicChangeID(QString channel, QString topic, QString changeID);
 
 public slots:
-    // 获取当前机器码（用户级别）
+    // 客户端登录回调
+    void OnAuthorized(QString code, QString state);
+    // 获取当前机器码，生成的UUID，非硬件指纹，用于区分用户
     QString getMachineID();
     // 获取服务器地址
     QString getServer();
@@ -93,8 +96,6 @@ public slots:
     void markRead(QString channel, QString topic, QString uuid);
     // 获取消息是否已读
     bool isRead(QString channel, QString topic, QString uuid);
-    // 客户端登录回调
-    void OnAuthorized(QString code, QString state);
     // 登录账户
     void login();
     // 登出账户
