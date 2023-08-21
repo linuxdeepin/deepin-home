@@ -147,7 +147,7 @@ Item {
     // 显示网络错误
     function showNetworkError() {
         routeCurrent = routeNetworkError;
-        signalNavigate(routeCurrent, overlay);
+        signalNavigate(routeCurrent, false);
         routeHistory.push(routeNetworkError);
     }
 
