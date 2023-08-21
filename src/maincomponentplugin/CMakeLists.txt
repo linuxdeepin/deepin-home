@@ -37,6 +37,7 @@ target_link_libraries(${MAINCOMPONENT_LIB_NAME}
     Qt5::DBus
     OpenSSL::SSL
     ${DtkDeclarative_LIBRARIES}
+    API
 )
 install(TARGETS ${MAINCOMPONENT_LIB_NAME} DESTINATION ${DTK_QML_APP_PLUGIN_PATH})
 

@@ -6,15 +6,13 @@
 #define DEEPIN_HOME_API_H
 
 #include <QCoreApplication>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QNetworkAccessManager>
 #include <QNetworkDiskCache>
 #include <QNetworkReply>
 #include <QObject>
 #include <QStandardPaths>
 #include <DHClientApi.h>
+#include <QSharedPointer>
 
 using namespace DeepinHomeAPI;
 
@@ -23,10 +21,11 @@ class API : public QObject
     Q_OBJECT
 private:
     QNetworkAccessManager *m_http;
-    DHClientApi *_m_client = nullptr;
-
+    void init();
 public:
     explicit API(QObject *parent = nullptr);
+    explicit API(QString cacheName, QObject *parent = nullptr);
+    explicit API(QNetworkDiskCache *cacheDisk, QObject *parent = nullptr);
     ~API();
 
     DHHandlers_NodeSelectResponse getNode(QString server, QString machineID);
@@ -41,7 +40,7 @@ public:
     DHHandlers_BBSURLResponse getForumURL(QString server, QString code);
     DHHandlers_ClientLoginResponse getClientToken(QString server, QString code);
     DHHandlers_ClientUserInfoResponse getLoginInfo(QString server, QString token);
-    DHClientApi *getClient(QString server);
+    QSharedPointer<DHClientApi> getClient(QString server);
     template<typename T, typename Func1, typename Func2>
     T waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender, Func1 signal, Func2 errSignal);
 
