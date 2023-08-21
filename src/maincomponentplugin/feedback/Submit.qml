@@ -437,18 +437,16 @@ Item {
                         }
                         let screenshots = []
                         const submit = () => {
-                            API.getLanguage(lang=>{
-                                API.createFeedback({
-                                    type: bugType.checked ? "bug" : "req",
-                                    language: lang,
-                                    title: titleText.text,
-                                    content: contentText.text,
-                                    email: emailText.text,
-                                    version: versionText.text,
-                                    screenshots: screenshots,
-                                }, () => {
-                                    Router.showMyFeedback(true)
-                                })
+                            API.createFeedback({
+                                type: bugType.checked ? "bug" : "req",
+                                language: API.language,
+                                title: titleText.text,
+                                content: contentText.text,
+                                email: emailText.text,
+                                version: versionText.text,
+                                screenshots: screenshots,
+                            }, () => {
+                                Router.showMyFeedback(true)
                             })
                         }
                         if(root.imgListModel.count == 0){
