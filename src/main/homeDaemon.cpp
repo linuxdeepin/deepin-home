@@ -8,7 +8,7 @@ HomeDaemon::HomeDaemon(QObject *parent)
     : QObject(parent)
 {
     // 网络请求
-    m_api = new API(this);
+    m_api = new API("http_cache", this);
 
     // 初始化系统托盘
     m_menu = new QMenu();
@@ -427,12 +427,12 @@ QStringList HomeDaemon::getToken(QString publicKey)
 QString HomeDaemon::getMessages(QString channel, QString topic)
 {
     auto messages = m_api->getMessages(getNode(),
-                                  channel,
-                                  topic,
-                                  getLanguage(),
-                                  getTopicChangeID(channel, topic));
+                                       channel,
+                                       topic,
+                                       getLanguage(),
+                                       getTopicChangeID(channel, topic));
     QJsonArray arr;
-    for(auto msg: messages) {
+    for (auto msg : messages) {
         arr.append(msg.asJsonObject());
     }
     QJsonDocument doc;

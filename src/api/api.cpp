@@ -3,24 +3,36 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "api.h"
-#include "../base/const.h"
 
 API::API(QObject *parent)
     : QObject(parent)
 {
-    auto diskCache = new QNetworkDiskCache(this);
-    auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-    diskCache->setCacheDirectory(cacheDir + "/http_cache");
-    m_http = new QNetworkAccessManager(this);
-    m_http->setCache(diskCache);
-    m_http->setRedirectPolicy(QNetworkRequest::SameOriginRedirectPolicy);
+    init();
 }
 
-API::~API()
+API::API(QString cacheName, QObject *parent)
+    : QObject(parent)
 {
-    if (_m_client != nullptr) {
-        delete _m_client;
-    }
+    init();
+    auto diskCache = new QNetworkDiskCache(this);
+    auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    diskCache->setCacheDirectory(cacheDir + "/" + cacheName);
+    m_http->setCache(diskCache);
+}
+
+API::API(QNetworkDiskCache *cacheDisk, QObject *parent)
+    : QObject(parent)
+{
+    init();
+    m_http->setCache(cacheDisk);
+}
+
+API::~API() {}
+
+void API::init()
+{
+    m_http = new QNetworkAccessManager(this);
+    m_http->setRedirectPolicy(QNetworkRequest::SameOriginRedirectPolicy);
 }
 
 // 阻塞性等待信号发生，并返回信号发射的值
@@ -37,7 +49,7 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
             err = QString("http code %1").arg(worker->getHttpResponseCode());
         }
         auto headers = worker->getResponseHeaders();
-        if(!headers["Content-Type"].startsWith("application/json")) {
+        if (!headers["Content-Type"].startsWith("application/json")) {
             err = QString("http content: %1 != application/json").arg(headers["Content-Type"]);
         }
         result = resp;
@@ -56,16 +68,13 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
 }
 
 // 获取客户端实例，暂时先共用同一个实例，之后会根据server初始化多个实例
-DHClientApi *API::getClient(QString server)
+QSharedPointer<DHClientApi> API::getClient(QString server)
 {
-    if (_m_client != nullptr) {
-        return _m_client;
-    }
-    _m_client = new DHClientApi();
-    _m_client->setNetworkAccessManager(m_http);
-    _m_client->setNewServerForAllOperations(server + "/api/v1");
-    _m_client->addHeaders("User-Agent", QString("DeepinHomeClient/%1").arg(APP_VERSION));
-    return _m_client;
+    auto client = QSharedPointer<DHClientApi>(new DHClientApi());
+    client->setNetworkAccessManager(m_http);
+    client->setNewServerForAllOperations(server + "/api/v1");
+    client->addHeaders("User-Agent", QString("DeepinHomeClient/%1").arg(APP_VERSION));
+    return client;
 }
 
 // 从服务器获取语言映射
@@ -73,7 +82,7 @@ DHHandlers_LanguageCodeResponse API::getLanguage(QString server)
 {
     auto client = getClient(server);
     client->getLanguageCode(QLocale::system().name());
-    return waitSignal<DHHandlers_LanguageCodeResponse>(client,
+    return waitSignal<DHHandlers_LanguageCodeResponse>(client.data(),
                                                        &DHClientApi::getLanguageCodeSignalFull,
                                                        &DHClientApi::getLanguageCodeSignalE);
 }
@@ -82,7 +91,7 @@ DHHandlers_NodeSelectResponse API::getNode(QString server, QString machineID)
 {
     auto client = getClient(server);
     client->getNodes(machineID);
-    return waitSignal<DHHandlers_NodeSelectResponse>(client,
+    return waitSignal<DHHandlers_NodeSelectResponse>(client.data(),
                                                      &DHClientApi::getNodesSignalFull,
                                                      &DHClientApi::getNodesSignalE);
 }
@@ -91,7 +100,7 @@ DHHandlers_PublicTopicsResponse API::getTopics(QString server, QString channel)
 {
     auto client = getClient(server);
     client->getTopics(channel);
-    return waitSignal<DHHandlers_PublicTopicsResponse>(client,
+    return waitSignal<DHHandlers_PublicTopicsResponse>(client.data(),
                                                        &DHClientApi::getTopicsSignalFull,
                                                        &DHClientApi::getTopicsSignalE);
 }
@@ -102,7 +111,7 @@ QList<DHHandlers_ClientMessagesResponse> API::getMessages(
 {
     auto client = getClient(server);
     client->getMessages(channel, topic, language);
-    return waitSignal<QList<DHHandlers_ClientMessagesResponse>>(client,
+    return waitSignal<QList<DHHandlers_ClientMessagesResponse>>(client.data(),
                                                                 &DHClientApi::getMessagesSignalFull,
                                                                 &DHClientApi::getMessagesSignalE);
 }
@@ -112,7 +121,7 @@ DHHandlers_LoginConfigResponse API::getLoginOption(QString server)
 {
     auto client = getClient(server);
     client->getLoginConfig();
-    return waitSignal<DHHandlers_LoginConfigResponse>(client,
+    return waitSignal<DHHandlers_LoginConfigResponse>(client.data(),
                                                       &DHClientApi::getLoginConfigSignalFull,
                                                       &DHClientApi::getLoginConfigSignalE);
 }
@@ -123,7 +132,7 @@ DHHandlers_BBSURLResponse API::getForumURL(QString server, QString code)
 {
     auto client = getClient(server);
     client->getBBSURL(code);
-    return waitSignal<DHHandlers_BBSURLResponse>(client,
+    return waitSignal<DHHandlers_BBSURLResponse>(client.data(),
                                                  &DHClientApi::getBBSURLSignalFull,
                                                  &DHClientApi::getBBSURLSignalE);
 }
@@ -136,7 +145,7 @@ DHHandlers_ClientLoginResponse API::getClientToken(QString server, QString code)
     DHHandlers_ClientLoginRequest req;
     req.setCode(code);
     client->clientLogin(req);
-    return waitSignal<DHHandlers_ClientLoginResponse>(client,
+    return waitSignal<DHHandlers_ClientLoginResponse>(client.data(),
                                                       &DHClientApi::clientLoginSignalFull,
                                                       &DHClientApi::clientLoginSignalE);
 }
@@ -148,7 +157,7 @@ DHHandlers_ClientUserInfoResponse API::getLoginInfo(QString server, QString toke
     auto client = getClient(server);
     client->setApiKey("Authorization", "Bearer " + token);
     client->getLoginInfo();
-    return waitSignal<DHHandlers_ClientUserInfoResponse>(client,
+    return waitSignal<DHHandlers_ClientUserInfoResponse>(client.data(),
                                                          &DHClientApi::getLoginInfoSignalFull,
                                                          &DHClientApi::getLoginInfoSignalE);
 }
