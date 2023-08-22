@@ -188,7 +188,7 @@ Item {
                 LineEdit {
                     id: emailText
                     selectByMouse: true
-                    validator: RegExpValidator { regExp: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ }
+                    validator: RegExpValidator { regExp: /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ }
                     width: win.controlWidth / 2
                     text: ""
                     Text {
