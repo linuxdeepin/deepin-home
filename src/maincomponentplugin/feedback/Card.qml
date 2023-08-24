@@ -104,6 +104,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.topMargin: 10
             Layout.bottomMargin: 10
+            readOnly: true
             wrapMode: TextEdit.WrapAnywhere
             textFormat: TextEdit.RichText
             selectByMouse: true
