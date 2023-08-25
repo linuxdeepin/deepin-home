@@ -2,14 +2,14 @@
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
-#include "maincomponentplugin.h"
-
-#include <QVariant>
-
 #include <QProcessEnvironment>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QUrl>
+#include <QVariant>
+
+#include "apiproxy.h"
+#include "maincomponentplugin.h"
 
 DQUICK_USE_NAMESPACE
 
@@ -30,5 +30,6 @@ void MainComponentPlugin::initialize(QQmlApplicationEngine *engine)
     // 设置上下文，用于在qml环境抛出异常
     QQmlEngine::setContextForObject(&m_worker, engine->rootContext());
     engine->setNetworkAccessManagerFactory(&m_network);
+    qmlRegisterType<APIProxy>("APIProxy", 1, 0, "APIProxy");
     engine->rootContext()->setContextProperty("worker", &m_worker);
 }
