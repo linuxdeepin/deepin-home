@@ -12,10 +12,13 @@ set(MAINCOMPONENNT_SRC
     network.cpp
     promise.h
     promise.cpp
+    apiproxy.h
+    apiproxy.cpp
 )
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
 find_package(Qt5QuickCompiler REQUIRED)
 find_package(Qt5DBus CONFIG REQUIRED)
+find_package(Qt5Concurrent CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 set_source_files_properties(../dbusservice/com.deepin.Home.Daemon.xml PROPERTIES CLASSNAME HomeDaemonProxy)
@@ -35,6 +38,7 @@ target_link_libraries(${MAINCOMPONENT_LIB_NAME}
     Qt5::Quick
     Qt5::Widgets
     Qt5::DBus
+    Qt5::Concurrent
     OpenSSL::SSL
     ${DtkDeclarative_LIBRARIES}
     API

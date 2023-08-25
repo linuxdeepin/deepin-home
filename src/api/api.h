@@ -10,9 +10,10 @@
 #include <QNetworkDiskCache>
 #include <QNetworkReply>
 #include <QObject>
-#include <QStandardPaths>
-#include <DHClientApi.h>
 #include <QSharedPointer>
+#include <QStandardPaths>
+
+#include <DHClientApi.h>
 
 using namespace DeepinHomeAPI;
 
@@ -22,6 +23,7 @@ class API : public QObject
 private:
     QNetworkAccessManager *m_http;
     void init();
+
 public:
     explicit API(QObject *parent = nullptr);
     explicit API(QString cacheName, QObject *parent = nullptr);
@@ -31,11 +33,7 @@ public:
     DHHandlers_NodeSelectResponse getNode(QString server, QString machineID);
     DHHandlers_LanguageCodeResponse getLanguage(QString server);
     DHHandlers_PublicTopicsResponse getTopics(QString server, QString channel);
-    QList<DHHandlers_ClientMessagesResponse> getMessages(
-        QString server, QString channel, QString topic, QString language, QString changeID);
-    QJsonDocument getMessagesJSON(
-        QString server, QString channel, QString topic, QString language, QString changeID);
-
+    QList<DHHandlers_ClientMessagesResponse> getMessages(QString server, QString channel, QString topic, QString language);
     DHHandlers_LoginConfigResponse getLoginOption(QString server);
     DHHandlers_BBSURLResponse getForumURL(QString server, QString code);
     DHHandlers_ClientLoginResponse getClientToken(QString server, QString code);

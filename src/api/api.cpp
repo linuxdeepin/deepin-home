@@ -71,6 +71,7 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
 QSharedPointer<DHClientApi> API::getClient(QString server)
 {
     auto client = QSharedPointer<DHClientApi>(new DHClientApi());
+    client->setParent(this);
     client->setNetworkAccessManager(m_http);
     client->setNewServerForAllOperations(server + "/api/v1");
     client->addHeaders("User-Agent", QString("DeepinHomeClient/%1").arg(APP_VERSION));
@@ -107,7 +108,7 @@ DHHandlers_PublicTopicsResponse API::getTopics(QString server, QString channel)
 
 // 获取消息列表
 QList<DHHandlers_ClientMessagesResponse> API::getMessages(
-    QString server, QString channel, QString topic, QString language, QString changeID)
+    QString server, QString channel, QString topic, QString language)
 {
     auto client = getClient(server);
     client->getMessages(channel, topic, language);

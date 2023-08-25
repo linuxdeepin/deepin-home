@@ -250,9 +250,7 @@ void HomeDaemon::execFirstNotify()
         auto messages = m_api->getMessages(getNode(),
                                            DEEPIN_HOME_CHANNEL_PUBLIC,
                                            DEEPIN_HOME_TOPIC_QUESTIONS,
-                                           getLanguage(),
-                                           getTopicChangeID(DEEPIN_HOME_CHANNEL_PUBLIC,
-                                                            DEEPIN_HOME_TOPIC_QUESTIONS));
+                                           getLanguage());
         for (auto message : messages) {
             if (message.isTop()) {
                 // 发送消息通知
@@ -270,7 +268,7 @@ void HomeDaemon::execFirstNotify()
 void HomeDaemon::refreshMessage(QString channel, QString topic, QString changeID)
 {
     qCDebug(logger) << "refresh message" << channel << topic;
-    auto messages = m_api->getMessages(getNode(), channel, topic, getLanguage(), changeID);
+    auto messages = m_api->getMessages(getNode(), channel, topic, getLanguage());
     QStringList ids;
     m_settings.beginGroup("messages");
     for (auto message : messages) {
@@ -429,8 +427,7 @@ QString HomeDaemon::getMessages(QString channel, QString topic)
     auto messages = m_api->getMessages(getNode(),
                                        channel,
                                        topic,
-                                       getLanguage(),
-                                       getTopicChangeID(channel, topic));
+                                       getLanguage());
     QJsonArray arr;
     for (auto msg : messages) {
         arr.append(msg.asJsonObject());
