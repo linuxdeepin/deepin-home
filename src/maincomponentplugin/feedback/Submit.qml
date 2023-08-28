@@ -169,6 +169,11 @@ Item {
                                 }
                             }
                             text: win.placeholder
+                            Keys.onPressed: {
+                                if (event.key === Qt.Key_Z && event.modifiers & Qt.ControlModifier) {
+                                    contentText.undo()
+                                }
+                            }
                         }
                     }
                     Label {
