@@ -14,7 +14,7 @@ API::API(QString cacheName, QObject *parent)
     : QObject(parent)
 {
     init();
-    auto diskCache = new QNetworkDiskCache(this);
+    auto diskCache = new DiskCacheShare(this);
     auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
     diskCache->setCacheDirectory(cacheDir + "/" + cacheName);
     m_http->setCache(diskCache);
@@ -42,27 +42,37 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
                   Func2 errSignal)
 {
     T result;
-    QString err;
+    APIException exp;
     QEventLoop loop;
-    connect(sender, signal, &loop, [&loop, &result, &err](DHHttpRequestWorker *worker, T resp) {
-        if (worker->getHttpResponseCode() >= 400) {
-            err = QString("http code %1").arg(worker->getHttpResponseCode());
+    connect(sender, signal, &loop, [&loop, &result, &exp](DHHttpRequestWorker *worker, T resp) {
+        auto code = worker->getHttpResponseCode();
+        if (code >= 400) {
+            exp.err_code = code;
+            exp.err_type = "http";
+            exp.err_msg = QString("http code %1").arg(worker->getHttpResponseCode());
         }
         auto headers = worker->getResponseHeaders();
         if (!headers["Content-Type"].startsWith("application/json")) {
-            err = QString("http content: %1 != application/json").arg(headers["Content-Type"]);
+            exp.err_code = 600;
+            exp.err_type = "http";
+            exp.err_msg = QString("http content: %1 != application/json")
+                              .arg(headers["Content-Type"]);
         }
         result = resp;
         loop.quit();
     });
-    connect(sender, errSignal, &loop, [&loop, &err](T resp, auto error_type, QString error_str) {
-        err = error_str;
+    connect(sender, errSignal, &loop, [this, &loop, &exp](auto *worker, auto err_type, auto err_str) {
+        exp.err_code = worker->getHttpResponseCode();
+        exp.err_type = err_type;
+        exp.err_msg = err_str;
+        if (exp.err_code == 0) {
+            exp.err_code = -1;
+        }
         loop.quit();
     });
     loop.exec();
-    if (!err.isEmpty()) {
-        qWarning() << "http request error:" << err;
-        throw err;
+    if (exp.err_code != 0) {
+        throw exp;
     }
     return result;
 }
@@ -85,7 +95,7 @@ DHHandlers_LanguageCodeResponse API::getLanguage(QString server)
     client->getLanguageCode(QLocale::system().name());
     return waitSignal<DHHandlers_LanguageCodeResponse>(client.data(),
                                                        &DHClientApi::getLanguageCodeSignalFull,
-                                                       &DHClientApi::getLanguageCodeSignalE);
+                                                       &DHClientApi::getLanguageCodeSignalEFull);
 }
 // 获取分发节点和消息渠道列表
 DHHandlers_NodeSelectResponse API::getNode(QString server, QString machineID)
@@ -94,7 +104,7 @@ DHHandlers_NodeSelectResponse API::getNode(QString server, QString machineID)
     client->getNodes(machineID);
     return waitSignal<DHHandlers_NodeSelectResponse>(client.data(),
                                                      &DHClientApi::getNodesSignalFull,
-                                                     &DHClientApi::getNodesSignalE);
+                                                     &DHClientApi::getNodesSignalEFull);
 }
 // 获取消息主题列表
 DHHandlers_PublicTopicsResponse API::getTopics(QString server, QString channel)
@@ -103,18 +113,20 @@ DHHandlers_PublicTopicsResponse API::getTopics(QString server, QString channel)
     client->getTopics(channel);
     return waitSignal<DHHandlers_PublicTopicsResponse>(client.data(),
                                                        &DHClientApi::getTopicsSignalFull,
-                                                       &DHClientApi::getTopicsSignalE);
+                                                       &DHClientApi::getTopicsSignalEFull);
 }
 
 // 获取消息列表
-QList<DHHandlers_ClientMessagesResponse> API::getMessages(
-    QString server, QString channel, QString topic, QString language)
+QList<DHHandlers_ClientMessagesResponse> API::getMessages(QString server,
+                                                          QString channel,
+                                                          QString topic,
+                                                          QString language)
 {
     auto client = getClient(server);
     client->getMessages(channel, topic, language);
     return waitSignal<QList<DHHandlers_ClientMessagesResponse>>(client.data(),
                                                                 &DHClientApi::getMessagesSignalFull,
-                                                                &DHClientApi::getMessagesSignalE);
+                                                                &DHClientApi::getMessagesSignalEFull);
 }
 
 // 获取登录选项，包含oauth2 id、scope等
@@ -124,7 +136,7 @@ DHHandlers_LoginConfigResponse API::getLoginOption(QString server)
     client->getLoginConfig();
     return waitSignal<DHHandlers_LoginConfigResponse>(client.data(),
                                                       &DHClientApi::getLoginConfigSignalFull,
-                                                      &DHClientApi::getLoginConfigSignalE);
+                                                      &DHClientApi::getLoginConfigSignalEFull);
 }
 
 // 获取论坛地址
@@ -135,30 +147,28 @@ DHHandlers_BBSURLResponse API::getForumURL(QString server, QString code)
     client->getBBSURL(code);
     return waitSignal<DHHandlers_BBSURLResponse>(client.data(),
                                                  &DHClientApi::getBBSURLSignalFull,
-                                                 &DHClientApi::getBBSURLSignalE);
+                                                 &DHClientApi::getBBSURLSignalEFull);
 }
 
 // 获取用户Token
 DHHandlers_ClientLoginResponse API::getClientToken(QString server, QString code)
 {
-    qDebug() << "get token";
     auto client = getClient(server);
     DHHandlers_ClientLoginRequest req;
     req.setCode(code);
     client->clientLogin(req);
     return waitSignal<DHHandlers_ClientLoginResponse>(client.data(),
                                                       &DHClientApi::clientLoginSignalFull,
-                                                      &DHClientApi::clientLoginSignalE);
+                                                      &DHClientApi::clientLoginSignalEFull);
 }
 
 // 获取当前登陆用户的信息
 DHHandlers_ClientUserInfoResponse API::getLoginInfo(QString server, QString token)
 {
-    qDebug() << "login info";
     auto client = getClient(server);
     client->setApiKey("Authorization", "Bearer " + token);
     client->getLoginInfo();
     return waitSignal<DHHandlers_ClientUserInfoResponse>(client.data(),
                                                          &DHClientApi::getLoginInfoSignalFull,
-                                                         &DHClientApi::getLoginInfoSignalE);
+                                                         &DHClientApi::getLoginInfoSignalEFull);
 }

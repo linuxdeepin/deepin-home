@@ -193,8 +193,10 @@ void HomeDaemon::run()
                 refreshChannel(cronID, channel);
             });
         }
+    } catch (APIException exp) {
+        qCWarning(logger) << "Refresh Node Error" << exp.err_code << exp.err_msg;
     } catch (...) {
-        qWarning() << "Refresh Node Error";
+        qCWarning(logger) << "Refresh Node Error";
     }
     qCDebug(logger) << "node next refresh will be in the" << nextRefreshTime << "seconds";
     QTimer::singleShot(nextRefreshTime * 1000, this, &HomeDaemon::run);
@@ -229,8 +231,10 @@ void HomeDaemon::refreshChannel(QString cronID, QString channel)
             emit messageChanged();
         }
         nextRefreshTime = topics.getRefreshTime();
+    } catch (APIException exp) {
+        qCWarning(logger) << "Refresh Channel Error" << exp.err_code << exp.err_msg;
     } catch (...) {
-        qWarning() << "Refresh Channel Error";
+        qCWarning(logger) << "Refresh Channel Error";
     }
     qCDebug(logger) << "topic next refresh will be in the" << nextRefreshTime << "seconds";
     // 延迟再次运行
@@ -260,8 +264,10 @@ void HomeDaemon::execFirstNotify()
                 break;
             }
         }
+    } catch (APIException exp) {
+        qCWarning(logger) << "Get Notify Error" << exp.err_code << exp.err_msg;
     } catch (...) {
-        qWarning() << "Network Error";
+        qCWarning(logger) << "Network Error";
     }
 }
 // 处理消息
@@ -424,10 +430,7 @@ QStringList HomeDaemon::getToken(QString publicKey)
 // 获取消息列表数据
 QString HomeDaemon::getMessages(QString channel, QString topic)
 {
-    auto messages = m_api->getMessages(getNode(),
-                                       channel,
-                                       topic,
-                                       getLanguage());
+    auto messages = m_api->getMessages(getNode(), channel, topic, getLanguage());
     QJsonArray arr;
     for (auto msg : messages) {
         arr.append(msg.asJsonObject());

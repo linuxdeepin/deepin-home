@@ -135,7 +135,7 @@ Item {
 
         // 用户已登陆，补全用户和反馈的关联关系（点赞、收藏等）
         const relations = worker.awaitPromise((promise) => {
-            get(urlrelationURL, promise.resolve);
+            get(relationURL, promise.resolve);
         });
         for (let relation of relations) {
             const feedback = feedbacks.find((feedback) => {
