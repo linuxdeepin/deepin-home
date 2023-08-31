@@ -11,6 +11,8 @@
 #include <QQmlNetworkAccessManagerFactory>
 #include <QStandardPaths>
 
+#include "diskCacheShare.h"
+
 class NetworkFactory : public QQmlNetworkAccessManagerFactory
 {
 private:

@@ -38,6 +38,8 @@ void DHClientApi::initializeServerConfigs() {
     QMap<QString, DHServerVariable>()));
     _serverConfigs.insert("clientLogin", defaultConf);
     _serverIndices.insert("clientLogin", 0);
+    _serverConfigs.insert("feedbackStat", defaultConf);
+    _serverIndices.insert("feedbackStat", 0);
     _serverConfigs.insert("getBBSToken", defaultConf);
     _serverIndices.insert("getBBSToken", 0);
     _serverConfigs.insert("getBBSURL", defaultConf);
@@ -283,6 +285,150 @@ void DHClientApi::clientLoginCallback(DHHttpRequestWorker *worker) {
     }
 }
 
+void DHClientApi::feedbackStat(const QList<QString> &public_id) {
+    QString fullPath = QString(_serverConfigs["feedbackStat"][_serverIndices.value("feedbackStat")].URL()+"/public/feedback/stat");
+    
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    
+    {
+        queryStyle = "form";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "public_id", true);
+        if (public_id.size() > 0) {
+            if (QString("multi").indexOf("multi") == 0) {
+                for (QString t : public_id) {
+                    if (fullPath.indexOf("?") > 0)
+                        fullPath.append(queryPrefix);
+                    else
+                        fullPath.append("?");
+                    fullPath.append("public_id=").append(::DeepinHomeAPI::toStringValue(t));
+                }
+            } else if (QString("multi").indexOf("ssv") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("public_id").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : public_id) {
+                    if (count > 0) {
+                        fullPath.append((true)? queryDelimiter : QUrl::toPercentEncoding(queryDelimiter));
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("tsv") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("public_id").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : public_id) {
+                    if (count > 0) {
+                        fullPath.append("\t");
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("csv") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("public_id").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : public_id) {
+                    if (count > 0) {
+                        fullPath.append(queryDelimiter);
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("pipes") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("public_id").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : public_id) {
+                    if (count > 0) {
+                        fullPath.append(queryDelimiter);
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("deepObject") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("public_id").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : public_id) {
+                    if (count > 0) {
+                        fullPath.append(queryDelimiter);
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            }
+        }
+    }
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::feedbackStatCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::feedbackStatCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    QList<DHHandlers_PublicStatResponse> output;
+    QString json(worker->response);
+    QByteArray array(json.toStdString().c_str());
+    QJsonDocument doc = QJsonDocument::fromJson(array);
+    QJsonArray jsonArray = doc.array();
+    for (QJsonValue obj : jsonArray) {
+        DHHandlers_PublicStatResponse val;
+        ::DeepinHomeAPI::fromJsonValue(val, obj);
+        output.append(val);
+    }
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit feedbackStatSignal(output);
+        emit feedbackStatSignalFull(worker, output);
+    } else {
+        emit feedbackStatSignalE(output, error_type, error_str);
+        emit feedbackStatSignalEFull(worker, error_type, error_str);
+    }
+}
+
 void DHClientApi::getBBSToken(const DHHandlers_ClientBBSTokenRequest &data) {
     QString fullPath = QString(_serverConfigs["getBBSToken"][_serverIndices.value("getBBSToken")].URL()+"/public/login/bbs_token");
     
@@ -455,7 +601,7 @@ void DHClientApi::getLanguageCodeCallback(DHHttpRequestWorker *worker) {
 }
 
 void DHClientApi::getLoginConfig() {
-    QString fullPath = QString(_serverConfigs["getLoginConfig"][_serverIndices.value("getLoginConfig")].URL()+"/public/login/info");
+    QString fullPath = QString(_serverConfigs["getLoginConfig"][_serverIndices.value("getLoginConfig")].URL()+"/public/login/config");
     
     DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
     worker->setTimeOut(_timeOut);
@@ -659,7 +805,7 @@ void DHClientApi::getMessagesCallback(DHHttpRequestWorker *worker) {
 }
 
 void DHClientApi::getNodes(const QString &machine_id) {
-    QString fullPath = QString(_serverConfigs["getNodes"][_serverIndices.value("getNodes")].URL()+"/public/machine/:machine_id/node");
+    QString fullPath = QString(_serverConfigs["getNodes"][_serverIndices.value("getNodes")].URL()+"/public/machine/{machine_id}/node");
     
     
     {

@@ -29,6 +29,7 @@
 #include "DHHandlers_LanguageCodeResponse.h"
 #include "DHHandlers_LoginConfigResponse.h"
 #include "DHHandlers_NodeSelectResponse.h"
+#include "DHHandlers_PublicStatResponse.h"
 #include "DHHandlers_PublicTopicsResponse.h"
 #include <QString>
 
@@ -72,6 +73,11 @@ public:
     * @param[in]  data DHHandlers_ClientLoginRequest [required]
     */
     void clientLogin(const DHHandlers_ClientLoginRequest &data);
+
+    /**
+    * @param[in]  public_id QList<QString> [required]
+    */
+    void feedbackStat(const QList<QString> &public_id);
 
     /**
     * @param[in]  data DHHandlers_ClientBBSTokenRequest [required]
@@ -135,6 +141,7 @@ private:
     int _OauthMethod = 0;
 
     void clientLoginCallback(DHHttpRequestWorker *worker);
+    void feedbackStatCallback(DHHttpRequestWorker *worker);
     void getBBSTokenCallback(DHHttpRequestWorker *worker);
     void getBBSURLCallback(DHHttpRequestWorker *worker);
     void getLanguageCodeCallback(DHHttpRequestWorker *worker);
@@ -147,6 +154,7 @@ private:
 signals:
 
     void clientLoginSignal(DHHandlers_ClientLoginResponse summary);
+    void feedbackStatSignal(QList<DHHandlers_PublicStatResponse> summary);
     void getBBSTokenSignal(DHHandlers_ClientBBSTokenResponse summary);
     void getBBSURLSignal(DHHandlers_BBSURLResponse summary);
     void getLanguageCodeSignal(DHHandlers_LanguageCodeResponse summary);
@@ -157,6 +165,7 @@ signals:
     void getTopicsSignal(DHHandlers_PublicTopicsResponse summary);
 
     void clientLoginSignalFull(DHHttpRequestWorker *worker, DHHandlers_ClientLoginResponse summary);
+    void feedbackStatSignalFull(DHHttpRequestWorker *worker, QList<DHHandlers_PublicStatResponse> summary);
     void getBBSTokenSignalFull(DHHttpRequestWorker *worker, DHHandlers_ClientBBSTokenResponse summary);
     void getBBSURLSignalFull(DHHttpRequestWorker *worker, DHHandlers_BBSURLResponse summary);
     void getLanguageCodeSignalFull(DHHttpRequestWorker *worker, DHHandlers_LanguageCodeResponse summary);
@@ -167,6 +176,7 @@ signals:
     void getTopicsSignalFull(DHHttpRequestWorker *worker, DHHandlers_PublicTopicsResponse summary);
 
     void clientLoginSignalE(DHHandlers_ClientLoginResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void feedbackStatSignalE(QList<DHHandlers_PublicStatResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSTokenSignalE(DHHandlers_ClientBBSTokenResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSURLSignalE(DHHandlers_BBSURLResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getLanguageCodeSignalE(DHHandlers_LanguageCodeResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -177,6 +187,7 @@ signals:
     void getTopicsSignalE(DHHandlers_PublicTopicsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void clientLoginSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void feedbackStatSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSTokenSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSURLSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getLanguageCodeSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

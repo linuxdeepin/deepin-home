@@ -26,6 +26,8 @@ client/DHHandlers_LoginConfigResponse.cpp
 client/DHHandlers_LoginConfigResponse.h
 client/DHHandlers_NodeSelectResponse.cpp
 client/DHHandlers_NodeSelectResponse.h
+client/DHHandlers_PublicStatResponse.cpp
+client/DHHandlers_PublicStatResponse.h
 client/DHHandlers_PublicTopicsResponse.cpp
 client/DHHandlers_PublicTopicsResponse.h
 client/DHHandlers_Topic.cpp

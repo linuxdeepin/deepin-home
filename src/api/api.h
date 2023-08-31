@@ -13,9 +13,20 @@
 #include <QSharedPointer>
 #include <QStandardPaths>
 
+#include "diskCacheShare.h"
 #include <DHClientApi.h>
 
 using namespace DeepinHomeAPI;
+
+class APIException : public QException
+{
+public:
+    int err_code = 0;
+    QString err_type = "";
+    QString err_msg = "";
+    void raise() const override { throw *this; }
+    APIException *clone() const override { return new APIException(*this); }
+};
 
 class API : public QObject
 {
@@ -33,17 +44,19 @@ public:
     DHHandlers_NodeSelectResponse getNode(QString server, QString machineID);
     DHHandlers_LanguageCodeResponse getLanguage(QString server);
     DHHandlers_PublicTopicsResponse getTopics(QString server, QString channel);
-    QList<DHHandlers_ClientMessagesResponse> getMessages(QString server, QString channel, QString topic, QString language);
+    QList<DHHandlers_ClientMessagesResponse> getMessages(QString server,
+                                                         QString channel,
+                                                         QString topic,
+                                                         QString language);
     DHHandlers_LoginConfigResponse getLoginOption(QString server);
     DHHandlers_BBSURLResponse getForumURL(QString server, QString code);
     DHHandlers_ClientLoginResponse getClientToken(QString server, QString code);
     DHHandlers_ClientUserInfoResponse getLoginInfo(QString server, QString token);
     QSharedPointer<DHClientApi> getClient(QString server);
     template<typename T, typename Func1, typename Func2>
-    T waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender, Func1 signal, Func2 errSignal);
-
-signals:
-    void signalClientError(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    T waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender,
+                 Func1 signal,
+                 Func2 errSignal);
 };
 
 #endif // DEEPIN_HOME_API_H

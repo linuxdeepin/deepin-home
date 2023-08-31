@@ -23,34 +23,96 @@ APIProxy::APIProxy(QObject *parent)
                                    this);
     m_server = m_daemon->getNode();
     m_language = m_daemon->getLanguage();
+
+    connect(this, &APIProxy::signalAPIError, this, &APIProxy::APIErrorHandle);
 }
 
 void APIProxy::getNotify()
 {
-    QtConcurrent::run([this]() {
-        QPointer p(this);
-        API api("client_http_cache");
+    auto future = QtConcurrent::run([this]() {
+        API api(m_cachename);
         auto resp = api.getMessages(m_server,
                                     DEEPIN_HOME_CHANNEL_PUBLIC,
                                     DEEPIN_HOME_TOPIC_NEWS,
                                     m_language);
-        if (p != nullptr) {
-            emit signalGetNotifyResp(toJsonArray(resp));
-        }
+        return toJsonArray(resp);
     });
+    waitFuture(future, [this](auto resp) { emit this->signalGetNotifyResp(resp); });
 }
-
+// 获取调查问卷
 void APIProxy::getQuestionnaire()
 {
-    QtConcurrent::run([this]() {
-        QPointer p(this);
-        API api("client_http_cache");
+    auto future = QtConcurrent::run([this]() {
+        API api(m_cachename);
         auto resp = api.getMessages(m_server,
                                     DEEPIN_HOME_CHANNEL_PUBLIC,
                                     DEEPIN_HOME_TOPIC_QUESTIONS,
                                     m_language);
-        if (p != nullptr) {
-            emit signalGetQuestionnaireResp(toJsonArray(resp));
+        return toJsonArray(resp);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetQuestionnaireResp(resp); });
+}
+
+// 弹出桌面通知
+void APIProxy::desktopNotify(QString title, QString message)
+{
+    QStringList actions;
+    QVariantMap hints;
+    QDBusInterface notification("org.freedesktop.Notifications",
+                                "/org/freedesktop/Notifications",
+                                "org.freedesktop.Notifications",
+                                QDBusConnection::sessionBus());
+    QList<QVariant> args;
+    args << QCoreApplication::applicationName() // appname
+         << (unsigned int) 0                    // replaces id
+         << QCoreApplication::applicationName() // icon
+         << title                               // summary (notification title)
+         << message                             // body
+         << actions                             // actions
+         << hints                               // hints
+         << (int) 5000;                         // timeout
+
+    auto res = notification.callWithArgumentList(QDBus::AutoDetect, "Notify", args);
+    auto err = res.errorMessage();
+
+    if (!err.isEmpty()) {
+        qWarning() << "DBus Error" << err;
+    }
+}
+
+// 等待future完成后匿名函数，统一处理异常
+template<typename T, typename Func2>
+void APIProxy::waitFuture(QFuture<T> future, Func2 receiver)
+{
+    QPointer p(this);
+    auto watcher = new QFutureWatcher<T>();
+    connect(watcher, &QFutureWatcher<T>::finished, [this, watcher, receiver, p]() {
+        watcher->deleteLater();
+        // 判断this是否已销毁
+        if (p == nullptr) {
+            return;
+        }
+        try {
+            receiver(watcher->result());
+        } catch (APIException exp) {
+            qCDebug(logger) << "api exception" << exp.err_code;
+            emit this->signalAPIError(exp.err_code, exp.err_type, exp.err_msg);
+        } catch (...) {
+            qCDebug(logger) << "unknown exception";
+            emit this->signalUnknownError();
         }
     });
+    watcher->setFuture(future);
 }
+
+// 处理全局错误，业务错误由qml自行处理
+void APIProxy::APIErrorHandle(int code, QString type, QString msg)
+{
+    switch (code) {
+        // 请求过于频繁
+    case 429:
+        this->desktopNotify(tr("You have been making too many requests. Please try again later."),
+                            "");
+        break;
+    }
+};
