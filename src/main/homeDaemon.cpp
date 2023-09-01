@@ -389,6 +389,8 @@ QStringList HomeDaemon::getToken(QString publicKey)
     auto sender = QFile::symLinkTarget(QString("/proc/%1/exe").arg(pid));
     if (sender != QString("%1%2").arg(APP_BIN_INSTALL_DIR).arg(APP_NAME)) {
         qCDebug(logger) << "Not allow";
+        // 加一个界面通知，避免代码贡献者不知道该接口检查调用者路径
+        notify("illegal dbus call", sender + " is not allowed to call the getToken interface", "");
         return {};
     };
 #endif

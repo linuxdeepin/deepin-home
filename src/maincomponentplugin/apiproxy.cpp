@@ -17,67 +17,41 @@ QJsonArray toJsonArray(QList<T> list)
 APIProxy::APIProxy(QObject *parent)
     : QObject(parent)
 {
-    m_daemon = new HomeDaemonProxy(DEEPIN_HOME_DAEMON_SERVICE,
-                                   DEEPIN_HOME_DAEMON_PATH,
-                                   QDBusConnection::sessionBus(),
-                                   this);
-    m_server = m_daemon->getNode();
-    m_language = m_daemon->getLanguage();
-
-    connect(this, &APIProxy::signalAPIError, this, &APIProxy::APIErrorHandle);
+    connect(this, &APIProxy::signalAPIError, this, &APIProxy::errorHandle);
 }
 
-void APIProxy::getNotify()
+// qml组件初始化函数
+void APIProxy::componentComplete()
 {
-    auto future = QtConcurrent::run([this]() {
-        API api(m_cachename);
-        auto resp = api.getMessages(m_server,
-                                    DEEPIN_HOME_CHANNEL_PUBLIC,
-                                    DEEPIN_HOME_TOPIC_NEWS,
-                                    m_language);
-        return toJsonArray(resp);
+    qCDebug(logger) << "apiproxy component complete";
+    auto context = qmlContext(this);
+    m_worker = context->contextProperty("worker").value<Worker *>();
+    env.cachename = "http_cache";
+    env.server = m_worker->getNode();
+    env.language = m_worker->getLanguage();
+    env.isLogin = m_worker->isLogin();
+    if (env.isLogin) {
+        env.token = m_worker->getToken();
+    }
+    // 用户变动时刷新token
+    connect(m_worker, &Worker::userInfoChanged, this, [this] {
+        env.isLogin = m_worker->isLogin();
+        if (env.isLogin) {
+            env.token = m_worker->getToken();
+        }
     });
-    waitFuture(future, [this](auto resp) { emit this->signalGetNotifyResp(resp); });
-}
-// 获取调查问卷
-void APIProxy::getQuestionnaire()
-{
-    auto future = QtConcurrent::run([this]() {
-        API api(m_cachename);
-        auto resp = api.getMessages(m_server,
-                                    DEEPIN_HOME_CHANNEL_PUBLIC,
-                                    DEEPIN_HOME_TOPIC_QUESTIONS,
-                                    m_language);
-        return toJsonArray(resp);
-    });
-    waitFuture(future, [this](auto resp) { emit this->signalGetQuestionnaireResp(resp); });
 }
 
 // 弹出桌面通知
-void APIProxy::desktopNotify(QString title, QString message)
+void APIProxy::desktopNotify(QString title, QString message = "")
 {
-    QStringList actions;
-    QVariantMap hints;
-    QDBusInterface notification("org.freedesktop.Notifications",
-                                "/org/freedesktop/Notifications",
-                                "org.freedesktop.Notifications",
-                                QDBusConnection::sessionBus());
-    QList<QVariant> args;
-    args << QCoreApplication::applicationName() // appname
-         << (unsigned int) 0                    // replaces id
-         << QCoreApplication::applicationName() // icon
-         << title                               // summary (notification title)
-         << message                             // body
-         << actions                             // actions
-         << hints                               // hints
-         << (int) 5000;                         // timeout
+    m_worker->notify(title, message);
+}
 
-    auto res = notification.callWithArgumentList(QDBus::AutoDetect, "Notify", args);
-    auto err = res.errorMessage();
-
-    if (!err.isEmpty()) {
-        qWarning() << "DBus Error" << err;
-    }
+// 获取当前环境
+const Env APIProxy::getEnv()
+{
+    return env;
 }
 
 // 等待future完成后匿名函数，统一处理异常
@@ -106,13 +80,204 @@ void APIProxy::waitFuture(QFuture<T> future, Func2 receiver)
 }
 
 // 处理全局错误，业务错误由qml自行处理
-void APIProxy::APIErrorHandle(int code, QString type, QString msg)
+void APIProxy::errorHandle(int code, QString type, QString msg)
 {
-    switch (code) {
-        // 请求过于频繁
-    case 429:
-        this->desktopNotify(tr("You have been making too many requests. Please try again later."),
-                            "");
-        break;
+    // 请求过于频繁
+    if (code == 429) {
+        auto title = tr("You have been making too many requests, Please try again later.");
+        this->desktopNotify(title);
+        return;
+    }
+    if (code == 401) {
+        auto title = tr("You need to login to proceed with the subsequent operations.");
+        this->desktopNotify(title);
+        return;
+    }
+    // 服务器错误
+    if (code >= 500 && code < 600) {
+        auto title = tr("Network error, please try later.");
+        this->desktopNotify(title);
+        return;
     }
 };
+
+// 获取新闻通知
+void APIProxy::getNotify()
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env]() {
+        API api(env.cachename);
+        auto resp = api.getMessages(env.server,
+                                    DEEPIN_HOME_CHANNEL_PUBLIC,
+                                    DEEPIN_HOME_TOPIC_NEWS,
+                                    env.language);
+        return toJsonArray(resp);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetNotifyResp(resp); });
+}
+
+// 获取调查问卷
+void APIProxy::getQuestionnaire()
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env]() {
+        API api(env.cachename);
+        auto resp = api.getMessages(env.server,
+                                    DEEPIN_HOME_CHANNEL_PUBLIC,
+                                    DEEPIN_HOME_TOPIC_QUESTIONS,
+                                    env.language);
+        return toJsonArray(resp);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetQuestionnaireResp(resp); });
+}
+
+QJsonArray fillFeedback(API &api,
+                        const Env &env,
+                        const QList<DeepinHomeAPI::DHHandlers_FeedbackPublicListResponse> &feedbacks
+
+)
+{
+    // 获取反馈统计信息
+    QList<QString> publicID;
+    for (auto feedback : feedbacks) {
+        publicID.append(feedback.getPublicId());
+    }
+    QHash<QString, DHHandlers_PublicStatResponse> statMap;
+    for (auto stat : api.getFeedbackStat(env.server, publicID)) {
+        statMap.insert(stat.getPublicId(), stat);
+    }
+
+    // 获取反馈关联关系
+    QHash<QString, DHHandlers_FeedbackUserRelationListResponse> relationMap;
+    if (env.isLogin) {
+        qDebug() << env.isLogin << env.token;
+        for (auto relation : api.getFeedbackRelation(env.server,
+                                                     env.token,
+                                                     0,
+                                                     publicID.length() * 2,
+                                                     publicID,
+                                                     QStringList() << "like"
+                                                                   << "collect")) {
+            relationMap.insert(relation.getFeedbackId() + relation.getRelation(), relation);
+        }
+    }
+
+    // 添加统计信息到反馈对象中
+    QJsonArray arr;
+    for (auto feedback : feedbacks) {
+        auto obj = feedback.asJsonObject();
+        auto stat = statMap[feedback.getPublicId()];
+        obj["view_count"] = stat.is_view_count_Set() ? stat.getViewCount() : 0;
+        obj["like_count"] = stat.is_like_count_Set() ? stat.getLikeCount() : 0;
+        obj["collect_count"] = stat.is_collect_count_Set() ? stat.getCollectCount() : 0;
+
+        obj["like"] = relationMap.contains(feedback.getPublicId() + "like");
+        obj["collect"] = relationMap.contains(feedback.getPublicId() + "collect");
+
+        QJsonArray screenshots;
+        for (auto screenshot : feedback.getScreenshots()) {
+            screenshots.append(env.server + "/api/v1/public/upload/" + screenshot);
+        }
+        obj["screenshots"] = screenshots;
+        arr.append(obj);
+    }
+    return arr;
+}
+
+// 获取需求广场的列表
+void APIProxy::getFeedback(int offset, int limit, QString type)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, offset, limit, type]() {
+        API api(env.cachename);
+        // 获取反馈列表
+        auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, type);
+        return fillFeedback(api, env, feedbacks);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetFeedbackResp(resp); });
+}
+
+// 获取收藏的反馈列表
+void APIProxy::getCollectFeedback(int offset, int limit)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, offset, limit]() {
+        API api(env.cachename);
+        QStringList ids;
+        for (auto relation :
+             api.getFeedbackRelation(env.server, env.token, offset, limit, "collect")) {
+            ids.append(relation.getFeedbackId());
+        }
+        // 获取反馈列表
+        auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, ids);
+        return fillFeedback(api, env, feedbacks);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetCollectFeedbackResp(resp); });
+}
+
+// 获取喜欢的反馈列表
+void APIProxy::getLikeFeedback(int offset, int limit)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, offset, limit]() {
+        API api(env.cachename);
+        QStringList ids;
+        for (auto relation : api.getFeedbackRelation(env.server, env.token, offset, limit, "like")) {
+            ids.append(relation.getFeedbackId());
+        }
+        // 获取反馈列表
+        auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, ids);
+        return fillFeedback(api, env, feedbacks);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetLikeFeedbackResp(resp); });
+}
+
+void APIProxy::getFeedback(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id]() {
+        API api(env.cachename);
+        // 获取反馈列表
+        auto feedbacks = api.getFeedback(env.server, env.language, 0, 1, QStringList() << id);
+        return fillFeedback(api, env, feedbacks);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetLikeFeedbackResp(resp); });
+}
+
+// 获取喜欢的反馈列表
+void APIProxy::getUserFeedback(int offset, int limit, QString type)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, offset, limit, type]() {
+        API api(env.cachename);
+        // 获取用户自己的反馈
+        auto feedbacks = api.getUserFeedback(env.server, env.token, offset, limit, type);
+
+        QList<QString> ids;
+        for (auto feedback : feedbacks) {
+            ids.append(feedback.getPublicId());
+        }
+        QHash<QString, DHHandlers_PublicStatResponse> statMap;
+        for (auto stat : api.getFeedbackStat(env.server, ids)) {
+            statMap.insert(stat.getPublicId(), stat);
+        }
+
+        QJsonArray arr;
+        for (auto feedback : feedbacks) {
+            auto obj = feedback.asJsonObject();
+            auto stat = statMap[feedback.getPublicId()];
+            obj["view_count"] = stat.is_view_count_Set() ? stat.getViewCount() : 0;
+            obj["like_count"] = stat.is_like_count_Set() ? stat.getLikeCount() : 0;
+            obj["collect_count"] = stat.is_collect_count_Set() ? stat.getCollectCount() : 0;
+
+            QJsonArray screenshots;
+            for (auto screenshot : feedback.getScreenshots()) {
+                screenshots.append(env.server + "/api/v1/public/upload/" + screenshot);
+            }
+            obj["screenshots"] = screenshots;
+            arr.append(obj);
+        }
+        return arr;
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetUserFeedbackResp(resp); });
+}

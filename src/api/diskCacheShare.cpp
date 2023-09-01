@@ -23,7 +23,7 @@ QString DiskCacheShare::cacheDirectory() const
 
 void DiskCacheShare::setCacheDirectory(const QString &cacheDir)
 {
-    qCDebug(logger) << "set cacheDirectory";
+    qCDebug(logger) << "set cacheDirectory" << cacheDir;
     m_cache->setCacheDirectory(cacheDir);
     // 初始化文件锁
     if (m_lock != nullptr) {

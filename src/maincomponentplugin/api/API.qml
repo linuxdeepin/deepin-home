@@ -58,7 +58,7 @@ Item {
         xhr.open(method, url)
         // 调用用户接口时，在 header 添加用户 token
         if(rawUrl.startsWith("/api/v1/user")) {
-            xhr.setRequestHeader("Authentication", "Bearer " + token)
+            xhr.setRequestHeader("Authorization", "Bearer " + token)
         }
         if(body){
             xhr.send(JSON.stringify(body))

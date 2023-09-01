@@ -16,6 +16,9 @@ add_library(${PROJECT_NAME}
   DHHandlers_ClientLoginResponse.h
   DHHandlers_ClientMessagesResponse.h
   DHHandlers_ClientUserInfoResponse.h
+  DHHandlers_FeedbackPublicListResponse.h
+  DHHandlers_FeedbackUserListResponse.h
+  DHHandlers_FeedbackUserRelationListResponse.h
   DHHandlers_LanguageCodeResponse.h
   DHHandlers_LoginConfigResponse.h
   DHHandlers_NodeSelectResponse.h
@@ -40,6 +43,9 @@ add_library(${PROJECT_NAME}
   DHHandlers_ClientLoginResponse.cpp
   DHHandlers_ClientMessagesResponse.cpp
   DHHandlers_ClientUserInfoResponse.cpp
+  DHHandlers_FeedbackPublicListResponse.cpp
+  DHHandlers_FeedbackUserListResponse.cpp
+  DHHandlers_FeedbackUserRelationListResponse.cpp
   DHHandlers_LanguageCodeResponse.cpp
   DHHandlers_LoginConfigResponse.cpp
   DHHandlers_NodeSelectResponse.cpp

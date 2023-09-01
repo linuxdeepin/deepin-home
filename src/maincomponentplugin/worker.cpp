@@ -15,7 +15,14 @@ Worker::Worker(QObject *parent)
                                    this);
     // 绑定信号
     connect(m_daemon, &HomeDaemonProxy::exited, this, &Worker::exited);
-    connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, &Worker::userInfoChanged);
+    connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, [this] {
+        // 刷新token
+        if (this->isLogin()) {
+            this->m_token = "";
+            this->getToken();
+        }
+        emit this->userInfoChanged();
+    });
     connect(m_daemon, &HomeDaemonProxy::messageChanged, this, &Worker::messageChanged);
     connect(m_daemon, &HomeDaemonProxy::showMainWindow, this, &Worker::showMainWindow);
     // 为避免应用升级后接口不兼容，如果客户端和daemon版本不一致，重启一次daemon
@@ -106,7 +113,10 @@ QMap<QString, QVariant> Worker::getUserInfo()
 QString Worker::getToken()
 {
     qCDebug(this->logger) << "get token";
-
+    if (!m_token.isEmpty()) {
+        return m_token;
+    }
+    qCDebug(this->logger) << "get token from dbus";
     // 生成RSA密钥，v20的 libssl 不支持 EVP_RSA_gen 函数，所以改用 EVP_PKEY_keygen
     auto gctx = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, NULL);
     EVP_PKEY_keygen_init(gctx);
@@ -145,6 +155,7 @@ QString Worker::getToken()
     // 释放资源
     EVP_PKEY_CTX_free(dctx);
     EVP_PKEY_free(pkey);
+    m_token = token;
     return token;
 }
 

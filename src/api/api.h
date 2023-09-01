@@ -35,6 +35,10 @@ private:
     QNetworkAccessManager *m_http;
     void init();
 
+    template<typename T, typename Func1, typename Func2>
+    T waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender,
+                 Func1 signal,
+                 Func2 errSignal);
 public:
     explicit API(QObject *parent = nullptr);
     explicit API(QString cacheName, QObject *parent = nullptr);
@@ -52,11 +56,35 @@ public:
     DHHandlers_BBSURLResponse getForumURL(QString server, QString code);
     DHHandlers_ClientLoginResponse getClientToken(QString server, QString code);
     DHHandlers_ClientUserInfoResponse getLoginInfo(QString server, QString token);
-    QSharedPointer<DHClientApi> getClient(QString server);
-    template<typename T, typename Func1, typename Func2>
-    T waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender,
-                 Func1 signal,
-                 Func2 errSignal);
+    QSharedPointer<DHClientApi> getClient(QString server, QString token = "");
+    QList<DHHandlers_FeedbackPublicListResponse> getFeedback(
+        const QString &server,
+        const QString &language,
+        const int &offset,
+        const int &limit,
+        const QString &type,
+        const OptionalParam<QString> &status = OptionalParam<QString>());
+    QList<DHHandlers_FeedbackPublicListResponse> getFeedback(const QString &server,
+                                                             const QString &language,
+                                                             const int &offset,
+                                                             const int &limit,
+                                                             const QStringList publicID);
+    QList<DeepinHomeAPI::DHHandlers_PublicStatResponse> getFeedbackStat(const QString &server,
+                                                                        const QStringList &publicID);
+    QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> getFeedbackRelation(
+        const QString &server, const QString &token, int offset, int limit, const QString &relation);
+    QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> getFeedbackRelation(
+        const QString &server,
+        const QString &token,
+        int offset,
+        int limit,
+        const QStringList &publicID,
+        const QStringList &relation);
+    QList<DeepinHomeAPI::DHHandlers_FeedbackUserListResponse> getUserFeedback(const QString &server,
+                                                                              const QString &token,
+                                                                              const int &offset,
+                                                                              const int &limit,
+                                                                              QString type);
 };
 
 #endif // DEEPIN_HOME_API_H

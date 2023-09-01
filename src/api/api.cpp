@@ -78,14 +78,104 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
 }
 
 // 获取客户端实例，暂时先共用同一个实例，之后会根据server初始化多个实例
-QSharedPointer<DHClientApi> API::getClient(QString server)
+QSharedPointer<DHClientApi> API::getClient(QString server, QString token)
 {
     auto client = QSharedPointer<DHClientApi>(new DHClientApi());
     client->setParent(this);
     client->setNetworkAccessManager(m_http);
     client->setNewServerForAllOperations(server + "/api/v1");
     client->addHeaders("User-Agent", QString("DeepinHomeClient/%1").arg(APP_VERSION));
+    if (!token.isEmpty()) {
+        client->setApiKey("Authorization", "Bearer " + token);
+    }
     return client;
+}
+
+// 获取反馈
+QList<DHHandlers_FeedbackPublicListResponse> API::getFeedback(const QString &server,
+                                                              const QString &language,
+                                                              const int &offset,
+                                                              const int &limit,
+                                                              const QString &type,
+                                                              const OptionalParam<QString> &status)
+{
+    auto client = getClient(server);
+    client->getFeedback(language, offset, limit, type, status);
+    return waitSignal<QList<DHHandlers_FeedbackPublicListResponse>>(
+        client.data(), &DHClientApi::getFeedbackSignalFull, &DHClientApi::getFeedbackSignalEFull);
+}
+
+// 根据public id获取反馈
+QList<DHHandlers_FeedbackPublicListResponse> API::getFeedback(const QString &server,
+                                                              const QString &language,
+                                                              const int &offset,
+                                                              const int &limit,
+                                                              const QStringList publicID)
+{
+    auto client = getClient(server);
+    client->getFeedback(language,
+                        offset,
+                        limit,
+                        OptionalParam<QString>(),
+                        OptionalParam<QString>(),
+                        publicID);
+    return waitSignal<QList<DHHandlers_FeedbackPublicListResponse>>(
+        client.data(), &DHClientApi::getFeedbackSignalFull, &DHClientApi::getFeedbackSignalEFull);
+}
+
+// 获取反馈的统计信息
+QList<DeepinHomeAPI::DHHandlers_PublicStatResponse> API::getFeedbackStat(const QString &server,
+                                                                         const QStringList &publicID)
+{
+    auto client = getClient(server);
+    client->getFeedbackStat(publicID);
+    return waitSignal<QList<DeepinHomeAPI::DHHandlers_PublicStatResponse>>(
+        client.data(),
+        &DHClientApi::getFeedbackStatSignalFull,
+        &DHClientApi::getFeedbackStatSignalEFull);
+}
+
+QList<DeepinHomeAPI::DHHandlers_FeedbackUserListResponse> API::getUserFeedback(
+    const QString &server, const QString &token, const int &offset, const int &limit, QString type)
+{
+    auto client = getClient(server, token);
+    client->getUserFeedback(offset, limit, type);
+    return waitSignal<QList<DeepinHomeAPI::DHHandlers_FeedbackUserListResponse>>(
+        client.data(),
+        &DHClientApi::getUserFeedbackSignalFull,
+        &DHClientApi::getUserFeedbackSignalEFull);
+}
+
+// 获取和用户有关联的反馈
+QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedbackRelation(
+    const QString &server, const QString &token, int offset, int limit, const QString &relation)
+{
+    auto client = getClient(server, token);
+    client->getFeedbackRelation(offset,
+                                limit,
+                                OptionalParam<QList<QString>>(),
+                                QStringList(relation));
+    return waitSignal<QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse>>(
+        client.data(),
+        &DHClientApi::getFeedbackRelationSignalFull,
+        &DHClientApi::getFeedbackRelationSignalEFull);
+}
+
+// 获取用户和反馈的关联关系
+QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedbackRelation(
+    const QString &server,
+    const QString &token,
+    int offset,
+    int limit,
+    const QStringList &publicID,
+    const QStringList &relation)
+{
+    auto client = getClient(server, token);
+    client->getFeedbackRelation(offset, limit, publicID, relation);
+    return waitSignal<QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse>>(
+        client.data(),
+        &DHClientApi::getFeedbackRelationSignalFull,
+        &DHClientApi::getFeedbackRelationSignalEFull);
 }
 
 // 从服务器获取语言映射
@@ -97,6 +187,7 @@ DHHandlers_LanguageCodeResponse API::getLanguage(QString server)
                                                        &DHClientApi::getLanguageCodeSignalFull,
                                                        &DHClientApi::getLanguageCodeSignalEFull);
 }
+
 // 获取分发节点和消息渠道列表
 DHHandlers_NodeSelectResponse API::getNode(QString server, QString machineID)
 {
@@ -165,8 +256,7 @@ DHHandlers_ClientLoginResponse API::getClientToken(QString server, QString code)
 // 获取当前登陆用户的信息
 DHHandlers_ClientUserInfoResponse API::getLoginInfo(QString server, QString token)
 {
-    auto client = getClient(server);
-    client->setApiKey("Authorization", "Bearer " + token);
+    auto client = getClient(server, token);
     client->getLoginInfo();
     return waitSignal<DHHandlers_ClientUserInfoResponse>(client.data(),
                                                          &DHClientApi::getLoginInfoSignalFull,

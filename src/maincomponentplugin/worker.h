@@ -29,6 +29,7 @@ class Worker : public QObject
 {
     Q_OBJECT
 private:
+    QString m_token = "";
     HomeDaemonProxy *m_daemon;
     QLoggingCategory logger = QLoggingCategory("worker");
     QString previewImageDir = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation)
