@@ -60,6 +60,7 @@ void Account::authorized(QString code, QString state)
     }
     // 客户端登陆
     if (state == "home") {
+        m_logging = false;
         auto resp = m_api->getClientToken(m_server, code);
         m_token = resp.getToken();
         m_isLogin = true;
@@ -105,7 +106,12 @@ bool Account::isLogin()
 // 客户端自己的登陆
 void Account::clientLogin()
 {
+    if (m_logging) {
+        qCDebug(logger) << "client loggging in";
+        return;
+    }
     qCDebug(logger) << "client login";
+    m_logging = true;
     // 已登录，则先获取code，再用code获取自动登录的论坛地址
     auto opt = m_api->getLoginOption(m_server);
     // 注册登录回调接口

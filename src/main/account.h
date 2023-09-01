@@ -25,6 +25,7 @@ class Account : public QObject
     Q_OBJECT
 private:
     bool m_isLogin = false;
+    bool m_logging = false;
     QString m_server;
     QString m_token;
     API *m_api;
