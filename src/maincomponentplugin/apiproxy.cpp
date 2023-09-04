@@ -150,7 +150,6 @@ QJsonArray fillFeedback(API &api,
     // 获取反馈关联关系
     QHash<QString, DHHandlers_FeedbackUserRelationListResponse> relationMap;
     if (env.isLogin) {
-        qDebug() << env.isLogin << env.token;
         for (auto relation : api.getFeedbackRelation(env.server,
                                                      env.token,
                                                      0,

@@ -17,6 +17,21 @@
     </message>
 </context>
 <context>
+    <name>APIProxy</name>
+    <message>
+        <source>You have been making too many requests, Please try again later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You need to login to proceed with the subsequent operations.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network error, please try later.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>

@@ -1,6 +1,6 @@
 #!/bin/bash
 # deepin-home 翻译文本生成
-lupdate src/maincomponentplugin/**/*.qml src/preloadplugin/*.qml  -ts translations/deepin-home.ts
+lupdate src/maincomponentplugin/*.cpp src/maincomponentplugin/**/*.qml src/preloadplugin/*.qml  -ts translations/deepin-home.ts
 # deepin-home-daemon 翻译文本生成
 lupdate src/main/*.cpp -ts translations/deepin-home-daemon.ts
 # deepin-home.desktop 翻译文本生成

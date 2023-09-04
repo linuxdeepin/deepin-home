@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     QDBusConnection dbus = QDBusConnection::sessionBus();
     if (!dbus.registerService("com.deepin.Home")) {
         activeMainWindows();
-        qDebug() << "DBus Error: register com.deepin.Home";
+        qDebug() << "Register DBus Error" << dbus.lastError().message();
         return -1;
     }
 // 兼容旧版本 DtkDeclarative
