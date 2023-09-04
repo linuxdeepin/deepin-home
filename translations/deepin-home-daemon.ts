@@ -24,7 +24,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="309"/>
+        <location filename="../src/main/homeDaemon.cpp" line="315"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>

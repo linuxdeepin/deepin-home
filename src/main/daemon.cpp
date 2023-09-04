@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     QDBusConnection dbus = QDBusConnection::sessionBus();
     if (!dbus.registerService(DEEPIN_HOME_DAEMON_SERVICE)) {
-        qDebug() << "DBus Error" << dbus.lastError().message();
+        qDebug() << "Register DBus Error" << dbus.lastError().message();
         return -1;
     }
     QTranslator translator;
