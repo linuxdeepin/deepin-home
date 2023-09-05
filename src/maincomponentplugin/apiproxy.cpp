@@ -26,18 +26,18 @@ void APIProxy::componentComplete()
     qCDebug(logger) << "apiproxy component complete";
     auto context = qmlContext(this);
     m_worker = context->contextProperty("worker").value<Worker *>();
-    env.cachename = "http_cache";
-    env.server = m_worker->getNode();
-    env.language = m_worker->getLanguage();
-    env.isLogin = m_worker->isLogin();
-    if (env.isLogin) {
-        env.token = m_worker->getToken();
+    m_env.cachename = "http_cache";
+    m_env.server = m_worker->getNode();
+    m_env.language = m_worker->getLanguage();
+    m_env.isLogin = m_worker->isLogin();
+    if (m_env.isLogin) {
+        m_env.token = m_worker->getToken();
     }
     // 用户变动时刷新token
     connect(m_worker, &Worker::userInfoChanged, this, [this] {
-        env.isLogin = m_worker->isLogin();
-        if (env.isLogin) {
-            env.token = m_worker->getToken();
+        m_env.isLogin = m_worker->isLogin();
+        if (m_env.isLogin) {
+            m_env.token = m_worker->getToken();
         }
     });
 }
@@ -51,7 +51,7 @@ void APIProxy::desktopNotify(QString title, QString message = "")
 // 获取当前环境
 const Env APIProxy::getEnv()
 {
-    return env;
+    return m_env;
 }
 
 // 等待future完成后匿名函数，统一处理异常
@@ -184,7 +184,7 @@ QJsonArray fillFeedback(API &api,
 }
 
 // 获取需求广场的列表
-void APIProxy::getFeedback(int offset, int limit, QString type)
+void APIProxy::allFeedback(int offset, int limit, QString type)
 {
     auto env = getEnv();
     auto future = QtConcurrent::run([env, offset, limit, type]() {
@@ -193,7 +193,71 @@ void APIProxy::getFeedback(int offset, int limit, QString type)
         auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, type);
         return fillFeedback(api, env, feedbacks);
     });
-    waitFuture(future, [this](auto resp) { emit this->signalGetFeedbackResp(resp); });
+    waitFuture(future, [this](auto resp) { emit this->signalAllFeedbackResp(resp); });
+}
+
+// 获取单个反馈
+void APIProxy::getFeedback(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id]() {
+        API api(env.cachename);
+        // 获取反馈列表
+        auto feedbacks = api.getFeedback(env.server, env.language, 0, 1, QStringList() << id);
+        if (feedbacks.length()) {
+            auto arr = fillFeedback(api, env, feedbacks);
+            return arr.first().toObject();
+        }
+        return QJsonObject();
+    });
+    waitFuture(future, [this](QJsonObject resp) {
+        if (resp.isEmpty()) {
+            emit this->signalAPIError(601, "notfound", "not found feedback");
+            return;
+        }
+        emit this->signalGetFeedbackResp(resp);
+    });
+}
+
+void APIProxy::getFeedbackReply(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id] {
+        API api(env.cachename);
+        auto resp = api.getFeedbackReply(env.server, id);
+        return resp;
+    });
+    waitFuture(future, [this](QList<DeepinHomeAPI::DHHandlers_PublicReplyResponse> resp) {
+        if (resp.length() == 0) {
+            emit this->signalAPIError(601, "notfound", "not found reply");
+            return;
+        }
+        emit this->signalGetFeedbackReplyResp(resp.first().asJsonObject());
+    });
+}
+
+// 收藏一个反馈
+void APIProxy::collectFeedback(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id] {
+        API api(env.cachename);
+        api.createUserFeedbackRelation(env.server, env.token, id, "collect");
+        return id;
+    });
+    waitFuture(future, [this](auto id) { emit this->signalFeedbackChange(id); });
+}
+
+// 取消收藏一个反馈
+void APIProxy::cancelCollectFeedback(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id] {
+        API api(env.cachename);
+        api.removeUserFeedbackRelation(env.server, env.token, id, "collect");
+        return "";
+    });
+    waitFuture(future, [this](auto id) { emit this->signalFeedbackChange(id); });
 }
 
 // 获取收藏的反馈列表
@@ -214,6 +278,46 @@ void APIProxy::getCollectFeedback(int offset, int limit)
     waitFuture(future, [this](auto resp) { emit this->signalGetCollectFeedbackResp(resp); });
 }
 
+// 用户查看一个反馈
+void APIProxy::viewFeedback(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id] {
+        API api(env.cachename);
+        api.addFeedbackView(env.server, id);
+        // 记录用户查看历史
+        if (env.isLogin) {
+            api.createUserFeedbackRelation(env.server, env.token, id, "view");
+        }
+        return id;
+    });
+    waitFuture(future, [this](auto id) { emit this->signalFeedbackChange(id); });
+}
+
+// 喜欢一个反馈
+void APIProxy::likeFeedback(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id] {
+        API api(env.cachename);
+        api.createUserFeedbackRelation(env.server, env.token, id, "like");
+        return id;
+    });
+    waitFuture(future, [this](auto id) { emit this->signalFeedbackChange(id); });
+}
+
+// 取消喜欢一个反馈
+void APIProxy::cancelLikeFeedback(QString id)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, id] {
+        API api(env.cachename);
+        api.removeUserFeedbackRelation(env.server, env.token, id, "like");
+        return id;
+    });
+    waitFuture(future, [this](auto id) { emit this->signalFeedbackChange(id); });
+}
+
 // 获取喜欢的反馈列表
 void APIProxy::getLikeFeedback(int offset, int limit)
 {
@@ -231,19 +335,7 @@ void APIProxy::getLikeFeedback(int offset, int limit)
     waitFuture(future, [this](auto resp) { emit this->signalGetLikeFeedbackResp(resp); });
 }
 
-void APIProxy::getFeedback(QString id)
-{
-    auto env = getEnv();
-    auto future = QtConcurrent::run([env, id]() {
-        API api(env.cachename);
-        // 获取反馈列表
-        auto feedbacks = api.getFeedback(env.server, env.language, 0, 1, QStringList() << id);
-        return fillFeedback(api, env, feedbacks);
-    });
-    waitFuture(future, [this](auto resp) { emit this->signalGetLikeFeedbackResp(resp); });
-}
-
-// 获取喜欢的反馈列表
+// 获取创建的反馈列表
 void APIProxy::getUserFeedback(int offset, int limit, QString type)
 {
     auto env = getEnv();

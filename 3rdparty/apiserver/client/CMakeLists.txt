@@ -22,9 +22,12 @@ add_library(${PROJECT_NAME}
   DHHandlers_LanguageCodeResponse.h
   DHHandlers_LoginConfigResponse.h
   DHHandlers_NodeSelectResponse.h
+  DHHandlers_PublicReplyResponse.h
   DHHandlers_PublicStatResponse.h
   DHHandlers_PublicTopicsResponse.h
+  DHHandlers_PublicViewResponse.h
   DHHandlers_Topic.h
+  DHHandlers_UserRelationResposne.h
   DHClientApi.h
   DHUserApi.h
   DHHelpers.h
@@ -49,9 +52,12 @@ add_library(${PROJECT_NAME}
   DHHandlers_LanguageCodeResponse.cpp
   DHHandlers_LoginConfigResponse.cpp
   DHHandlers_NodeSelectResponse.cpp
+  DHHandlers_PublicReplyResponse.cpp
   DHHandlers_PublicStatResponse.cpp
   DHHandlers_PublicTopicsResponse.cpp
+  DHHandlers_PublicViewResponse.cpp
   DHHandlers_Topic.cpp
+  DHHandlers_UserRelationResposne.cpp
   DHClientApi.cpp
   DHUserApi.cpp
   DHHelpers.cpp

@@ -146,6 +146,54 @@ QList<DeepinHomeAPI::DHHandlers_FeedbackUserListResponse> API::getUserFeedback(
         &DHClientApi::getUserFeedbackSignalEFull);
 }
 
+// 创建用户和反馈的关联关系
+void API::createUserFeedbackRelation(const QString &server,
+                                     const QString &token,
+                                     const QString &feedback_id,
+                                     const QString &relation)
+{
+    auto client = getClient(server, token);
+    client->createFeedbackRelation(feedback_id, relation);
+    waitSignal<DHHandlers_UserRelationResposne>(client.data(),
+                                                &DHClientApi::createFeedbackRelationSignalFull,
+                                                &DHClientApi::createFeedbackRelationSignalEFull);
+}
+
+// 移除用户和反馈的关联关系
+void API::removeUserFeedbackRelation(const QString &server,
+                                     const QString &token,
+                                     const QString &feedback_id,
+                                     const QString &relation)
+{
+    auto client = getClient(server, token);
+    client->removeFeedbackRelation(feedback_id, relation);
+    waitSignal<DHHandlers_UserRelationResposne>(client.data(),
+                                                &DHClientApi::removeFeedbackRelationSignalFull,
+                                                &DHClientApi::removeFeedbackRelationSignalEFull);
+}
+
+// 增加反馈的查看次数
+void API::addFeedbackView(const QString &server, const QString &feedback_id)
+{
+    auto client = getClient(server);
+    client->addFeedbackView(feedback_id);
+    waitSignal<DHHandlers_PublicViewResponse>(client.data(),
+                                              &DHClientApi::addFeedbackViewSignalFull,
+                                              &DHClientApi::addFeedbackViewSignalEFull);
+}
+
+// 查看反馈的回复
+QList<DHHandlers_PublicReplyResponse> API::getFeedbackReply(const QString &server,
+                                                            const QString &feedback_id)
+{
+    auto client = getClient(server);
+    client->getFeedbackReply(feedback_id);
+    return waitSignal<QList<DHHandlers_PublicReplyResponse>>(
+        client.data(),
+        &DHClientApi::getFeedbackReplySignalFull,
+        &DHClientApi::getFeedbackReplySignalEFull);
+}
+
 // 获取和用户有关联的反馈
 QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedbackRelation(
     const QString &server, const QString &token, int offset, int limit, const QString &relation)

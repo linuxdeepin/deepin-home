@@ -30,14 +30,9 @@ Item {
     property bool hasMore: true
     // 是否正在“加载更多”
     property bool loadMore: false
-    // 记录请求ID，避免信号干扰
-    property string reqID: ''
 
     function goDetail(feedback) {
-        API.publicViewFeedback(feedback.public_id);
-        if (API.isLogin)
-            API.userViewFeedback(feedback.public_id);
-
+        api.viewFeedback(feedback.public_id);
         Router.showFeedbackDetail(feedback);
     }
 
@@ -49,13 +44,6 @@ Item {
             root.hasMore = true;
             feedbackList.clear();
         }
-        root.reqID = API.genUUID();
-        const opt = {
-            "offset": root.offset,
-            "limit": root.limit,
-            "relation": root.relation,
-            "type": root.type
-        };
         switch (root.relation) {
         case "create":
             api.getUserFeedback(root.offset, root.limit, root.type);
@@ -70,29 +58,13 @@ Item {
             break;
         case "":
             // 获取反馈广场
-            api.getFeedback(root.offset, root.limit, root.type);
+            api.allFeedback(root.offset, root.limit, root.type);
             break;
         }
     }
 
-    function listResult(feedbacks) {
-        console.log("onSignalGetFeedbackResp");
-        root.offset += root.limit;
-        // 返回的条数小于要求的条数，则不再显示“加载更多”按钮
-        if (feedbacks.length != root.limit)
-            root.hasMore = false;
-
-        for (const feedback of feedbacks) {
-            feedbackList.append({
-                "feedback": feedback
-            });
-        }
-        root.loadMore = false;
-        root.initing = false;
-    }
-
     Component.onCompleted: {
-        Qt.callLater(getList, true);
+        getList(true);
     }
 
     ListModel {
@@ -102,7 +74,23 @@ Item {
     APIProxy {
         id: api
 
-        onSignalGetFeedbackResp: (feedbacks) => {
+        // 列表加载完成后进行处理
+        function listResult(feedbacks) {
+            root.offset += root.limit;
+            // 返回的条数小于要求的条数，则不再显示“加载更多”按钮
+            if (feedbacks.length != root.limit)
+                root.hasMore = false;
+
+            for (const feedback of feedbacks) {
+                feedbackList.append({
+                    "feedback": feedback
+                });
+            }
+            root.loadMore = false;
+            root.initing = false;
+        }
+
+        onSignalAllFeedbackResp: (feedbacks) => {
             console.log("onSignalGetFeedbackResp");
             listResult(feedbacks);
         }
@@ -117,6 +105,12 @@ Item {
         onSignalGetUserFeedbackResp: (feedbacks) => {
             console.log("onSignalGetCollectFeedbackResp");
             listResult(feedbacks);
+        }
+        onSignalFeedbackChange: (id) => {
+            console.log("onSignalFeedbackChange");
+            api.getFeedback(feedbackList.get(index).feedback.public_id);
+        }
+        onSignalGetFeedbackResp: (feedback) => {
         }
         onSignalAPIError: {
             root.loadMore = false;
@@ -180,99 +174,141 @@ Item {
 
     }
 
+    // 反馈列表
     ScrollView {
         // 给分类下拉框留空
         y: root.typeFilter ? headerRect.height - 10 : 10
         width: parent.width
-        height: parent.height - y - 10
+        height: parent.height - y
         clip: true
         ScrollBar.vertical.onPositionChanged: () => {
             const position = ScrollBar.vertical.position + ScrollBar.vertical.size;
             if (position > 0.98 && !root.loadMore && root.hasMore) {
                 root.loadMore = true;
-                console.log("loading");
-                timer.start();
+                timer.restart();
             }
         }
 
-        ListView {
-            id: listView
-
+        ColumnLayout {
+            x: 20
+            y: 10
+            width: parent.width - x * 2
             spacing: 10
-            model: feedbackList
 
-            delegate: Item {
-                x: 20
-                width: listView.width - x * 2
-                height: card.height + card.y + (index == feedbackList.count - 1 ? 20 : 0)
+            Repeater {
+                id: listView
 
-                Card {
-                    id: card
+                model: feedbackList
 
-                    y: index === 0 ? 10 : 0
-                    width: parent.width
-                    public_id: feedback.public_id
-                    title: feedback.title
-                    content: feedback.content
-                    type: feedback.type
-                    status: feedback.status
-                    created_at: feedback.created_at
-                    like: feedback.like || false
-                    collect: feedback.collect || false
-                    screenshots: feedback.screenshots
-                    system_version: feedback.system_version || ""
-                    avatar: feedback.avatar
-                    view_count: feedback.view_count
-                    like_count: feedback.like_count
-                    collect_count: feedback.collect_count
-                    // 点击标题时，进入详情
-                    onTitleClicked: {
-                        const value = feedback;
-                        value.like = card.like;
-                        value.collect = card.collect;
-                        root.goDetail(value);
-                    }
-                    // 点赞按钮点击
-                    onLikeClicked: {
-                        if (!API.isLogin) {
-                            API.login();
-                            return ;
+                delegate: Item {
+                    required property int index
+                    required property var feedback
+
+                    Layout.fillWidth: true
+                    height: card.height
+
+                    Card {
+                        id: card
+
+                        width: parent.width
+                        public_id: feedback.public_id
+                        title: feedback.title
+                        content: feedback.content
+                        type: feedback.type
+                        status: feedback.status
+                        created_at: feedback.created_at
+                        like: feedback.like || false
+                        collect: feedback.collect || false
+                        screenshots: feedback.screenshots
+                        system_version: feedback.system_version || ""
+                        avatar: feedback.avatar
+                        view_count: feedback.view_count
+                        like_count: feedback.like_count
+                        collect_count: feedback.collect_count
+                        // 点击标题时，进入详情
+                        onTitleClicked: {
+                            const value = feedback;
+                            value.like = card.like;
+                            value.collect = card.collect;
+                            root.goDetail(value);
                         }
-                        const callback = () => {
-                            if (card.like)
+                        // 点赞按钮点击
+                        onLikeClicked: {
+                            if (!API.isLogin) {
+                                API.login();
+                                return ;
+                            }
+                            if (card.like) {
+                                card.like = false;
                                 card.like_count--;
-                            else
+                                debounceTimer.callback = () => {
+                                    api.cancelLikeFeedback(feedback.public_id);
+                                };
+                            } else {
+                                card.like = true;
                                 card.like_count++;
-                            card.like = !card.like;
-                        };
-                        if (card.like)
-                            API.cancelLikeFeedback(feedback.public_id, callback);
-                        else
-                            API.likeFeedback(feedback.public_id, callback);
-                    }
-                    onImageClicked: (img) => {
-                        console.log("preview screenshot", img);
-                        API.imagePreview(img);
-                    }
-                    // 收藏按钮点击
-                    onCollectClicked: {
-                        if (!API.isLogin) {
-                            API.login();
-                            return ;
+                                debounceTimer.callback = () => {
+                                    api.likeFeedback(feedback.public_id);
+                                };
+                            }
+                            debounceTimer.restart();
                         }
-                        // 点击可以收藏和取消收藏
-                        const callback = () => {
-                            if (card.collect)
+                        // 收藏按钮点击
+                        onCollectClicked: {
+                            if (!API.isLogin) {
+                                API.login();
+                                return ;
+                            }
+                            if (card.collect) {
+                                card.collect = false;
                                 card.collect_count--;
-                            else
+                                debounceTimer.callback = () => {
+                                    api.cancelCollectFeedback(feedback.public_id);
+                                };
+                            } else {
+                                card.collect = true;
                                 card.collect_count++;
-                            card.collect = !card.collect;
-                        };
-                        if (card.collect)
-                            API.cancelCollectFeedback(feedback.public_id, callback);
-                        else
-                            API.collectFeedback(feedback.public_id, callback);
+                                debounceTimer.callback = () => {
+                                    api.collectFeedback(feedback.public_id);
+                                };
+                            }
+                            debounceTimer.restart();
+                        }
+                        onImageClicked: (img) => {
+                            console.log("preview screenshot", img);
+                            API.imagePreview(img);
+                        }
+
+                        // 节流定时器
+                        Timer {
+                            id: debounceTimer
+
+                            property var callback: () => {
+                            }
+
+                            interval: 300
+                            repeat: false
+                            onTriggered: {
+                                callback();
+                            }
+                        }
+
                     }
+
+                }
+
+            }
+
+            // 没有更多反馈了
+            Rectangle {
+                visible: !hasMore && feedbackList.count > root.limit
+                Layout.fillWidth: true
+                height: 35
+
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: Qt.rgba(0, 0, 0, 0.6)
+                    text: qsTr("No more items")
                 }
 
             }
@@ -281,17 +317,18 @@ Item {
 
     }
 
+    // 加载更多反馈
     Timer {
         id: timer
 
         interval: 1000
         repeat: false
         onTriggered: {
-            console.log("timer trigger");
-            Qt.callLater(getList, false);
+            getList(false);
         }
     }
 
+    // 加载更多动画
     BusyIndicator {
         id: indicator
 
@@ -303,15 +340,15 @@ Item {
         width: 16
         height: 16
     }
-    // 没有反馈数据时，显示提示
 
+    // 没有反馈数据时，提示空列表
     NotFound {
         visible: feedbackList.count === 0
         anchors.centerIn: parent
         title: ""
     }
-    // 只在需求广场显示的“提交反馈”的按钮，点击后弹出提交反馈的对话框
 
+    // 只在需求广场显示的“提交反馈”的按钮，点击后弹出提交反馈的对话框
     FloatingButton {
         id: submitButton
 
@@ -331,6 +368,7 @@ Item {
         }
     }
 
+    // 提交反馈
     Loader {
         id: submitLoader
 
@@ -346,6 +384,7 @@ Item {
 
     }
 
+    // 初始化加载
     Rectangle {
         visible: initing
         anchors.fill: root
