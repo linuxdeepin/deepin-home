@@ -85,6 +85,17 @@ public:
                                                                               const int &offset,
                                                                               const int &limit,
                                                                               QString type);
+    void createUserFeedbackRelation(const QString &server,
+                                    const QString &token,
+                                    const QString &feedback_id,
+                                    const QString &relation);
+    void removeUserFeedbackRelation(const QString &server,
+                                    const QString &token,
+                                    const QString &feedback_id,
+                                    const QString &relation);
+    void addFeedbackView(const QString &server, const QString &feedback_id);
+    QList<DHHandlers_PublicReplyResponse> getFeedbackReply(const QString &server,
+                                                           const QString &feedback_id);
 };
 
 #endif // DEEPIN_HOME_API_H

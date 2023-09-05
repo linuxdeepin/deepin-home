@@ -27,7 +27,7 @@ class APIProxy : public QObject, public QQmlParserStatus
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)
 private:
-    Env env;
+    Env m_env;
     Worker *m_worker = nullptr;
     QLoggingCategory logger = QLoggingCategory("apiproxy");
 
@@ -45,21 +45,30 @@ private:
 public slots:
     void getNotify();
     void getQuestionnaire();
-    void getFeedback(int offset, int limit, QString type);
+    void allFeedback(int offset, int limit, QString type);
     void getFeedback(QString id);
+    void getFeedbackReply(QString id);
     void getLikeFeedback(int offset, int limit);
     void getCollectFeedback(int offset, int limit);
     void getUserFeedback(int offset, int limit, QString type);
+    void viewFeedback(QString feedback_id);
+    void likeFeedback(QString feedback_id);
+    void collectFeedback(QString feedback_id);
+    void cancelLikeFeedback(QString feedback_id);
+    void cancelCollectFeedback(QString feedback_id);
 
 signals:
     void signalUnknownError();
     void signalAPIError(int code, QString type, QString msg);
     void signalGetNotifyResp(QJsonArray resp);
     void signalGetQuestionnaireResp(QJsonArray resp);
-    void signalGetFeedbackResp(QJsonArray resp);
+    void signalAllFeedbackResp(QJsonArray resp);
+    void signalGetFeedbackResp(QJsonObject resp);
+    void signalGetFeedbackReplyResp(QJsonObject resp);
     void signalGetLikeFeedbackResp(QJsonArray resp);
     void signalGetCollectFeedbackResp(QJsonArray resp);
     void signalGetUserFeedbackResp(QJsonArray resp);
+    void signalFeedbackChange(QString feedback_id);
 };
 
 #endif // APIPROXY_H

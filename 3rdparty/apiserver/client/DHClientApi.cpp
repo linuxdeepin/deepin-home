@@ -36,8 +36,12 @@ void DHClientApi::initializeServerConfigs() {
     QUrl("//localhost:8888/api/v1"),
     "No description provided",
     QMap<QString, DHServerVariable>()));
+    _serverConfigs.insert("addFeedbackView", defaultConf);
+    _serverIndices.insert("addFeedbackView", 0);
     _serverConfigs.insert("clientLogin", defaultConf);
     _serverIndices.insert("clientLogin", 0);
+    _serverConfigs.insert("createFeedbackRelation", defaultConf);
+    _serverIndices.insert("createFeedbackRelation", 0);
     _serverConfigs.insert("getBBSToken", defaultConf);
     _serverIndices.insert("getBBSToken", 0);
     _serverConfigs.insert("getBBSURL", defaultConf);
@@ -46,6 +50,8 @@ void DHClientApi::initializeServerConfigs() {
     _serverIndices.insert("getFeedback", 0);
     _serverConfigs.insert("getFeedbackRelation", defaultConf);
     _serverIndices.insert("getFeedbackRelation", 0);
+    _serverConfigs.insert("getFeedbackReply", defaultConf);
+    _serverIndices.insert("getFeedbackReply", 0);
     _serverConfigs.insert("getFeedbackStat", defaultConf);
     _serverIndices.insert("getFeedbackStat", 0);
     _serverConfigs.insert("getLanguageCode", defaultConf);
@@ -62,6 +68,8 @@ void DHClientApi::initializeServerConfigs() {
     _serverIndices.insert("getTopics", 0);
     _serverConfigs.insert("getUserFeedback", defaultConf);
     _serverIndices.insert("getUserFeedback", 0);
+    _serverConfigs.insert("removeFeedbackRelation", defaultConf);
+    _serverIndices.insert("removeFeedbackRelation", 0);
 }
 
 /**
@@ -237,6 +245,69 @@ QString DHClientApi::getParamStyleDelimiter(const QString &style, const QString 
     }
 }
 
+void DHClientApi::addFeedbackView(const QString &id) {
+    QString fullPath = QString(_serverConfigs["addFeedbackView"][_serverIndices.value("addFeedbackView")].URL()+"/public/feedback/view/{id}");
+    
+    
+    {
+        QString idPathParam("{");
+        idPathParam.append("id").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "id", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"id"+pathSuffix : pathPrefix;
+        fullPath.replace(idPathParam, paramString+QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(id)));
+    }
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "POST");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::addFeedbackViewCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::addFeedbackViewCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    DHHandlers_PublicViewResponse output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit addFeedbackViewSignal(output);
+        emit addFeedbackViewSignalFull(worker, output);
+    } else {
+        emit addFeedbackViewSignalE(output, error_type, error_str);
+        emit addFeedbackViewSignalEFull(worker, error_type, error_str);
+    }
+}
+
 void DHClientApi::clientLogin(const DHHandlers_ClientLoginRequest &data) {
     QString fullPath = QString(_serverConfigs["clientLogin"][_serverIndices.value("clientLogin")].URL()+"/user/login");
     
@@ -288,6 +359,87 @@ void DHClientApi::clientLoginCallback(DHHttpRequestWorker *worker) {
     } else {
         emit clientLoginSignalE(output, error_type, error_str);
         emit clientLoginSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void DHClientApi::createFeedbackRelation(const QString &id, const QString &relation) {
+    QString fullPath = QString(_serverConfigs["createFeedbackRelation"][_serverIndices.value("createFeedbackRelation")].URL()+"/user/feedback/{id}/{relation}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString idPathParam("{");
+        idPathParam.append("id").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "id", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"id"+pathSuffix : pathPrefix;
+        fullPath.replace(idPathParam, paramString+QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(id)));
+    }
+    
+    {
+        QString relationPathParam("{");
+        relationPathParam.append("relation").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "relation", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"relation"+pathSuffix : pathPrefix;
+        fullPath.replace(relationPathParam, paramString+QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(relation)));
+    }
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "POST");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::createFeedbackRelationCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::createFeedbackRelationCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    DHHandlers_UserRelationResposne output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit createFeedbackRelationSignal(output);
+        emit createFeedbackRelationSignalFull(worker, output);
+    } else {
+        emit createFeedbackRelationSignalE(output, error_type, error_str);
+        emit createFeedbackRelationSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -878,6 +1030,80 @@ void DHClientApi::getFeedbackRelationCallback(DHHttpRequestWorker *worker) {
     } else {
         emit getFeedbackRelationSignalE(output, error_type, error_str);
         emit getFeedbackRelationSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void DHClientApi::getFeedbackReply(const QString &id) {
+    QString fullPath = QString(_serverConfigs["getFeedbackReply"][_serverIndices.value("getFeedbackReply")].URL()+"/public/feedback/reply");
+    
+    QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
+    
+    {
+        queryStyle = "";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "id", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("id")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(id)));
+    }
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::getFeedbackReplyCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::getFeedbackReplyCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    QList<DHHandlers_PublicReplyResponse> output;
+    QString json(worker->response);
+    QByteArray array(json.toStdString().c_str());
+    QJsonDocument doc = QJsonDocument::fromJson(array);
+    QJsonArray jsonArray = doc.array();
+    for (QJsonValue obj : jsonArray) {
+        DHHandlers_PublicReplyResponse val;
+        ::DeepinHomeAPI::fromJsonValue(val, obj);
+        output.append(val);
+    }
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit getFeedbackReplySignal(output);
+        emit getFeedbackReplySignalFull(worker, output);
+    } else {
+        emit getFeedbackReplySignalE(output, error_type, error_str);
+        emit getFeedbackReplySignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -1538,6 +1764,87 @@ void DHClientApi::getUserFeedbackCallback(DHHttpRequestWorker *worker) {
     } else {
         emit getUserFeedbackSignalE(output, error_type, error_str);
         emit getUserFeedbackSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void DHClientApi::removeFeedbackRelation(const QString &id, const QString &relation) {
+    QString fullPath = QString(_serverConfigs["removeFeedbackRelation"][_serverIndices.value("removeFeedbackRelation")].URL()+"/user/feedback/{id}/{relation}");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    
+    {
+        QString idPathParam("{");
+        idPathParam.append("id").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "id", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"id"+pathSuffix : pathPrefix;
+        fullPath.replace(idPathParam, paramString+QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(id)));
+    }
+    
+    {
+        QString relationPathParam("{");
+        relationPathParam.append("relation").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "relation", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"relation"+pathSuffix : pathPrefix;
+        fullPath.replace(relationPathParam, paramString+QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(relation)));
+    }
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "DELETE");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::removeFeedbackRelationCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::removeFeedbackRelationCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    DHHandlers_UserRelationResposne output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit removeFeedbackRelationSignal(output);
+        emit removeFeedbackRelationSignalFull(worker, output);
+    } else {
+        emit removeFeedbackRelationSignalE(output, error_type, error_str);
+        emit removeFeedbackRelationSignalEFull(worker, error_type, error_str);
     }
 }
 

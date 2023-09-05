@@ -33,7 +33,7 @@ using namespace test_namespace;
 
 class Example : public QObject {
     Q_OBJECT
-    DHHandlers_ClientLoginRequest create();
+    QString create();
 public slots:
    void exampleFunction1();
 };
@@ -48,8 +48,8 @@ example.cpp:
 #include <QTimer>
 #include <QEventLoop>
 
-DHHandlers_ClientLoginRequest Example::create(){
-    DHHandlers_ClientLoginRequest obj;
+QString Example::create(){
+    QString obj;
  return obj;
 }
 
@@ -57,16 +57,16 @@ void Example::exampleFunction1(){
      DHClientApi apiInstance;
      
       QEventLoop loop;
-      connect(&apiInstance, &DHClientApi::clientLoginSignal, [&]() {
+      connect(&apiInstance, &DHClientApi::addFeedbackViewSignal, [&]() {
           loop.quit();
       });
-      connect(&apiInstance, &DHClientApi::clientLoginSignalE, [&](QNetworkReply::NetworkError, QString error_str) {
+      connect(&apiInstance, &DHClientApi::addFeedbackViewSignalE, [&](QNetworkReply::NetworkError, QString error_str) {
           qDebug() << "Error happened while issuing request : " << error_str;
           loop.quit();
       });
 
-      DHHandlers_ClientLoginRequest data = create(); // DHHandlers_ClientLoginRequest | Request
-      apiInstance.clientLogin(data);
+      QString id = create(); // QString | 反馈记录的id
+      apiInstance.addFeedbackView(id);
       QTimer::singleShot(5000, &loop, &QEventLoop::quit);
       loop.exec();
   }

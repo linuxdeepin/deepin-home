@@ -32,8 +32,11 @@
 #include "DHHandlers_LanguageCodeResponse.h"
 #include "DHHandlers_LoginConfigResponse.h"
 #include "DHHandlers_NodeSelectResponse.h"
+#include "DHHandlers_PublicReplyResponse.h"
 #include "DHHandlers_PublicStatResponse.h"
 #include "DHHandlers_PublicTopicsResponse.h"
+#include "DHHandlers_PublicViewResponse.h"
+#include "DHHandlers_UserRelationResposne.h"
 #include <QString>
 
 #include <QObject>
@@ -73,9 +76,20 @@ public:
     QString getParamStyleDelimiter(const QString &style, const QString &name, bool isExplode);
 
     /**
+    * @param[in]  id QString [required]
+    */
+    void addFeedbackView(const QString &id);
+
+    /**
     * @param[in]  data DHHandlers_ClientLoginRequest [required]
     */
     void clientLogin(const DHHandlers_ClientLoginRequest &data);
+
+    /**
+    * @param[in]  id QString [required]
+    * @param[in]  relation QString [required]
+    */
+    void createFeedbackRelation(const QString &id, const QString &relation);
 
     /**
     * @param[in]  data DHHandlers_ClientBBSTokenRequest [required]
@@ -104,6 +118,11 @@ public:
     * @param[in]  relation QList<QString> [optional]
     */
     void getFeedbackRelation(const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &id = ::DeepinHomeAPI::OptionalParam<QList<QString>>(), const ::DeepinHomeAPI::OptionalParam<QList<QString>> &relation = ::DeepinHomeAPI::OptionalParam<QList<QString>>());
+
+    /**
+    * @param[in]  id QString [required]
+    */
+    void getFeedbackReply(const QString &id);
 
     /**
     * @param[in]  id QList<QString> [required]
@@ -146,6 +165,12 @@ public:
     */
     void getUserFeedback(const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QString> &status = ::DeepinHomeAPI::OptionalParam<QString>());
 
+    /**
+    * @param[in]  id QString [required]
+    * @param[in]  relation QString [required]
+    */
+    void removeFeedbackRelation(const QString &id, const QString &relation);
+
 
 private:
     QMap<QString,int> _serverIndices;
@@ -169,11 +194,14 @@ private:
     OauthPassword _passwordFlow;
     int _OauthMethod = 0;
 
+    void addFeedbackViewCallback(DHHttpRequestWorker *worker);
     void clientLoginCallback(DHHttpRequestWorker *worker);
+    void createFeedbackRelationCallback(DHHttpRequestWorker *worker);
     void getBBSTokenCallback(DHHttpRequestWorker *worker);
     void getBBSURLCallback(DHHttpRequestWorker *worker);
     void getFeedbackCallback(DHHttpRequestWorker *worker);
     void getFeedbackRelationCallback(DHHttpRequestWorker *worker);
+    void getFeedbackReplyCallback(DHHttpRequestWorker *worker);
     void getFeedbackStatCallback(DHHttpRequestWorker *worker);
     void getLanguageCodeCallback(DHHttpRequestWorker *worker);
     void getLoginConfigCallback(DHHttpRequestWorker *worker);
@@ -182,14 +210,18 @@ private:
     void getNodesCallback(DHHttpRequestWorker *worker);
     void getTopicsCallback(DHHttpRequestWorker *worker);
     void getUserFeedbackCallback(DHHttpRequestWorker *worker);
+    void removeFeedbackRelationCallback(DHHttpRequestWorker *worker);
 
 signals:
 
+    void addFeedbackViewSignal(DHHandlers_PublicViewResponse summary);
     void clientLoginSignal(DHHandlers_ClientLoginResponse summary);
+    void createFeedbackRelationSignal(DHHandlers_UserRelationResposne summary);
     void getBBSTokenSignal(DHHandlers_ClientBBSTokenResponse summary);
     void getBBSURLSignal(DHHandlers_BBSURLResponse summary);
     void getFeedbackSignal(QList<DHHandlers_FeedbackPublicListResponse> summary);
     void getFeedbackRelationSignal(QList<DHHandlers_FeedbackUserRelationListResponse> summary);
+    void getFeedbackReplySignal(QList<DHHandlers_PublicReplyResponse> summary);
     void getFeedbackStatSignal(QList<DHHandlers_PublicStatResponse> summary);
     void getLanguageCodeSignal(DHHandlers_LanguageCodeResponse summary);
     void getLoginConfigSignal(DHHandlers_LoginConfigResponse summary);
@@ -198,12 +230,16 @@ signals:
     void getNodesSignal(DHHandlers_NodeSelectResponse summary);
     void getTopicsSignal(DHHandlers_PublicTopicsResponse summary);
     void getUserFeedbackSignal(QList<DHHandlers_FeedbackUserListResponse> summary);
+    void removeFeedbackRelationSignal(DHHandlers_UserRelationResposne summary);
 
+    void addFeedbackViewSignalFull(DHHttpRequestWorker *worker, DHHandlers_PublicViewResponse summary);
     void clientLoginSignalFull(DHHttpRequestWorker *worker, DHHandlers_ClientLoginResponse summary);
+    void createFeedbackRelationSignalFull(DHHttpRequestWorker *worker, DHHandlers_UserRelationResposne summary);
     void getBBSTokenSignalFull(DHHttpRequestWorker *worker, DHHandlers_ClientBBSTokenResponse summary);
     void getBBSURLSignalFull(DHHttpRequestWorker *worker, DHHandlers_BBSURLResponse summary);
     void getFeedbackSignalFull(DHHttpRequestWorker *worker, QList<DHHandlers_FeedbackPublicListResponse> summary);
     void getFeedbackRelationSignalFull(DHHttpRequestWorker *worker, QList<DHHandlers_FeedbackUserRelationListResponse> summary);
+    void getFeedbackReplySignalFull(DHHttpRequestWorker *worker, QList<DHHandlers_PublicReplyResponse> summary);
     void getFeedbackStatSignalFull(DHHttpRequestWorker *worker, QList<DHHandlers_PublicStatResponse> summary);
     void getLanguageCodeSignalFull(DHHttpRequestWorker *worker, DHHandlers_LanguageCodeResponse summary);
     void getLoginConfigSignalFull(DHHttpRequestWorker *worker, DHHandlers_LoginConfigResponse summary);
@@ -212,12 +248,16 @@ signals:
     void getNodesSignalFull(DHHttpRequestWorker *worker, DHHandlers_NodeSelectResponse summary);
     void getTopicsSignalFull(DHHttpRequestWorker *worker, DHHandlers_PublicTopicsResponse summary);
     void getUserFeedbackSignalFull(DHHttpRequestWorker *worker, QList<DHHandlers_FeedbackUserListResponse> summary);
+    void removeFeedbackRelationSignalFull(DHHttpRequestWorker *worker, DHHandlers_UserRelationResposne summary);
 
+    void addFeedbackViewSignalE(DHHandlers_PublicViewResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void clientLoginSignalE(DHHandlers_ClientLoginResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void createFeedbackRelationSignalE(DHHandlers_UserRelationResposne summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSTokenSignalE(DHHandlers_ClientBBSTokenResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSURLSignalE(DHHandlers_BBSURLResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getFeedbackSignalE(QList<DHHandlers_FeedbackPublicListResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getFeedbackRelationSignalE(QList<DHHandlers_FeedbackUserRelationListResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getFeedbackReplySignalE(QList<DHHandlers_PublicReplyResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getFeedbackStatSignalE(QList<DHHandlers_PublicStatResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getLanguageCodeSignalE(DHHandlers_LanguageCodeResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getLoginConfigSignalE(DHHandlers_LoginConfigResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
@@ -226,12 +266,16 @@ signals:
     void getNodesSignalE(DHHandlers_NodeSelectResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getTopicsSignalE(DHHandlers_PublicTopicsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getUserFeedbackSignalE(QList<DHHandlers_FeedbackUserListResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void removeFeedbackRelationSignalE(DHHandlers_UserRelationResposne summary, QNetworkReply::NetworkError error_type, QString error_str);
 
+    void addFeedbackViewSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void clientLoginSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void createFeedbackRelationSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSTokenSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getBBSURLSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getFeedbackSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getFeedbackRelationSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getFeedbackReplySignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getFeedbackStatSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getLanguageCodeSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getLoginConfigSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
@@ -240,6 +284,7 @@ signals:
     void getNodesSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getTopicsSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getUserFeedbackSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void removeFeedbackRelationSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();
