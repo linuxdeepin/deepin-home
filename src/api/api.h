@@ -39,6 +39,7 @@ private:
     T waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *sender,
                  Func1 signal,
                  Func2 errSignal);
+
 public:
     explicit API(QObject *parent = nullptr);
     explicit API(QString cacheName, QObject *parent = nullptr);
@@ -96,6 +97,17 @@ public:
     void addFeedbackView(const QString &server, const QString &feedback_id);
     QList<DHHandlers_PublicReplyResponse> getFeedbackReply(const QString &server,
                                                            const QString &feedback_id);
+    QString uploadFile(const QString &server, const QString &token, const QString &filepath);
+    QString createFeedback(const QString &server,
+                           const QString &token,
+                           const QString &type,
+                           const QString &language,
+                           const QString &title,
+                           const QString &content,
+                           const QString &email,
+                           const QString &sysVersion,
+                           const QStringList &snapshots);
+    QString getSetting(const QString &server, const QString &settingKey);
 };
 
 #endif // DEEPIN_HOME_API_H

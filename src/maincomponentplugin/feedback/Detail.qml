@@ -13,8 +13,8 @@ import org.deepin.dtk 1.0
 Item {
     id: root
 
-    property var feedback
-    property var reply
+    required property var feedback
+    property var reply: null
 
     Component.onCompleted: {
         if (!feedback)

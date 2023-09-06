@@ -8,6 +8,7 @@ import QtQuick.Layouts 1.7
 import QtGraphicalEffects 1.0
 import org.deepin.dtk 1.0
 import QtQuick.Dialogs 1.0
+import APIProxy 1.0
 import "../api"
 import "../router"
 
@@ -41,7 +42,21 @@ Item {
             API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file format is not supported for uploading."))
             return
         }
-        imgListModel.append({"source": src})
+        api.uploadFile(src);
+    }
+    
+    APIProxy {
+        id: api
+
+        onSignalUploadFileResp: (filepath, uploadID) => {
+            imgListModel.append({"id": uploadID, "source": filepath})
+        }
+        onSignalCreateFeedbackResp: () => {
+            Router.showMyFeedback(true)
+        }
+        onSignalAPIError:(code, type, msg)=>{
+            console.log("submit feedback", code, type, msg)
+        }
     }
 
     DialogWindow {
@@ -441,35 +456,11 @@ Item {
                             return
                         }
                         let screenshots = []
-                        const submit = () => {
-                            API.createFeedback({
-                                type: bugType.checked ? "bug" : "req",
-                                language: API.language,
-                                title: titleText.text,
-                                content: contentText.text,
-                                email: emailText.text,
-                                version: versionText.text,
-                                screenshots: screenshots,
-                            }, () => {
-                                Router.showMyFeedback(true)
-                            })
-                        }
-                        if(root.imgListModel.count == 0){
-                            submit()
-                            return
-                        }
-                        const uploadCallback = (id, index) => {
-                            screenshots.push(id)
-                            if(screenshots.length===root.imgListModel.count) {
-                                submit()
-                            }
-                        }
                         for(var i = 0; i < root.imgListModel.count; i++) {
-                            const item = root.imgListModel.get(i)
-                            API.upload(item.source, (id)=>{
-                                uploadCallback(id, i)
-                            })
+                            screenshots.push(root.imgListModel.get(i).id)
                         }
+                        let type = bugType.checked ? "bug" : "req"
+                        api.createFeedback(type, titleText.text, contentText.text, emailText.text, versionText.text, screenshots)
                     }
                 }
             }

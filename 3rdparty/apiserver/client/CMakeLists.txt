@@ -16,12 +16,17 @@ add_library(${PROJECT_NAME}
   DHHandlers_ClientLoginResponse.h
   DHHandlers_ClientMessagesResponse.h
   DHHandlers_ClientUserInfoResponse.h
+  DHHandlers_CreateFeedbackRequest.h
+  DHHandlers_CreateFeedbackResponse.h
   DHHandlers_FeedbackPublicListResponse.h
   DHHandlers_FeedbackUserListResponse.h
   DHHandlers_FeedbackUserRelationListResponse.h
+  DHHandlers_GetStetingResponse.h
   DHHandlers_LanguageCodeResponse.h
   DHHandlers_LoginConfigResponse.h
   DHHandlers_NodeSelectResponse.h
+  DHHandlers_PreUploadRequest.h
+  DHHandlers_PreUploadResponse.h
   DHHandlers_PublicReplyResponse.h
   DHHandlers_PublicStatResponse.h
   DHHandlers_PublicTopicsResponse.h
@@ -46,12 +51,17 @@ add_library(${PROJECT_NAME}
   DHHandlers_ClientLoginResponse.cpp
   DHHandlers_ClientMessagesResponse.cpp
   DHHandlers_ClientUserInfoResponse.cpp
+  DHHandlers_CreateFeedbackRequest.cpp
+  DHHandlers_CreateFeedbackResponse.cpp
   DHHandlers_FeedbackPublicListResponse.cpp
   DHHandlers_FeedbackUserListResponse.cpp
   DHHandlers_FeedbackUserRelationListResponse.cpp
+  DHHandlers_GetStetingResponse.cpp
   DHHandlers_LanguageCodeResponse.cpp
   DHHandlers_LoginConfigResponse.cpp
   DHHandlers_NodeSelectResponse.cpp
+  DHHandlers_PreUploadRequest.cpp
+  DHHandlers_PreUploadResponse.cpp
   DHHandlers_PublicReplyResponse.cpp
   DHHandlers_PublicStatResponse.cpp
   DHHandlers_PublicTopicsResponse.cpp

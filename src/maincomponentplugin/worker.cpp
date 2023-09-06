@@ -227,44 +227,6 @@ void Worker::notify(QString title, QString message)
     }
 }
 
-// 使用表单上传文件
-QString Worker::uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData)
-{
-    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
-    foreach (const QString field, formData.keys()) {
-        auto value = formData[field].toString();
-        QHttpPart textPart;
-        textPart.setHeader(QNetworkRequest::ContentDispositionHeader,
-                           QString("form-data; name=\"%1\"").arg(field));
-        textPart.setBody(formData[field].toString().toUtf8());
-        multiPart->append(textPart);
-    }
-    QHttpPart imagePart;
-    imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/jpeg"));
-    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader,
-                        QVariant("form-data; name=\"file\"; filename=\"test\""));
-    QFile *file = new QFile(filepath, multiPart);
-    file->open(QIODevice::ReadOnly);
-    imagePart.setBodyDevice(file);
-    multiPart->append(imagePart);
-
-    QUrl url(uploadURL);
-    QNetworkRequest request(url);
-    QNetworkAccessManager manager;
-    QNetworkReply *reply = manager.post(request, multiPart);
-    reply->deleteLater();
-    multiPart->setParent(reply);
-    QEventLoop eventLoop;
-    connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
-    eventLoop.exec();
-    if (reply->error() != QNetworkReply::NoError) {
-        return reply->errorString();
-    }
-    if (reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() >= 400) {
-        return reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
-    }
-    return "";
-}
 // 使用系统默认的看图工具预览图片
 void Worker::previewImage(QByteArray data)
 {
@@ -279,25 +241,6 @@ void Worker::previewImage(QByteArray data)
     QString filePath = tempFile.fileName();
     qCInfo(this->logger) << "save screenshots to" << filePath << "filesize" << data.length();
     QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
-};
-// 将异步回调转为同步调用，避免回调嵌套
-QVariant Worker::awaitPromise(QJSValue func)
-{
-    // 初始化promise对象
-    auto promise = new MyPromise(this);
-    // 设置上下文，用于在qml中抛出异常
-    QQmlEngine::setContextForObject(promise, qmlContext(this));
-    // 调用func将promise传递到qml
-    auto ret = func.call(QJSValueList{qmlEngine(this)->newQObject(promise)});
-    // 如果func发生错误，在qml中抛出异常
-    if (ret.isError()) {
-        qmlEngine(this)->throwError(QJSValue::GenericError, ret.toString());
-        return QVariant();
-    }
-    // 等待promise结束，需要在qml中调用promise对象的resolve/reject,promise才会结束
-    // 如果在qml中调用reject，promise会在qml上下文中抛出异常，await反馈空结果
-    // 如果在qml中调用resolve，await返回resolve传递的result
-    return promise->await();
 };
 
 // 生成UUID

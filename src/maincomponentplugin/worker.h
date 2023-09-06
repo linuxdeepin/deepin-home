@@ -23,7 +23,6 @@
 #include <QTemporaryFile>
 
 #include "homeDaemonProxy.h"
-#include "promise.h"
 
 class Worker : public QObject
 {
@@ -61,23 +60,19 @@ public slots:
     void setAutoStart(bool enable);
     // 获取本地文件信息
     QMap<QString, QVariant> getFileInfo(QString filepath);
-    // 上传本地文件
-    QString uploadFile(QString uploadURL, QString filepath, QMap<QString, QVariant> formData);
     // 弹出通知
     void notify(QString title, QString message);
     // 获取系统版本号
     QString sysVersion();
     // 使用系统看图工具预览图片
     void previewImage(QByteArray data);
-    // 类似js中的await Promise()
-    // 可在qml中将异步函数转为同步执行
-    QVariant awaitPromise(QJSValue func);
     // 生成UUID
     QString genUUID();
 signals:
     void userInfoChanged();
     void messageChanged();
     void showMainWindow(bool isIconClick);
+    void networkError();
 };
 
 #endif // WORKER_H
