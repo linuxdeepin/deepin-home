@@ -56,7 +56,16 @@ public slots:
     void collectFeedback(QString feedback_id);
     void cancelLikeFeedback(QString feedback_id);
     void cancelCollectFeedback(QString feedback_id);
-
+    void uploadFile(const QString &filepath);
+    void createFeedback(const QString &type,
+                        const QString &title,
+                        const QString &content,
+                        const QString &email,
+                        const QString &sysVersion,
+                        const QStringList &snapshots);
+    void getClientHome();
+    void getAboutUS();
+    void getInternalTest();
 signals:
     void signalUnknownError();
     void signalAPIError(int code, QString type, QString msg);
@@ -69,6 +78,11 @@ signals:
     void signalGetCollectFeedbackResp(QJsonArray resp);
     void signalGetUserFeedbackResp(QJsonArray resp);
     void signalFeedbackChange(QString feedback_id);
+    void signalUploadFileResp(QString filepath, QString uploadID);
+    void signalCreateFeedbackResp(QString feedback_id);
+    void signalGetClientHomeResp(QJsonObject resp);
+    void signalGetAboutUSResp(QString resp);
+    void signalGetInternalTestResp(QString resp);
 };
 
 #endif // APIPROXY_H

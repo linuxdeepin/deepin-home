@@ -194,6 +194,92 @@ QList<DHHandlers_PublicReplyResponse> API::getFeedbackReply(const QString &serve
         &DHClientApi::getFeedbackReplySignalEFull);
 }
 
+// 上传文件
+QString API::uploadFile(const QString &server, const QString &token, const QString &filepath)
+{
+    auto info = QFileInfo(filepath);
+    auto client = getClient(server, token);
+    DHHandlers_PreUploadRequest req;
+    req.setName(info.fileName());
+    req.setSize(info.size());
+    client->preUpload(req);
+    auto resp = waitSignal<DHHandlers_PreUploadResponse>(client.data(),
+                                                         &DHClientApi::preUploadSignalFull,
+                                                         &DHClientApi::preUploadSignalEFull);
+    auto formData = resp.getFormData();
+    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+    for (const QString field : resp.getFormData().keys()) {
+        auto value = formData[field];
+        QHttpPart textPart;
+        textPart.setHeader(QNetworkRequest::ContentDispositionHeader,
+                           QString("form-data; name=\"%1\"").arg(field));
+        textPart.setBody(formData[field].toUtf8());
+        multiPart->append(textPart);
+    }
+    QHttpPart imagePart;
+    imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QString("image/jpeg"));
+    imagePart.setHeader(QNetworkRequest::ContentDispositionHeader,
+                        QString("form-data; name=\"file\"; filename=\"%1\"").arg(info.fileName()));
+    QFile *file = new QFile(filepath, multiPart);
+    file->open(QIODevice::ReadOnly);
+    imagePart.setBodyDevice(file);
+    multiPart->append(imagePart);
+
+    QUrl url(resp.getUrl());
+    QNetworkRequest request(url);
+    QNetworkReply *reply = m_http->post(request, multiPart);
+    multiPart->setParent(reply);
+    QEventLoop eventLoop;
+    connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
+    eventLoop.exec();
+    reply->deleteLater();
+    if (reply->error() != QNetworkReply::NoError) {
+        throw reply->errorString();
+    }
+    if (reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() >= 400) {
+        throw reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
+    }
+    return resp.getId();
+}
+
+// 创建用户反馈
+QString API::createFeedback(const QString &server,
+                            const QString &token,
+                            const QString &type,
+                            const QString &language,
+                            const QString &title,
+                            const QString &content,
+                            const QString &email,
+                            const QString &sysVersion,
+                            const QStringList &snapshots)
+{
+    auto client = getClient(server, token);
+    DHHandlers_CreateFeedbackRequest req;
+    req.setType(type);
+    req.setLanguage(language);
+    req.setTitle(title);
+    req.setContent(content);
+    req.setEmail(email);
+    req.setVersion(sysVersion);
+    req.setScreenshots(snapshots);
+    client->createFeedback(req);
+    auto resp
+        = waitSignal<DHHandlers_CreateFeedbackResponse>(client.data(),
+                                                        &DHClientApi::createFeedbackSignalFull,
+                                                        &DHClientApi::createFeedbackSignalEFull);
+    return resp.getPublicId();
+}
+
+// 获取通用配置
+QString API::getSetting(const QString &server, const QString &settingKey)
+{
+    auto client = getClient(server);
+    client->getSetting(settingKey);
+    auto resp = waitSignal<DHHandlers_GetStetingResponse>(
+        client.data(), &DHClientApi::getSettingSignalFull, &DHClientApi::getSettingSignalEFull);
+    return resp.getValue();
+};
+
 // 获取和用户有关联的反馈
 QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedbackRelation(
     const QString &server, const QString &token, int offset, int limit, const QString &relation)
@@ -283,7 +369,9 @@ DHHandlers_LoginConfigResponse API::getLoginOption(QString server)
 DHHandlers_BBSURLResponse API::getForumURL(QString server, QString code)
 {
     auto client = getClient(server);
-    client->getBBSURL(code);
+    DHHandlers_BBSURLRequest req;
+    req.setCode(code);
+    client->getBBSURL(req);
     return waitSignal<DHHandlers_BBSURLResponse>(client.data(),
                                                  &DHClientApi::getBBSURLSignalFull,
                                                  &DHClientApi::getBBSURLSignalEFull);

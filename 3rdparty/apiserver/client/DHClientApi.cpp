@@ -40,6 +40,8 @@ void DHClientApi::initializeServerConfigs() {
     _serverIndices.insert("addFeedbackView", 0);
     _serverConfigs.insert("clientLogin", defaultConf);
     _serverIndices.insert("clientLogin", 0);
+    _serverConfigs.insert("createFeedback", defaultConf);
+    _serverIndices.insert("createFeedback", 0);
     _serverConfigs.insert("createFeedbackRelation", defaultConf);
     _serverIndices.insert("createFeedbackRelation", 0);
     _serverConfigs.insert("getBBSToken", defaultConf);
@@ -64,10 +66,14 @@ void DHClientApi::initializeServerConfigs() {
     _serverIndices.insert("getMessages", 0);
     _serverConfigs.insert("getNodes", defaultConf);
     _serverIndices.insert("getNodes", 0);
+    _serverConfigs.insert("getSetting", defaultConf);
+    _serverIndices.insert("getSetting", 0);
     _serverConfigs.insert("getTopics", defaultConf);
     _serverIndices.insert("getTopics", 0);
     _serverConfigs.insert("getUserFeedback", defaultConf);
     _serverIndices.insert("getUserFeedback", 0);
+    _serverConfigs.insert("preUpload", defaultConf);
+    _serverIndices.insert("preUpload", 0);
     _serverConfigs.insert("removeFeedbackRelation", defaultConf);
     _serverIndices.insert("removeFeedbackRelation", 0);
 }
@@ -359,6 +365,64 @@ void DHClientApi::clientLoginCallback(DHHttpRequestWorker *worker) {
     } else {
         emit clientLoginSignalE(output, error_type, error_str);
         emit clientLoginSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void DHClientApi::createFeedback(const DHHandlers_CreateFeedbackRequest &data) {
+    QString fullPath = QString(_serverConfigs["createFeedback"][_serverIndices.value("createFeedback")].URL()+"/user/feedback");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = data.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::createFeedbackCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::createFeedbackCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    DHHandlers_CreateFeedbackResponse output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit createFeedbackSignal(output);
+        emit createFeedbackSignalFull(worker, output);
+    } else {
+        emit createFeedbackSignalE(output, error_type, error_str);
+        emit createFeedbackSignalEFull(worker, error_type, error_str);
     }
 }
 
@@ -1581,6 +1645,69 @@ void DHClientApi::getNodesCallback(DHHttpRequestWorker *worker) {
     }
 }
 
+void DHClientApi::getSetting(const QString &key) {
+    QString fullPath = QString(_serverConfigs["getSetting"][_serverIndices.value("getSetting")].URL()+"/public/setting/{key}");
+    
+    
+    {
+        QString keyPathParam("{");
+        keyPathParam.append("key").append("}");
+        QString pathPrefix, pathSuffix, pathDelimiter;
+        QString pathStyle = "";
+        if (pathStyle == "")
+            pathStyle = "simple";
+        pathPrefix = getParamStylePrefix(pathStyle);
+        pathSuffix = getParamStyleSuffix(pathStyle);
+        pathDelimiter = getParamStyleDelimiter(pathStyle, "key", false);
+        QString paramString = (pathStyle == "matrix") ? pathPrefix+"key"+pathSuffix : pathPrefix;
+        fullPath.replace(keyPathParam, paramString+QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(key)));
+    }
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "GET");
+
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::getSettingCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::getSettingCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    DHHandlers_GetStetingResponse output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit getSettingSignal(output);
+        emit getSettingSignalFull(worker, output);
+    } else {
+        emit getSettingSignalE(output, error_type, error_str);
+        emit getSettingSignalEFull(worker, error_type, error_str);
+    }
+}
+
 void DHClientApi::getTopics(const QString &channel_id) {
     QString fullPath = QString(_serverConfigs["getTopics"][_serverIndices.value("getTopics")].URL()+"/public/channel/{channel_id}/topics");
     
@@ -1764,6 +1891,64 @@ void DHClientApi::getUserFeedbackCallback(DHHttpRequestWorker *worker) {
     } else {
         emit getUserFeedbackSignalE(output, error_type, error_str);
         emit getUserFeedbackSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void DHClientApi::preUpload(const DHHandlers_PreUploadRequest &data) {
+    QString fullPath = QString(_serverConfigs["preUpload"][_serverIndices.value("preUpload")].URL()+"/user/upload/pre");
+    
+    if (_apiKeys.contains("Authorization")) {
+        addHeaders("Authorization",_apiKeys.find("Authorization").value());
+    }
+    
+    DHHttpRequestWorker *worker = new DHHttpRequestWorker(this, _manager);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    DHHttpRequestInput input(fullPath, "POST");
+
+    {
+
+        
+        QByteArray output = data.asJson().toUtf8();
+        input.request_body.append(output);
+    }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    for (auto keyValueIt = _defaultHeaders.keyValueBegin(); keyValueIt != _defaultHeaders.keyValueEnd(); keyValueIt++) {
+        input.headers.insert(keyValueIt->first, keyValueIt->second);
+    }
+#else
+    for (auto key : _defaultHeaders.keys()) {
+        input.headers.insert(key, _defaultHeaders[key]);
+    }
+#endif
+
+    connect(worker, &DHHttpRequestWorker::on_execution_finished, this, &DHClientApi::preUploadCallback);
+    connect(this, &DHClientApi::abortRequestsSignal, worker, &QObject::deleteLater);
+    connect(worker, &QObject::destroyed, this, [this]() {
+        if (findChildren<DHHttpRequestWorker*>().count() == 0) {
+            emit allPendingRequestsCompleted();
+        }
+    });
+
+    worker->execute(&input);
+}
+
+void DHClientApi::preUploadCallback(DHHttpRequestWorker *worker) {
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type != QNetworkReply::NoError) {
+        error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
+    }
+    DHHandlers_PreUploadResponse output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit preUploadSignal(output);
+        emit preUploadSignalFull(worker, output);
+    } else {
+        emit preUploadSignalE(output, error_type, error_str);
+        emit preUploadSignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -2,6 +2,7 @@
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
+import APIProxy 1.0
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.7
@@ -13,6 +14,21 @@ import "../widgets"
 Item {
     id: root
     property int index
+
+
+    APIProxy {
+        id: api
+
+        onSignalGetAboutUSResp: (value) => {
+            content.text = value
+            loading.visible = false
+        }
+        onSignalGetInternalTestResp: (value) => {
+            content.text = value
+            loading.visible = false
+        }
+    }
+
     Popup {
         id: popup
         x: 80
@@ -38,15 +54,9 @@ Item {
                 running: true
                 onTriggered: {
                     if (root.index === 1) {
-                        API.getInternalTest((resp) => {
-                            content.text = resp.value
-                            loading.visible = false
-                        })
+                        api.getInternalTest()
                     } else {
-                        API.getAboutUs((resp) => {
-                            content.text = resp.value
-                            loading.visible = false
-                        })
+                        api.getAboutUS()
                     }
                 }
             }

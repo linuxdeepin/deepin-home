@@ -2,6 +2,7 @@
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
+import APIProxy 1.0
 import QtQuick 2.11
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.4
@@ -212,7 +213,14 @@ Item {
         if (showNotify) {
             showNotifyList()
         }
-        API.getClientHome(resp=>{
+        api.getClientHome()
+    }
+
+
+    APIProxy {
+        id: api
+
+        onSignalGetClientHomeResp: (resp) => {
             for(let item of resp.carousel){
                 carousel.model.append({ img: item.img, url: item.url })
             }
@@ -229,6 +237,6 @@ Item {
                 link2.url = resp.links[1].url
                 link2.visible = true
             }
-        })
+        }
     }
 }

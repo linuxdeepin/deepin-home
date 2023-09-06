@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 pragma Singleton
+
+import APIProxy 1.0
 import QtQuick 2.0
 
 Item {
@@ -26,88 +28,6 @@ Item {
     signal networkError()
     // daemon发送的托盘事件，用于控制主窗口的显示
     signal showMainWindow(bool isIconClick)
-    // 反馈列表更新
-    signal signalFeedbackListUpdate(string reqID, var feedbacks)
-    // 发送http请求
-    function request(method, rawUrl, body, callback) {
-        const url = node + rawUrl
-        console.log("send %1 request".arg(method), url)
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                switch(xhr.status){
-                    case 200:
-                        if(xhr.responseText.length > 0) {
-                            callback(JSON.parse(xhr.responseText))
-                        } else {
-                            callback(null)
-                        }
-                        break
-                    case 401:
-                        login()
-                        break
-                    case 429:
-                        notify(qsTr("You've been making too many requests. Please try again later."))
-                        break
-                    default:
-                        console.log("network error", xhr.status)
-                        networkError()
-                }
-            }
-        }
-        xhr.open(method, url)
-        // 调用用户接口时，在 header 添加用户 token
-        if(rawUrl.startsWith("/api/v1/user")) {
-            xhr.setRequestHeader("Authorization", "Bearer " + token)
-        }
-        if(body){
-            xhr.send(JSON.stringify(body))
-        } else {
-            xhr.send()
-        }
-    }
-    // 发送 get 请求
-    function get(url, callback) {
-        return request("GET", url, null, callback)
-    }
-    // 发送 put 请求
-    function put(url, body, callback) {
-        return request("PUT", url, body, callback)
-    }
-    // 发送 post 请求
-    function post(url, body, callback) {
-        return request("POST", url, body, callback)
-    }
-    // 发送 delete 请求， 因为和 delete 关键字冲突，最后加了下划线
-    function delete_(url, callback) {
-        return request("DELETE", url, null, callback)
-    }
-    // 获取通知列表
-    function getNotify(callback) {
-        // p: public channel
-        let data = worker.getMessages("p", "n")
-        callback(JSON.parse(data))
-    }
-    // 获取调查问卷列表
-    function getQuestionnaire(callback) {
-        // p: public channel
-        let data = worker.getMessages("p", "q")
-        callback(JSON.parse(data))
-    }
-    // 获取内测渠道内容
-    function getInternalTest(callback){
-        get("/api/v1/public/setting/internal-test_"+language, callback)
-    }
-    // 获取社区动态内容
-    function getAboutUs(callback){
-        get("/api/v1/public/setting/aboutus_"+language, callback)
-    }
-    // 获取首页配置
-    function getClientHome(callback) {
-        get("/api/v1/public/setting/client-home_"+language, (resp)=>{
-            callback(JSON.parse(resp.value))
-        })
-    }
 
     // 预览图片，使用qml下载图片可以重用缓存
     function imagePreview(url: string) {
@@ -121,7 +41,6 @@ Item {
         xhr.open("GET", url)
         xhr.send()
     }
-
     // 获取系统版本
     function sysVersion() {
         return worker.sysVersion();
@@ -133,22 +52,7 @@ Item {
         }
         return worker.getFileInfo(filepath)
     }
-    // 上传文件
-    function upload(filepath, callback) {
-        const info = getFileInfo(filepath)
-        post("/api/v1/user/upload/pre", {name: info.filename, size: info.size}, (preInfo) => {
-            let err = worker.uploadFile(preInfo.url, info.filepath, preInfo.form_data)
-            if(err){
-                networkError()
-                return
-            }
-            callback(preInfo.id)
-        })
-    }
-    // 创建反馈
-    function createFeedback(feedback, callback) {
-        post("/api/v1/user/feedback", feedback, callback)
-    }
+    // 发送系统通知
     function notify(title, message) {
         worker.notify(title, message)
     }
@@ -183,10 +87,7 @@ Item {
     }
     // 统计未读通知
     function messageCount() {
-        getNotify(list => {
-            const unread = list.filter(n => !worker.isRead("p", "n", n.uuid)).length
-            msgCount = unread
-        })
+        api.getNotify()
     }
     // 打开论坛
     function openForum() {
@@ -204,7 +105,6 @@ Item {
     function isZH() {
         return language.startsWith("zh")
     }
-
     // 生成UUID
     function genUUID() {
         return worker.genUUID();
@@ -217,6 +117,16 @@ Item {
         refreshAccount()
         messageCount()
     }
+
+    APIProxy {
+        id: api
+
+        onSignalGetNotifyResp: (result) => {
+            const unread = result.filter(n => !worker.isRead("p", "n", n.uuid)).length
+            msgCount = unread
+        }
+    }
+
     Connections {
         target: worker
         function onUserInfoChanged() {
@@ -230,6 +140,10 @@ Item {
         function onShowMainWindow(isIconClick) {
             console.log("showMainWindow")
             showMainWindow(isIconClick)
+        }
+        function onNetworkError() {
+            console.log("onNetworkError")
+            networkError()
         }
     }
 }

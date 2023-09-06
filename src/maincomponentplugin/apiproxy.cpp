@@ -40,6 +40,7 @@ void APIProxy::componentComplete()
             m_env.token = m_worker->getToken();
         }
     });
+    connect(this, &APIProxy::signalUnknownError, m_worker, &Worker::networkError);
 }
 
 // 弹出桌面通知
@@ -82,12 +83,17 @@ void APIProxy::waitFuture(QFuture<T> future, Func2 receiver)
 // 处理全局错误，业务错误由qml自行处理
 void APIProxy::errorHandle(int code, QString type, QString msg)
 {
+    // 网络离线
+    if (code == -1) {
+        emit m_worker->networkError();
+    }
     // 请求过于频繁
     if (code == 429) {
         auto title = tr("You have been making too many requests, Please try again later.");
         this->desktopNotify(title);
         return;
     }
+    // 登陆过期
     if (code == 401) {
         auto title = tr("You need to login to proceed with the subsequent operations.");
         this->desktopNotify(title);
@@ -260,11 +266,57 @@ void APIProxy::cancelCollectFeedback(QString id)
     waitFuture(future, [this](auto id) { emit this->signalFeedbackChange(id); });
 }
 
+// 上传文件到服务器
+void APIProxy::uploadFile(const QString &filepath)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, filepath] {
+        auto prefix = QString("file://");
+        auto path = filepath;
+        if (path.startsWith(prefix)) {
+            path = path.mid(prefix.length());
+        }
+        API api(env.cachename);
+        auto resp = api.uploadFile(env.server, env.token, path);
+        return resp;
+    });
+    waitFuture(future, [this, filepath](auto resp) {
+        {
+            qDebug() << "signalUploadFileResp";
+            emit this->signalUploadFileResp(filepath, resp);
+        }
+    });
+}
+
+// 创建用户反馈
+void APIProxy::createFeedback(const QString &type,
+                              const QString &title,
+                              const QString &content,
+                              const QString &email,
+                              const QString &sysVersion,
+                              const QStringList &snapshots)
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env, type, title, content, email, sysVersion, snapshots] {
+        API api(env.cachename);
+        return api.createFeedback(env.server,
+                                  env.token,
+                                  type,
+                                  env.language,
+                                  title,
+                                  content,
+                                  email,
+                                  sysVersion,
+                                  snapshots);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalCreateFeedbackResp(resp); });
+}
+
 // 获取收藏的反馈列表
 void APIProxy::getCollectFeedback(int offset, int limit)
 {
     auto env = getEnv();
-    auto future = QtConcurrent::run([env, offset, limit]() {
+    auto future = QtConcurrent::run([env, offset, limit] {
         API api(env.cachename);
         QStringList ids;
         for (auto relation :
@@ -371,4 +423,38 @@ void APIProxy::getUserFeedback(int offset, int limit, QString type)
         return arr;
     });
     waitFuture(future, [this](auto resp) { emit this->signalGetUserFeedbackResp(resp); });
+}
+
+// 获取首页的内容
+void APIProxy::getClientHome()
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env] {
+        API api(env.cachename);
+        auto value = api.getSetting(env.server, "client-home_" + env.language);
+        return QJsonDocument::fromJson(value.toUtf8()).object();
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetClientHomeResp(resp); });
+}
+
+// 获取关于我们的内容
+void APIProxy::getAboutUS()
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env] {
+        API api(env.cachename);
+        return api.getSetting(env.server, "aboutus_" + env.language);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetAboutUSResp(resp); });
+}
+
+// 获取内侧渠道的内容
+void APIProxy::getInternalTest()
+{
+    auto env = getEnv();
+    auto future = QtConcurrent::run([env] {
+        API api(env.cachename);
+        return api.getSetting(env.server, "internal-test_" + env.language);
+    });
+    waitFuture(future, [this](auto resp) { emit this->signalGetInternalTestResp(resp); });
 }

@@ -10,8 +10,6 @@ set(MAINCOMPONENNT_SRC
     worker.cpp
     network.h
     network.cpp
-    promise.h
-    promise.cpp
     apiproxy.h
     apiproxy.cpp
 )
