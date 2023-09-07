@@ -22,6 +22,7 @@
         <file>deepin-home-daemon/en_CA.qm</file>
         <file>deepin-home-daemon/en_GB.qm</file>
         <file>deepin-home-daemon/eo.qm</file>
+        <file>deepin-home-daemon/es_CO.qm</file>
         <file>deepin-home-daemon/es_MX.qm</file>
         <file>deepin-home-daemon/es.qm</file>
         <file>deepin-home-daemon/et.qm</file>
@@ -88,6 +89,5 @@
         <file>deepin-home-daemon/zh_CN.qm</file>
         <file>deepin-home-daemon/zh_HK.qm</file>
         <file>deepin-home-daemon/zh_TW.qm</file>
-        <file>deepin-home-daemon/es_CO.qm</file>
     </qresource>
 </RCC>

@@ -9,7 +9,9 @@ X-Deepin-TurboType=dtkqml
 # Translations:
 # Do not manually modify!
 GenericName[pl]=Wiadomość
+GenericName[tr]=İleti
 GenericName[zh_CN]=消息
 Name[pl]=Główna Deepin
+Name[tr]=Deepin Anasayfa
 Name[zh_CN]=深度之家
 
