@@ -1,3 +1,33 @@
+deepin-home (1.4.0) unstable; urgency=medium
+
+  [ Deepin Packages Builder ]
+  * feat: add navigation stack support(Issue: https://github.com/linuxdeepin/developer-center/issues/5096)
+  * fix: Titlebar icon doesn't change with the theme
+    Thanks to student-ice
+  * feat: some minor optimizations(Issue: https://github.com/linuxdeepin/developer-center/issues/5098)
+  * fix: application crash caused by event loop blocking
+    Thanks to student-ice
+  * fix: When switching tabs quickly, the feedback list is abnormal
+  * feat: Use openapi-generator to generate http api
+  * fix: Email username cannot include '.' symbol
+    Thanks to student-ice(Issue: https://github.com/linuxdeepin/developer-center/issues/5195)
+  * fix: Official replies can be edited
+    Thanks to student-ice(Issue: https://github.com/linuxdeepin/developer-center/issues/5260)
+  * feat: Extract the API into a standalone CMake module
+  * fix: unable to submit feedback
+  * feat: Content can be undone by Ctrl + Z when submitting feedback or requests
+    Thanks to student-ice
+  * feat: add api proxy component to qml
+  * feat: add diskCacheShare object
+  * fix: client repeated login
+  * feat: feedback list use api proxy component
+  * feat: The user token should not be print in the log
+  * feat: clean up old API calls
+  * feat: Replace API with APIProxy
+  * chore: update translations
+
+ -- myml <wurongjie@deepin.org>  Thu, 07 Sep 2023 09:37:51 +0800
+
 deepin-home (1.3.2) unstable; urgency=medium
 
   [ Deepin Packages Builder ]
