@@ -9,9 +9,20 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation>您需要登入才能進行後續操作。</translation>
     </message>
+</context>
+<context>
+    <name>APIProxy</name>
     <message>
-        <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation>您的操作太頻繁了，請稍後再試。</translation>
+        <source>You have been making too many requests, Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to login to proceed with the subsequent operations.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error, please try later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -146,6 +157,10 @@
     <message>
         <source>Questionaires</source>
         <translation>調查問卷</translation>
+    </message>
+    <message>
+        <source>No more items</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

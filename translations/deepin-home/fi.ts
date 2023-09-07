@@ -9,9 +9,20 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation>Sinun tulee kirjautua sisään jatkaaksesi seuraavia toimintoja.</translation>
     </message>
+</context>
+<context>
+    <name>APIProxy</name>
     <message>
-        <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation>Olet tehnyt liian monta pyyntöä. Yritä myöhemmin uudelleen.</translation>
+        <source>You have been making too many requests, Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to login to proceed with the subsequent operations.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error, please try later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -146,6 +157,10 @@
     <message>
         <source>Questionaires</source>
         <translation>Kyselylomakkeet</translation>
+    </message>
+    <message>
+        <source>No more items</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -437,7 +452,7 @@
     </message>
     <message>
         <source>Please enter your email</source>
-        <translation type="unfinished"/>
+        <translation>Anna sähköpostiosoitteesi</translation>
     </message>
 </context>
 <context>

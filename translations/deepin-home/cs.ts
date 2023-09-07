@@ -3,10 +3,25 @@
     <name>API</name>
     <message>
         <source>Please log in with your Deepin ID.</source>
-        <translation type="unfinished"/>
+        <translation>Přihlaste se pomocí svého Deepin ID.</translation>
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
+        <translation>V následujících operacích je možné pokračovat až po přihlášení.</translation>
+    </message>
+</context>
+<context>
+    <name>APIProxy</name>
+    <message>
+        <source>You have been making too many requests, Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to login to proceed with the subsequent operations.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error, please try later.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -14,54 +29,50 @@
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Mé oblíbené</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Odhlásit se</translation>
     </message>
     <message>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>Nepřihlášení</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Přihlásit se</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Zpětné vazby ode mne</translation>
     </message>
 </context>
 <context>
     <name>Card</name>
     <message>
-        <source>View details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>%1 views</source>
-        <translation type="unfinished"/>
+        <translation>%1 zobrazení</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Návrhy</translation>
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>Odebrat z oblíbených</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Přidat mezi oblíbené</translation>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>Zrušit urgenci</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Zaurgovat</translation>
     </message>
 </context>
 <context>
@@ -75,7 +86,7 @@
     <name>Detail</name>
     <message>
         <source>Official response</source>
-        <translation type="unfinished"/>
+        <translation>Oficiální odpověď</translation>
     </message>
 </context>
 <context>
@@ -94,7 +105,7 @@
     </message>
     <message>
         <source>Report issues you found</source>
-        <translation>Nahlašte nalezené problémy</translation>
+        <translation>Nahlaste nalezené problémy</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -114,7 +125,7 @@
     </message>
     <message>
         <source>Join US</source>
-        <translation>Připojte se k nám</translation>
+        <translation>Přidejte se k nám</translation>
     </message>
     <message>
         <source>Internal Testing</source>
@@ -129,15 +140,15 @@
     <name>List</name>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Vše</translation>
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Chyba</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Návrhy</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -147,12 +158,16 @@
         <source>Questionaires</source>
         <translation>Dotazník</translation>
     </message>
+    <message>
+        <source>No more items</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MyTitleBar</name>
     <message>
         <source>Launch at system startup</source>
-        <translation>Spustit při spuštění systému</translation>
+        <translation>Spouštět při startu systému</translation>
     </message>
     <message>
         <source>About</source>
@@ -197,11 +212,11 @@
     <name>Offline</name>
     <message>
         <source>Network error, please try later</source>
-        <translation>Chyba síťe, zkuste to, prosím, později</translation>
+        <translation>Chyba sítě – zkuste to znovu později</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Obnovit</translation>
+        <translation>Načíst znovu</translation>
     </message>
 </context>
 <context>
@@ -230,181 +245,233 @@
     <name>Status</name>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>Čekající</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation type="unfinished"/>
+        <translation>Potvrzené</translation>
     </message>
     <message>
         <source>Replied</source>
-        <translation type="unfinished"/>
+        <translation>Zodpovězené</translation>
     </message>
     <message>
         <source>Resolved</source>
-        <translation type="unfinished"/>
+        <translation>Vyřešené</translation>
     </message>
     <message>
         <source>Evaluating</source>
-        <translation type="unfinished"/>
+        <translation>Vyhodnocované</translation>
     </message>
     <message>
         <source>Accepted</source>
-        <translation type="unfinished"/>
+        <translation>Přijaté</translation>
     </message>
     <message>
         <source>Completed</source>
-        <translation type="unfinished"/>
+        <translation>Dokončené</translation>
+    </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>Reprodukuje se</translation>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation>Tento problém ještě nebyl zpracován a proto zatím není zobrazován ve veřejném seznamu.</translation>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation>V toto chvíli se nedaří identifikovat příčinu – je zapotřebí průběžného monitorování a zkoumání.</translation>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation>Problém byl reprodukován a identifikována hlavní příčina.</translation>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation>Problém není chybou nebo je jiné povahy.</translation>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation>Problém byl vyřešen a oprava čeká na formální vydání</translation>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation>Požadavek ještě nebyl zpracován a proto zatím není zobrazován ve veřejném seznamu</translation>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation>Problém byl potvrzen a je interně vyhodnocován</translation>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation>Zahrnuto do plánů budoucího vydání</translation>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation>Požadavek buď nebyl přijat nebo ho není možné vyřešit</translation>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
+        <translation>Práce na vývoji je dokončena, čeká na formální vydání</translation>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"/>
+        <translation>Snímek obrazovky se nedaří přiložit.</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"/>
+        <translation>Velikost souboru s obrázkem by měla být menší než 1 MB.</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
+        <translation>Nahrávání takového formátu obrazových dat není podporováno.</translation>
     </message>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Odeslat zpětnou vazbu</translation>
     </message>
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Stávající stav produktu]: 
+[Požadovaný produkt]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Předpoklady]: 
+[Kroky k zopakování]: 
+[Očekávané výsledky]: 
+[Skutečné výsledky]: </translation>
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>Typ:</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Návrhy</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Hlášení chyby</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>Nadpis:</translation>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte stručný popis vašeho problému</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>Obsah:</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>V rámci jedné zpětné vazby vyplňujte vždy jen jeden požadavek, ne vícero</translation>
     </message>
     <message>
         <source>Email：</source>
-        <translation type="unfinished"/>
+        <translation>E-mail:</translation>
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>Verze systému:</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>Informace o zařízení</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Nahrát &lt;a href=&apos;home://sysinfo&apos;&gt;informace o zařízení&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Snímky obrazovky:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Soubory s obrázky</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Soubory přetáhněte sem nebo klikněte na tlačítka pro přidání obrázků (až tři)</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>Opravdu chcete odeslání zpětné vazby zrušit?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>Obsah zpětné vazby nebude uložen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Storno</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Ukončit</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Odeslat</translation>
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Zpětnou vazbu se nedaří odeslat.</translation>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte nadpis a obsah zpětné vazby od vás.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte nadpis pro zpětnou vazbu od vás.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Zadejte obsah zpětné vazby od vás.</translation>
     </message>
     <message>
         <source>Incorrect email address entered.</source>
-        <translation type="unfinished"/>
+        <translation>Zadána neplatná e-mailová adresa.</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>Informace o zařízení</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Zadejte svůj e-mail</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Centrum zpětné vazby vývojářům</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Mé zpětné vazby</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Mé oblíbené</translation>
     </message>
     <message>
-        <source>My Urge</source>
-        <translation type="unfinished"/>
+        <source>My Urged</source>
+        <translation>Mé urgované</translation>
     </message>
 </context>
 </TS>

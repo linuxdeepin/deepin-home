@@ -11,10 +11,6 @@
         <source>You need to log in to proceed with the subsequent operations.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>You&apos;ve been making too many requests. Please try again later.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>APIProxy</name>
@@ -162,6 +158,10 @@
     </message>
     <message>
         <source>Questionaires</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No more items</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
