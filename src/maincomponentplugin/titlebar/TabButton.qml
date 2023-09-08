@@ -38,6 +38,10 @@ ButtonBox {
         font.weight: Font.Medium
         font.pixelSize: DTK.fontManager.t6.pixelSize
         onClicked: {
+            if(!API.isLogin) {
+                API.login()
+                return
+            }
             Router.showMyFeedback(true)
         }
     }

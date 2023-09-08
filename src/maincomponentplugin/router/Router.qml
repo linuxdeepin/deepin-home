@@ -74,7 +74,7 @@ Item {
     function showIndex() {
         routeCurrent = clone(routeIndex);
         routeHistory = [routeCurrent];
-        signalGoHome();
+        signalGoHome(routeCurrent);
     }
 
     // 显示通知需要先返回首页
