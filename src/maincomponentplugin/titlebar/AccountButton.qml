@@ -75,6 +75,10 @@ WindowButton {
                 ColorSelector.family: Palette.CrystalColor
                 text: qsTr("My Feedbacks")
                 onClicked: {
+                    if(!API.isLogin) {
+                        API.login()
+                        return
+                    }
                     Router.showMyFeedback(false)
                     accountMenu.close()
                 }
