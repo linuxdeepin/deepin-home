@@ -106,12 +106,6 @@ Item {
             console.log("onSignalGetCollectFeedbackResp");
             listResult(feedbacks);
         }
-        onSignalFeedbackChange: (id) => {
-            console.log("onSignalFeedbackChange");
-            api.getFeedback(feedbackList.get(index).feedback.public_id);
-        }
-        onSignalGetFeedbackResp: (feedback) => {
-        }
         onSignalAPIError: {
             root.loadMore = false;
             root.initing = false;
