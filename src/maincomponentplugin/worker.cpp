@@ -27,6 +27,7 @@ Worker::Worker(QObject *parent)
     connect(m_daemon, &HomeDaemonProxy::showMainWindow, this, &Worker::showMainWindow);
     // 为避免应用升级后接口不兼容，如果客户端和daemon版本不一致，重启一次daemon
     auto clientVersion = QString(APP_VERSION);
+#ifndef QT_DEBUG
     if (!clientVersion.isEmpty()) {
         auto daemonVersion = m_daemon->getVersion();
         qCInfo(logger) << "client version" << clientVersion << "daemon version" << daemonVersion;
@@ -35,6 +36,7 @@ Worker::Worker(QObject *parent)
             m_daemon->quit();
         }
     }
+#endif
     // 在启动时清理截图预览的缓存目录
     QDir dir(this->previewImageDir);
     dir.removeRecursively();

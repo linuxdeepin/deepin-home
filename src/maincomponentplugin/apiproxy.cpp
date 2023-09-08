@@ -143,13 +143,16 @@ QJsonArray fillFeedback(API &api,
 
 )
 {
+    if (feedbacks.length() == 0) {
+        return QJsonArray();
+    }
     // 获取反馈统计信息
-    QList<QString> publicID;
+    QList<QString> ids;
     for (auto feedback : feedbacks) {
-        publicID.append(feedback.getPublicId());
+        ids.append(feedback.getPublicId());
     }
     QHash<QString, DHHandlers_PublicStatResponse> statMap;
-    for (auto stat : api.getFeedbackStat(env.server, publicID)) {
+    for (auto stat : api.getFeedbackStat(env.server, ids)) {
         statMap.insert(stat.getPublicId(), stat);
     }
 
@@ -159,8 +162,8 @@ QJsonArray fillFeedback(API &api,
         for (auto relation : api.getFeedbackRelation(env.server,
                                                      env.token,
                                                      0,
-                                                     publicID.length() * 2,
-                                                     publicID,
+                                                     ids.length() * 2,
+                                                     ids,
                                                      QStringList() << "like"
                                                                    << "collect")) {
             relationMap.insert(relation.getFeedbackId() + relation.getRelation(), relation);
@@ -323,6 +326,9 @@ void APIProxy::getCollectFeedback(int offset, int limit)
              api.getFeedbackRelation(env.server, env.token, offset, limit, "collect")) {
             ids.append(relation.getFeedbackId());
         }
+        if (ids.length() == 0) {
+            return QJsonArray();
+        }
         // 获取反馈列表
         auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, ids);
         return fillFeedback(api, env, feedbacks);
@@ -380,6 +386,9 @@ void APIProxy::getLikeFeedback(int offset, int limit)
         for (auto relation : api.getFeedbackRelation(env.server, env.token, offset, limit, "like")) {
             ids.append(relation.getFeedbackId());
         }
+        if (ids.length() == 0) {
+            return QJsonArray();
+        }
         // 获取反馈列表
         auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, ids);
         return fillFeedback(api, env, feedbacks);
@@ -399,6 +408,9 @@ void APIProxy::getUserFeedback(int offset, int limit, QString type)
         QList<QString> ids;
         for (auto feedback : feedbacks) {
             ids.append(feedback.getPublicId());
+        }
+        if (ids.length() == 0) {
+            return QJsonArray();
         }
         QHash<QString, DHHandlers_PublicStatResponse> statMap;
         for (auto stat : api.getFeedbackStat(env.server, ids)) {
