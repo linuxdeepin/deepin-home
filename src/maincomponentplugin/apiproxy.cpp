@@ -330,7 +330,7 @@ void APIProxy::getCollectFeedback(int offset, int limit)
             return QJsonArray();
         }
         // 获取反馈列表
-        auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, ids);
+        auto feedbacks = api.getFeedback(env.server, env.language, 0, ids.length(), ids);
         return fillFeedback(api, env, feedbacks);
     });
     waitFuture(future, [this](auto resp) { emit this->signalGetCollectFeedbackResp(resp); });
@@ -390,7 +390,7 @@ void APIProxy::getLikeFeedback(int offset, int limit)
             return QJsonArray();
         }
         // 获取反馈列表
-        auto feedbacks = api.getFeedback(env.server, env.language, offset, limit, ids);
+        auto feedbacks = api.getFeedback(env.server, env.language, 0, ids.length(), ids);
         return fillFeedback(api, env, feedbacks);
     });
     waitFuture(future, [this](auto resp) { emit this->signalGetLikeFeedbackResp(resp); });
