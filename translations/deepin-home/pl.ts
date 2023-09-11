@@ -160,7 +160,7 @@
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Nie ma więcej przedmiotów</translation>
     </message>
 </context>
 <context>
@@ -453,6 +453,10 @@
     <message>
         <source>Please enter your email</source>
         <translation>Wprowadź swój adres e-mail</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Nie uwzględniaj wielu problemów w jednym zgłoszeniu</translation>
     </message>
 </context>
 <context>

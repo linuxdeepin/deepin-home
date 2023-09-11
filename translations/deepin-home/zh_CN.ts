@@ -454,6 +454,10 @@
         <source>Please enter your email</source>
         <translation>请输入您的电子邮件</translation>
     </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>请勿在一条反馈中填写多个问题</translation>
+    </message>
 </context>
 <context>
     <name>TabButton</name>
