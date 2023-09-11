@@ -452,6 +452,10 @@
         <source>Please enter your email</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>TabButton</name>

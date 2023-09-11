@@ -194,7 +194,7 @@ Item {
                     Label {
                         font: DTK.fontManager.t9
                         color: Qt.rgba(0,0,0,0.6)
-                        text: qsTr("Do not fill in multiple requirements in one feedback")
+                        text: bugType.checked ? qsTr("Do not fill in multiple issues in one feedback") : qsTr("Do not fill in multiple requirements in one feedback")
                     }
                 }
             }
