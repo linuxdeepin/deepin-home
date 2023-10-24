@@ -33,22 +33,27 @@ AppLoader {
             Repeater {
                 id: pages
 
-                onItemAdded: {
-                    const index = pages.count - 1;
-                    const model = pages.model.get(index);
-                    const loader = pages.itemAt(index).children[0];
-                    if(model.data) {
-                        loader.setSource(model.source, model.data);
-                    } else {
-                        loader.setSource(model.source);
-                    }
-                }
-
                 // 使用Rectangle做背景
                 Rectangle {
+                    required property int index
+
                     anchors.fill: parent
+                    Component.onCompleted: {
+                        const m = pages.model.get(index);
+                        if (m.data)
+                            pageLoader.setSource(m.source, m.data);
+                        else
+                            pageLoader.setSource(m.source);
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                    }
 
                     Loader {
+                        id: pageLoader
+
                         anchors.fill: parent
                     }
 
@@ -78,9 +83,10 @@ AppLoader {
                 // 路由反馈，删除一个页面
                 function onSignalBack() {
                     pages.model.remove(pages.count - 1);
+                    console.log(pages.count);
                 }
 
-                // 回到首页，清空多于页面，释放内存
+                // 回到首页，清空多余页面，释放内存
                 function onSignalGoHome(route) {
                     console.log("go home");
                     pages.model.clear();
@@ -116,12 +122,11 @@ AppLoader {
                     if (window.active) {
                         // 如果窗口已激活，点击托盘将关闭窗口
                         if (isIconClick) {
-                            console.log("close window")
+                            console.log("close window");
                             window.close();
                         }
-
                     } else {
-                        console.log("active window")
+                        console.log("active window");
                         window.requestActivate();
                     }
                 }
