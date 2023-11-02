@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation>搜索</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>全部</translation>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation>BUG</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>需求</translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation>最新</translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation>收藏</translation>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation>催一下</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation>类型：</translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation>版本：</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>排序：</translation>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -138,18 +181,6 @@
 </context>
 <context>
     <name>List</name>
-    <message>
-        <source>All</source>
-        <translation>全部</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>BUG</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>需求</translation>
-    </message>
     <message>
         <source>Messages</source>
         <translation>系统消息</translation>

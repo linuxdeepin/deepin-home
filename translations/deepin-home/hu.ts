@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -139,18 +182,6 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation>Összes</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>Hiba</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>Javaslatok</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Üzenetek</translation>
     </message>
@@ -160,7 +191,7 @@
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Nincs több elem</translation>
     </message>
 </context>
 <context>
@@ -453,6 +484,10 @@
     <message>
         <source>Please enter your email</source>
         <translation>Kérjük adja meg az e-mail címét</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Ne töltsön fel több hibajelzést egy visszajelzésben</translation>
     </message>
 </context>
 <context>

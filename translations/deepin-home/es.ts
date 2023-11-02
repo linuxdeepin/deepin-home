@@ -14,15 +14,15 @@
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Has hacho demasiadas solicitudes. inténtelo de nuevo más tarde.</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>Para continuar debe iniciar sesión.</translation>
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation type="unfinished"/>
+        <translation>Error de red, por favor intente mas tarde</translation>
     </message>
 </context>
 <context>
@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -139,18 +182,6 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation>Todo</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>Error</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>Sugerencias</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Mensajes</translation>
     </message>
@@ -160,7 +191,7 @@
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>No hay más artículos</translation>
     </message>
 </context>
 <context>
@@ -453,6 +484,10 @@
     <message>
         <source>Please enter your email</source>
         <translation>Introduzca su correo electrónico</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>No rellene varias cuestiones en una sola respuesta</translation>
     </message>
 </context>
 <context>

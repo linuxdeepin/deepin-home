@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -138,18 +181,6 @@
 </context>
 <context>
     <name>List</name>
-    <message>
-        <source>All</source>
-        <translation>全部</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>BUG</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>需求</translation>
-    </message>
     <message>
         <source>Messages</source>
         <translation>系統消息</translation>
@@ -452,6 +483,10 @@
     </message>
     <message>
         <source>Please enter your email</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
         <translation type="unfinished"/>
     </message>
 </context>
