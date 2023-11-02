@@ -6,31 +6,34 @@
         <file>index/Card1.qml</file>
         <file>index/Card2.qml</file>
         <file>index/Card3.qml</file>
+        <file>article/Article.qml</file>
+        <file>offline/Offline.qml</file>
+
+        <file>widgets/Avatar.qml</file>
+        <file>widgets/Loading.qml</file>
+        <file>widgets/NotFound.qml</file>
 
         <file>list/List.qml</file>
         <file>list/Notify.qml</file>
         <file>list/NotifyDetail.qml</file>
         <file>list/Questionnaire.qml</file>
-        <file>widgets/NotFound.qml</file>
-        <file>article/Article.qml</file>
+
         <file>api/API.qml</file>
         <file>api/qmldir</file>
         <file>router/Router.qml</file>
         <file>router/qmldir</file>
-        <file>widgets/Loading.qml</file>
-        <file>widgets/Avatar.qml</file>
 
         <file>titlebar/MyTitleBar.qml</file>
         <file>titlebar/AccountButton.qml</file>
         <file>titlebar/NotifyButton.qml</file>
         <file>titlebar/TabButton.qml</file>
 
-        <file>offline/Offline.qml</file>
         <file>feedback/Submit.qml</file>
         <file>feedback/List.qml</file>
         <file>feedback/Card.qml</file>
         <file>feedback/Detail.qml</file>
         <file>feedback/Status.qml</file>
+        <file>feedback/Filter.qml</file>
 
         <file>images/bbs.svg</file>
         <file>images/bug.svg</file>

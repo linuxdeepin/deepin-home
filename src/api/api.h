@@ -15,9 +15,11 @@
 
 #include "diskCacheShare.h"
 #include <DHClientApi.h>
+#include <getFeedbackParam.h>
 
 using namespace DeepinHomeAPI;
 
+namespace SyncAPI {
 class APIException : public QException
 {
 public:
@@ -58,34 +60,32 @@ public:
     DHHandlers_ClientLoginResponse getClientToken(QString server, QString code);
     DHHandlers_ClientUserInfoResponse getLoginInfo(QString server, QString token);
     QSharedPointer<DHClientApi> getClient(QString server, QString token = "");
-    QList<DHHandlers_FeedbackPublicListResponse> getFeedback(
-        const QString &server,
-        const QString &language,
-        const int &offset,
-        const int &limit,
-        const QString &type,
-        const OptionalParam<QString> &status = OptionalParam<QString>());
-    QList<DHHandlers_FeedbackPublicListResponse> getFeedback(const QString &server,
-                                                             const QString &language,
-                                                             const int &offset,
-                                                             const int &limit,
-                                                             const QStringList publicID);
-    QList<DeepinHomeAPI::DHHandlers_PublicStatResponse> getFeedbackStat(const QString &server,
+    QList<DHFeedback_PublicListResponse> getFeedback(const QString &server,
+                                                     const QString &language,
+                                                     const int &offset,
+                                                     const int &limit,
+                                                     const GetFeedbackOptionalParam &param);
+    QList<DHFeedback_PublicListResponse> getFeedback(const QString &server,
+                                                     const QString &language,
+                                                     const int &offset,
+                                                     const int &limit,
+                                                     const QStringList publicID);
+    QList<DeepinHomeAPI::DHFeedback_PublicStatResponse> getFeedbackStat(const QString &server,
                                                                         const QStringList &publicID);
-    QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> getFeedbackRelation(
+    QList<DeepinHomeAPI::DHFeedback_UserRelationListResponse> getFeedbackRelation(
         const QString &server, const QString &token, int offset, int limit, const QString &relation);
-    QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> getFeedbackRelation(
+    QList<DeepinHomeAPI::DHFeedback_UserRelationListResponse> getFeedbackRelation(
         const QString &server,
         const QString &token,
         int offset,
         int limit,
         const QStringList &publicID,
         const QStringList &relation);
-    QList<DeepinHomeAPI::DHHandlers_FeedbackUserListResponse> getUserFeedback(const QString &server,
-                                                                              const QString &token,
-                                                                              const int &offset,
-                                                                              const int &limit,
-                                                                              QString type);
+    QList<DeepinHomeAPI::DHFeedback_UserListResponse> getUserFeedback(const QString &server,
+                                                                      const QString &token,
+                                                                      const int &offset,
+                                                                      const int &limit,
+                                                                      QString type);
     void createUserFeedbackRelation(const QString &server,
                                     const QString &token,
                                     const QString &feedback_id,
@@ -95,7 +95,7 @@ public:
                                     const QString &feedback_id,
                                     const QString &relation);
     void addFeedbackView(const QString &server, const QString &feedback_id);
-    QList<DHHandlers_PublicReplyResponse> getFeedbackReply(const QString &server,
+    QList<DHFeedback_PublicReplyResponse> getFeedbackReply(const QString &server,
                                                            const QString &feedback_id);
     QString uploadFile(const QString &server, const QString &token, const QString &filepath);
     QString createFeedback(const QString &server,
@@ -110,4 +110,5 @@ public:
     QString getSetting(const QString &server, const QString &settingKey);
 };
 
+} // namespace SyncAPI
 #endif // DEEPIN_HOME_API_H

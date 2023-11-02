@@ -5,6 +5,7 @@ add_library(${PROJECT_NAME}
         api.cpp
         diskCacheShare.h
         diskCacheShare.cpp
+        getFeedbackParam.h
 )
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} QtDeepinHomeAPI)
