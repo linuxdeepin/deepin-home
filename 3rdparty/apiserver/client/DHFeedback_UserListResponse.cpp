@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "DHHandlers_FeedbackUserListResponse.h"
+#include "DHFeedback_UserListResponse.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace DeepinHomeAPI {
 
-DHHandlers_FeedbackUserListResponse::DHHandlers_FeedbackUserListResponse(QString json) {
+DHFeedback_UserListResponse::DHFeedback_UserListResponse(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-DHHandlers_FeedbackUserListResponse::DHHandlers_FeedbackUserListResponse() {
+DHFeedback_UserListResponse::DHFeedback_UserListResponse() {
     this->initializeModel();
 }
 
-DHHandlers_FeedbackUserListResponse::~DHHandlers_FeedbackUserListResponse() {}
+DHFeedback_UserListResponse::~DHFeedback_UserListResponse() {}
 
-void DHHandlers_FeedbackUserListResponse::initializeModel() {
+void DHFeedback_UserListResponse::initializeModel() {
 
     m_avatar_isSet = false;
     m_avatar_isValid = false;
@@ -74,14 +74,14 @@ void DHHandlers_FeedbackUserListResponse::initializeModel() {
     m_username_isValid = false;
 }
 
-void DHHandlers_FeedbackUserListResponse::fromJson(QString jsonString) {
+void DHFeedback_UserListResponse::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void DHHandlers_FeedbackUserListResponse::fromJsonObject(QJsonObject json) {
+void DHFeedback_UserListResponse::fromJsonObject(QJsonObject json) {
 
     m_avatar_isValid = ::DeepinHomeAPI::fromJsonValue(avatar, json[QString("avatar")]);
     m_avatar_isSet = !json[QString("avatar")].isNull() && m_avatar_isValid;
@@ -123,14 +123,14 @@ void DHHandlers_FeedbackUserListResponse::fromJsonObject(QJsonObject json) {
     m_username_isSet = !json[QString("username")].isNull() && m_username_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::asJson() const {
+QString DHFeedback_UserListResponse::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject DHHandlers_FeedbackUserListResponse::asJsonObject() const {
+QJsonObject DHFeedback_UserListResponse::asJsonObject() const {
     QJsonObject obj;
     if (m_avatar_isSet) {
         obj.insert(QString("avatar"), ::DeepinHomeAPI::toJsonValue(avatar));
@@ -174,215 +174,215 @@ QJsonObject DHHandlers_FeedbackUserListResponse::asJsonObject() const {
     return obj;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getAvatar() const {
+QString DHFeedback_UserListResponse::getAvatar() const {
     return avatar;
 }
-void DHHandlers_FeedbackUserListResponse::setAvatar(const QString &avatar) {
+void DHFeedback_UserListResponse::setAvatar(const QString &avatar) {
     this->avatar = avatar;
     this->m_avatar_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_avatar_Set() const{
+bool DHFeedback_UserListResponse::is_avatar_Set() const{
     return m_avatar_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_avatar_Valid() const{
+bool DHFeedback_UserListResponse::is_avatar_Valid() const{
     return m_avatar_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getContent() const {
+QString DHFeedback_UserListResponse::getContent() const {
     return content;
 }
-void DHHandlers_FeedbackUserListResponse::setContent(const QString &content) {
+void DHFeedback_UserListResponse::setContent(const QString &content) {
     this->content = content;
     this->m_content_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_content_Set() const{
+bool DHFeedback_UserListResponse::is_content_Set() const{
     return m_content_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_content_Valid() const{
+bool DHFeedback_UserListResponse::is_content_Valid() const{
     return m_content_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getCreatedAt() const {
+QString DHFeedback_UserListResponse::getCreatedAt() const {
     return created_at;
 }
-void DHHandlers_FeedbackUserListResponse::setCreatedAt(const QString &created_at) {
+void DHFeedback_UserListResponse::setCreatedAt(const QString &created_at) {
     this->created_at = created_at;
     this->m_created_at_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_created_at_Set() const{
+bool DHFeedback_UserListResponse::is_created_at_Set() const{
     return m_created_at_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_created_at_Valid() const{
+bool DHFeedback_UserListResponse::is_created_at_Valid() const{
     return m_created_at_isValid;
 }
 
-qint32 DHHandlers_FeedbackUserListResponse::getModuleId() const {
+qint32 DHFeedback_UserListResponse::getModuleId() const {
     return module_id;
 }
-void DHHandlers_FeedbackUserListResponse::setModuleId(const qint32 &module_id) {
+void DHFeedback_UserListResponse::setModuleId(const qint32 &module_id) {
     this->module_id = module_id;
     this->m_module_id_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_module_id_Set() const{
+bool DHFeedback_UserListResponse::is_module_id_Set() const{
     return m_module_id_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_module_id_Valid() const{
+bool DHFeedback_UserListResponse::is_module_id_Valid() const{
     return m_module_id_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getNickname() const {
+QString DHFeedback_UserListResponse::getNickname() const {
     return nickname;
 }
-void DHHandlers_FeedbackUserListResponse::setNickname(const QString &nickname) {
+void DHFeedback_UserListResponse::setNickname(const QString &nickname) {
     this->nickname = nickname;
     this->m_nickname_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_nickname_Set() const{
+bool DHFeedback_UserListResponse::is_nickname_Set() const{
     return m_nickname_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_nickname_Valid() const{
+bool DHFeedback_UserListResponse::is_nickname_Valid() const{
     return m_nickname_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getPublicId() const {
+QString DHFeedback_UserListResponse::getPublicId() const {
     return public_id;
 }
-void DHHandlers_FeedbackUserListResponse::setPublicId(const QString &public_id) {
+void DHFeedback_UserListResponse::setPublicId(const QString &public_id) {
     this->public_id = public_id;
     this->m_public_id_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_public_id_Set() const{
+bool DHFeedback_UserListResponse::is_public_id_Set() const{
     return m_public_id_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_public_id_Valid() const{
+bool DHFeedback_UserListResponse::is_public_id_Valid() const{
     return m_public_id_isValid;
 }
 
-QList<QString> DHHandlers_FeedbackUserListResponse::getScreenshots() const {
+QList<QString> DHFeedback_UserListResponse::getScreenshots() const {
     return screenshots;
 }
-void DHHandlers_FeedbackUserListResponse::setScreenshots(const QList<QString> &screenshots) {
+void DHFeedback_UserListResponse::setScreenshots(const QList<QString> &screenshots) {
     this->screenshots = screenshots;
     this->m_screenshots_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_screenshots_Set() const{
+bool DHFeedback_UserListResponse::is_screenshots_Set() const{
     return m_screenshots_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_screenshots_Valid() const{
+bool DHFeedback_UserListResponse::is_screenshots_Valid() const{
     return m_screenshots_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getStatus() const {
+QString DHFeedback_UserListResponse::getStatus() const {
     return status;
 }
-void DHHandlers_FeedbackUserListResponse::setStatus(const QString &status) {
+void DHFeedback_UserListResponse::setStatus(const QString &status) {
     this->status = status;
     this->m_status_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_status_Set() const{
+bool DHFeedback_UserListResponse::is_status_Set() const{
     return m_status_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_status_Valid() const{
+bool DHFeedback_UserListResponse::is_status_Valid() const{
     return m_status_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getSystemVersion() const {
+QString DHFeedback_UserListResponse::getSystemVersion() const {
     return system_version;
 }
-void DHHandlers_FeedbackUserListResponse::setSystemVersion(const QString &system_version) {
+void DHFeedback_UserListResponse::setSystemVersion(const QString &system_version) {
     this->system_version = system_version;
     this->m_system_version_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_system_version_Set() const{
+bool DHFeedback_UserListResponse::is_system_version_Set() const{
     return m_system_version_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_system_version_Valid() const{
+bool DHFeedback_UserListResponse::is_system_version_Valid() const{
     return m_system_version_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getTitle() const {
+QString DHFeedback_UserListResponse::getTitle() const {
     return title;
 }
-void DHHandlers_FeedbackUserListResponse::setTitle(const QString &title) {
+void DHFeedback_UserListResponse::setTitle(const QString &title) {
     this->title = title;
     this->m_title_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_title_Set() const{
+bool DHFeedback_UserListResponse::is_title_Set() const{
     return m_title_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_title_Valid() const{
+bool DHFeedback_UserListResponse::is_title_Valid() const{
     return m_title_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getType() const {
+QString DHFeedback_UserListResponse::getType() const {
     return type;
 }
-void DHHandlers_FeedbackUserListResponse::setType(const QString &type) {
+void DHFeedback_UserListResponse::setType(const QString &type) {
     this->type = type;
     this->m_type_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_type_Set() const{
+bool DHFeedback_UserListResponse::is_type_Set() const{
     return m_type_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_type_Valid() const{
+bool DHFeedback_UserListResponse::is_type_Valid() const{
     return m_type_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getUpdatedAt() const {
+QString DHFeedback_UserListResponse::getUpdatedAt() const {
     return updated_at;
 }
-void DHHandlers_FeedbackUserListResponse::setUpdatedAt(const QString &updated_at) {
+void DHFeedback_UserListResponse::setUpdatedAt(const QString &updated_at) {
     this->updated_at = updated_at;
     this->m_updated_at_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_updated_at_Set() const{
+bool DHFeedback_UserListResponse::is_updated_at_Set() const{
     return m_updated_at_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_updated_at_Valid() const{
+bool DHFeedback_UserListResponse::is_updated_at_Valid() const{
     return m_updated_at_isValid;
 }
 
-QString DHHandlers_FeedbackUserListResponse::getUsername() const {
+QString DHFeedback_UserListResponse::getUsername() const {
     return username;
 }
-void DHHandlers_FeedbackUserListResponse::setUsername(const QString &username) {
+void DHFeedback_UserListResponse::setUsername(const QString &username) {
     this->username = username;
     this->m_username_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_username_Set() const{
+bool DHFeedback_UserListResponse::is_username_Set() const{
     return m_username_isSet;
 }
 
-bool DHHandlers_FeedbackUserListResponse::is_username_Valid() const{
+bool DHFeedback_UserListResponse::is_username_Valid() const{
     return m_username_isValid;
 }
 
-bool DHHandlers_FeedbackUserListResponse::isSet() const {
+bool DHFeedback_UserListResponse::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_avatar_isSet) {
@@ -453,7 +453,7 @@ bool DHHandlers_FeedbackUserListResponse::isSet() const {
     return isObjectUpdated;
 }
 
-bool DHHandlers_FeedbackUserListResponse::isValid() const {
+bool DHFeedback_UserListResponse::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

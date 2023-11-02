@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "DHHandlers_CreateRequest.h"
+#include "DHFeedback_CreateFeedbackRequest.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace DeepinHomeAPI {
 
-DHHandlers_CreateRequest::DHHandlers_CreateRequest(QString json) {
+DHFeedback_CreateFeedbackRequest::DHFeedback_CreateFeedbackRequest(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-DHHandlers_CreateRequest::DHHandlers_CreateRequest() {
+DHFeedback_CreateFeedbackRequest::DHFeedback_CreateFeedbackRequest() {
     this->initializeModel();
 }
 
-DHHandlers_CreateRequest::~DHHandlers_CreateRequest() {}
+DHFeedback_CreateFeedbackRequest::~DHFeedback_CreateFeedbackRequest() {}
 
-void DHHandlers_CreateRequest::initializeModel() {
+void DHFeedback_CreateFeedbackRequest::initializeModel() {
 
     m_content_isSet = false;
     m_content_isValid = false;
@@ -56,14 +56,14 @@ void DHHandlers_CreateRequest::initializeModel() {
     m_version_isValid = false;
 }
 
-void DHHandlers_CreateRequest::fromJson(QString jsonString) {
+void DHFeedback_CreateFeedbackRequest::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void DHHandlers_CreateRequest::fromJsonObject(QJsonObject json) {
+void DHFeedback_CreateFeedbackRequest::fromJsonObject(QJsonObject json) {
 
     m_content_isValid = ::DeepinHomeAPI::fromJsonValue(content, json[QString("content")]);
     m_content_isSet = !json[QString("content")].isNull() && m_content_isValid;
@@ -87,14 +87,14 @@ void DHHandlers_CreateRequest::fromJsonObject(QJsonObject json) {
     m_version_isSet = !json[QString("version")].isNull() && m_version_isValid;
 }
 
-QString DHHandlers_CreateRequest::asJson() const {
+QString DHFeedback_CreateFeedbackRequest::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject DHHandlers_CreateRequest::asJsonObject() const {
+QJsonObject DHFeedback_CreateFeedbackRequest::asJsonObject() const {
     QJsonObject obj;
     if (m_content_isSet) {
         obj.insert(QString("content"), ::DeepinHomeAPI::toJsonValue(content));
@@ -120,119 +120,119 @@ QJsonObject DHHandlers_CreateRequest::asJsonObject() const {
     return obj;
 }
 
-QString DHHandlers_CreateRequest::getContent() const {
+QString DHFeedback_CreateFeedbackRequest::getContent() const {
     return content;
 }
-void DHHandlers_CreateRequest::setContent(const QString &content) {
+void DHFeedback_CreateFeedbackRequest::setContent(const QString &content) {
     this->content = content;
     this->m_content_isSet = true;
 }
 
-bool DHHandlers_CreateRequest::is_content_Set() const{
+bool DHFeedback_CreateFeedbackRequest::is_content_Set() const{
     return m_content_isSet;
 }
 
-bool DHHandlers_CreateRequest::is_content_Valid() const{
+bool DHFeedback_CreateFeedbackRequest::is_content_Valid() const{
     return m_content_isValid;
 }
 
-QString DHHandlers_CreateRequest::getEmail() const {
+QString DHFeedback_CreateFeedbackRequest::getEmail() const {
     return email;
 }
-void DHHandlers_CreateRequest::setEmail(const QString &email) {
+void DHFeedback_CreateFeedbackRequest::setEmail(const QString &email) {
     this->email = email;
     this->m_email_isSet = true;
 }
 
-bool DHHandlers_CreateRequest::is_email_Set() const{
+bool DHFeedback_CreateFeedbackRequest::is_email_Set() const{
     return m_email_isSet;
 }
 
-bool DHHandlers_CreateRequest::is_email_Valid() const{
+bool DHFeedback_CreateFeedbackRequest::is_email_Valid() const{
     return m_email_isValid;
 }
 
-QString DHHandlers_CreateRequest::getLanguage() const {
+QString DHFeedback_CreateFeedbackRequest::getLanguage() const {
     return language;
 }
-void DHHandlers_CreateRequest::setLanguage(const QString &language) {
+void DHFeedback_CreateFeedbackRequest::setLanguage(const QString &language) {
     this->language = language;
     this->m_language_isSet = true;
 }
 
-bool DHHandlers_CreateRequest::is_language_Set() const{
+bool DHFeedback_CreateFeedbackRequest::is_language_Set() const{
     return m_language_isSet;
 }
 
-bool DHHandlers_CreateRequest::is_language_Valid() const{
+bool DHFeedback_CreateFeedbackRequest::is_language_Valid() const{
     return m_language_isValid;
 }
 
-QList<QString> DHHandlers_CreateRequest::getScreenshots() const {
+QList<QString> DHFeedback_CreateFeedbackRequest::getScreenshots() const {
     return screenshots;
 }
-void DHHandlers_CreateRequest::setScreenshots(const QList<QString> &screenshots) {
+void DHFeedback_CreateFeedbackRequest::setScreenshots(const QList<QString> &screenshots) {
     this->screenshots = screenshots;
     this->m_screenshots_isSet = true;
 }
 
-bool DHHandlers_CreateRequest::is_screenshots_Set() const{
+bool DHFeedback_CreateFeedbackRequest::is_screenshots_Set() const{
     return m_screenshots_isSet;
 }
 
-bool DHHandlers_CreateRequest::is_screenshots_Valid() const{
+bool DHFeedback_CreateFeedbackRequest::is_screenshots_Valid() const{
     return m_screenshots_isValid;
 }
 
-QString DHHandlers_CreateRequest::getTitle() const {
+QString DHFeedback_CreateFeedbackRequest::getTitle() const {
     return title;
 }
-void DHHandlers_CreateRequest::setTitle(const QString &title) {
+void DHFeedback_CreateFeedbackRequest::setTitle(const QString &title) {
     this->title = title;
     this->m_title_isSet = true;
 }
 
-bool DHHandlers_CreateRequest::is_title_Set() const{
+bool DHFeedback_CreateFeedbackRequest::is_title_Set() const{
     return m_title_isSet;
 }
 
-bool DHHandlers_CreateRequest::is_title_Valid() const{
+bool DHFeedback_CreateFeedbackRequest::is_title_Valid() const{
     return m_title_isValid;
 }
 
-QString DHHandlers_CreateRequest::getType() const {
+QString DHFeedback_CreateFeedbackRequest::getType() const {
     return type;
 }
-void DHHandlers_CreateRequest::setType(const QString &type) {
+void DHFeedback_CreateFeedbackRequest::setType(const QString &type) {
     this->type = type;
     this->m_type_isSet = true;
 }
 
-bool DHHandlers_CreateRequest::is_type_Set() const{
+bool DHFeedback_CreateFeedbackRequest::is_type_Set() const{
     return m_type_isSet;
 }
 
-bool DHHandlers_CreateRequest::is_type_Valid() const{
+bool DHFeedback_CreateFeedbackRequest::is_type_Valid() const{
     return m_type_isValid;
 }
 
-QString DHHandlers_CreateRequest::getVersion() const {
+QString DHFeedback_CreateFeedbackRequest::getVersion() const {
     return version;
 }
-void DHHandlers_CreateRequest::setVersion(const QString &version) {
+void DHFeedback_CreateFeedbackRequest::setVersion(const QString &version) {
     this->version = version;
     this->m_version_isSet = true;
 }
 
-bool DHHandlers_CreateRequest::is_version_Set() const{
+bool DHFeedback_CreateFeedbackRequest::is_version_Set() const{
     return m_version_isSet;
 }
 
-bool DHHandlers_CreateRequest::is_version_Valid() const{
+bool DHFeedback_CreateFeedbackRequest::is_version_Valid() const{
     return m_version_isValid;
 }
 
-bool DHHandlers_CreateRequest::isSet() const {
+bool DHFeedback_CreateFeedbackRequest::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_content_isSet) {
@@ -273,7 +273,7 @@ bool DHHandlers_CreateRequest::isSet() const {
     return isObjectUpdated;
 }
 
-bool DHHandlers_CreateRequest::isValid() const {
+bool DHFeedback_CreateFeedbackRequest::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_content_isValid && m_language_isValid && m_title_isValid && m_type_isValid && true;
 }

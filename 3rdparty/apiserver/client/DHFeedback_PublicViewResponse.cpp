@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "DHHandlers_PublicViewResponse.h"
+#include "DHFeedback_PublicViewResponse.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace DeepinHomeAPI {
 
-DHHandlers_PublicViewResponse::DHHandlers_PublicViewResponse(QString json) {
+DHFeedback_PublicViewResponse::DHFeedback_PublicViewResponse(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-DHHandlers_PublicViewResponse::DHHandlers_PublicViewResponse() {
+DHFeedback_PublicViewResponse::DHFeedback_PublicViewResponse() {
     this->initializeModel();
 }
 
-DHHandlers_PublicViewResponse::~DHHandlers_PublicViewResponse() {}
+DHFeedback_PublicViewResponse::~DHFeedback_PublicViewResponse() {}
 
-void DHHandlers_PublicViewResponse::initializeModel() {
+void DHFeedback_PublicViewResponse::initializeModel() {
 
     m_public_id_isSet = false;
     m_public_id_isValid = false;
@@ -41,14 +41,14 @@ void DHHandlers_PublicViewResponse::initializeModel() {
     m_view_count_isValid = false;
 }
 
-void DHHandlers_PublicViewResponse::fromJson(QString jsonString) {
+void DHFeedback_PublicViewResponse::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void DHHandlers_PublicViewResponse::fromJsonObject(QJsonObject json) {
+void DHFeedback_PublicViewResponse::fromJsonObject(QJsonObject json) {
 
     m_public_id_isValid = ::DeepinHomeAPI::fromJsonValue(public_id, json[QString("public_id")]);
     m_public_id_isSet = !json[QString("public_id")].isNull() && m_public_id_isValid;
@@ -57,14 +57,14 @@ void DHHandlers_PublicViewResponse::fromJsonObject(QJsonObject json) {
     m_view_count_isSet = !json[QString("view_count")].isNull() && m_view_count_isValid;
 }
 
-QString DHHandlers_PublicViewResponse::asJson() const {
+QString DHFeedback_PublicViewResponse::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject DHHandlers_PublicViewResponse::asJsonObject() const {
+QJsonObject DHFeedback_PublicViewResponse::asJsonObject() const {
     QJsonObject obj;
     if (m_public_id_isSet) {
         obj.insert(QString("public_id"), ::DeepinHomeAPI::toJsonValue(public_id));
@@ -75,39 +75,39 @@ QJsonObject DHHandlers_PublicViewResponse::asJsonObject() const {
     return obj;
 }
 
-QString DHHandlers_PublicViewResponse::getPublicId() const {
+QString DHFeedback_PublicViewResponse::getPublicId() const {
     return public_id;
 }
-void DHHandlers_PublicViewResponse::setPublicId(const QString &public_id) {
+void DHFeedback_PublicViewResponse::setPublicId(const QString &public_id) {
     this->public_id = public_id;
     this->m_public_id_isSet = true;
 }
 
-bool DHHandlers_PublicViewResponse::is_public_id_Set() const{
+bool DHFeedback_PublicViewResponse::is_public_id_Set() const{
     return m_public_id_isSet;
 }
 
-bool DHHandlers_PublicViewResponse::is_public_id_Valid() const{
+bool DHFeedback_PublicViewResponse::is_public_id_Valid() const{
     return m_public_id_isValid;
 }
 
-qint32 DHHandlers_PublicViewResponse::getViewCount() const {
+qint32 DHFeedback_PublicViewResponse::getViewCount() const {
     return view_count;
 }
-void DHHandlers_PublicViewResponse::setViewCount(const qint32 &view_count) {
+void DHFeedback_PublicViewResponse::setViewCount(const qint32 &view_count) {
     this->view_count = view_count;
     this->m_view_count_isSet = true;
 }
 
-bool DHHandlers_PublicViewResponse::is_view_count_Set() const{
+bool DHFeedback_PublicViewResponse::is_view_count_Set() const{
     return m_view_count_isSet;
 }
 
-bool DHHandlers_PublicViewResponse::is_view_count_Valid() const{
+bool DHFeedback_PublicViewResponse::is_view_count_Valid() const{
     return m_view_count_isValid;
 }
 
-bool DHHandlers_PublicViewResponse::isSet() const {
+bool DHFeedback_PublicViewResponse::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_public_id_isSet) {
@@ -123,7 +123,7 @@ bool DHHandlers_PublicViewResponse::isSet() const {
     return isObjectUpdated;
 }
 
-bool DHHandlers_PublicViewResponse::isValid() const {
+bool DHFeedback_PublicViewResponse::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

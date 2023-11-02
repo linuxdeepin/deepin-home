@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "DHHandlers_CreateFeedbackResponse.h"
+#include "DHFeedback_CreateFeedbackResponse.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,44 +21,44 @@
 
 namespace DeepinHomeAPI {
 
-DHHandlers_CreateFeedbackResponse::DHHandlers_CreateFeedbackResponse(QString json) {
+DHFeedback_CreateFeedbackResponse::DHFeedback_CreateFeedbackResponse(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-DHHandlers_CreateFeedbackResponse::DHHandlers_CreateFeedbackResponse() {
+DHFeedback_CreateFeedbackResponse::DHFeedback_CreateFeedbackResponse() {
     this->initializeModel();
 }
 
-DHHandlers_CreateFeedbackResponse::~DHHandlers_CreateFeedbackResponse() {}
+DHFeedback_CreateFeedbackResponse::~DHFeedback_CreateFeedbackResponse() {}
 
-void DHHandlers_CreateFeedbackResponse::initializeModel() {
+void DHFeedback_CreateFeedbackResponse::initializeModel() {
 
     m_public_id_isSet = false;
     m_public_id_isValid = false;
 }
 
-void DHHandlers_CreateFeedbackResponse::fromJson(QString jsonString) {
+void DHFeedback_CreateFeedbackResponse::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void DHHandlers_CreateFeedbackResponse::fromJsonObject(QJsonObject json) {
+void DHFeedback_CreateFeedbackResponse::fromJsonObject(QJsonObject json) {
 
     m_public_id_isValid = ::DeepinHomeAPI::fromJsonValue(public_id, json[QString("public_id")]);
     m_public_id_isSet = !json[QString("public_id")].isNull() && m_public_id_isValid;
 }
 
-QString DHHandlers_CreateFeedbackResponse::asJson() const {
+QString DHFeedback_CreateFeedbackResponse::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject DHHandlers_CreateFeedbackResponse::asJsonObject() const {
+QJsonObject DHFeedback_CreateFeedbackResponse::asJsonObject() const {
     QJsonObject obj;
     if (m_public_id_isSet) {
         obj.insert(QString("public_id"), ::DeepinHomeAPI::toJsonValue(public_id));
@@ -66,23 +66,23 @@ QJsonObject DHHandlers_CreateFeedbackResponse::asJsonObject() const {
     return obj;
 }
 
-QString DHHandlers_CreateFeedbackResponse::getPublicId() const {
+QString DHFeedback_CreateFeedbackResponse::getPublicId() const {
     return public_id;
 }
-void DHHandlers_CreateFeedbackResponse::setPublicId(const QString &public_id) {
+void DHFeedback_CreateFeedbackResponse::setPublicId(const QString &public_id) {
     this->public_id = public_id;
     this->m_public_id_isSet = true;
 }
 
-bool DHHandlers_CreateFeedbackResponse::is_public_id_Set() const{
+bool DHFeedback_CreateFeedbackResponse::is_public_id_Set() const{
     return m_public_id_isSet;
 }
 
-bool DHHandlers_CreateFeedbackResponse::is_public_id_Valid() const{
+bool DHFeedback_CreateFeedbackResponse::is_public_id_Valid() const{
     return m_public_id_isValid;
 }
 
-bool DHHandlers_CreateFeedbackResponse::isSet() const {
+bool DHFeedback_CreateFeedbackResponse::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_public_id_isSet) {
@@ -93,7 +93,7 @@ bool DHHandlers_CreateFeedbackResponse::isSet() const {
     return isObjectUpdated;
 }
 
-bool DHHandlers_CreateFeedbackResponse::isValid() const {
+bool DHFeedback_CreateFeedbackResponse::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

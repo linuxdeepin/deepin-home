@@ -11,13 +11,13 @@
  */
 
 /*
- * DHHandlers_FeedbackUserListResponse.h
+ * DHFeedback_PublicListResponse.h
  *
  * 
  */
 
-#ifndef DHHandlers_FeedbackUserListResponse_H
-#define DHHandlers_FeedbackUserListResponse_H
+#ifndef DHFeedback_PublicListResponse_H
+#define DHFeedback_PublicListResponse_H
 
 #include <QJsonObject>
 
@@ -29,11 +29,11 @@
 
 namespace DeepinHomeAPI {
 
-class DHHandlers_FeedbackUserListResponse : public DHObject {
+class DHFeedback_PublicListResponse : public DHObject {
 public:
-    DHHandlers_FeedbackUserListResponse();
-    DHHandlers_FeedbackUserListResponse(QString json);
-    ~DHHandlers_FeedbackUserListResponse() override;
+    DHFeedback_PublicListResponse();
+    DHFeedback_PublicListResponse(QString json);
+    ~DHFeedback_PublicListResponse() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -100,6 +100,11 @@ public:
     bool is_updated_at_Set() const;
     bool is_updated_at_Valid() const;
 
+    QString getUserPublicId() const;
+    void setUserPublicId(const QString &user_public_id);
+    bool is_user_public_id_Set() const;
+    bool is_user_public_id_Valid() const;
+
     QString getUsername() const;
     void setUsername(const QString &username);
     bool is_username_Set() const;
@@ -159,6 +164,10 @@ private:
     bool m_updated_at_isSet;
     bool m_updated_at_isValid;
 
+    QString user_public_id;
+    bool m_user_public_id_isSet;
+    bool m_user_public_id_isValid;
+
     QString username;
     bool m_username_isSet;
     bool m_username_isValid;
@@ -166,6 +175,6 @@ private:
 
 } // namespace DeepinHomeAPI
 
-Q_DECLARE_METATYPE(DeepinHomeAPI::DHHandlers_FeedbackUserListResponse)
+Q_DECLARE_METATYPE(DeepinHomeAPI::DHFeedback_PublicListResponse)
 
-#endif // DHHandlers_FeedbackUserListResponse_H
+#endif // DHFeedback_PublicListResponse_H

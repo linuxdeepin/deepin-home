@@ -8,6 +8,15 @@ include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
 add_library(${PROJECT_NAME}
+  DHFeedback_CreateFeedbackRequest.h
+  DHFeedback_CreateFeedbackResponse.h
+  DHFeedback_PublicListResponse.h
+  DHFeedback_PublicReplyResponse.h
+  DHFeedback_PublicStatResponse.h
+  DHFeedback_PublicViewResponse.h
+  DHFeedback_UserListResponse.h
+  DHFeedback_UserRelationListResponse.h
+  DHFeedback_UserRelationResposne.h
   DHHandlers_BBSURLRequest.h
   DHHandlers_BBSURLResponse.h
   DHHandlers_ClientBBSTokenRequest.h
@@ -16,23 +25,14 @@ add_library(${PROJECT_NAME}
   DHHandlers_ClientLoginResponse.h
   DHHandlers_ClientMessagesResponse.h
   DHHandlers_ClientUserInfoResponse.h
-  DHHandlers_CreateFeedbackRequest.h
-  DHHandlers_CreateFeedbackResponse.h
-  DHHandlers_FeedbackPublicListResponse.h
-  DHHandlers_FeedbackUserListResponse.h
-  DHHandlers_FeedbackUserRelationListResponse.h
   DHHandlers_GetStetingResponse.h
   DHHandlers_LanguageCodeResponse.h
   DHHandlers_LoginConfigResponse.h
   DHHandlers_NodeSelectResponse.h
   DHHandlers_PreUploadRequest.h
   DHHandlers_PreUploadResponse.h
-  DHHandlers_PublicReplyResponse.h
-  DHHandlers_PublicStatResponse.h
   DHHandlers_PublicTopicsResponse.h
-  DHHandlers_PublicViewResponse.h
   DHHandlers_Topic.h
-  DHHandlers_UserRelationResposne.h
   DHClientApi.h
   DHUserApi.h
   DHHelpers.h
@@ -43,6 +43,15 @@ add_library(${PROJECT_NAME}
   DHServerConfiguration.h
   DHServerVariable.h
   DHOauth.h
+  DHFeedback_CreateFeedbackRequest.cpp
+  DHFeedback_CreateFeedbackResponse.cpp
+  DHFeedback_PublicListResponse.cpp
+  DHFeedback_PublicReplyResponse.cpp
+  DHFeedback_PublicStatResponse.cpp
+  DHFeedback_PublicViewResponse.cpp
+  DHFeedback_UserListResponse.cpp
+  DHFeedback_UserRelationListResponse.cpp
+  DHFeedback_UserRelationResposne.cpp
   DHHandlers_BBSURLRequest.cpp
   DHHandlers_BBSURLResponse.cpp
   DHHandlers_ClientBBSTokenRequest.cpp
@@ -51,23 +60,14 @@ add_library(${PROJECT_NAME}
   DHHandlers_ClientLoginResponse.cpp
   DHHandlers_ClientMessagesResponse.cpp
   DHHandlers_ClientUserInfoResponse.cpp
-  DHHandlers_CreateFeedbackRequest.cpp
-  DHHandlers_CreateFeedbackResponse.cpp
-  DHHandlers_FeedbackPublicListResponse.cpp
-  DHHandlers_FeedbackUserListResponse.cpp
-  DHHandlers_FeedbackUserRelationListResponse.cpp
   DHHandlers_GetStetingResponse.cpp
   DHHandlers_LanguageCodeResponse.cpp
   DHHandlers_LoginConfigResponse.cpp
   DHHandlers_NodeSelectResponse.cpp
   DHHandlers_PreUploadRequest.cpp
   DHHandlers_PreUploadResponse.cpp
-  DHHandlers_PublicReplyResponse.cpp
-  DHHandlers_PublicStatResponse.cpp
   DHHandlers_PublicTopicsResponse.cpp
-  DHHandlers_PublicViewResponse.cpp
   DHHandlers_Topic.cpp
-  DHHandlers_UserRelationResposne.cpp
   DHClientApi.cpp
   DHUserApi.cpp
   DHHelpers.cpp

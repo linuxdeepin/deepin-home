@@ -11,13 +11,13 @@
  */
 
 /*
- * DHHandlers_PublicReplyResponse.h
+ * DHFeedback_PublicReplyResponse.h
  *
  * 
  */
 
-#ifndef DHHandlers_PublicReplyResponse_H
-#define DHHandlers_PublicReplyResponse_H
+#ifndef DHFeedback_PublicReplyResponse_H
+#define DHFeedback_PublicReplyResponse_H
 
 #include <QJsonObject>
 
@@ -28,11 +28,11 @@
 
 namespace DeepinHomeAPI {
 
-class DHHandlers_PublicReplyResponse : public DHObject {
+class DHFeedback_PublicReplyResponse : public DHObject {
 public:
-    DHHandlers_PublicReplyResponse();
-    DHHandlers_PublicReplyResponse(QString json);
-    ~DHHandlers_PublicReplyResponse() override;
+    DHFeedback_PublicReplyResponse();
+    DHFeedback_PublicReplyResponse(QString json);
+    ~DHFeedback_PublicReplyResponse() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -66,6 +66,6 @@ private:
 
 } // namespace DeepinHomeAPI
 
-Q_DECLARE_METATYPE(DeepinHomeAPI::DHHandlers_PublicReplyResponse)
+Q_DECLARE_METATYPE(DeepinHomeAPI::DHFeedback_PublicReplyResponse)
 
-#endif // DHHandlers_PublicReplyResponse_H
+#endif // DHFeedback_PublicReplyResponse_H
