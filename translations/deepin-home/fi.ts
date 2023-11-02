@@ -14,15 +14,15 @@
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Olet tehnyt liian monta pyyntöä. Yritä myöhemmin uudelleen.</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>Sinun tulee kirjautua sisään jatkaaksesi seuraavia toimintoja.</translation>
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation type="unfinished"/>
+        <translation>Verkkovirhe, yritä myöhemmin</translation>
     </message>
 </context>
 <context>
@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -139,18 +182,6 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation>Kaikki</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>Bugi</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>Ehdotukset</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Viestit</translation>
     </message>
@@ -160,7 +191,7 @@
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Ei enää kohteita</translation>
     </message>
 </context>
 <context>
@@ -453,6 +484,10 @@
     <message>
         <source>Please enter your email</source>
         <translation>Anna sähköpostiosoitteesi</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Älä täytä useita kysymyksiä samaan palautteeseen</translation>
     </message>
 </context>
 <context>

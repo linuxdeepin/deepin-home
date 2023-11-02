@@ -4,27 +4,27 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Domov</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
         <source>Show main window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/main/homeDaemon.cpp" line="69"/>
-        <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>Zobraziť hlavné okno</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="72"/>
-        <source>Exit</source>
-        <translation type="unfinished"/>
+        <source>Communication</source>
+        <translation>Komunikácia</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="306"/>
+        <location filename="../src/main/homeDaemon.cpp" line="75"/>
+        <source>Exit</source>
+        <translation>Ukončiť</translation>
+    </message>
+    <message>
+        <location filename="../src/main/homeDaemon.cpp" line="315"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>Zobraziť</translation>
     </message>
 </context>
 </TS>

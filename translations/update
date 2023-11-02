@@ -5,6 +5,3 @@ lupdate src/maincomponentplugin/*.cpp src/maincomponentplugin/**/*.qml src/prelo
 lupdate src/main/*.cpp -ts translations/deepin-home-daemon.ts
 # deepin-home.desktop 翻译文本生成
 deepin-desktop-ts-convert desktop2ts deepin-home.desktop translations
-
-# 上传翻译文本
-tx push -s

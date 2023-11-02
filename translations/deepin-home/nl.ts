@@ -29,7 +29,7 @@
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
-        <translation>Mijn favorieten</translation>
+        <translation>Mĳn favorieten</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>Mijn feedback</translation>
+        <translation>Mĳn feedback</translation>
     </message>
 </context>
 <context>
@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -121,7 +164,7 @@
     </message>
     <message>
         <source>Questionaire</source>
-        <translation>Vragenlijst</translation>
+        <translation>Vragenlĳst</translation>
     </message>
     <message>
         <source>Join US</source>
@@ -139,28 +182,16 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation>Alle</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>Bug</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>Suggesties</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Berichten</translation>
     </message>
     <message>
         <source>Questionaires</source>
-        <translation>Vragenlijsten</translation>
+        <translation>Vragenlĳsten</translation>
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Er zĳn geen items meer</translation>
     </message>
 </context>
 <context>
@@ -190,11 +221,11 @@
     <name>Notify</name>
     <message>
         <source>No messages yet.</source>
-        <translation>Er zijn nog geen berichten.</translation>
+        <translation>Er zĳn nog geen berichten.</translation>
     </message>
     <message>
         <source>%1 messages</source>
-        <translation>Er zijn %1 berichten</translation>
+        <translation>Er zĳn %1 berichten</translation>
     </message>
     <message>
         <source>Mark all as read</source>
@@ -230,7 +261,7 @@
     <name>Questionnaire</name>
     <message>
         <source>No questionaires yet.</source>
-        <translation>Er zijn nog geen vragenlijsten.</translation>
+        <translation>Er zĳn nog geen vragenlĳsten.</translation>
     </message>
     <message>
         <source>Expired on: %1</source>
@@ -289,7 +320,7 @@
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation>Dit probleem is geen bug of iets dergelijks.</translation>
+        <translation>Dit probleem is geen bug of iets dergelĳks.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
@@ -324,7 +355,7 @@
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation>De afbeelding mag maximaal 1 MB groot zijn.</translation>
+        <translation>De afbeelding mag maximaal 1 MB groot zĳn.</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
@@ -348,7 +379,7 @@
         <translation>[Randvoorwaarden]: 
 [Herleidbare stappen]: 
 [Verwachte resultaten]: 
-[Daadwerkelijke resultaten]: </translation>
+[Daadwerkelĳke resultaten]: </translation>
     </message>
     <message>
         <source>Type：</source>
@@ -368,7 +399,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation>Omschrijf je probleem</translation>
+        <translation>Omschrĳf je probleem</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -392,7 +423,7 @@
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation>&lt;a href=&apos;home://sysinfo&apos;&gt;Apparaatinformatie&lt;/a&gt; bijvoegen</translation>
+        <translation>&lt;a href=&apos;home://sysinfo&apos;&gt;Apparaatinformatie&lt;/a&gt; bĳvoegen</translation>
     </message>
     <message>
         <source>Screenshots：</source>
@@ -454,6 +485,10 @@
         <source>Please enter your email</source>
         <translation>Voer je e-mailadres in</translation>
     </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Let op: voer niet meerdere problemen in</translation>
+    </message>
 </context>
 <context>
     <name>TabButton</name>
@@ -463,15 +498,15 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>Mijn feedback</translation>
+        <translation>Mĳn feedback</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation>Mijn favorieten</translation>
+        <translation>Mĳn favorieten</translation>
     </message>
     <message>
         <source>My Urged</source>
-        <translation>Mijn voorstellen</translation>
+        <translation>Mĳn voorstellen</translation>
     </message>
 </context>
 </TS>

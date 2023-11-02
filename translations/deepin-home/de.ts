@@ -11,14 +11,29 @@
     </message>
 </context>
 <context>
-    <name>AccountButton</name>
+    <name>APIProxy</name>
     <message>
-        <source>My Favorites</source>
+        <source>You have been making too many requests, Please try again later.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Sign out</source>
+        <source>You need to login to proceed with the subsequent operations.</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error, please try later.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AccountButton</name>
+    <message>
+        <source>My Favorites</source>
+        <translation>Meine Favoriten</translation>
+    </message>
+    <message>
+        <source>Sign out</source>
+        <translation>Abmelden</translation>
     </message>
     <message>
         <source>Unlogged</source>
@@ -26,26 +41,22 @@
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>Anmelden</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Meine Rückmeldungen</translation>
     </message>
 </context>
 <context>
     <name>Card</name>
     <message>
-        <source>View details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>%1 views</source>
-        <translation type="unfinished"/>
+        <translation>%1 Aufrufe</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Vorschläge</translation>
     </message>
     <message>
         <source>Unfavorite</source>
@@ -75,6 +86,49 @@
     <name>Detail</name>
     <message>
         <source>Official response</source>
+        <translation>Offizielle Antwort</translation>
+    </message>
+</context>
+<context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -90,7 +144,7 @@
     </message>
     <message>
         <source>Bug Report</source>
-        <translation>Problembericht</translation>
+        <translation>Fehlerbericht</translation>
     </message>
     <message>
         <source>Report issues you found</source>
@@ -128,24 +182,16 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Nachrichten</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Fragebogen</translation>
+    </message>
+    <message>
+        <source>No more items</source>
+        <translation>Keine weiteren Elemente</translation>
     </message>
 </context>
 <context>
@@ -230,30 +276,74 @@
     <name>Status</name>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>Ausstehend</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation type="unfinished"/>
+        <translation>Bestätigt</translation>
     </message>
     <message>
         <source>Replied</source>
-        <translation type="unfinished"/>
+        <translation>Antwortete</translation>
     </message>
     <message>
         <source>Resolved</source>
-        <translation type="unfinished"/>
+        <translation>Gelöst</translation>
     </message>
     <message>
         <source>Evaluating</source>
-        <translation type="unfinished"/>
+        <translation>Wird geprüft</translation>
     </message>
     <message>
         <source>Accepted</source>
-        <translation type="unfinished"/>
+        <translation>Angenommen</translation>
     </message>
     <message>
         <source>Completed</source>
+        <translation>Abgeschlossen</translation>
+    </message>
+    <message>
+        <source>Reproducing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -273,7 +363,7 @@
     </message>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Rückmeldung absenden</translation>
     </message>
     <message>
         <source>[Current Status of the Product]: 
@@ -289,19 +379,19 @@
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>Typ：</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Vorschläge</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Fehlerbericht</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>Titel：</translation>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
@@ -309,7 +399,7 @@
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>Inhalt：</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
@@ -317,15 +407,15 @@
     </message>
     <message>
         <source>Email：</source>
-        <translation type="unfinished"/>
+        <translation>E-Mail：</translation>
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>Systemversion:</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>Geräte-Info：</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
@@ -333,11 +423,11 @@
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmfotos：</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Bilddateien</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
@@ -353,15 +443,15 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Beenden</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Absenden</translation>
     </message>
     <message>
         <source>Unable to submit feedback.</source>
@@ -385,6 +475,14 @@
     </message>
     <message>
         <source>Device Information</source>
+        <translation>Geräteinformationen</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -396,14 +494,14 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Meine Rückmeldungen</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Meine Favoriten</translation>
     </message>
     <message>
-        <source>My Urge</source>
+        <source>My Urged</source>
         <translation type="unfinished"/>
     </message>
 </context>

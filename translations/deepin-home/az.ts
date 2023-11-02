@@ -14,15 +14,15 @@
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Siz həddindən çox sorğu etmisiniz. Lütfən, sonra yenidən cəhd edin.</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>Sonrakı əmələiyyatlara davam etmək üçün daxil olmalısınız.</translation>
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation type="unfinished"/>
+        <translation>Şəbəkə xətası, sonra yenidən cəhd edin.</translation>
     </message>
 </context>
 <context>
@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -139,18 +182,6 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation>Hamısı</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>Xəta</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>Təkliflər</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>İsmarıclar</translation>
     </message>
@@ -160,7 +191,7 @@
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Başqa elementlər yoxdur</translation>
     </message>
 </context>
 <context>
@@ -453,6 +484,10 @@
     <message>
         <source>Please enter your email</source>
         <translation>Lütfən e-poçt ünvanınızı daxil edin</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Bir rəyə çox sayda problemləri daxil etməyin</translation>
     </message>
 </context>
 <context>

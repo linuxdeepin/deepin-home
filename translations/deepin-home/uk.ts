@@ -90,6 +90,49 @@
     </message>
 </context>
 <context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>Index</name>
     <message>
         <source>Communication</source>
@@ -139,18 +182,6 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation>Усі</translation>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation>Вада</translation>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation>Пропозиції</translation>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Повідомлення</translation>
     </message>
@@ -160,7 +191,7 @@
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Більше записів немає</translation>
     </message>
 </context>
 <context>
@@ -453,6 +484,10 @@
     <message>
         <source>Please enter your email</source>
         <translation>Будь ласка, введіть вашу адресу ел. пошти</translation>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Не поєднуйте декілька проблем в одному відгуку</translation>
     </message>
 </context>
 <context>
