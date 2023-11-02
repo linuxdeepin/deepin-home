@@ -11,13 +11,13 @@
  */
 
 /*
- * DHHandlers_PublicViewResponse.h
+ * DHFeedback_PublicStatResponse.h
  *
  * 
  */
 
-#ifndef DHHandlers_PublicViewResponse_H
-#define DHHandlers_PublicViewResponse_H
+#ifndef DHFeedback_PublicStatResponse_H
+#define DHFeedback_PublicStatResponse_H
 
 #include <QJsonObject>
 
@@ -28,16 +28,26 @@
 
 namespace DeepinHomeAPI {
 
-class DHHandlers_PublicViewResponse : public DHObject {
+class DHFeedback_PublicStatResponse : public DHObject {
 public:
-    DHHandlers_PublicViewResponse();
-    DHHandlers_PublicViewResponse(QString json);
-    ~DHHandlers_PublicViewResponse() override;
+    DHFeedback_PublicStatResponse();
+    DHFeedback_PublicStatResponse(QString json);
+    ~DHFeedback_PublicStatResponse() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
+
+    qint32 getCollectCount() const;
+    void setCollectCount(const qint32 &collect_count);
+    bool is_collect_count_Set() const;
+    bool is_collect_count_Valid() const;
+
+    qint32 getLikeCount() const;
+    void setLikeCount(const qint32 &like_count);
+    bool is_like_count_Set() const;
+    bool is_like_count_Valid() const;
 
     QString getPublicId() const;
     void setPublicId(const QString &public_id);
@@ -55,6 +65,14 @@ public:
 private:
     void initializeModel();
 
+    qint32 collect_count;
+    bool m_collect_count_isSet;
+    bool m_collect_count_isValid;
+
+    qint32 like_count;
+    bool m_like_count_isSet;
+    bool m_like_count_isValid;
+
     QString public_id;
     bool m_public_id_isSet;
     bool m_public_id_isValid;
@@ -66,6 +84,6 @@ private:
 
 } // namespace DeepinHomeAPI
 
-Q_DECLARE_METATYPE(DeepinHomeAPI::DHHandlers_PublicViewResponse)
+Q_DECLARE_METATYPE(DeepinHomeAPI::DHFeedback_PublicStatResponse)
 
-#endif // DHHandlers_PublicViewResponse_H
+#endif // DHFeedback_PublicStatResponse_H

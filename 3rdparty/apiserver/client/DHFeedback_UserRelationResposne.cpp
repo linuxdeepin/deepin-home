@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "DHHandlers_UserRelationResposne.h"
+#include "DHFeedback_UserRelationResposne.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace DeepinHomeAPI {
 
-DHHandlers_UserRelationResposne::DHHandlers_UserRelationResposne(QString json) {
+DHFeedback_UserRelationResposne::DHFeedback_UserRelationResposne(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-DHHandlers_UserRelationResposne::DHHandlers_UserRelationResposne() {
+DHFeedback_UserRelationResposne::DHFeedback_UserRelationResposne() {
     this->initializeModel();
 }
 
-DHHandlers_UserRelationResposne::~DHHandlers_UserRelationResposne() {}
+DHFeedback_UserRelationResposne::~DHFeedback_UserRelationResposne() {}
 
-void DHHandlers_UserRelationResposne::initializeModel() {
+void DHFeedback_UserRelationResposne::initializeModel() {
 
     m_id_isSet = false;
     m_id_isValid = false;
@@ -41,14 +41,14 @@ void DHHandlers_UserRelationResposne::initializeModel() {
     m_relation_isValid = false;
 }
 
-void DHHandlers_UserRelationResposne::fromJson(QString jsonString) {
+void DHFeedback_UserRelationResposne::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void DHHandlers_UserRelationResposne::fromJsonObject(QJsonObject json) {
+void DHFeedback_UserRelationResposne::fromJsonObject(QJsonObject json) {
 
     m_id_isValid = ::DeepinHomeAPI::fromJsonValue(id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
@@ -57,14 +57,14 @@ void DHHandlers_UserRelationResposne::fromJsonObject(QJsonObject json) {
     m_relation_isSet = !json[QString("relation")].isNull() && m_relation_isValid;
 }
 
-QString DHHandlers_UserRelationResposne::asJson() const {
+QString DHFeedback_UserRelationResposne::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject DHHandlers_UserRelationResposne::asJsonObject() const {
+QJsonObject DHFeedback_UserRelationResposne::asJsonObject() const {
     QJsonObject obj;
     if (m_id_isSet) {
         obj.insert(QString("id"), ::DeepinHomeAPI::toJsonValue(id));
@@ -75,39 +75,39 @@ QJsonObject DHHandlers_UserRelationResposne::asJsonObject() const {
     return obj;
 }
 
-QString DHHandlers_UserRelationResposne::getId() const {
+QString DHFeedback_UserRelationResposne::getId() const {
     return id;
 }
-void DHHandlers_UserRelationResposne::setId(const QString &id) {
+void DHFeedback_UserRelationResposne::setId(const QString &id) {
     this->id = id;
     this->m_id_isSet = true;
 }
 
-bool DHHandlers_UserRelationResposne::is_id_Set() const{
+bool DHFeedback_UserRelationResposne::is_id_Set() const{
     return m_id_isSet;
 }
 
-bool DHHandlers_UserRelationResposne::is_id_Valid() const{
+bool DHFeedback_UserRelationResposne::is_id_Valid() const{
     return m_id_isValid;
 }
 
-QString DHHandlers_UserRelationResposne::getRelation() const {
+QString DHFeedback_UserRelationResposne::getRelation() const {
     return relation;
 }
-void DHHandlers_UserRelationResposne::setRelation(const QString &relation) {
+void DHFeedback_UserRelationResposne::setRelation(const QString &relation) {
     this->relation = relation;
     this->m_relation_isSet = true;
 }
 
-bool DHHandlers_UserRelationResposne::is_relation_Set() const{
+bool DHFeedback_UserRelationResposne::is_relation_Set() const{
     return m_relation_isSet;
 }
 
-bool DHHandlers_UserRelationResposne::is_relation_Valid() const{
+bool DHFeedback_UserRelationResposne::is_relation_Valid() const{
     return m_relation_isValid;
 }
 
-bool DHHandlers_UserRelationResposne::isSet() const {
+bool DHFeedback_UserRelationResposne::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_id_isSet) {
@@ -123,7 +123,7 @@ bool DHHandlers_UserRelationResposne::isSet() const {
     return isObjectUpdated;
 }
 
-bool DHHandlers_UserRelationResposne::isValid() const {
+bool DHFeedback_UserRelationResposne::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

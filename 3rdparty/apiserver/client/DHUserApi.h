@@ -18,9 +18,16 @@
 #include "DHServerConfiguration.h"
 #include "DHOauth.h"
 
+#include "DHFeedback_CreateFeedbackRequest.h"
+#include "DHFeedback_CreateFeedbackResponse.h"
+#include "DHFeedback_UserListResponse.h"
+#include "DHFeedback_UserRelationListResponse.h"
+#include "DHFeedback_UserRelationResposne.h"
 #include "DHHandlers_ClientLoginRequest.h"
 #include "DHHandlers_ClientLoginResponse.h"
 #include "DHHandlers_ClientUserInfoResponse.h"
+#include "DHHandlers_PreUploadRequest.h"
+#include "DHHandlers_PreUploadResponse.h"
 #include <QString>
 
 #include <QObject>
@@ -64,8 +71,46 @@ public:
     */
     void clientLogin(const DHHandlers_ClientLoginRequest &data);
 
+    /**
+    * @param[in]  data DHFeedback_CreateFeedbackRequest [required]
+    */
+    void createFeedback(const DHFeedback_CreateFeedbackRequest &data);
+
+    /**
+    * @param[in]  id QString [required]
+    * @param[in]  relation QString [required]
+    */
+    void createFeedbackRelation(const QString &id, const QString &relation);
+
+    /**
+    * @param[in]  offset double [required]
+    * @param[in]  limit double [required]
+    * @param[in]  id QList<QString> [optional]
+    * @param[in]  relation QList<QString> [optional]
+    */
+    void getFeedbackRelation(const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &id = ::DeepinHomeAPI::OptionalParam<QList<QString>>(), const ::DeepinHomeAPI::OptionalParam<QList<QString>> &relation = ::DeepinHomeAPI::OptionalParam<QList<QString>>());
+
 
     void getLoginInfo();
+
+    /**
+    * @param[in]  offset double [required]
+    * @param[in]  limit double [required]
+    * @param[in]  type QString [optional]
+    * @param[in]  status QString [optional]
+    */
+    void getUserFeedback(const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QString> &status = ::DeepinHomeAPI::OptionalParam<QString>());
+
+    /**
+    * @param[in]  data DHHandlers_PreUploadRequest [required]
+    */
+    void preUpload(const DHHandlers_PreUploadRequest &data);
+
+    /**
+    * @param[in]  id QString [required]
+    * @param[in]  relation QString [required]
+    */
+    void removeFeedbackRelation(const QString &id, const QString &relation);
 
 
 private:
@@ -91,21 +136,51 @@ private:
     int _OauthMethod = 0;
 
     void clientLoginCallback(DHHttpRequestWorker *worker);
+    void createFeedbackCallback(DHHttpRequestWorker *worker);
+    void createFeedbackRelationCallback(DHHttpRequestWorker *worker);
+    void getFeedbackRelationCallback(DHHttpRequestWorker *worker);
     void getLoginInfoCallback(DHHttpRequestWorker *worker);
+    void getUserFeedbackCallback(DHHttpRequestWorker *worker);
+    void preUploadCallback(DHHttpRequestWorker *worker);
+    void removeFeedbackRelationCallback(DHHttpRequestWorker *worker);
 
 signals:
 
     void clientLoginSignal(DHHandlers_ClientLoginResponse summary);
+    void createFeedbackSignal(DHFeedback_CreateFeedbackResponse summary);
+    void createFeedbackRelationSignal(DHFeedback_UserRelationResposne summary);
+    void getFeedbackRelationSignal(QList<DHFeedback_UserRelationListResponse> summary);
     void getLoginInfoSignal(DHHandlers_ClientUserInfoResponse summary);
+    void getUserFeedbackSignal(QList<DHFeedback_UserListResponse> summary);
+    void preUploadSignal(DHHandlers_PreUploadResponse summary);
+    void removeFeedbackRelationSignal(DHFeedback_UserRelationResposne summary);
 
     void clientLoginSignalFull(DHHttpRequestWorker *worker, DHHandlers_ClientLoginResponse summary);
+    void createFeedbackSignalFull(DHHttpRequestWorker *worker, DHFeedback_CreateFeedbackResponse summary);
+    void createFeedbackRelationSignalFull(DHHttpRequestWorker *worker, DHFeedback_UserRelationResposne summary);
+    void getFeedbackRelationSignalFull(DHHttpRequestWorker *worker, QList<DHFeedback_UserRelationListResponse> summary);
     void getLoginInfoSignalFull(DHHttpRequestWorker *worker, DHHandlers_ClientUserInfoResponse summary);
+    void getUserFeedbackSignalFull(DHHttpRequestWorker *worker, QList<DHFeedback_UserListResponse> summary);
+    void preUploadSignalFull(DHHttpRequestWorker *worker, DHHandlers_PreUploadResponse summary);
+    void removeFeedbackRelationSignalFull(DHHttpRequestWorker *worker, DHFeedback_UserRelationResposne summary);
 
     void clientLoginSignalE(DHHandlers_ClientLoginResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void createFeedbackSignalE(DHFeedback_CreateFeedbackResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void createFeedbackRelationSignalE(DHFeedback_UserRelationResposne summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getFeedbackRelationSignalE(QList<DHFeedback_UserRelationListResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getLoginInfoSignalE(DHHandlers_ClientUserInfoResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getUserFeedbackSignalE(QList<DHFeedback_UserListResponse> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void preUploadSignalE(DHHandlers_PreUploadResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void removeFeedbackRelationSignalE(DHFeedback_UserRelationResposne summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void clientLoginSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void createFeedbackSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void createFeedbackRelationSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getFeedbackRelationSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getLoginInfoSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void getUserFeedbackSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void preUploadSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void removeFeedbackRelationSignalEFull(DHHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal();
     void allPendingRequestsCompleted();

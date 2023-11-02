@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "DHHandlers_PublicReplyResponse.h"
+#include "DHFeedback_PublicReplyResponse.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace DeepinHomeAPI {
 
-DHHandlers_PublicReplyResponse::DHHandlers_PublicReplyResponse(QString json) {
+DHFeedback_PublicReplyResponse::DHFeedback_PublicReplyResponse(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-DHHandlers_PublicReplyResponse::DHHandlers_PublicReplyResponse() {
+DHFeedback_PublicReplyResponse::DHFeedback_PublicReplyResponse() {
     this->initializeModel();
 }
 
-DHHandlers_PublicReplyResponse::~DHHandlers_PublicReplyResponse() {}
+DHFeedback_PublicReplyResponse::~DHFeedback_PublicReplyResponse() {}
 
-void DHHandlers_PublicReplyResponse::initializeModel() {
+void DHFeedback_PublicReplyResponse::initializeModel() {
 
     m_content_isSet = false;
     m_content_isValid = false;
@@ -41,14 +41,14 @@ void DHHandlers_PublicReplyResponse::initializeModel() {
     m_created_at_isValid = false;
 }
 
-void DHHandlers_PublicReplyResponse::fromJson(QString jsonString) {
+void DHFeedback_PublicReplyResponse::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void DHHandlers_PublicReplyResponse::fromJsonObject(QJsonObject json) {
+void DHFeedback_PublicReplyResponse::fromJsonObject(QJsonObject json) {
 
     m_content_isValid = ::DeepinHomeAPI::fromJsonValue(content, json[QString("content")]);
     m_content_isSet = !json[QString("content")].isNull() && m_content_isValid;
@@ -57,14 +57,14 @@ void DHHandlers_PublicReplyResponse::fromJsonObject(QJsonObject json) {
     m_created_at_isSet = !json[QString("created_at")].isNull() && m_created_at_isValid;
 }
 
-QString DHHandlers_PublicReplyResponse::asJson() const {
+QString DHFeedback_PublicReplyResponse::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject DHHandlers_PublicReplyResponse::asJsonObject() const {
+QJsonObject DHFeedback_PublicReplyResponse::asJsonObject() const {
     QJsonObject obj;
     if (m_content_isSet) {
         obj.insert(QString("content"), ::DeepinHomeAPI::toJsonValue(content));
@@ -75,39 +75,39 @@ QJsonObject DHHandlers_PublicReplyResponse::asJsonObject() const {
     return obj;
 }
 
-QString DHHandlers_PublicReplyResponse::getContent() const {
+QString DHFeedback_PublicReplyResponse::getContent() const {
     return content;
 }
-void DHHandlers_PublicReplyResponse::setContent(const QString &content) {
+void DHFeedback_PublicReplyResponse::setContent(const QString &content) {
     this->content = content;
     this->m_content_isSet = true;
 }
 
-bool DHHandlers_PublicReplyResponse::is_content_Set() const{
+bool DHFeedback_PublicReplyResponse::is_content_Set() const{
     return m_content_isSet;
 }
 
-bool DHHandlers_PublicReplyResponse::is_content_Valid() const{
+bool DHFeedback_PublicReplyResponse::is_content_Valid() const{
     return m_content_isValid;
 }
 
-QString DHHandlers_PublicReplyResponse::getCreatedAt() const {
+QString DHFeedback_PublicReplyResponse::getCreatedAt() const {
     return created_at;
 }
-void DHHandlers_PublicReplyResponse::setCreatedAt(const QString &created_at) {
+void DHFeedback_PublicReplyResponse::setCreatedAt(const QString &created_at) {
     this->created_at = created_at;
     this->m_created_at_isSet = true;
 }
 
-bool DHHandlers_PublicReplyResponse::is_created_at_Set() const{
+bool DHFeedback_PublicReplyResponse::is_created_at_Set() const{
     return m_created_at_isSet;
 }
 
-bool DHHandlers_PublicReplyResponse::is_created_at_Valid() const{
+bool DHFeedback_PublicReplyResponse::is_created_at_Valid() const{
     return m_created_at_isValid;
 }
 
-bool DHHandlers_PublicReplyResponse::isSet() const {
+bool DHFeedback_PublicReplyResponse::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_content_isSet) {
@@ -123,7 +123,7 @@ bool DHHandlers_PublicReplyResponse::isSet() const {
     return isObjectUpdated;
 }
 
-bool DHHandlers_PublicReplyResponse::isValid() const {
+bool DHFeedback_PublicReplyResponse::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

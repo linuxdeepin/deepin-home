@@ -302,7 +302,7 @@ void DHClientApi::addFeedbackViewCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    DHHandlers_PublicViewResponse output(QString(worker->response));
+    DHFeedback_PublicViewResponse output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -368,7 +368,7 @@ void DHClientApi::clientLoginCallback(DHHttpRequestWorker *worker) {
     }
 }
 
-void DHClientApi::createFeedback(const DHHandlers_CreateFeedbackRequest &data) {
+void DHClientApi::createFeedback(const DHFeedback_CreateFeedbackRequest &data) {
     QString fullPath = QString(_serverConfigs["createFeedback"][_serverIndices.value("createFeedback")].URL()+"/user/feedback");
     
     if (_apiKeys.contains("Authorization")) {
@@ -414,7 +414,7 @@ void DHClientApi::createFeedbackCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    DHHandlers_CreateFeedbackResponse output(QString(worker->response));
+    DHFeedback_CreateFeedbackResponse output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -495,7 +495,7 @@ void DHClientApi::createFeedbackRelationCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    DHHandlers_UserRelationResposne output(QString(worker->response));
+    DHFeedback_UserRelationResposne output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -615,7 +615,7 @@ void DHClientApi::getBBSURLCallback(DHHttpRequestWorker *worker) {
     }
 }
 
-void DHClientApi::getFeedback(const QString &language, const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type, const ::DeepinHomeAPI::OptionalParam<QString> &status, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &public_id) {
+void DHClientApi::getFeedback(const QString &language, const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &status, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &public_id, const ::DeepinHomeAPI::OptionalParam<QString> &order, const ::DeepinHomeAPI::OptionalParam<QString> &version, const ::DeepinHomeAPI::OptionalParam<QString> &keyword) {
     QString fullPath = QString(_serverConfigs["getFeedback"][_serverIndices.value("getFeedback")].URL()+"/public/feedback");
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
@@ -636,18 +636,88 @@ void DHClientApi::getFeedback(const QString &language, const double &offset, con
     }
     if (status.hasValue())
     {
-        queryStyle = "";
+        queryStyle = "form";
         if (queryStyle == "")
             queryStyle = "form";
         queryPrefix = getParamStylePrefix(queryStyle);
         querySuffix = getParamStyleSuffix(queryStyle);
-        queryDelimiter = getParamStyleDelimiter(queryStyle, "status", false);
-        if (fullPath.indexOf("?") > 0)
-            fullPath.append(queryPrefix);
-        else
-            fullPath.append("?");
-
-        fullPath.append(QUrl::toPercentEncoding("status")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(status.value())));
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "status", true);
+        if (status.value().size() > 0) {
+            if (QString("multi").indexOf("multi") == 0) {
+                for (QString t : status.value()) {
+                    if (fullPath.indexOf("?") > 0)
+                        fullPath.append(queryPrefix);
+                    else
+                        fullPath.append("?");
+                    fullPath.append("status=").append(::DeepinHomeAPI::toStringValue(t));
+                }
+            } else if (QString("multi").indexOf("ssv") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("status").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : status.value()) {
+                    if (count > 0) {
+                        fullPath.append((true)? queryDelimiter : QUrl::toPercentEncoding(queryDelimiter));
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("tsv") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("status").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : status.value()) {
+                    if (count > 0) {
+                        fullPath.append("\t");
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("csv") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("status").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : status.value()) {
+                    if (count > 0) {
+                        fullPath.append(queryDelimiter);
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("pipes") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("status").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : status.value()) {
+                    if (count > 0) {
+                        fullPath.append(queryDelimiter);
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            } else if (QString("multi").indexOf("deepObject") == 0) {
+                if (fullPath.indexOf("?") > 0)
+                    fullPath.append("&");
+                else
+                    fullPath.append("?").append(queryPrefix).append("status").append(querySuffix);
+                qint32 count = 0;
+                for (QString t : status.value()) {
+                    if (count > 0) {
+                        fullPath.append(queryDelimiter);
+                    }
+                    fullPath.append(::DeepinHomeAPI::toStringValue(t));
+                    count++;
+                }
+            }
+        }
     }
     if (public_id.hasValue())
     {
@@ -749,6 +819,51 @@ void DHClientApi::getFeedback(const QString &language, const double &offset, con
 
         fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(language)));
     }
+    if (order.hasValue())
+    {
+        queryStyle = "";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "order", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("order")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(order.value())));
+    }
+    if (version.hasValue())
+    {
+        queryStyle = "";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "version", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("version")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(version.value())));
+    }
+    if (keyword.hasValue())
+    {
+        queryStyle = "";
+        if (queryStyle == "")
+            queryStyle = "form";
+        queryPrefix = getParamStylePrefix(queryStyle);
+        querySuffix = getParamStyleSuffix(queryStyle);
+        queryDelimiter = getParamStyleDelimiter(queryStyle, "keyword", false);
+        if (fullPath.indexOf("?") > 0)
+            fullPath.append(queryPrefix);
+        else
+            fullPath.append("?");
+
+        fullPath.append(QUrl::toPercentEncoding("keyword")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(keyword.value())));
+    }
     
     {
         queryStyle = "";
@@ -813,13 +928,13 @@ void DHClientApi::getFeedbackCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    QList<DHHandlers_FeedbackPublicListResponse> output;
+    QList<DHFeedback_PublicListResponse> output;
     QString json(worker->response);
     QByteArray array(json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
     for (QJsonValue obj : jsonArray) {
-        DHHandlers_FeedbackPublicListResponse val;
+        DHFeedback_PublicListResponse val;
         ::DeepinHomeAPI::fromJsonValue(val, obj);
         output.append(val);
     }
@@ -1076,13 +1191,13 @@ void DHClientApi::getFeedbackRelationCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    QList<DHHandlers_FeedbackUserRelationListResponse> output;
+    QList<DHFeedback_UserRelationListResponse> output;
     QString json(worker->response);
     QByteArray array(json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
     for (QJsonValue obj : jsonArray) {
-        DHHandlers_FeedbackUserRelationListResponse val;
+        DHFeedback_UserRelationListResponse val;
         ::DeepinHomeAPI::fromJsonValue(val, obj);
         output.append(val);
     }
@@ -1150,13 +1265,13 @@ void DHClientApi::getFeedbackReplyCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    QList<DHHandlers_PublicReplyResponse> output;
+    QList<DHFeedback_PublicReplyResponse> output;
     QString json(worker->response);
     QByteArray array(json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
     for (QJsonValue obj : jsonArray) {
-        DHHandlers_PublicReplyResponse val;
+        DHFeedback_PublicReplyResponse val;
         ::DeepinHomeAPI::fromJsonValue(val, obj);
         output.append(val);
     }
@@ -1294,13 +1409,13 @@ void DHClientApi::getFeedbackStatCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    QList<DHHandlers_PublicStatResponse> output;
+    QList<DHFeedback_PublicStatResponse> output;
     QString json(worker->response);
     QByteArray array(json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
     for (QJsonValue obj : jsonArray) {
-        DHHandlers_PublicStatResponse val;
+        DHFeedback_PublicStatResponse val;
         ::DeepinHomeAPI::fromJsonValue(val, obj);
         output.append(val);
     }
@@ -1873,13 +1988,13 @@ void DHClientApi::getUserFeedbackCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    QList<DHHandlers_FeedbackUserListResponse> output;
+    QList<DHFeedback_UserListResponse> output;
     QString json(worker->response);
     QByteArray array(json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
     for (QJsonValue obj : jsonArray) {
-        DHHandlers_FeedbackUserListResponse val;
+        DHFeedback_UserListResponse val;
         ::DeepinHomeAPI::fromJsonValue(val, obj);
         output.append(val);
     }
@@ -2021,7 +2136,7 @@ void DHClientApi::removeFeedbackRelationCallback(DHHttpRequestWorker *worker) {
     if (worker->error_type != QNetworkReply::NoError) {
         error_str = QString("%1, %2").arg(worker->error_str, QString(worker->response));
     }
-    DHHandlers_UserRelationResposne output(QString(worker->response));
+    DHFeedback_UserRelationResposne output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

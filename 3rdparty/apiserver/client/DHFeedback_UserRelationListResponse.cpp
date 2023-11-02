@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-#include "DHHandlers_FeedbackUserRelationListResponse.h"
+#include "DHFeedback_UserRelationListResponse.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -21,18 +21,18 @@
 
 namespace DeepinHomeAPI {
 
-DHHandlers_FeedbackUserRelationListResponse::DHHandlers_FeedbackUserRelationListResponse(QString json) {
+DHFeedback_UserRelationListResponse::DHFeedback_UserRelationListResponse(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-DHHandlers_FeedbackUserRelationListResponse::DHHandlers_FeedbackUserRelationListResponse() {
+DHFeedback_UserRelationListResponse::DHFeedback_UserRelationListResponse() {
     this->initializeModel();
 }
 
-DHHandlers_FeedbackUserRelationListResponse::~DHHandlers_FeedbackUserRelationListResponse() {}
+DHFeedback_UserRelationListResponse::~DHFeedback_UserRelationListResponse() {}
 
-void DHHandlers_FeedbackUserRelationListResponse::initializeModel() {
+void DHFeedback_UserRelationListResponse::initializeModel() {
 
     m_feedback_id_isSet = false;
     m_feedback_id_isValid = false;
@@ -41,14 +41,14 @@ void DHHandlers_FeedbackUserRelationListResponse::initializeModel() {
     m_relation_isValid = false;
 }
 
-void DHHandlers_FeedbackUserRelationListResponse::fromJson(QString jsonString) {
+void DHFeedback_UserRelationListResponse::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void DHHandlers_FeedbackUserRelationListResponse::fromJsonObject(QJsonObject json) {
+void DHFeedback_UserRelationListResponse::fromJsonObject(QJsonObject json) {
 
     m_feedback_id_isValid = ::DeepinHomeAPI::fromJsonValue(feedback_id, json[QString("feedback_id")]);
     m_feedback_id_isSet = !json[QString("feedback_id")].isNull() && m_feedback_id_isValid;
@@ -57,14 +57,14 @@ void DHHandlers_FeedbackUserRelationListResponse::fromJsonObject(QJsonObject jso
     m_relation_isSet = !json[QString("relation")].isNull() && m_relation_isValid;
 }
 
-QString DHHandlers_FeedbackUserRelationListResponse::asJson() const {
+QString DHFeedback_UserRelationListResponse::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject DHHandlers_FeedbackUserRelationListResponse::asJsonObject() const {
+QJsonObject DHFeedback_UserRelationListResponse::asJsonObject() const {
     QJsonObject obj;
     if (m_feedback_id_isSet) {
         obj.insert(QString("feedback_id"), ::DeepinHomeAPI::toJsonValue(feedback_id));
@@ -75,39 +75,39 @@ QJsonObject DHHandlers_FeedbackUserRelationListResponse::asJsonObject() const {
     return obj;
 }
 
-QString DHHandlers_FeedbackUserRelationListResponse::getFeedbackId() const {
+QString DHFeedback_UserRelationListResponse::getFeedbackId() const {
     return feedback_id;
 }
-void DHHandlers_FeedbackUserRelationListResponse::setFeedbackId(const QString &feedback_id) {
+void DHFeedback_UserRelationListResponse::setFeedbackId(const QString &feedback_id) {
     this->feedback_id = feedback_id;
     this->m_feedback_id_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserRelationListResponse::is_feedback_id_Set() const{
+bool DHFeedback_UserRelationListResponse::is_feedback_id_Set() const{
     return m_feedback_id_isSet;
 }
 
-bool DHHandlers_FeedbackUserRelationListResponse::is_feedback_id_Valid() const{
+bool DHFeedback_UserRelationListResponse::is_feedback_id_Valid() const{
     return m_feedback_id_isValid;
 }
 
-QString DHHandlers_FeedbackUserRelationListResponse::getRelation() const {
+QString DHFeedback_UserRelationListResponse::getRelation() const {
     return relation;
 }
-void DHHandlers_FeedbackUserRelationListResponse::setRelation(const QString &relation) {
+void DHFeedback_UserRelationListResponse::setRelation(const QString &relation) {
     this->relation = relation;
     this->m_relation_isSet = true;
 }
 
-bool DHHandlers_FeedbackUserRelationListResponse::is_relation_Set() const{
+bool DHFeedback_UserRelationListResponse::is_relation_Set() const{
     return m_relation_isSet;
 }
 
-bool DHHandlers_FeedbackUserRelationListResponse::is_relation_Valid() const{
+bool DHFeedback_UserRelationListResponse::is_relation_Valid() const{
     return m_relation_isValid;
 }
 
-bool DHHandlers_FeedbackUserRelationListResponse::isSet() const {
+bool DHFeedback_UserRelationListResponse::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_feedback_id_isSet) {
@@ -123,7 +123,7 @@ bool DHHandlers_FeedbackUserRelationListResponse::isSet() const {
     return isObjectUpdated;
 }
 
-bool DHHandlers_FeedbackUserRelationListResponse::isValid() const {
+bool DHFeedback_UserRelationListResponse::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }

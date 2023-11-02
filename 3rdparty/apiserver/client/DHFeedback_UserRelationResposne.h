@@ -11,13 +11,13 @@
  */
 
 /*
- * DHHandlers_UserRelationResposne.h
+ * DHFeedback_UserRelationResposne.h
  *
  * 
  */
 
-#ifndef DHHandlers_UserRelationResposne_H
-#define DHHandlers_UserRelationResposne_H
+#ifndef DHFeedback_UserRelationResposne_H
+#define DHFeedback_UserRelationResposne_H
 
 #include <QJsonObject>
 
@@ -28,11 +28,11 @@
 
 namespace DeepinHomeAPI {
 
-class DHHandlers_UserRelationResposne : public DHObject {
+class DHFeedback_UserRelationResposne : public DHObject {
 public:
-    DHHandlers_UserRelationResposne();
-    DHHandlers_UserRelationResposne(QString json);
-    ~DHHandlers_UserRelationResposne() override;
+    DHFeedback_UserRelationResposne();
+    DHFeedback_UserRelationResposne(QString json);
+    ~DHFeedback_UserRelationResposne() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -66,6 +66,6 @@ private:
 
 } // namespace DeepinHomeAPI
 
-Q_DECLARE_METATYPE(DeepinHomeAPI::DHHandlers_UserRelationResposne)
+Q_DECLARE_METATYPE(DeepinHomeAPI::DHFeedback_UserRelationResposne)
 
-#endif // DHHandlers_UserRelationResposne_H
+#endif // DHFeedback_UserRelationResposne_H

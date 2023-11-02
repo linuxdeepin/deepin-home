@@ -11,13 +11,13 @@
  */
 
 /*
- * DHHandlers_CreateFeedbackRequest.h
+ * DHFeedback_CreateFeedbackRequest.h
  *
  * 
  */
 
-#ifndef DHHandlers_CreateFeedbackRequest_H
-#define DHHandlers_CreateFeedbackRequest_H
+#ifndef DHFeedback_CreateFeedbackRequest_H
+#define DHFeedback_CreateFeedbackRequest_H
 
 #include <QJsonObject>
 
@@ -29,11 +29,11 @@
 
 namespace DeepinHomeAPI {
 
-class DHHandlers_CreateFeedbackRequest : public DHObject {
+class DHFeedback_CreateFeedbackRequest : public DHObject {
 public:
-    DHHandlers_CreateFeedbackRequest();
-    DHHandlers_CreateFeedbackRequest(QString json);
-    ~DHHandlers_CreateFeedbackRequest() override;
+    DHFeedback_CreateFeedbackRequest();
+    DHFeedback_CreateFeedbackRequest(QString json);
+    ~DHFeedback_CreateFeedbackRequest() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -112,6 +112,6 @@ private:
 
 } // namespace DeepinHomeAPI
 
-Q_DECLARE_METATYPE(DeepinHomeAPI::DHHandlers_CreateFeedbackRequest)
+Q_DECLARE_METATYPE(DeepinHomeAPI::DHFeedback_CreateFeedbackRequest)
 
-#endif // DHHandlers_CreateFeedbackRequest_H
+#endif // DHFeedback_CreateFeedbackRequest_H
