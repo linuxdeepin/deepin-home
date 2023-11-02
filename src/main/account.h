@@ -13,6 +13,8 @@
 #include <QDesktopServices>
 #include <QObject>
 
+using namespace SyncAPI;
+
 struct UserInfo
 {
     QString uid;

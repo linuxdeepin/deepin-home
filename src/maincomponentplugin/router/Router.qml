@@ -170,6 +170,9 @@ Item {
 
     // 返回上一页
     function back() {
+        if (routeHistory.length == 1)
+            return ;
+
         routeHistory.pop();
         const r = routeHistory[routeHistory.length - 1];
         console.log("route back", JSON.stringify(r));

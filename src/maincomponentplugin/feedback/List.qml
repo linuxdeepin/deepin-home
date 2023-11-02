@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
-// 反馈列表组建
+// 反馈列表组件
 // 在反馈广场、我的反馈、我的收藏和我的关注中均有使用
 
 import "../api"
@@ -30,6 +30,11 @@ Item {
     property bool hasMore: true
     // 是否正在“加载更多”
     property bool loadMore: false
+    property var filterParam: {
+        "type": root.type,
+        "order": '',
+        "keyword": ''
+    }
 
     function goDetail(feedback) {
         api.viewFeedback(feedback.public_id);
@@ -40,6 +45,7 @@ Item {
     function getList(clear) {
         // 在切换分类过滤时，重置列表
         if (clear) {
+            root.initing = true;
             root.offset = 0;
             root.hasMore = true;
             feedbackList.clear();
@@ -58,7 +64,7 @@ Item {
             break;
         case "":
             // 获取反馈广场
-            api.allFeedback(root.offset, root.limit, root.type);
+            api.allFeedback(root.offset, root.limit, filterParam);
             break;
         }
     }
@@ -81,6 +87,7 @@ Item {
             if (feedbacks.length != root.limit)
                 root.hasMore = false;
 
+            const keyword = root.filterParam["keyword"];
             for (const feedback of feedbacks) {
                 feedbackList.append({
                     "feedback": feedback
@@ -117,53 +124,18 @@ Item {
         id: headerRect
 
         width: parent.width
-        height: selectBox.height + 20
+        height: 64
         visible: root.typeFilter
 
-        ComboBox {
-            id: selectBox
-
-            width: 150
-            anchors.right: parent.right
-            anchors.rightMargin: 10
-            anchors.verticalCenter: parent.verticalCenter
-            textRole: "text"
-            onActivated: {
-                if (root.relation == "create") {
-                    Router.showMyFeedback(true, selectOptions.get(currentIndex).value);
-                    return ;
-                }
-                Router.showAllFeedback(true, selectOptions.get(currentIndex).value);
+        Filter {
+            x: 20
+            width: parent.width - x * 2
+            height: parent.height
+            value: filterParam
+            onValueChange: (val) => {
+                filterParam = val;
+                getList(true);
             }
-            Component.onCompleted: {
-                if (root.type === "bug")
-                    currentIndex = 1;
-                else if (root.type === "req")
-                    currentIndex = 2;
-                else
-                    currentIndex = 0;
-            }
-
-            model: ListModel {
-                id: selectOptions
-
-                ListElement {
-                    text: qsTr("All")
-                    value: ""
-                }
-
-                ListElement {
-                    text: qsTr("Bug")
-                    value: "bug"
-                }
-
-                ListElement {
-                    text: qsTr("Suggestions")
-                    value: "req"
-                }
-
-            }
-
         }
 
     }
@@ -177,7 +149,7 @@ Item {
         clip: true
         ScrollBar.vertical.onPositionChanged: () => {
             const position = ScrollBar.vertical.position + ScrollBar.vertical.size;
-            if (position > 0.98 && !root.loadMore && root.hasMore) {
+            if (position > 0.9 && !root.loadMore && root.hasMore) {
                 root.loadMore = true;
                 timer.restart();
             }

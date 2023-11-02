@@ -24,6 +24,8 @@
 #include <QSystemTrayIcon>
 #include <QTimer>
 
+using namespace SyncAPI;
+
 class HomeDaemon : public QObject, protected QDBusContext
 {
     Q_OBJECT

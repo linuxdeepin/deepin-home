@@ -13,6 +13,8 @@
 #include "homeDaemonProxy.h"
 #include "worker.h"
 
+using namespace SyncAPI;
+
 struct Env
 {
     QString server;
@@ -45,7 +47,7 @@ private:
 public slots:
     void getNotify();
     void getQuestionnaire();
-    void allFeedback(int offset, int limit, QString type);
+    void allFeedback(int offset, int limit, QJsonObject opt);
     void getFeedback(QString id);
     void getFeedbackReply(QString id);
     void getLikeFeedback(int offset, int limit);
@@ -66,6 +68,7 @@ public slots:
     void getClientHome();
     void getAboutUS();
     void getInternalTest();
+    void getSystemVersion();
 signals:
     void signalUnknownError();
     void signalAPIError(int code, QString type, QString msg);
@@ -83,6 +86,7 @@ signals:
     void signalGetClientHomeResp(QJsonObject resp);
     void signalGetAboutUSResp(QString resp);
     void signalGetInternalTestResp(QString resp);
+    void signalGetSystemVersionResp(QJsonArray resp);
 };
 
 #endif // APIPROXY_H

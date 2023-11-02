@@ -4,6 +4,7 @@
 
 #include "api.h"
 
+namespace SyncAPI {
 API::API(QObject *parent)
     : QObject(parent)
 {
@@ -92,55 +93,64 @@ QSharedPointer<DHClientApi> API::getClient(QString server, QString token)
 }
 
 // 获取反馈
-QList<DHHandlers_FeedbackPublicListResponse> API::getFeedback(const QString &server,
-                                                              const QString &language,
-                                                              const int &offset,
-                                                              const int &limit,
-                                                              const QString &type,
-                                                              const OptionalParam<QString> &status)
+QList<DHFeedback_PublicListResponse> API::getFeedback(const QString &server,
+                                                      const QString &language,
+                                                      const int &offset,
+                                                      const int &limit,
+                                                      const GetFeedbackOptionalParam &param)
 {
     auto client = getClient(server);
-    client->getFeedback(language, offset, limit, type, status);
-    return waitSignal<QList<DHHandlers_FeedbackPublicListResponse>>(
-        client.data(), &DHClientApi::getFeedbackSignalFull, &DHClientApi::getFeedbackSignalEFull);
+    client->getFeedback(language,
+                        offset,
+                        limit,
+                        param.type,
+                        param.status,
+                        param.public_id,
+                        param.order,
+                        param.version,
+                        param.keyword);
+    return waitSignal<QList<DHFeedback_PublicListResponse>>(client.data(),
+                                                            &DHClientApi::getFeedbackSignalFull,
+                                                            &DHClientApi::getFeedbackSignalEFull);
 }
 
 // 根据public id获取反馈
-QList<DHHandlers_FeedbackPublicListResponse> API::getFeedback(const QString &server,
-                                                              const QString &language,
-                                                              const int &offset,
-                                                              const int &limit,
-                                                              const QStringList publicID)
+QList<DHFeedback_PublicListResponse> API::getFeedback(const QString &server,
+                                                      const QString &language,
+                                                      const int &offset,
+                                                      const int &limit,
+                                                      const QStringList publicID)
 {
     auto client = getClient(server);
     client->getFeedback(language,
                         offset,
                         limit,
                         OptionalParam<QString>(),
-                        OptionalParam<QString>(),
+                        OptionalParam<QList<QString>>(),
                         publicID);
-    return waitSignal<QList<DHHandlers_FeedbackPublicListResponse>>(
-        client.data(), &DHClientApi::getFeedbackSignalFull, &DHClientApi::getFeedbackSignalEFull);
+    return waitSignal<QList<DHFeedback_PublicListResponse>>(client.data(),
+                                                            &DHClientApi::getFeedbackSignalFull,
+                                                            &DHClientApi::getFeedbackSignalEFull);
 }
 
 // 获取反馈的统计信息
-QList<DeepinHomeAPI::DHHandlers_PublicStatResponse> API::getFeedbackStat(const QString &server,
+QList<DeepinHomeAPI::DHFeedback_PublicStatResponse> API::getFeedbackStat(const QString &server,
                                                                          const QStringList &publicID)
 {
     auto client = getClient(server);
     client->getFeedbackStat(publicID);
-    return waitSignal<QList<DeepinHomeAPI::DHHandlers_PublicStatResponse>>(
+    return waitSignal<QList<DeepinHomeAPI::DHFeedback_PublicStatResponse>>(
         client.data(),
         &DHClientApi::getFeedbackStatSignalFull,
         &DHClientApi::getFeedbackStatSignalEFull);
 }
 
-QList<DeepinHomeAPI::DHHandlers_FeedbackUserListResponse> API::getUserFeedback(
+QList<DeepinHomeAPI::DHFeedback_UserListResponse> API::getUserFeedback(
     const QString &server, const QString &token, const int &offset, const int &limit, QString type)
 {
     auto client = getClient(server, token);
     client->getUserFeedback(offset, limit, type);
-    return waitSignal<QList<DeepinHomeAPI::DHHandlers_FeedbackUserListResponse>>(
+    return waitSignal<QList<DeepinHomeAPI::DHFeedback_UserListResponse>>(
         client.data(),
         &DHClientApi::getUserFeedbackSignalFull,
         &DHClientApi::getUserFeedbackSignalEFull);
@@ -154,7 +164,7 @@ void API::createUserFeedbackRelation(const QString &server,
 {
     auto client = getClient(server, token);
     client->createFeedbackRelation(feedback_id, relation);
-    waitSignal<DHHandlers_UserRelationResposne>(client.data(),
+    waitSignal<DHFeedback_UserRelationResposne>(client.data(),
                                                 &DHClientApi::createFeedbackRelationSignalFull,
                                                 &DHClientApi::createFeedbackRelationSignalEFull);
 }
@@ -167,7 +177,7 @@ void API::removeUserFeedbackRelation(const QString &server,
 {
     auto client = getClient(server, token);
     client->removeFeedbackRelation(feedback_id, relation);
-    waitSignal<DHHandlers_UserRelationResposne>(client.data(),
+    waitSignal<DHFeedback_UserRelationResposne>(client.data(),
                                                 &DHClientApi::removeFeedbackRelationSignalFull,
                                                 &DHClientApi::removeFeedbackRelationSignalEFull);
 }
@@ -177,18 +187,18 @@ void API::addFeedbackView(const QString &server, const QString &feedback_id)
 {
     auto client = getClient(server);
     client->addFeedbackView(feedback_id);
-    waitSignal<DHHandlers_PublicViewResponse>(client.data(),
+    waitSignal<DHFeedback_PublicViewResponse>(client.data(),
                                               &DHClientApi::addFeedbackViewSignalFull,
                                               &DHClientApi::addFeedbackViewSignalEFull);
 }
 
 // 查看反馈的回复
-QList<DHHandlers_PublicReplyResponse> API::getFeedbackReply(const QString &server,
+QList<DHFeedback_PublicReplyResponse> API::getFeedbackReply(const QString &server,
                                                             const QString &feedback_id)
 {
     auto client = getClient(server);
     client->getFeedbackReply(feedback_id);
-    return waitSignal<QList<DHHandlers_PublicReplyResponse>>(
+    return waitSignal<QList<DHFeedback_PublicReplyResponse>>(
         client.data(),
         &DHClientApi::getFeedbackReplySignalFull,
         &DHClientApi::getFeedbackReplySignalEFull);
@@ -254,7 +264,7 @@ QString API::createFeedback(const QString &server,
                             const QStringList &snapshots)
 {
     auto client = getClient(server, token);
-    DHHandlers_CreateFeedbackRequest req;
+    DHFeedback_CreateFeedbackRequest req;
     req.setType(type);
     req.setLanguage(language);
     req.setTitle(title);
@@ -264,7 +274,7 @@ QString API::createFeedback(const QString &server,
     req.setScreenshots(snapshots);
     client->createFeedback(req);
     auto resp
-        = waitSignal<DHHandlers_CreateFeedbackResponse>(client.data(),
+        = waitSignal<DHFeedback_CreateFeedbackResponse>(client.data(),
                                                         &DHClientApi::createFeedbackSignalFull,
                                                         &DHClientApi::createFeedbackSignalEFull);
     return resp.getPublicId();
@@ -275,13 +285,14 @@ QString API::getSetting(const QString &server, const QString &settingKey)
 {
     auto client = getClient(server);
     client->getSetting(settingKey);
-    auto resp = waitSignal<DHHandlers_GetStetingResponse>(
-        client.data(), &DHClientApi::getSettingSignalFull, &DHClientApi::getSettingSignalEFull);
+    auto resp = waitSignal<DHHandlers_GetStetingResponse>(client.data(),
+                                                          &DHClientApi::getSettingSignalFull,
+                                                          &DHClientApi::getSettingSignalEFull);
     return resp.getValue();
 };
 
 // 获取和用户有关联的反馈
-QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedbackRelation(
+QList<DeepinHomeAPI::DHFeedback_UserRelationListResponse> API::getFeedbackRelation(
     const QString &server, const QString &token, int offset, int limit, const QString &relation)
 {
     auto client = getClient(server, token);
@@ -289,14 +300,14 @@ QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedba
                                 limit,
                                 OptionalParam<QList<QString>>(),
                                 QStringList(relation));
-    return waitSignal<QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse>>(
+    return waitSignal<QList<DeepinHomeAPI::DHFeedback_UserRelationListResponse>>(
         client.data(),
         &DHClientApi::getFeedbackRelationSignalFull,
         &DHClientApi::getFeedbackRelationSignalEFull);
 }
 
 // 获取用户和反馈的关联关系
-QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedbackRelation(
+QList<DeepinHomeAPI::DHFeedback_UserRelationListResponse> API::getFeedbackRelation(
     const QString &server,
     const QString &token,
     int offset,
@@ -306,7 +317,7 @@ QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse> API::getFeedba
 {
     auto client = getClient(server, token);
     client->getFeedbackRelation(offset, limit, publicID, relation);
-    return waitSignal<QList<DeepinHomeAPI::DHHandlers_FeedbackUserRelationListResponse>>(
+    return waitSignal<QList<DeepinHomeAPI::DHFeedback_UserRelationListResponse>>(
         client.data(),
         &DHClientApi::getFeedbackRelationSignalFull,
         &DHClientApi::getFeedbackRelationSignalEFull);
@@ -398,3 +409,5 @@ DHHandlers_ClientUserInfoResponse API::getLoginInfo(QString server, QString toke
                                                          &DHClientApi::getLoginInfoSignalFull,
                                                          &DHClientApi::getLoginInfoSignalEFull);
 }
+
+} // namespace SyncAPI
