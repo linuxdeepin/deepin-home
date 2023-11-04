@@ -88,9 +88,9 @@ Item {
                     screenshots: feedback.screenshots
                     avatar: feedback.avatar
                     system_version: feedback.system_version
-                    view_count: view_count
-                    like_count: like_count
-                    collect_count: collect_count
+                    view_count: feedback.view_count
+                    like_count: feedback.like_count
+                    collect_count: feedback.collect_count
                     // 点赞按钮点击
                     onLikeClicked: {
                         if (!API.isLogin) {
