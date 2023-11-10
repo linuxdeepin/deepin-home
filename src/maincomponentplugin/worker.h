@@ -21,6 +21,7 @@
 #include <QQmlApplicationEngine>
 #include <QStandardPaths>
 #include <QTemporaryFile>
+#include <QtConcurrent>
 
 #include "homeDaemonProxy.h"
 
@@ -68,11 +69,14 @@ public slots:
     void previewImage(QByteArray data);
     // 生成UUID
     QString genUUID();
+    // 获取系统信息
+    void getSysInfo();
 signals:
     void userInfoChanged();
     void messageChanged();
     void showMainWindow(bool isIconClick);
     void networkError();
+    void signalsGetSysInfoResp(QString sysinfo);
 };
 
 #endif // WORKER_H

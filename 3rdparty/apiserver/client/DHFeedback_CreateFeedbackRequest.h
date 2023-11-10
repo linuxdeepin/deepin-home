@@ -60,6 +60,11 @@ public:
     bool is_screenshots_Set() const;
     bool is_screenshots_Valid() const;
 
+    QString getSystemInfo() const;
+    void setSystemInfo(const QString &system_info);
+    bool is_system_info_Set() const;
+    bool is_system_info_Valid() const;
+
     QString getTitle() const;
     void setTitle(const QString &title);
     bool is_title_Set() const;
@@ -96,6 +101,10 @@ private:
     QList<QString> screenshots;
     bool m_screenshots_isSet;
     bool m_screenshots_isValid;
+
+    QString system_info;
+    bool m_system_info_isSet;
+    bool m_system_info_isValid;
 
     QString title;
     bool m_title_isSet;
