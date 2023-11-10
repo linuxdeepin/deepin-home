@@ -297,21 +297,24 @@ void APIProxy::createFeedback(const QString &type,
                               const QString &content,
                               const QString &email,
                               const QString &sysVersion,
+                              const QString &sysInfo,
                               const QStringList &snapshots)
 {
     auto env = getEnv();
-    auto future = QtConcurrent::run([env, type, title, content, email, sysVersion, snapshots] {
-        API api(env.cachename);
-        return api.createFeedback(env.server,
-                                  env.token,
-                                  type,
-                                  env.language,
-                                  title,
-                                  content,
-                                  email,
-                                  sysVersion,
-                                  snapshots);
-    });
+    auto future = QtConcurrent::run(
+        [env, type, title, content, email, sysVersion, sysInfo, snapshots] {
+            API api(env.cachename);
+            return api.createFeedback(env.server,
+                                      env.token,
+                                      type,
+                                      env.language,
+                                      title,
+                                      content,
+                                      email,
+                                      sysVersion,
+                                      sysInfo,
+                                      snapshots);
+        });
     waitFuture(future, [this](auto resp) { emit this->signalCreateFeedbackResp(resp); });
 }
 

@@ -106,6 +106,7 @@ public:
                            const QString &content,
                            const QString &email,
                            const QString &sysVersion,
+                           const QString &sysInfo,
                            const QStringList &snapshots);
     QString getSetting(const QString &server, const QString &settingKey);
 };

@@ -615,7 +615,7 @@ void DHClientApi::getBBSURLCallback(DHHttpRequestWorker *worker) {
     }
 }
 
-void DHClientApi::getFeedback(const QString &language, const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &status, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &public_id, const ::DeepinHomeAPI::OptionalParam<QString> &order, const ::DeepinHomeAPI::OptionalParam<QString> &version, const ::DeepinHomeAPI::OptionalParam<QString> &keyword) {
+void DHClientApi::getFeedback(const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &status, const ::DeepinHomeAPI::OptionalParam<QList<QString>> &public_id, const ::DeepinHomeAPI::OptionalParam<QString> &language, const ::DeepinHomeAPI::OptionalParam<QString> &order, const ::DeepinHomeAPI::OptionalParam<QString> &version, const ::DeepinHomeAPI::OptionalParam<QString> &keyword) {
     QString fullPath = QString(_serverConfigs["getFeedback"][_serverIndices.value("getFeedback")].URL()+"/public/feedback");
     
     QString queryPrefix, querySuffix, queryDelimiter, queryStyle;
@@ -804,7 +804,7 @@ void DHClientApi::getFeedback(const QString &language, const double &offset, con
             }
         }
     }
-    
+    if (language.hasValue())
     {
         queryStyle = "";
         if (queryStyle == "")
@@ -817,7 +817,7 @@ void DHClientApi::getFeedback(const QString &language, const double &offset, con
         else
             fullPath.append("?");
 
-        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(language)));
+        fullPath.append(QUrl::toPercentEncoding("language")).append(querySuffix).append(QUrl::toPercentEncoding(::DeepinHomeAPI::toStringValue(language.value())));
     }
     if (order.hasValue())
     {

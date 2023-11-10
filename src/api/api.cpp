@@ -100,12 +100,12 @@ QList<DHFeedback_PublicListResponse> API::getFeedback(const QString &server,
                                                       const GetFeedbackOptionalParam &param)
 {
     auto client = getClient(server);
-    client->getFeedback(language,
-                        offset,
+    client->getFeedback(offset,
                         limit,
                         param.type,
                         param.status,
                         param.public_id,
+                        language,
                         param.order,
                         param.version,
                         param.keyword);
@@ -122,12 +122,12 @@ QList<DHFeedback_PublicListResponse> API::getFeedback(const QString &server,
                                                       const QStringList publicID)
 {
     auto client = getClient(server);
-    client->getFeedback(language,
-                        offset,
+    client->getFeedback(offset,
                         limit,
                         OptionalParam<QString>(),
                         OptionalParam<QList<QString>>(),
-                        publicID);
+                        publicID,
+                        language);
     return waitSignal<QList<DHFeedback_PublicListResponse>>(client.data(),
                                                             &DHClientApi::getFeedbackSignalFull,
                                                             &DHClientApi::getFeedbackSignalEFull);
@@ -261,6 +261,7 @@ QString API::createFeedback(const QString &server,
                             const QString &content,
                             const QString &email,
                             const QString &sysVersion,
+                            const QString &sysInfo,
                             const QStringList &snapshots)
 {
     auto client = getClient(server, token);
@@ -271,6 +272,7 @@ QString API::createFeedback(const QString &server,
     req.setContent(content);
     req.setEmail(email);
     req.setVersion(sysVersion);
+    req.setSystemInfo(sysInfo);
     req.setScreenshots(snapshots);
     client->createFeedback(req);
     auto resp

@@ -46,6 +46,9 @@ void DHFeedback_CreateFeedbackRequest::initializeModel() {
     m_screenshots_isSet = false;
     m_screenshots_isValid = false;
 
+    m_system_info_isSet = false;
+    m_system_info_isValid = false;
+
     m_title_isSet = false;
     m_title_isValid = false;
 
@@ -77,6 +80,9 @@ void DHFeedback_CreateFeedbackRequest::fromJsonObject(QJsonObject json) {
     m_screenshots_isValid = ::DeepinHomeAPI::fromJsonValue(screenshots, json[QString("screenshots")]);
     m_screenshots_isSet = !json[QString("screenshots")].isNull() && m_screenshots_isValid;
 
+    m_system_info_isValid = ::DeepinHomeAPI::fromJsonValue(system_info, json[QString("system_info")]);
+    m_system_info_isSet = !json[QString("system_info")].isNull() && m_system_info_isValid;
+
     m_title_isValid = ::DeepinHomeAPI::fromJsonValue(title, json[QString("title")]);
     m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
 
@@ -107,6 +113,9 @@ QJsonObject DHFeedback_CreateFeedbackRequest::asJsonObject() const {
     }
     if (screenshots.size() > 0) {
         obj.insert(QString("screenshots"), ::DeepinHomeAPI::toJsonValue(screenshots));
+    }
+    if (m_system_info_isSet) {
+        obj.insert(QString("system_info"), ::DeepinHomeAPI::toJsonValue(system_info));
     }
     if (m_title_isSet) {
         obj.insert(QString("title"), ::DeepinHomeAPI::toJsonValue(title));
@@ -184,6 +193,22 @@ bool DHFeedback_CreateFeedbackRequest::is_screenshots_Valid() const{
     return m_screenshots_isValid;
 }
 
+QString DHFeedback_CreateFeedbackRequest::getSystemInfo() const {
+    return system_info;
+}
+void DHFeedback_CreateFeedbackRequest::setSystemInfo(const QString &system_info) {
+    this->system_info = system_info;
+    this->m_system_info_isSet = true;
+}
+
+bool DHFeedback_CreateFeedbackRequest::is_system_info_Set() const{
+    return m_system_info_isSet;
+}
+
+bool DHFeedback_CreateFeedbackRequest::is_system_info_Valid() const{
+    return m_system_info_isValid;
+}
+
 QString DHFeedback_CreateFeedbackRequest::getTitle() const {
     return title;
 }
@@ -251,6 +276,11 @@ bool DHFeedback_CreateFeedbackRequest::isSet() const {
         }
 
         if (screenshots.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_system_info_isSet) {
             isObjectUpdated = true;
             break;
         }

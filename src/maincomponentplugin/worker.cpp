@@ -250,3 +250,25 @@ QString Worker::genUUID()
 {
     return QUuid::createUuid().toString(QUuid::WithoutBraces);
 }
+// 获取系统信息，因为执行时间较长，为避免阻塞界面，使用信号返回信息
+void Worker::getSysInfo()
+{
+    auto future = QtConcurrent::run([] {
+        QProcess process;
+        process.start("inxi", {"-F", "-c", "0"});
+        process.waitForFinished();
+        auto out = process.readAllStandardOutput();
+        process.start("grep",
+                      {"-h", "-Ev", "^#|^$", "/etc/apt/sources.list", "/etc/apt/sources.list.d/*"});
+        process.waitForFinished();
+        out += "\n" + process.readAllStandardOutput();
+        return QString(out);
+    });
+
+    auto watcher = new QFutureWatcher<QString>();
+    connect(watcher, &QFutureWatcher<QString>::finished, [this, watcher]() {
+        watcher->deleteLater();
+        this->signalsGetSysInfoResp(watcher->result());
+    });
+    watcher->setFuture(future);
+}

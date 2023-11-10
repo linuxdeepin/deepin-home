@@ -112,17 +112,17 @@ public:
     void getBBSURL(const DHHandlers_BBSURLRequest &data);
 
     /**
-    * @param[in]  language QString [required]
     * @param[in]  offset double [required]
     * @param[in]  limit double [required]
     * @param[in]  type QString [optional]
     * @param[in]  status QList<QString> [optional]
     * @param[in]  public_id QList<QString> [optional]
+    * @param[in]  language QString [optional]
     * @param[in]  order QString [optional]
     * @param[in]  version QString [optional]
     * @param[in]  keyword QString [optional]
     */
-    void getFeedback(const QString &language, const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QList<QString>> &status = ::DeepinHomeAPI::OptionalParam<QList<QString>>(), const ::DeepinHomeAPI::OptionalParam<QList<QString>> &public_id = ::DeepinHomeAPI::OptionalParam<QList<QString>>(), const ::DeepinHomeAPI::OptionalParam<QString> &order = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QString> &version = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QString> &keyword = ::DeepinHomeAPI::OptionalParam<QString>());
+    void getFeedback(const double &offset, const double &limit, const ::DeepinHomeAPI::OptionalParam<QString> &type = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QList<QString>> &status = ::DeepinHomeAPI::OptionalParam<QList<QString>>(), const ::DeepinHomeAPI::OptionalParam<QList<QString>> &public_id = ::DeepinHomeAPI::OptionalParam<QList<QString>>(), const ::DeepinHomeAPI::OptionalParam<QString> &language = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QString> &order = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QString> &version = ::DeepinHomeAPI::OptionalParam<QString>(), const ::DeepinHomeAPI::OptionalParam<QString> &keyword = ::DeepinHomeAPI::OptionalParam<QString>());
 
     /**
     * @param[in]  offset double [required]
