@@ -13,6 +13,7 @@ import org.deepin.dtk 1.0
 RowLayout {
     id: root
 
+    property var controls: ["keyword", "type", "version", "order"]
     property var value
 
     signal valueChange(var val)
@@ -55,6 +56,7 @@ RowLayout {
     LineEdit {
         id: keywordEdit
 
+        visible: controls.includes("keyword")
         Layout.preferredWidth: 300
         Keys.onReturnPressed: {
             root.activated();
@@ -81,9 +83,9 @@ RowLayout {
         // 点击清空按钮时
         Connections {
             function onClicked() {
-                if(root.value["keyword"]){
+                if (root.value["keyword"])
                     root.activated();
-                }
+
             }
 
             target: keywordEdit.clearButton.item
@@ -96,6 +98,7 @@ RowLayout {
     }
 
     Text {
+        visible: controls.includes("type")
         Layout.leftMargin: 30
         text: qsTr("Type:")
     }
@@ -103,6 +106,7 @@ RowLayout {
     ComboBox {
         id: typeBox
 
+        visible: controls.includes("type")
         Layout.preferredWidth: 120
         textRole: "text"
         onActivated: {
@@ -130,6 +134,7 @@ RowLayout {
     }
 
     Text {
+        visible: controls.includes("version")
         Layout.leftMargin: 30
         text: qsTr("Version:")
     }
@@ -137,6 +142,7 @@ RowLayout {
     ComboBox {
         id: versionBox
 
+        visible: controls.includes("version")
         textRole: "text"
         Layout.preferredWidth: 120
         onActivated: {
@@ -154,6 +160,7 @@ RowLayout {
     }
 
     Text {
+        visible: controls.includes("order")
         Layout.leftMargin: 30
         text: qsTr("Sort:")
     }
@@ -161,6 +168,7 @@ RowLayout {
     ComboBox {
         id: orderBox
 
+        visible: controls.includes("order")
         textRole: "text"
         Layout.preferredWidth: 120
         onActivated: {

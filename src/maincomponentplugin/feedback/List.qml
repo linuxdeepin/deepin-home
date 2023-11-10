@@ -52,6 +52,9 @@ Item {
         }
         switch (root.relation) {
         case "create":
+            // 我的反馈只保留类型筛选
+            filter.controls = ["type"];
+            // 获取我的反馈
             api.getUserFeedback(root.offset, root.limit, root.type);
             break;
         case "like":
@@ -128,6 +131,8 @@ Item {
         visible: root.typeFilter
 
         Filter {
+            id: filter
+
             x: 20
             width: parent.width - x * 2
             height: parent.height
@@ -263,6 +268,12 @@ Item {
 
                 }
 
+            }
+
+            // 在尾部保留20像素间距，避免最后一个反馈显示不完整
+            Rectangle {
+                visible: hasMore
+                height: 20
             }
 
             // 没有更多反馈了
