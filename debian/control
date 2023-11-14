@@ -24,5 +24,6 @@ Depends:
  ${shlibs:Depends}, 
  ${misc:Depends},
  qml-module-qtquick-dialogs,
+ inxi,
 Description: deepin home
  quick login bbs, bug report.
