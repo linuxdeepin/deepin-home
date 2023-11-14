@@ -107,7 +107,7 @@ RowLayout {
         id: typeBox
 
         visible: controls.includes("type")
-        Layout.preferredWidth: 120
+        Layout.preferredWidth: 140
         textRole: "text"
         onActivated: {
             root.activated();

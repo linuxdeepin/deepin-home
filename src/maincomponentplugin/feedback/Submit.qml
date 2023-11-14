@@ -278,7 +278,7 @@ Item {
             // 上传设备信息
 
             Row {
-                visible: true
+                visible: bugType.checked
                 spacing: 10
 
                 ControlLabel {
@@ -297,7 +297,6 @@ Item {
                     Text {
                         id: sysinfoText
 
-                        visible: bugType.checked
                         text: qsTr("Upload <a href='home://sysinfo'>device information</a>")
                         linkColor: "blue"
                         height: reqType.height
@@ -518,7 +517,7 @@ Item {
                 RecommandButton {
                     Layout.preferredWidth: 200
                     text: qsTr("Submit")
-                    font.letterSpacing: API.isZH() ? 5 : 1
+                    font.letterSpacing: API.isZH() ? 5 : 0
                     onClicked: {
                         if (titleText.text.length == 0 && (contentText.text.length == 0 || contentText.text == win.placeholder)) {
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the title and content of your feedback."));
@@ -545,7 +544,7 @@ Item {
                             screenshots.push(root.imgListModel.get(i).id);
                         }
                         let type = bugType.checked ? "bug" : "req";
-                        let sysinfo = sysinfoSwitch.checked ? sysinfoView.sysinfo : "";
+                        let sysinfo = (bugType.checked && sysinfoSwitch.checked) ? sysinfoView.sysinfo : "";
                         api.createFeedback(type, titleText.text, contentText.text, emailText.text, versionText.text, sysinfo, screenshots);
                     }
                 }
@@ -640,7 +639,6 @@ Item {
             height: parent.height
             horizontalAlignment: Text.AlignRight
         }
-        // 默认显示出窗口
 
     }
 
