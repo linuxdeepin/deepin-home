@@ -1,3 +1,9 @@
+deepin-home (1.5.1) unstable; urgency=medium
+
+  * feat: add inxi to depends(Issue: https://github.com/linuxdeepin/developer-center/issues/6182)
+
+ -- myml <wurongjie@deepin.org>  Tue, 14 Nov 2023 16:39:43 +0800
+
 deepin-home (1.5.0) unstable; urgency=medium
 
   * fix: page mouse event penetration
