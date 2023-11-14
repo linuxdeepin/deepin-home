@@ -139,6 +139,7 @@ Item {
             value: filterParam
             onValueChange: (val) => {
                 filterParam = val;
+                root.type = filterParam['type'];
                 getList(true);
             }
         }
