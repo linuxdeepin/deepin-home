@@ -93,43 +93,43 @@
     <name>Filter</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Haku</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki</translation>
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Bugi</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Ehdotukset</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"/>
+        <translation>Uusin</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Suosikki</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Kehotus</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Typpi:</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"/>
+        <translation>Versio:</translation>
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>Järjestys:</translation>
     </message>
 </context>
 <context>

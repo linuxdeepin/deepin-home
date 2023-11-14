@@ -93,43 +93,43 @@
     <name>Filter</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Alles</translation>
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Bug</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Suggesties</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"/>
+        <translation>Nieuwste</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Toev. aan favorieten</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Voorstellen</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Soort:</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"/>
+        <translation>Versie:</translation>
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>Sorteren op:</translation>
     </message>
 </context>
 <context>
