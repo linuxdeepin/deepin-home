@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Meus Feedbacks</translation>
     </message>
 </context>
 <context>
@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Sugestões</translation>
     </message>
     <message>
         <source>Newest</source>
@@ -280,11 +280,11 @@
     </message>
     <message>
         <source>Confirmed</source>
-        <translation type="unfinished"/>
+        <translation>Confirmado</translation>
     </message>
     <message>
         <source>Replied</source>
-        <translation type="unfinished"/>
+        <translation>Respondido</translation>
     </message>
     <message>
         <source>Resolved</source>
@@ -304,7 +304,7 @@
     </message>
     <message>
         <source>Reproducing</source>
-        <translation type="unfinished"/>
+        <translation>Reproduzindo</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -490,11 +490,11 @@
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Outros Feedbacks</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Meus Feedbacks</translation>
     </message>
     <message>
         <source>My Favorites</source>

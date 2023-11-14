@@ -229,7 +229,7 @@
     </message>
     <message>
         <source>Mark all as read</source>
-        <translation type="unfinished"/>
+        <translation>Tümünü okundu olarak işaretle</translation>
     </message>
 </context>
 <context>
@@ -387,7 +387,7 @@
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Hata Raporu</translation>
     </message>
     <message>
         <source>Title：</source>
@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Ekran görüntüleri：</translation>
     </message>
     <message>
         <source>Image files</source>
@@ -483,7 +483,7 @@
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Tek bir geri bildirimde birden fazla konuyu doldurmayın</translation>
     </message>
 </context>
 <context>
