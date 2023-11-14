@@ -1,3 +1,17 @@
+deepin-home (1.5.0) unstable; urgency=medium
+
+  * fix: page mouse event penetration
+  * fix: Some data on the feedback details page is always 0
+    Thanks to student-ice
+  * chore: update 3rdparty
+  * feat: feedback support filter and search
+  * feat: Add padding to the bottom of the feedback list(Issue: https://github.com/linuxdeepin/developer-center/issues/6098)
+  * feat: support upload sysinfo
+  * fix: unable to filter my feedback
+  * chore: update translations
+
+ -- myml <wurongjie@deepin.org>  Tue, 14 Nov 2023 13:22:58 +0800
+
 deepin-home (1.4.1) unstable; urgency=medium
 
   [ Deepin Packages Builder ]
