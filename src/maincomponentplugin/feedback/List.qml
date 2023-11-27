@@ -80,6 +80,16 @@ Item {
         id: feedbackList
     }
 
+    Connections {
+        function onUserInfoChanged() {
+            if (root.relation != "") {
+                Router.showIndex()
+            }
+        }
+
+        target: worker
+    }
+
     APIProxy {
         id: api
 
