@@ -107,7 +107,7 @@ bool Account::isLogin()
 void Account::clientLogin()
 {
     if (m_logging) {
-        qCDebug(logger) << "client loggging in";
+        qCDebug(logger) << "client logging in";
         return;
     }
     qCDebug(logger) << "client login";
