@@ -102,6 +102,8 @@ public slots:
     void login();
     // 登出账户
     void logout();
+    // 检查系统网络账户是否登陆
+    void checkLogin();
     // 当前是否登录
     bool isLogin();
     // 当前登录用户信息

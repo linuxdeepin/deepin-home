@@ -8,12 +8,12 @@
 Worker::Worker(QObject *parent)
     : QObject(parent)
 {
-    qCDebug(logger) << "worker install";
+    qCDebug(logger) << "worker init";
     m_daemon = new HomeDaemonProxy(DEEPIN_HOME_DAEMON_SERVICE,
                                    DEEPIN_HOME_DAEMON_PATH,
                                    QDBusConnection::sessionBus(),
                                    this);
-    // 绑定信号
+    // 绑定daemon信号
     connect(m_daemon, &HomeDaemonProxy::exited, this, &Worker::exited);
     connect(m_daemon, &HomeDaemonProxy::userInfoChanged, this, [this] {
         // 刷新token
@@ -25,9 +25,13 @@ Worker::Worker(QObject *parent)
     });
     connect(m_daemon, &HomeDaemonProxy::messageChanged, this, &Worker::messageChanged);
     connect(m_daemon, &HomeDaemonProxy::showMainWindow, this, &Worker::showMainWindow);
-    // 为避免应用升级后接口不兼容，如果客户端和daemon版本不一致，重启一次daemon
-    auto clientVersion = QString(APP_VERSION);
+
+    // 在主窗口显示时，检查一次系统登陆状态，避免因daemon开机启动过早导致登陆状态未和系统保持同步
+    m_daemon->checkLogin();
+
+// 为避免应用升级后接口不兼容，如果客户端和daemon版本不一致，重启一次daemon
 #ifndef QT_DEBUG
+    auto clientVersion = QString(APP_VERSION);
     if (!clientVersion.isEmpty()) {
         auto daemonVersion = m_daemon->getVersion();
         qCInfo(logger) << "client version" << clientVersion << "daemon version" << daemonVersion;
@@ -37,6 +41,7 @@ Worker::Worker(QObject *parent)
         }
     }
 #endif
+
     // 在启动时清理截图预览的缓存目录
     QDir dir(this->previewImageDir);
     dir.removeRecursively();
