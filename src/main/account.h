@@ -44,6 +44,7 @@ public:
     void logout();
     bool isLogin();
     void clientLogin();
+    void checkLogin();
     UserInfo getUserInfo();
     QString getToken();
 signals:

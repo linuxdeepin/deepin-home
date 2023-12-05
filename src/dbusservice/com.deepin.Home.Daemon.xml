@@ -44,6 +44,8 @@
     </method>
     <method name="logout">
     </method>
+    <method name="checkLogin">
+    </method>
     <method name="isLogin">
       <arg type="b" direction="out"/>
     </method>

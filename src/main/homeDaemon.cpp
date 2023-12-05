@@ -363,6 +363,11 @@ void HomeDaemon::logout()
 {
     m_account->logout();
 }
+// 检查系统网络账户是否登陆
+void HomeDaemon::checkLogin()
+{
+    m_account->checkLogin();
+}
 // 当前是否登录
 bool HomeDaemon::isLogin()
 {

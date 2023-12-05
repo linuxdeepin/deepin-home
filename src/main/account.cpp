@@ -38,13 +38,9 @@ Account::Account(QObject *parent, API *api, QString server)
         this->clientLogin();
     });
     // 启动后检查deepinid是否登陆
-    QTimer::singleShot(1000, [this]() {
-        qCDebug(logger) << "deepinid is login" << m_deepinidDaemon->isLogin();
-        if (m_deepinidDaemon->isLogin()) {
-            this->clientLogin();
-        }
-    });
+    QTimer::singleShot(1000, this, &Account::checkLogin);
 }
+
 Account::~Account() {}
 
 // 登录回调，在deepinid客户端登录后，会回调该接口并传递oauth2 code
@@ -92,15 +88,25 @@ void Account::login()
 {
     m_deepinidDaemon->Login();
 }
-// 登出系统的网络账户
+// 调用系统的网络账户登出
 void Account::logout()
 {
     m_deepinidDaemon->Logout();
 }
-// 判断系统当前网络账户是否登录
+
+// 返回当前客户端是否登陆
 bool Account::isLogin()
 {
     return m_isLogin;
+}
+
+// 检查系统的网络账户是否登录，如果系统账户登陆，客户端自动登陆
+void Account::checkLogin()
+{
+    qCDebug(logger) << "deepinid login status" << m_deepinidDaemon->isLogin();
+    if (m_deepinidDaemon->isLogin()) {
+        this->clientLogin();
+    }
 }
 
 // 客户端自己的登陆
@@ -121,6 +127,7 @@ void Account::clientLogin()
                                DEEPIN_HOME_DAEMON_INTERFACE);
     m_deepinidClient->Authorize(opt.getClientId(), opt.getScopes(), opt.getRedirectUrl(), "home");
 }
+
 // 获取客户端当前登陆的账户信息
 UserInfo Account::getUserInfo()
 {
