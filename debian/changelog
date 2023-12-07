@@ -1,3 +1,13 @@
+deepin-home (1.5.2) unstable; urgency=medium
+
+  * feat: return to homepage when logged out(Issue: https://github.com/linuxdeepin/developer-center/issues/5661)
+  * chore: correct a typo in account.cpp
+    Thanks to Felix Yan
+  * feat: check login status when the main window is opened(Issue: https://github.com/linuxdeepin/developer-center/issues/5194)
+  * feat: update translations
+
+ -- myml <wurongjie@deepin.org>  Thu, 07 Dec 2023 10:11:23 +0800
+
 deepin-home (1.5.1) unstable; urgency=medium
 
   * feat: add inxi to depends(Issue: https://github.com/linuxdeepin/developer-center/issues/6182)
