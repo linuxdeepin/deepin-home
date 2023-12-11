@@ -17,11 +17,6 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
 
-    QDBusConnection dbus = QDBusConnection::sessionBus();
-    if (!dbus.registerService(DEEPIN_HOME_DAEMON_SERVICE)) {
-        qDebug() << "Register DBus Error" << dbus.lastError().message();
-        return -1;
-    }
     QTranslator translator;
     if (translator.load(QLocale::system().name(), ":/resources/deepin-home-daemon/")) {
         app.installTranslator(&translator);
@@ -37,8 +32,14 @@ int main(int argc, char *argv[])
         }
     }
 
+    QDBusConnection dbus = QDBusConnection::sessionBus();
     new HomeDaemonAdaptor(&daemon);
     dbus.registerObject(DEEPIN_HOME_DAEMON_PATH, &daemon);
+
+    if (!dbus.registerService(DEEPIN_HOME_DAEMON_SERVICE)) {
+        qDebug() << "Register DBus Error" << dbus.lastError().message();
+        return -1;
+    }
 
     daemon.start();
     qDebug() << APP_NAME << "start exec";
