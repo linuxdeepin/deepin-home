@@ -192,6 +192,18 @@ void Worker::setAutoStart(bool enable)
 {
     m_daemon->setAutoStart(enable);
 }
+
+// 获取开机自启配置
+QString Worker::getEmail()
+{
+    return m_daemon->getEmail();
+}
+// 设置开启自启配置
+void Worker::setEmail(QString email)
+{
+    m_daemon->setEmail(email);
+}
+
 // 获取本地文件信息
 QMap<QString, QVariant> Worker::getFileInfo(QString filepath)
 {

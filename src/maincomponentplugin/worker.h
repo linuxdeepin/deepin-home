@@ -59,6 +59,10 @@ public slots:
     bool getAutoStart();
     // 设置开启自启配置
     void setAutoStart(bool enable);
+    // 获取用户邮箱记录
+    QString getEmail();
+    // 保持用户邮箱记录
+    void setEmail(QString email);
     // 获取本地文件信息
     QMap<QString, QVariant> getFileInfo(QString filepath);
     // 弹出通知

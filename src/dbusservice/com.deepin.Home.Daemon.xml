@@ -72,6 +72,12 @@
     <method name="setAutoStart">
       <arg name="enable" type="b" direction="in"/>
     </method>
+    <method name="getEmail">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="setEmail">
+      <arg name="enable" type="s" direction="in"/>
+    </method>
     <method name="activeMainWindows">
     </method>
     <method name="getVersion">

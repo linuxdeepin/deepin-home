@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     dbus.registerObject(DEEPIN_HOME_DAEMON_PATH, &daemon);
 
     if (!dbus.registerService(DEEPIN_HOME_DAEMON_SERVICE)) {
-        qDebug() << "Register DBus Error" << dbus.lastError().message();
+        qDebug() << "Register DBus Error" << dbus.lastError().message() << "Process may already be running.";
         return -1;
     }
 
