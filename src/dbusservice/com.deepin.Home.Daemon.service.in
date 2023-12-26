@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.deepin.Home.Daemon
+Exec=@CMAKE_INSTALL_FULL_BINDIR@/deepin-home-daemon

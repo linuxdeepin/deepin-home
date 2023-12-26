@@ -1,0 +1,17 @@
+package:
+  id: org.deepin.home
+  name: "deepin-home"
+  version: 1.5.4
+  kind: app
+  description: |
+    quick login bbs, bug report.
+
+runtime:
+  id: org.deepin.Runtime
+  version: 23.0
+
+source:
+  kind: local
+
+build:
+  kind: cmake
