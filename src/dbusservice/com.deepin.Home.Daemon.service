@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=com.deepin.Home.Daemon
-Exec=/usr/bin/deepin-home-daemon

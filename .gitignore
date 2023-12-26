@@ -52,8 +52,11 @@ compile_commands.json
 *creator.user*
 
 # vscode
+*.layer
 .vscode/
 build/
+build_dir/
+.linglong-target
 .ccls*
 obj-x86_64-linux-gnu
 debian/.debhelper

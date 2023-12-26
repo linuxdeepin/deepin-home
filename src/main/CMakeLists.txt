@@ -85,13 +85,3 @@ set_target_properties(${APP_NAME} PROPERTIES INSTALL_RPATH ${DTK_QML_APP_PLUGIN_
 install(TARGETS ${APP_NAME} DESTINATION ${APP_BIN_INSTALL_DIR})
 # 安装 deepin-home-daemon
 install(TARGETS ${APP_DAEMON_NAME} DESTINATION ${APP_BIN_INSTALL_DIR})
-# 安装 desktop
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_NAME}.desktop" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_NAME}.desktop" DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/skel/Desktop)
-# 安装 daemon 的 desktop 文件到全局自启动目录，desktop名字使用APP_NAME，以避免将daemon和client识别为两个应用
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../../${APP_DAEMON_NAME}.desktop" DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg/autostart RENAME ${APP_NAME}.desktop)
-# 安装 daemon dbus 服务配置
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../dbusservice/com.deepin.Home.Daemon.service" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
-# 安装 icons
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../maincomponentplugin/images/deepin-home.svg" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps)
-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/../maincomponentplugin/images/deepin-home.svg" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/locolor/scalable/apps)

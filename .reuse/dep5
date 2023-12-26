@@ -92,3 +92,8 @@ License: CC-BY-4.0
 Files: openapitools.json
 Copyright: None
 License: CC0-1.0
+
+# linglong build file
+Files: linglong.yaml
+Copyright: None
+License: CC0-1.0
