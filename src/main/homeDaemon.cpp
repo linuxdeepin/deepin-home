@@ -454,7 +454,7 @@ void HomeDaemon::openForum()
 // 退出daemon
 void HomeDaemon::quit()
 {
-    qCInfo(logger) << "quic by dbus call";
+    qCInfo(logger) << "quit by dbus call";
     QCoreApplication::quit();
 }
 // 获取开机自启配置
@@ -467,6 +467,18 @@ void HomeDaemon::setAutoStart(bool enable)
 {
     return m_settings.setValue("autostart", enable);
 }
+
+// 获取用户邮箱记录
+QString HomeDaemon::getEmail()
+{
+    return m_settings.value("email", "").toString();
+}
+// 保持用户邮箱记录
+void HomeDaemon::setEmail(QString email)
+{
+    return m_settings.setValue("email", email);
+}
+
 // 发出showMainWindow信号，通知客户端激活窗口
 void HomeDaemon::activeMainWindows()
 {

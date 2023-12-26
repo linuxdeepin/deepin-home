@@ -81,6 +81,7 @@ Item {
         }
         Component.onCompleted: {
             show();
+            emailText.text = worker.getEmail();
             if (root.type == "req")
                 reqType.checked = true;
             else
@@ -101,8 +102,8 @@ Item {
                 font.pixelSize: DTK.fontManager.t6.pixelSize
                 font.bold: true
             }
-            // 反馈类型
 
+            // 反馈类型
             Row {
                 spacing: 10
 
@@ -140,8 +141,8 @@ Item {
                 }
 
             }
-            // 标题
 
+            // 标题
             Row {
                 spacing: 10
 
@@ -176,8 +177,8 @@ Item {
                 }
 
             }
-            // 内容
 
+            // 内容
             Row {
                 spacing: 10
 
@@ -221,14 +222,27 @@ Item {
                 }
 
             }
-            // 联系邮箱
 
+            // 联系邮箱
             Row {
                 spacing: 10
 
                 ControlLabel {
                     text: qsTr("Email：")
                     verticalAlignment: Text.AlignVCenter
+                }
+                // 使用隐藏的输入框做邮箱校验，避免validator阻止用户输入，用户体验不好
+
+                LineEdit {
+                    id: emailTextValidate
+
+                    text: emailText.text
+                    visible: false
+
+                    validator: RegExpValidator {
+                        regExp: /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+                    }
+
                 }
 
                 LineEdit {
@@ -248,15 +262,11 @@ Item {
                         visible: !emailText.text && !emailText.activeFocus
                     }
 
-                    validator: RegExpValidator {
-                        regExp: /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-                    }
-
                 }
 
             }
-            // 系统版本
 
+            // 系统版本
             Row {
                 spacing: 10
 
@@ -275,8 +285,8 @@ Item {
                 }
 
             }
-            // 上传设备信息
 
+            // 上传设备信息
             Row {
                 visible: bugType.checked
                 spacing: 10
@@ -309,8 +319,8 @@ Item {
                 }
 
             }
-            // 图片说明
 
+            // 图片说明
             Row {
                 spacing: 10
 
@@ -435,8 +445,8 @@ Item {
                 }
 
             }
-            // 底部按钮
 
+            // 底部按钮
             RowLayout {
                 spacing: 10
                 Layout.alignment: Qt.AlignHCenter
@@ -531,10 +541,14 @@ Item {
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Please provide the content of your feedback."));
                             return ;
                         }
-                        if (emailText.text.length > 0 && !emailText.acceptableInput) {
+                        if (emailText.text.length > 0 && !emailTextValidate.acceptableInput) {
                             API.notify(qsTr("Unable to submit feedback."), qsTr("Incorrect email address entered."));
                             return ;
                         }
+                        // 保存用户邮箱，下次自动填写
+                        if (emailText.text != worker.getEmail())
+                            worker.setEmail(emailText.text);
+
                         if (!API.isLogin) {
                             API.login();
                             return ;

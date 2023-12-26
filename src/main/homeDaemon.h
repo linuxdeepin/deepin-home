@@ -120,6 +120,10 @@ public slots:
     bool getAutoStart();
     // 设置开启自启配置
     void setAutoStart(bool enable);
+    // 获取用户邮箱
+    QString getEmail();
+    // 设置用户邮箱
+    void setEmail(QString email);
     // 因为客户端是单例应用，重复启动会自动退出，并调用daemon的这个接口来通知已存在的客户端激活自己的窗口。
     void activeMainWindows();
     // 获取当前应用版本信息
