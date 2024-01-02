@@ -212,6 +212,8 @@ Item {
                             const value = feedback;
                             value.like = card.like;
                             value.collect = card.collect;
+                            value.like_count = card.like_count;
+                            value.collect_count = card.collect_count;
                             root.goDetail(value);
                         }
                         // 点赞按钮点击
