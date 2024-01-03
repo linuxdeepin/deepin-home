@@ -3,13 +3,18 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "homeDaemon.h"
+#include "applicationManager1Application.h"
 
 HomeDaemon::HomeDaemon(QObject *parent)
     : QObject(parent)
 {
     // 网络请求
     m_api = new API("http_cache", this);
-
+    m_am_app_home = new ApplicationManager1Application("org.desktopspec.ApplicationManager1",
+                                   "/org/desktopspec/ApplicationManager1/deepin_2dhome",
+                                   QDBusConnection::sessionBus(),
+                                   this);
+    qCDebug(logger) << m_am_app_home->service() << "isValid" << m_am_app_home->isValid();
     // 初始化系统托盘
     m_menu = new QMenu();
     initSysTrayIcon();
@@ -460,11 +465,19 @@ void HomeDaemon::quit()
 // 获取开机自启配置
 bool HomeDaemon::getAutoStart()
 {
+    // 新am支持管理全局autostart配置
+    if (m_am_app_home->isValid()) {
+        return m_am_app_home->autoStart();
+    }
     return m_settings.value("autostart", true).toBool();
 }
 // 设置开启自启配置
 void HomeDaemon::setAutoStart(bool enable)
 {
+    if (m_am_app_home->isValid()) {
+        m_am_app_home->setAutoStart(enable);
+        return;
+    }
     return m_settings.setValue("autostart", enable);
 }
 

@@ -5,7 +5,6 @@
 #ifndef DEEPIN_HOME_DAEMON_H
 #define DEEPIN_HOME_DAEMON_H
 
-#include "../base/const.h"
 #include "account.h"
 #include "api.h"
 #include <openssl/pem.h>
@@ -23,6 +22,8 @@
 #include <QSettings>
 #include <QSystemTrayIcon>
 #include <QTimer>
+
+#include "applicationManager1Application.h"
 
 using namespace SyncAPI;
 
@@ -49,6 +50,7 @@ private:
     API *m_api = nullptr;
     Account *m_account = nullptr;
     QLoggingCategory logger = QLoggingCategory("daemon");
+    ApplicationManager1Application *m_am_app_home = nullptr;
 
 public:
     explicit HomeDaemon(QObject *parent = nullptr);
