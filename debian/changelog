@@ -1,3 +1,12 @@
+deepin-home (1.5.4) unstable; urgency=medium
+
+  * feat: Improve user experience for email input field(Issue: https://github.com/linuxdeepin/developer-center/issues/6430)
+  * fix: cannot run in beta3(Issue: https://github.com/linuxdeepin/developer-center/issues/6652)
+  * fix: collect count of feedback detail display incorrectly(Issue: https://github.com/linuxdeepin/developer-center/issues/5451)
+  * feat: Use AM management to autostart(Issue: https://github.com/linuxdeepin/developer-center/issues/5211)
+
+ -- myml <wurongjie@deepin.org>  Wed, 03 Jan 2024 16:40:04 +0800
+
 deepin-home (1.5.3) unstable; urgency=medium
 
   * fix: first startup display error page(Issue: https://github.com/linuxdeepin/developer-center/issues/6400)
