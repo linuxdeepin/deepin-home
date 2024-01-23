@@ -1,3 +1,9 @@
+deepin-home (1.5.5) unstable; urgency=medium
+
+  * feat: add qt quick layouts to depends(Issue: https://github.com/linuxdeepin/developer-center/issues/7036)
+
+ -- myml <wurongjie@deepin.org>  Tue, 23 Jan 2024 14:36:26 +0800
+
 deepin-home (1.5.4) unstable; urgency=medium
 
   * feat: Improve user experience for email input field(Issue: https://github.com/linuxdeepin/developer-center/issues/6430)
