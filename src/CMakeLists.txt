@@ -1,6 +1,6 @@
 # Application
 include(GNUInstallDirs)
-set(DTK_QML_APP_PLUGIN_PATH ${CMAKE_INSTALL_LIBDIR}/dtkdeclarative/plugins)
+set(DTK_QML_APP_PLUGIN_PATH ${CMAKE_INSTALL_LIBDIR}/dtkdeclarative/qml-app)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(LIBRARY_OUTPUT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/lib")
