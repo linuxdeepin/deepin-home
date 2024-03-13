@@ -1,3 +1,10 @@
+deepin-home (1.5.6) unstable; urgency=medium
+
+  * feat: add linglong build support
+  * feat: change dtk qml app plugin path
+
+ -- myml <wurongjie@deepin.org>  Wed, 13 Mar 2024 10:41:19 +0800
+
 deepin-home (1.5.5) unstable; urgency=medium
 
   * feat: add qt quick layouts to depends(Issue: https://github.com/linuxdeepin/developer-center/issues/7036)
