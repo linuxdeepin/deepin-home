@@ -20,6 +20,6 @@ install(FILES "maincomponentplugin/images/deepin-home.svg" DESTINATION ${CMAKE_I
 install(FILES "maincomponentplugin/images/deepin-home.svg" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/locolor/scalable/apps)
 # 安装 desktop
 install(FILES "../deepin-home.desktop" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
-install(FILES "../deepin-home-daemon.desktop" DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/skel/Desktop)
+install(FILES "../deepin-home.desktop" DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/skel/Desktop)
 # 安装 daemon 的 desktop 文件到全局自启动目录，desktop名字使用APP_NAME，以避免AM将daemon和client识别为两个应用
 install(FILES "../deepin-home-daemon.desktop" DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg/autostart RENAME deepin-home.desktop)
