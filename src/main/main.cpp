@@ -37,7 +37,12 @@ int main(int argc, char *argv[])
     // 避免窗口菜单背景显示灰色 https://github.com/linuxdeepin/dtk/issues/70
     // 在v20.9会导致菜单延迟显示，所以只在v23使用
     qputenv("D_POPUP_MODE", "embed");
-    DAppLoader appLoader(APP_NAME);
+    // dtk 在新版本修改了 PLUGIN_PATH 的路径
+    // 为避免在旧版本 dtk 中无法使用，将旧的 PLUGIN_PATH 传递到 appLoader
+    // 如果传递的路径不存在 DAppLoader 内部会 feedback 到新路径，实现了新旧 dtk 兼容
+    auto oldPath=QDir(DTK_QML_APP_PLUGIN_PATH);
+    oldPath.cd("../plugins");
+    DAppLoader appLoader(APP_NAME, oldPath.path());
     #ifdef PLUGINPATH
         appLoader.addPluginPath(PLUGINPATH);
     #endif
