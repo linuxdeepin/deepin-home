@@ -12,17 +12,17 @@
         <translation>Hoofdvenster tonen</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="69"/>
+        <location filename="../src/main/homeDaemon.cpp" line="72"/>
         <source>Communication</source>
         <translation>Communicatie</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="72"/>
+        <location filename="../src/main/homeDaemon.cpp" line="75"/>
         <source>Exit</source>
         <translation>Afsluiten</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="306"/>
+        <location filename="../src/main/homeDaemon.cpp" line="315"/>
         <source>View</source>
         <translation>Bekijken</translation>
     </message>
