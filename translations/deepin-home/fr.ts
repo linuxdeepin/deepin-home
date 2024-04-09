@@ -11,6 +11,21 @@
     </message>
 </context>
 <context>
+    <name>APIProxy</name>
+    <message>
+        <source>You have been making too many requests, Please try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to login to proceed with the subsequent operations.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network error, please try later.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
@@ -35,10 +50,6 @@
 </context>
 <context>
     <name>Card</name>
-    <message>
-        <source>View details</source>
-        <translation type="unfinished"/>
-    </message>
     <message>
         <source>%1 views</source>
         <translation type="unfinished"/>
@@ -75,6 +86,49 @@
     <name>Detail</name>
     <message>
         <source>Official response</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Filter</name>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -128,24 +182,16 @@
 <context>
     <name>List</name>
     <message>
-        <source>All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Messages</source>
         <translation>Messages</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Questionnaires</translation>
+    </message>
+    <message>
+        <source>No more items</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -254,6 +300,50 @@
     </message>
     <message>
         <source>Completed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Reproducing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has not been processed and will not be displayed in the public listing.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has been reproduced and the root cause has been identified.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue is not a bug or of a different nature.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has been resolved and awaiting formal release</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The requirement has not been processed and will not be displayed in the public listing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The issue has been acknowledged and is being internally assessed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Included in the plans for a future release</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The requirement is either not accepted or unable to be addressed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Development work is finished, awaiting formal release</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -387,6 +477,14 @@
         <source>Device Information</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TabButton</name>
@@ -403,7 +501,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>My Urge</source>
+        <source>My Urged</source>
         <translation type="unfinished"/>
     </message>
 </context>
