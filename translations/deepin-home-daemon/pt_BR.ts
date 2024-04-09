@@ -12,17 +12,17 @@
         <translation>Exibir janela principal</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="69"/>
+        <location filename="../src/main/homeDaemon.cpp" line="72"/>
         <source>Communication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="72"/>
+        <location filename="../src/main/homeDaemon.cpp" line="75"/>
         <source>Exit</source>
         <translation>Sair</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="306"/>
+        <location filename="../src/main/homeDaemon.cpp" line="315"/>
         <source>View</source>
         <translation>Visualizar</translation>
     </message>
