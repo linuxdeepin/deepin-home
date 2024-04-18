@@ -83,5 +83,8 @@
     <method name="getVersion">
       <arg type="s" direction="out"/>
     </method>
+    <method name="isReady">
+      <arg type="b" direction="out"/>
+    </method>
   </interface>
 </node>
