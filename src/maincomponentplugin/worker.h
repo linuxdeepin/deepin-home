@@ -75,6 +75,8 @@ public slots:
     QString genUUID();
     // 获取系统信息
     void getSysInfo();
+    // 获取worker是否准备好
+    bool isReady();
 signals:
     void userInfoChanged();
     void messageChanged();

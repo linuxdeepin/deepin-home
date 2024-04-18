@@ -27,7 +27,9 @@ Worker::Worker(QObject *parent)
     connect(m_daemon, &HomeDaemonProxy::showMainWindow, this, &Worker::showMainWindow);
 
     // 在主窗口显示时，检查一次系统登陆状态，避免因daemon开机启动过早导致登陆状态未和系统保持同步
-    m_daemon->checkLogin();
+    if (m_daemon->isReady()) {
+        m_daemon->checkLogin();
+    }
 
 // 为避免应用升级后接口不兼容，如果客户端和daemon版本不一致，重启一次daemon
 #ifndef QT_DEBUG
@@ -53,12 +55,18 @@ Worker::~Worker() {}
 
 QString Worker::getNode()
 {
+    if (!isReady()) {
+        return "";
+    }
     qCDebug(this->logger) << "get node";
     return m_daemon->getNode();
 };
 
 QString Worker::getLanguage()
 {
+    if (!isReady()) {
+        return "";
+    }
     qCDebug(this->logger) << "get language";
     return m_daemon->getLanguage();
 };
@@ -288,4 +296,9 @@ void Worker::getSysInfo()
         this->signalsGetSysInfoResp(watcher->result());
     });
     watcher->setFuture(future);
+}
+
+bool Worker::isReady()
+{
+    return m_daemon->isReady();
 }

@@ -10,10 +10,11 @@ HomeDaemon::HomeDaemon(QObject *parent)
 {
     // 网络请求
     m_api = new API("http_cache", this);
-    m_am_app_home = new ApplicationManager1Application("org.desktopspec.ApplicationManager1",
-                                   "/org/desktopspec/ApplicationManager1/deepin_2dhome",
-                                   QDBusConnection::sessionBus(),
-                                   this);
+    m_am_app_home
+        = new ApplicationManager1Application("org.desktopspec.ApplicationManager1",
+                                             "/org/desktopspec/ApplicationManager1/deepin_2dhome",
+                                             QDBusConnection::sessionBus(),
+                                             this);
     qCDebug(logger) << m_am_app_home->service() << "isValid" << m_am_app_home->isValid();
     // 初始化系统托盘
     m_menu = new QMenu();
@@ -198,6 +199,7 @@ void HomeDaemon::run()
                 refreshChannel(cronID, channel);
             });
         }
+        m_isReady = true;
     } catch (APIException exp) {
         qCWarning(logger) << "Refresh Node Error" << exp.err_code << exp.err_msg;
     } catch (...) {
@@ -501,4 +503,19 @@ void HomeDaemon::activeMainWindows()
 QString HomeDaemon::getVersion()
 {
     return APP_VERSION;
+}
+
+// 返回daemon是否准备好
+bool HomeDaemon::isReady()
+{
+    if (m_isReady) {
+        return true;
+    }
+    try {
+        refreshNode();
+        m_isReady = true;
+        return true;
+    } catch (...) {
+        return false;
+    }
 }

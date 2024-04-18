@@ -51,12 +51,14 @@ private:
     Account *m_account = nullptr;
     QLoggingCategory logger = QLoggingCategory("daemon");
     ApplicationManager1Application *m_am_app_home = nullptr;
+    bool m_isReady = false;
 
 public:
     explicit HomeDaemon(QObject *parent = nullptr);
     ~HomeDaemon();
     // 启动定时器，循环刷新消息
     void start();
+
 private:
     // 初始化托盘
     void initSysTrayIcon();
@@ -130,6 +132,8 @@ public slots:
     void activeMainWindows();
     // 获取当前应用版本信息
     QString getVersion();
+    // 获取daemon是否准备好了
+    bool isReady();
 signals:
     // 用户登录状态变动，客户端收到通知后，可以调用daemon获取新的用户状态
     void userInfoChanged();
