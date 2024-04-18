@@ -1,3 +1,9 @@
+deepin-home (1.5.8) unstable; urgency=medium
+
+  * fix: the daemon restarts repeatedly when there is no network(Issue: https://github.com/linuxdeepin/developer-center/issues/7936)
+
+ -- myml <wurongjie@deepin.org>  Thu, 18 Apr 2024 09:59:04 +0800
+
 deepin-home (1.5.7) unstable; urgency=medium
 
   * fix: installed the wrong desktop file(Issue: https://github.com/linuxdeepin/developer-center/issues/7538)
