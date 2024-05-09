@@ -1,3 +1,10 @@
+deepin-home (1.5.10) unstable; urgency=medium
+
+  * fix: Frequent clicking on the tray icon would cause the client to freeze(Issue: https://github.com/linuxdeepin/developer-center/issues/8188)
+  * fix: apt sources info missing part(Issue: https://github.com/linuxdeepin/developer-center/issues/8460)
+
+ -- myml <wurongjie1@gmail.org>  Thu, 09 May 2024 11:42:37 +0800
+
 deepin-home (1.5.8) unstable; urgency=medium
 
   * fix: the daemon restarts repeatedly when there is no network(Issue: https://github.com/linuxdeepin/developer-center/issues/7936)
