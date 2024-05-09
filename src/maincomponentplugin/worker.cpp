@@ -284,7 +284,7 @@ void Worker::getSysInfo()
         process.waitForFinished();
         auto out = process.readAllStandardOutput();
         process.start("grep",
-                      {"-h", "-Ev", "^#|^$", "/etc/apt/sources.list", "/etc/apt/sources.list.d/*"});
+                      {"-r", "-Ev", "^#|^$", "/etc/apt/sources.list", "/etc/apt/sources.list.d"});
         process.waitForFinished();
         out += "\n" + process.readAllStandardOutput();
         return QString(out);
