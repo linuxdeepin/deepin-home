@@ -46,7 +46,6 @@ private:
 
     QSettings m_settings;
     QSystemTrayIcon *m_sysTrayIcon = nullptr;
-    QTimer m_sysTrayIconThrottleTimer;
     QMenu *m_menu = nullptr;
     API *m_api = nullptr;
     Account *m_account = nullptr;
