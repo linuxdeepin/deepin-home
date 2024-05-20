@@ -60,22 +60,10 @@ void HomeDaemon::initSysTrayIcon()
     m_sysTrayIcon->setIcon(QIcon::fromTheme("deepin-home"));
     m_sysTrayIcon->setToolTip(tr("Deepin Home"));
     // 单机托盘图标也会显示主窗口
-    // 添加节流逻辑，避免快速连击导致客户端卡死
-    QObject::connect(&m_sysTrayIconThrottleTimer, &QTimer::timeout, [this]() {
-        // 定时器超时后停止定时器
-        qWarning() <<"ThrottleTimer Timeout";
-        m_sysTrayIconThrottleTimer.stop();
-    });
     connect(m_sysTrayIcon,
             &QSystemTrayIcon::activated,
             this,
             [&](QSystemTrayIcon::ActivationReason reason) {
-                qWarning() << reason << m_sysTrayIconThrottleTimer.isActive();
-                if (m_sysTrayIconThrottleTimer.isActive()) {
-                    qWarning() << "ThrottleTimer Active";
-                    return;
-                };
-                m_sysTrayIconThrottleTimer.start(500);
                 if (reason == QSystemTrayIcon::Trigger) {
                     QProcess::startDetached("deepin-home", QStringList());
                     emit showMainWindow(true);
