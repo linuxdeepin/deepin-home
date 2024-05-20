@@ -1,3 +1,9 @@
+deepin-home (1.5.11) unstable; urgency=medium
+
+  * fix: Issue of client freezing(Issue: https://github.com/linuxdeepin/developer-center/issues/8591)
+
+ -- myml <wurongjie1@gmail.org>  Mon, 20 May 2024 17:29:02 +0800
+
 deepin-home (1.5.10) unstable; urgency=medium
 
   * fix: Frequent clicking on the tray icon would cause the client to freeze(Issue: https://github.com/linuxdeepin/developer-center/issues/8188)
