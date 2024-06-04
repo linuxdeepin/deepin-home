@@ -1,3 +1,10 @@
+deepin-home (1.5.12) unstable; urgency=medium
+
+  * fix #8885
+  * release 1.5.12
+
+ -- Mike Chen <chenke@deepin.org>  Tue, 04 Jun 2024 10:17:06 +0800
+
 deepin-home (1.5.11) unstable; urgency=medium
 
   * fix: Issue of client freezing(Issue: https://github.com/linuxdeepin/developer-center/issues/8591)
