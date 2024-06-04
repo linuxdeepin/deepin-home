@@ -53,6 +53,16 @@ void HomeDaemon::runTimeRecord()
     }
 }
 
+static void launchDeepinHome()
+{
+    const QString &am = QStandardPaths::findExecutable("dde-am");
+    if (!am.isEmpty()) {
+        QProcess::startDetached(am, QStringList() << "deepin-home");
+    } else {
+        QProcess::startDetached("deepin-home", QStringList());
+    }
+}
+
 void HomeDaemon::initSysTrayIcon()
 {
     // 系统托盘
@@ -65,14 +75,14 @@ void HomeDaemon::initSysTrayIcon()
             this,
             [&](QSystemTrayIcon::ActivationReason reason) {
                 if (reason == QSystemTrayIcon::Trigger) {
-                    QProcess::startDetached("deepin-home", QStringList());
+                    launchDeepinHome();
                     emit showMainWindow(true);
                 }
             });
     // 显示主窗口
     auto showMainAction = new QAction(tr("Show main window"), this);
     connect(showMainAction, &QAction::triggered, this, [this] {
-        QProcess::startDetached("deepin-home", QStringList());
+        launchDeepinHome();
         emit showMainWindow(false);
     });
     // 论坛
