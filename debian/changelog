@@ -1,3 +1,11 @@
+deepin-home (1.5.13) unstable; urgency=medium
+
+  * fix: prevent window from maximizing(Issue: https://github.com/linuxdeepin/developer-center/issues/6192)
+  * feat: update desktop i18n
+  * feat: support new version linglong build
+
+ -- myml <wurongjie1@gmail.org>  Mon, 01 Jul 2024 15:29:04 +0800
+
 deepin-home (1.5.12) unstable; urgency=medium
 
   * fix #8885

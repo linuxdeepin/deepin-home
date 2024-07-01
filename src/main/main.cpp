@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
     auto oldPath=QDir(DTK_QML_APP_PLUGIN_PATH);
     oldPath.cd("../plugins");
     DAppLoader appLoader(APP_NAME, oldPath.path());
+    appLoader.addPluginPath(oldPath.path());
     #ifdef PLUGINPATH
         appLoader.addPluginPath(PLUGINPATH);
     #endif

@@ -56,7 +56,7 @@ compile_commands.json
 .vscode/
 build/
 build_dir/
-.linglong-target
+linglong
 .ccls*
 obj-x86_64-linux-gnu
 debian/.debhelper
