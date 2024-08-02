@@ -1,3 +1,9 @@
+deepin-home (1.5.14) unstable; urgency=medium
+
+  * feat: append os version to system info
+
+ -- myml <wurongjie@deepin.org>  Fri, 02 Aug 2024 13:43:02 +0800
+
 deepin-home (1.5.13) unstable; urgency=medium
 
   * fix: prevent window from maximizing(Issue: https://github.com/linuxdeepin/developer-center/issues/6192)
