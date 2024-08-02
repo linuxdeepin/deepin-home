@@ -283,6 +283,12 @@ void Worker::getSysInfo()
         process.start("inxi", {"-F", "-c", "0"});
         process.waitForFinished();
         auto out = process.readAllStandardOutput();
+
+        QFile f("/etc/os-version");
+        if(f.open(QIODevice::ReadOnly)){
+            out += "\n" + f.readAll();
+        }
+
         process.start("grep",
                       {"-r", "-Ev", "^#|^$", "/etc/apt/sources.list", "/etc/apt/sources.list.d"});
         process.waitForFinished();
