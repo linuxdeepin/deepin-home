@@ -608,7 +608,7 @@ Item {
 
             Connections {
                 target: worker
-                onSignalsGetSysInfoResp: (sysinfo) => {
+                function onSignalsGetSysInfoResp(sysinfo) {
                     sysinfoView.sysinfo = sysinfo;
                 }
             }
