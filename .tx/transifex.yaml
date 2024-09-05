@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: CC0-1.0
+filters:
+  - filter_type: file
+    source_file: translations/deepin-home.ts
+    file_format: QT
+    source_language: en_US
+    translation_files_expression: translations/deepin-home/<lang>.ts
+  - filter_type: file
+    source_file: translations/deepin-home-daemon.ts
+    file_format: QT
+    source_language: en_US
+    translation_files_expression: translations/deepin-home-daemon/<lang>.ts
+  - filter_type: file
+    source_file: translations/deepin-home-desktop.ts
+    file_format: QT
+    source_language: en_US
+    translation_files_expression: translations/deepin-home-desktop/desktop_<lang>.ts
+settings:
+  pr_branch_name: transifex_update_<br_unique_id>
