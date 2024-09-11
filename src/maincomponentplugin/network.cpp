@@ -11,12 +11,15 @@ NetworkFactory::~NetworkFactory() {}
 
 QNetworkAccessManager *NetworkFactory::create(QObject *parent)
 {
+    auto cache = new QNetworkDiskCache(parent);
     auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-    cacheDir += "/http_cache";
-    qDebug() << "network factory cache dir:" << cacheDir;
 
-    auto cache = new DiskCacheShare(parent);
+    m_cacheMutex.lock();
+    cacheDir += QString("/qml_http_cache_%1").arg(m_cacheNo++);
+    m_cacheMutex.unlock();
+
     cache->setCacheDirectory(cacheDir);
+    qDebug() << "network factory cache dir:" << cacheDir << QThread::currentThreadId();
 
     QNetworkAccessManager *http = new QNetworkAccessManager(parent);
     http->setCache(cache);

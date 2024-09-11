@@ -3,8 +3,6 @@ project(API)
 add_library(${PROJECT_NAME}
         api.h
         api.cpp
-        diskCacheShare.h
-        diskCacheShare.cpp
         getFeedbackParam.h
 )
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})

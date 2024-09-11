@@ -13,7 +13,6 @@
 #include <QSharedPointer>
 #include <QStandardPaths>
 
-#include "diskCacheShare.h"
 #include <DHClientApi.h>
 #include <getFeedbackParam.h>
 
