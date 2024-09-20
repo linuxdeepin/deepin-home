@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>As miñas retroalimentacións</translation>
+        <translation>Os meus comentarios</translation>
     </message>
 </context>
 <context>
@@ -363,7 +363,7 @@
     </message>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Enviar comentario</translation>
     </message>
     <message>
         <source>[Current Status of the Product]: 
@@ -403,7 +403,7 @@
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Non encha varios requisitos nun só comentario</translation>
     </message>
     <message>
         <source>Email：</source>
@@ -435,11 +435,11 @@
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>Estás seguro de que queres saír do envío de comentarios?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>Non se gardará o contido dos comentarios.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -455,50 +455,50 @@
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation>Non foi posíbel enviar a retroalimentación.</translation>
+        <translation>Non foi posíbel enviar o comentario.</translation>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation>Proporciona o título e o contido da túa retroalimentación.</translation>
+        <translation>Proporcione o título e o contido do teu comentario.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Introduza o título da teu comentario.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Proporcione o contido dos teus comentarios.</translation>
     </message>
     <message>
         <source>Incorrect email address entered.</source>
-        <translation type="unfinished"/>
+        <translation>Dirección de email incorrecta.</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>Información do dispositivo</translation>
     </message>
     <message>
         <source>Please enter your email</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, introduza o seu email</translation>
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Non encha varios problemas nun só comentario</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Nodo de Comentarios</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Os meus comentarios</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Os meus favoritos</translation>
     </message>
     <message>
         <source>My Urged</source>
