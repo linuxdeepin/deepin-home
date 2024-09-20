@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>Non favoritos</translation>
     </message>
     <message>
         <source>Favorite</source>
@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Discuss and share here</source>
-        <translation type="unfinished"/>
+        <translation>Comenta e comparte aquí</translation>
     </message>
     <message>
         <source>Bug Report</source>
@@ -320,46 +320,46 @@
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>O problema non é un erro ou de natureza diferente.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>O problema resolveuse e está á espera da liberación formal</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>O requisito non foi procesado e non se mostrará na listaxe pública</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>O problema foi recoñecido e está a ser avaliado internamente</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>Incluído nos plans para unha futura versión</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>O requisito non se acepta ou non se pode atender</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>O traballo de desenvolvemento está rematado, á espera da liberación formal</translation>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"/>
+        <translation>Non se pode engadir unha captura de pantalla.</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"/>
+        <translation>O tamaño do ficheiro de imaxe debe ser inferior a 1 MB.</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
+        <translation>O formato de ficheiro de imaxe non é compatible para a carga.</translation>
     </message>
     <message>
         <source>Submit Feedback</source>
@@ -368,14 +368,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Estado actual do produto]:
+[Produto desexado]:</translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Condicións previas]:
+[Pasos de reproducibilidade]:
+[Resultados esperados]:
+[Resultados reais]:</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -395,7 +399,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Proporcione unha breve descrición do seu problema</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -419,7 +423,7 @@
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Cargar &lt;a href=&apos;home://sysinfo&apos;&gt;información do sistema&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
@@ -431,7 +435,7 @@
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Arrastra e solta ficheiros ou fai clic nos botóns para engadir imaxes, ata tres</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
@@ -502,7 +506,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Miñas Urxencias</translation>
     </message>
 </context>
 </TS>
