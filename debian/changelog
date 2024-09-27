@@ -1,3 +1,27 @@
+deepin-home (1.6.2) UNRELEASED; urgency=medium
+
+  [ transifex-integration[bot] ]
+  * i18n: Translate deepin-home-desktop.ts in hu
+  * i18n: Translate deepin-home-desktop.ts in ro
+  * i18n: Translate deepin-home-desktop.ts in ca
+  * i18n: Translate deepin-home-desktop.ts in nl
+  * i18n: Translate deepin-home-desktop.ts in sq
+  * i18n: Translate deepin-home-desktop.ts in fi
+  * i18n: Translate deepin-home-desktop.ts in es
+  * i18n: Translate deepin-home-desktop.ts in de
+  * i18n: Translate deepin-home-desktop.ts in es
+  * i18n: Translate deepin-home.ts in gl_ES
+  * i18n: Translate deepin-home.ts in gl_ES
+  * i18n: Translate deepin-home-daemon.ts in gl_ES
+  * i18n: Translate deepin-home-desktop.ts in gl_ES
+  * i18n: Translate deepin-home.ts in gl_ES
+
+  [ myml ]
+  * feat: remove custom http cache class
+  * fix: the feedback reply link cannot opened
+
+ -- myml <wurongjie@deepin.org>  Fri, 27 Sep 2024 14:55:37 +0800
+
 deepin-home (1.6.0) unstable; urgency=medium
 
   * feat: disable auto start by default

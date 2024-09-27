@@ -212,7 +212,7 @@ void APIProxy::getFeedback(QString id)
     auto future = QtConcurrent::run([env, id]() {
         API api(env.cachename);
         // 获取反馈列表
-        auto feedbacks = api.getFeedback(env.server, env.language, 0, 1, QStringList() << id);
+        auto feedbacks = api.getFeedback(env.server, "", 0, 1, QStringList() << id);
         if (feedbacks.length()) {
             auto arr = fillFeedback(api, env, feedbacks);
             return arr.first().toObject();

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 拉取翻译
-tx pull --all
+# tx pull --all
 
 cd translations
 for target in deepin-home deepin-home-daemon; do

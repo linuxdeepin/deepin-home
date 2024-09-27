@@ -15,10 +15,11 @@ API::API(QString cacheName, QObject *parent)
     : QObject(parent)
 {
     init();
-    auto diskCache = new DiskCacheShare(this);
-    auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-    diskCache->setCacheDirectory(cacheDir + "/" + cacheName);
-    m_http->setCache(diskCache);
+    auto cache = new QNetworkDiskCache(parent);
+    auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/api_http_cache";
+    cache->setCacheDirectory(cacheDir);
+    qDebug() << "api cache dir:" << cacheDir << QThread::currentThreadId();
+    m_http->setCache(cache);
 }
 
 API::API(QNetworkDiskCache *cacheDisk, QObject *parent)
