@@ -132,6 +132,7 @@ Rectangle {
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
+                    console.log("link clicked", reply.hoveredLink)
                     root.linkClicked(reply.hoveredLink);
                 }
             }
