@@ -435,15 +435,15 @@
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>ドラッグ&amp;ドロップかボタンをクリックして画像を追加してください</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>フィードバックの提出を終了してもよろしいですか？</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>フィードバックの内容は保存されません。</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -451,27 +451,27 @@
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>終了</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>提出</translation>
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation type="unfinished"/>
+        <translation>フィードバックを提出できません。</translation>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>タイトルと本文が入力されていることを確認してください。</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>タイトルが入力されていることを確認してください。</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>本文が入力されていることを確認してください。</translation>
     </message>
     <message>
         <source>Incorrect email address entered.</source>
@@ -498,11 +498,11 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>マイ フィードバック</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>お気に入り</translation>
     </message>
     <message>
         <source>My Urged</source>
