@@ -308,7 +308,7 @@
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation>Issueの処理が完了していないため、公開リストに表示されていません。</translation>
+        <translation>問題の処理が完了していないため、公開リストに表示されていません。</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
@@ -320,38 +320,38 @@
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>この問題はバグや不自然なものではありません。</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>この問題は解決され、正式リリースを待機中です。</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>要件が処理されていないため、公開リストに表示されていません。</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>問題は確認され、現在評価中です。</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>将来のリリース計画に含まれています。</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>要件を受け入れられないか、対応できません。</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>開発が完了し、正式リリースを待機中です。</translation>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"/>
+        <translation>スクリーンショットを追加できません。</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
