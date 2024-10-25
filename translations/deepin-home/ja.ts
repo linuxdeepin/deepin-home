@@ -304,19 +304,19 @@
     </message>
     <message>
         <source>Reproducing</source>
-        <translation type="unfinished"/>
+        <translation>再現中</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>Issueの処理が完了していないため、公開リストに表示されていません。</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>現時点では問題を特定できていません。継続的な調査と監視が必要です。</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>問題は再現され、原因が特定されました。</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
