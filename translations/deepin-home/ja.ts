@@ -383,55 +383,55 @@
     </message>
     <message>
         <source>Type：</source>
-        <translation>タイプ:</translation>
+        <translation>タイプ：</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>提案</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>バグの報告</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation> タイトル：</translation>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>問題の簡単な説明を入力してください</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>本文：</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>１つのフィードバックに複数の問題を含めないでください。</translation>
     </message>
     <message>
         <source>Email：</source>
-        <translation type="unfinished"/>
+        <translation>メールアドレス：</translation>
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>システムバージョン：</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>デバイス情報：</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;home://sysinfo&apos;&gt;デバイス情報&lt;/a&gt;のアップロード</translation>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>スクリーンショット：</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>画像ファイル</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
