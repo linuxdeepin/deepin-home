@@ -68,18 +68,18 @@
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>強い要求を解除</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation>緊急</translation>
+        <translation>強い要求</translation>
     </message>
 </context>
 <context>
     <name>Card1</name>
     <message>
         <source>Coming</source>
-        <translation type="unfinished"/>
+        <translation>まもなく公開</translation>
     </message>
 </context>
 <context>
@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Urge</source>
-        <translation>緊急</translation>
+        <translation>強い要求</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -269,7 +269,7 @@
     </message>
     <message>
         <source>Fill In</source>
-        <translation type="unfinished"/>
+        <translation>埋める</translation>
     </message>
 </context>
 <context>
@@ -506,7 +506,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>私の強い要求</translation>
     </message>
 </context>
 </TS>
