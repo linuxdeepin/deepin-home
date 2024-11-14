@@ -148,7 +148,7 @@
     </message>
     <message>
         <source>Report issues you found</source>
-        <translation type="unfinished"/>
+        <translation>Bulduğun sorunları rapor et</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -164,7 +164,7 @@
     </message>
     <message>
         <source>Questionaire</source>
-        <translation type="unfinished"/>
+        <translation>Anket</translation>
     </message>
     <message>
         <source>Join US</source>
@@ -172,11 +172,11 @@
     </message>
     <message>
         <source>Internal Testing</source>
-        <translation type="unfinished"/>
+        <translation>Dahili Test</translation>
     </message>
     <message>
         <source>Community News</source>
-        <translation type="unfinished"/>
+        <translation>Topluluk Haberleri</translation>
     </message>
 </context>
 <context>
@@ -187,18 +187,18 @@
     </message>
     <message>
         <source>Questionaires</source>
-        <translation type="unfinished"/>
+        <translation>Anketler</translation>
     </message>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Daha fazla ürün yok</translation>
     </message>
 </context>
 <context>
     <name>MyTitleBar</name>
     <message>
         <source>Launch at system startup</source>
-        <translation type="unfinished"/>
+        <translation>Sistem başlangıcında başlat</translation>
     </message>
     <message>
         <source>About</source>
@@ -214,7 +214,7 @@
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Forumlara hızlı giriş yapın, öneri gönderin ve hataları bildirin.</translation>
     </message>
 </context>
 <context>
@@ -261,15 +261,15 @@
     <name>Questionnaire</name>
     <message>
         <source>No questionaires yet.</source>
-        <translation type="unfinished"/>
+        <translation>Henüz soru sorulmadı.</translation>
     </message>
     <message>
         <source>Expired on: %1</source>
-        <translation type="unfinished"/>
+        <translation>Bitiş zamanı: %1</translation>
     </message>
     <message>
         <source>Fill In</source>
-        <translation type="unfinished"/>
+        <translation>Formu doldur</translation>
     </message>
 </context>
 <context>
