@@ -399,7 +399,7 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen sorununuzla ilgili kısa bir açıklama yapın</translation>
     </message>
     <message>
         <source>Content：</source>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Tek bir geri bildirimde birden fazla gereksinimi doldurmayın</translation>
     </message>
     <message>
         <source>Email：</source>
@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a href=&apos;home://sysinfo&apos;&gt;Cihaz bilgilerini&lt;/a&gt; karşıya yükle</translation>
     </message>
     <message>
         <source>Screenshots：</source>
@@ -431,7 +431,7 @@
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü dosyaları</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
