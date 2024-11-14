@@ -3,33 +3,33 @@
     <name>API</name>
     <message>
         <source>Please log in with your Deepin ID.</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen Deepin ID&apos;nizle giriş yapın.</translation>
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>Sonraki işlemlere devam etmek için oturum açmanız gerekir.</translation>
     </message>
 </context>
 <context>
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Çok fazla istekte bulunuyorsunuz, lütfen daha sonra tekrar deneyin.</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>Sonraki işlemlere devam etmek için giriş yapmanız gerekir.</translation>
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation type="unfinished"/>
+        <translation>Ağ hatası, lütfen daha sonra deneyin.</translation>
     </message>
 </context>
 <context>
     <name>AccountButton</name>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favorilerim</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>Günlüğe Kaydedilmemiş</translation>
     </message>
     <message>
         <source>Sign in</source>
@@ -60,26 +60,26 @@
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>Favorilerden kaldır</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Favorilere ekle</translation>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>İsteği iptal et</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>İstek</translation>
     </message>
 </context>
 <context>
     <name>Card1</name>
     <message>
         <source>Coming</source>
-        <translation type="unfinished"/>
+        <translation>Gelen</translation>
     </message>
 </context>
 <context>
@@ -93,11 +93,11 @@
     <name>Filter</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Ara</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>Hepsi</translation>
     </message>
     <message>
         <source>Bug</source>
