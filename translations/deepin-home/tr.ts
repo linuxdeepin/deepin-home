@@ -459,15 +459,15 @@
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Geri bildirim gönderilemiyor.</translation>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen geri bildiriminizin başlığını ve içeriğini belirtin .</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen geri bildiriminizin başlığını belirtin.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
