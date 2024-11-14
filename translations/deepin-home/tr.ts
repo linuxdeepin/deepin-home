@@ -471,7 +471,7 @@
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen geri bildiriminizin içeriğini belirtin.</translation>
     </message>
     <message>
         <source>Incorrect email address entered.</source>
@@ -494,19 +494,19 @@
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Geri Bildirim Merkezi</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Geri Bildirimlerim</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Favorilerim</translation>
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>İsteklerim</translation>
     </message>
 </context>
 </TS>
