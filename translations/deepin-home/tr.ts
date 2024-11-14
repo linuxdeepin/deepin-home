@@ -308,39 +308,39 @@
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>Sorun işlenmedi. Herkese açık listede gösterilmeyecek.</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>Şu anda nedeni belirlenemiyor; Sürekli izleme ve soruşturma gereklidir.</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>Sorun yeniden oluşturuldu ve kök neden belirlendi.</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>Bu sorun bir hata veya farklı bir nitelik değildir.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>Sorun çözüldü ve resmi olarak yayınlanmayı bekliyor</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>Gereksinim işlenmedi. Genel listede gösterilmeyecek</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>Sorun kabul edildi ve dahili olarak değerlendiriliyor</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>Gelecekteki bir sürüm için planlara dahil edildi</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>Gereksinim kabul edilmiyor veya ele alınamıyor</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
