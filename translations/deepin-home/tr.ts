@@ -435,15 +435,15 @@
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Dosyaları sürükleyip bırakın veya resim eklemek için butonlara tıklayın, en fazla üç tane</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>Geri bildirim gönderiminden çıkmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>Geri bildirim içeriği kaydedilmeyecektir.</translation>
     </message>
     <message>
         <source>Cancel</source>
