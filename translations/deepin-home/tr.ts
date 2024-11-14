@@ -344,22 +344,22 @@
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>Geliştirme çalışmaları tamamlandı ve resmi olarak yayınlanmayı bekliyor</translation>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"/>
+        <translation>Ekran görüntüsü eklenemiyor.</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü dosyasının boyutu 1 MB&apos;tan küçük olmalıdır.</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü dosyası formatı yükleme için desteklenmiyor.</translation>
     </message>
     <message>
         <source>Submit Feedback</source>
@@ -368,14 +368,18 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Ürünün Mevcut Durumu]: 
+[İstenen Ürün]:</translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Ön koşullar]: 
+[Tekrarlanabilirlik Adımları]: 
+[Beklenen Sonuçlar]: 
+[Gerçek Sonuçlar]:</translation>
     </message>
     <message>
         <source>Type：</source>
