@@ -101,35 +101,35 @@
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Hata</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Öneriler</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"/>
+        <translation>En Yeni</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Favori</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>İstek</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Tür:</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"/>
+        <translation>Sürüm:</translation>
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>Sırala:</translation>
     </message>
 </context>
 <context>
@@ -140,11 +140,11 @@
     </message>
     <message>
         <source>Discuss and share here</source>
-        <translation type="unfinished"/>
+        <translation>Burada tartışın ve paylaşın</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Hata raporu</translation>
     </message>
     <message>
         <source>Report issues you found</source>
