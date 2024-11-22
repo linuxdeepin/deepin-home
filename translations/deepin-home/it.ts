@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Non loggato</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>I miei preferiti</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>I miei feedback</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Disconnessione</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Non loggato</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Accedi</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>I miei feedback</translation>
     </message>
 </context>
 <context>
@@ -93,43 +93,43 @@
     <name>Filter</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Newest</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Cerca</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Tipo:</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Tutti</translation>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation>Bug</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Suggerimenti</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"/>
+        <translation>Versione:</translation>
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>Ordinamento:</translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation>Più recenti</translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation>Preferiti</translation>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation>Urgenti</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Internal Testing</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>News della Community</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Nessun ulteriore elemento</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Messaggi</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Questionari</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Nessun ulteriore elemento</translation>
     </message>
 </context>
 <context>
@@ -280,6 +284,10 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
         <translation>In attesa</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Riproduzione</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Confermata</translation>
     </message>
@@ -302,10 +310,6 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
     <message>
         <source>Completed</source>
         <translation>Completata</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Riproduzione</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -363,10 +367,6 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
         <translation>Il formato immagine non è supportato.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Conferma feedback</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Stato attuale del prodotto]:
@@ -381,6 +381,10 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
 [Come riprodurlo]:
 [Risultati attesi]:
 [Risultati attuali]:</translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Conferma feedback</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -407,12 +411,20 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
         <translation>Contenuto:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Non iserire più requisiti in un unico feedback</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Non iserire più requisiti in un unico feedback</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>Email:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Inserisci il tuo indirizzo email</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -481,14 +493,6 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
     <message>
         <source>Device Information</source>
         <translation>Info dispositivo</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Inserisci il tuo indirizzo email</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Non iserire più requisiti in un unico feedback</translation>
     </message>
 </context>
 <context>
