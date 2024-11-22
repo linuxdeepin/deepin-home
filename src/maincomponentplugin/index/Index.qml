@@ -21,22 +21,24 @@ Item {
 
     // 显示通知列表
     function showNotifyList() {
-        if (listLoader.status == Loader.Null)
-            listLoader.setSource("/list/List.qml", {
-                "index": 0
-            });
-        else
+        if (listLoader.status != Loader.Null) {
             listLoader.item.index = 0;
+            return ;
+        }
+        listLoader.setSource("/list/List.qml", {
+            "index": 0
+        });
     }
 
     // 显示调查问卷列表
     function showQuestionnaireList() {
-        if (listLoader.status == Loader.Null)
-            listLoader.setSource("/list/List.qml", {
-                "index": 1
-            });
-        else
+        if (listLoader.status != Loader.Null) {
             listLoader.item.index = 1;
+            return ;
+        }
+        listLoader.setSource("/list/List.qml", {
+            "index": 1
+        });
     }
 
     // 首页内容加载
@@ -231,12 +233,13 @@ Item {
                 }
 
                 Row {
+                    spacing: body.width * 0.1 / 2
                     width: parent.width
 
                     Card3 {
                         title: qsTr("Internal Testing")
                         icon: "/images/internal.svg"
-                        width: body.width * 0.5
+                        width: body.width * 0.3
                         height: width / 4
 
                         MouseArea {
@@ -253,9 +256,25 @@ Item {
                     }
 
                     Card3 {
+                        title: qsTr("Global Translation")
+                        icon: "/images/translation.svg"
+                        width: body.width * 0.3
+                        height: width / 4
+
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: {
+                                Qt.openUrlExternally("https://www.deepin.org/index/localization");
+                            }
+                        }
+
+                    }
+
+                    Card3 {
                         title: qsTr("Community News")
                         icon: "/images/contact.svg"
-                        width: body.width * 0.5
+                        width: body.width * 0.3
                         height: width / 4
 
                         MouseArea {

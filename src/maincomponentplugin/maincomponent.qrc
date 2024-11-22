@@ -58,5 +58,6 @@
         <file>images/status/reject.svg</file>
         <file>images/status/req-accept.svg</file>
         <file>images/dotted.svg</file>
+        <file>images/translation.svg</file>
     </qresource>
 </RCC>
