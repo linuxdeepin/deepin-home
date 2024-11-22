@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Поза системою</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Улюблене</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Відгуки</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Вийти</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Поза системою</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Увійти</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Відгуки</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Пошук</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Тип:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Усі</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Пропозиції</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Версія:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Упорядкування:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>Найновіші</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>Критичні</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Тип:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Версія:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Упорядкування:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Внутрішнє тестування</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Новини спільноти</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Більше записів немає</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Повідомлення</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Опитування</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Більше записів немає</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>У черзі</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Відтворюваність</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Підтверджено</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Завершено</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Відтворюваність</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>Не передбачено підтримки вивантаження файлів зображень у цьому форматі.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Надіслати відгук</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Поточний стан продукту]: 
@@ -380,6 +380,10 @@
 [Кроки відтворення]: 
 [Очікувані результати]: 
 [Поточні результати]: </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Надіслати відгук</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Вміст:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Не поєднуйте декілька проблем в одному відгуку</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Не вписуйте декілька вимог до одного відгуку</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>Адреса ел. пошти:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Будь ласка, введіть вашу адресу ел. пошти</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Дані щодо пристрою</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Будь ласка, введіть вашу адресу ел. пошти</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Не поєднуйте декілька проблем в одному відгуку</translation>
     </message>
 </context>
 <context>
