@@ -4,27 +4,27 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="55"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Home</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="57"/>
         <source>Show main window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/main/homeDaemon.cpp" line="69"/>
-        <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>メインウィンドウを表示</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="72"/>
-        <source>Exit</source>
-        <translation type="unfinished"/>
+        <source>Communication</source>
+        <translation>コミュニケーション</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="306"/>
+        <location filename="../src/main/homeDaemon.cpp" line="75"/>
+        <source>Exit</source>
+        <translation>終了</translation>
+    </message>
+    <message>
+        <location filename="../src/main/homeDaemon.cpp" line="315"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>表示</translation>
     </message>
 </context>
 </TS>
