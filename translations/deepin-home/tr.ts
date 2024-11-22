@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Günlüğe Kaydedilmemiş</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Favorilerim</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Geri Bildirimlerim</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Çıkış</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Günlüğe Kaydedilmemiş</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Giriş</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Geri Bildirimlerim</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Ara</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Tür:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Hepsi</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Öneriler</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Sürüm:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Sırala:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>En Yeni</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>İstek</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Tür:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Sürüm:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Sırala:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Dahili Test</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Topluluk Haberleri</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Daha fazla ürün yok</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>İletiler</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Anketler</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Daha fazla ürün yok</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>Bekleyen</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Yeniden Üretim</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Onaylanan</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Tamamlanan</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Yeniden Üretim</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>Görüntü dosyası formatı yükleme için desteklenmiyor.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Geri Bildirim Gönder</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Ürünün Mevcut Durumu]: 
@@ -380,6 +380,10 @@
 [Tekrarlanabilirlik Adımları]: 
 [Beklenen Sonuçlar]: 
 [Gerçek Sonuçlar]:</translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Geri Bildirim Gönder</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>İçerik:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Tek bir geri bildirimde birden fazla konuyu doldurmayın</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Tek bir geri bildirimde birden fazla gereksinimi doldurmayın</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>E-posta:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Lütfen e-postanızı giriniz</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Aygıt Bilgisi</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Lütfen e-postanızı giriniz</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Tek bir geri bildirimde birden fazla konuyu doldurmayın</translation>
     </message>
 </context>
 <context>
