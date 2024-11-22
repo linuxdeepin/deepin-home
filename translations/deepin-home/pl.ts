@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Niezalogowany</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Moje ulubione</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Moje opinie</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Wyloguj</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Niezalogowany</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Zaloguj</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Moje opinie</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Szukaj</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Typ:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Wszystko</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Sugestie</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Wersja:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Sortuj:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>Najnowsze</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>Ponaglij</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Typ:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Wersja:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Sortuj:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Testy wewnętrzne</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Wiadomości społeczności</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Nie ma więcej przedmiotów</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Wiadomości</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Ankiety</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Nie ma więcej przedmiotów</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>Oczekiwanie</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Odtwarzanie</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Potwierdzono</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Zakończono</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Odtwarzanie</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>Format obrazu nie jest wspierany do załadowania.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Wyślij opinię</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Bieżący status produktu]: 
@@ -380,6 +380,10 @@
 [Podjęte kroki]: 
 [Spodziewany wynik]: 
 [Rzeczywisty wynik]: </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Wyślij opinię</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Zawartość:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Nie uwzględniaj wielu problemów w jednym zgłoszeniu</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Nie uwzględniaj wielu problemów w jednym zgłoszeniu</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>E-mail:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Wprowadź swój adres e-mail</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Informacje urządzenia</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Wprowadź swój adres e-mail</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Nie uwzględniaj wielu problemów w jednym zgłoszeniu</translation>
     </message>
 </context>
 <context>
