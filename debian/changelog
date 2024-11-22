@@ -1,4 +1,19 @@
-deepin-home (1.6.2) UNRELEASED; urgency=medium
+deepin-home (1.6.3) unstable; urgency=medium
+
+  [ myml ]
+  * refactor: format Index.qml
+  * feat: add hyperlink to global translation
+  * chore: update translation
+
+  [ transifex-integration[bot] ]
+  * i18n: Translate deepin-home-desktop.ts
+
+  [ transifex-integration[bot] ]
+  * i18n: Translate translations/deepin-home
+
+ -- myml <wurongjie@deepin.org>  Fri, 22 Nov 2024 17:29:24 +0800
+
+deepin-home (1.6.2) unstable; urgency=medium
 
   [ transifex-integration[bot] ]
   * i18n: Translate deepin-home-desktop.ts in hu
