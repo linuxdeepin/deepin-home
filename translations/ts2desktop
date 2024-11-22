@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# 生成 desktop 文件
+cd translations
+deepin-desktop-ts-convert ts2desktop ../deepin-home.desktop deepin-home-desktop deepin-home.desktop
+mv deepin-home.desktop ../
