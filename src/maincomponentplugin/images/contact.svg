@@ -1,36 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="74px" height="74px" viewBox="0 0 74 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/加入/社区动态</title>
     <defs>
-        <linearGradient x1="115.001347%" y1="-20.2340759%" x2="14.8991597%" y2="107.562458%" id="linearGradient-1">
-            <stop stop-color="#FFCC4B" offset="0%"></stop>
-            <stop stop-color="#ED9A33" offset="100%"></stop>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFCB4B" offset="0%"></stop>
+            <stop stop-color="#E66F02" offset="100%"></stop>
         </linearGradient>
     </defs>
-    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="首页-上滑" transform="translate(-623.000000, -759.000000)">
-            <g id="编组" transform="translate(106.000000, 203.000000)">
-                <g id="问卷调查-+-问卷调查备份-+-问卷调查备份-2-蒙版" transform="translate(0.000000, -1.000000)">
-                    <g id="编组-17" transform="translate(20.000000, -42.000000)">
-                        <g id="加入我们" transform="translate(0.000000, 553.000000)">
-                            <g id="编组-10备份" transform="translate(487.000000, 36.000000)">
-                                <g id="社区动态" transform="translate(10.000000, 10.000000)">
-                                    <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="74" height="74" rx="16"></rect>
-                                    <g id="编组-40" transform="translate(14.000000, 14.000000)">
-                                        <rect id="矩形" x="0" y="0" width="46" height="46"></rect>
-                                        <g id="编组-33" transform="translate(5.111111, 5.962963)">
-                                            <polyline id="路径" stroke="#FFFFFF" stroke-width="1.7037037" points="21.6534554 27.9324599 0 27.9324599 0 -2.76775496e-13 30.6666667 -2.76775496e-13 30.6666667 13.6296296"></polyline>
-                                            <circle id="椭圆形" stroke="#FFFFFF" stroke-width="1.7037037" cx="29.8563171" cy="17.5495014" r="4.77172366"></circle>
-                                            <path d="M37.5644861,30.0293941 C37.5644861,25.7722899 34.1134213,22.3212251 29.8563171,22.3212251 C25.599213,22.3212251 22.1481481,25.7722899 22.1481481,30.0293941 C22.1481481,34.2864983 37.5644861,34.2864983 37.5644861,30.0293941 Z" id="椭圆形备份-7" stroke="#FFFFFF" stroke-width="1.7037037"></path>
-                                            <line x1="1.27777778" y1="8.09259259" x2="30.2407407" y2="8.09259259" id="直线-6" stroke="#FFFFFF" stroke-width="1.7037037" stroke-linecap="square"></line>
-                                            <rect id="矩形" fill-opacity="0.6" fill="#FFFFFF" x="11.9259259" y="17.037037" width="6.81481481" height="1.7037037"></rect>
-                                            <polyline id="路径-24备份" stroke-opacity="0.6" stroke="#FFFFFF" stroke-width="1.7037037" points="5.11111111 14.4814815 8.51851852 17.6744367 5.11111111 21.2962963"></polyline>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
+    <g id="icon/加入/社区动态" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标">
+            <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="56" height="56" rx="12"></rect>
+            <g id="编组" transform="translate(11, 14)" fill="#FFFFFF">
+                <circle id="椭圆形" cx="29" cy="19" r="2"></circle>
+                <path d="M32.7360587,25.1151804 C32.7360587,23.0198367 31.0374471,21.3212251 28.9421034,21.3212251 C26.8467598,21.3212251 25.1481481,23.0198367 25.1481481,25.1151804 C25.1481481,27.210524 32.7360587,27.210524 32.7360587,25.1151804 Z" id="椭圆形备份-7"></path>
+                <path d="M29,15 C32.8659932,15 36,18.1340068 36,22 C36,25.8659932 32.8659932,29 29,29 C25.1340068,29 22,25.8659932 22,22 C22,18.1340068 25.1340068,15 29,15 Z M29,16 C25.6862915,16 23,18.6862915 23,22 C23,25.3137085 25.6862915,28 29,28 C32.3137085,28 35,25.3137085 35,22 C35,18.6862915 32.3137085,16 29,16 Z" id="椭圆形" fill-rule="nonzero"></path>
+                <path d="M26,0 C27.6568542,0 29,1.34314575 29,3 L29,14 C28.6613564,14 28.3276273,14.0210412 28.0000487,14.0618877 L28,3 C28,1.8954305 27.1045695,1 26,1 L3,1 C1.8954305,1 1,1.8954305 1,3 L1,22 C1,23.1045695 1.8954305,24 3,24 L21.2521271,24.0003581 C21.3404208,24.3433368 21.4508878,24.6774131 21.5819088,25.0009677 L3,25 C1.34314575,25 0,23.6568542 0,22 L0,3 C0,1.34314575 1.34314575,0 3,0 L26,0 Z" id="形状结合" fill-rule="nonzero"></path>
+                <path d="M8.92266053,11.1183433 L8.92266053,17.4637979 C8.92266053,17.712326 8.72118867,17.9137979 8.47266053,17.9137979 C8.22413239,17.9137979 8.02266053,17.712326 8.02266053,17.4637979 L8.02266053,12.0244039 L8.02266053,12.0244039 L2.62569083,12.0244039 C2.3754891,12.0244039 2.17266053,11.8215754 2.17266053,11.5713736 C2.17266053,11.3211719 2.3754891,11.1183433 2.62569083,11.1183433 L8.92266053,11.1183433 L8.92266053,11.1183433 Z" id="路径" fill-rule="nonzero" transform="translate(5.5477, 14.5161) rotate(45) translate(-5.5477, -14.5161)"></path>
+                <path d="M22,14.5 C22,14.7761424 21.7761424,15 21.5,15 L15.5,15 C15.2238576,15 15,14.7761424 15,14.5 C15,14.2238576 15.2238576,14 15.5,14 L21.5,14 C21.7761424,14 22,14.2238576 22,14.5 Z" id="矩形" fill-rule="nonzero"></path>
+                <polygon id="矩形" points="1 7 28 7 28 8 1 8"></polygon>
             </g>
         </g>
     </g>
