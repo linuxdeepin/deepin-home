@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Hesabdan çıxmış</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Seçilmişlər</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Mənim rəylərim</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Çıxın</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Hesabdan çıxmış</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Daxil olun</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Mənim rəylərim</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>All</source>
         <translation type="unfinished"/>
     </message>
@@ -108,6 +112,14 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Version:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Newest</source>
         <translation type="unfinished"/>
     </message>
@@ -117,18 +129,6 @@
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sort:</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -175,6 +175,10 @@
         <translation>Daxili sınama</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Cəmiyytin xəbərləri</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Başqa elementlər yoxdur</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>İsmarıclar</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Anket</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Başqa elementlər yoxdur</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>Gözləyən</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Çoxalma</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Təsdiq olunmuş</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Tamamlanmış</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Çoxalma</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>Yükləmək üçün şəklin fayl formatı dəstəklənmir.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Rəy göndərin</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Məhsulun cari vəziyyəti]
@@ -380,6 +380,10 @@
 [Repreduksiya addımları]:
 [Gözlənilən Nəticələr]:
 [Aktual nəticələr]:</translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Rəy göndərin</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Məzmun :</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Bir rəyə çox sayda problemləri daxil etməyin</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Bir rəydə çox sayda tələblər yerləşdirməyin</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>E-poçt :</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Lütfən e-poçt ünvanınızı daxil edin</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Cihaz haqqında məlumat</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Lütfən e-poçt ünvanınızı daxil edin</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Bir rəyə çox sayda problemləri daxil etməyin</translation>
     </message>
 </context>
 <context>

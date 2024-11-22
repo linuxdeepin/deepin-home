@@ -3,49 +3,49 @@
     <name>API</name>
     <message>
         <source>Please log in with your Deepin ID.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte melden Sie sich mit Ihrer Deepin-ID an.</translation>
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>Für die nachfolgenden Handlungen müssen Sie sich anmelden.</translation>
     </message>
 </context>
 <context>
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Sie haben zu viele Anfragen gestellt. Bitte versuchen Sie es später wieder.</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>Für die nachfolgenden Handlungen müssen Sie sich anmelden.</translation>
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation type="unfinished"/>
+        <translation>Netzwerkfehler, bitte versuchen Sie es später.</translation>
     </message>
 </context>
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Nicht angemeldet</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Meine Favoriten</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Meine Rückmeldungen</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Abmelden</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Anmelden</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Meine Rückmeldungen</translation>
     </message>
 </context>
 <context>
@@ -60,19 +60,19 @@
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>Aus &apos;Favoriten&apos; entfernen</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Als Favorit markieren</translation>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>Als nicht dringlich markieren</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Als dringlich markieren</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Suchen</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Typ:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Alle</translation>
     </message>
@@ -108,28 +112,24 @@
         <translation>Vorschläge</translation>
     </message>
     <message>
-        <source>Newest</source>
-        <translation>Neueste</translation>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Urge</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Typ:</translation>
-    </message>
-    <message>
         <source>Version:</source>
         <translation>Version:</translation>
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>Sortierung:</translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation>Neueste</translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation>Favorit</translation>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation>dringlich</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Interne Tests</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Gemeinschaftsnachrichten</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Keine weiteren Elemente</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Nachrichten</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Fragebogen</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Keine weiteren Elemente</translation>
     </message>
 </context>
 <context>
@@ -210,11 +214,11 @@
     </message>
     <message>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Home</translation>
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Schnellanmeldung zu Foren, Vorschläge unterbreiten und Fehler berichten</translation>
     </message>
 </context>
 <context>
@@ -243,7 +247,7 @@
     <name>Offline</name>
     <message>
         <source>Network error, please try later</source>
-        <translation type="unfinished"/>
+        <translation>Netzwerkfehler, bitte versuchen Sie es später.</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -254,7 +258,7 @@
     <name>Preload</name>
     <message>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Home</translation>
     </message>
 </context>
 <context>
@@ -277,6 +281,10 @@
     <message>
         <source>Pending</source>
         <translation>Ausstehend</translation>
+    </message>
+    <message>
+        <source>Reproducing</source>
+        <translation>Am reproduzieren</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -303,79 +311,79 @@
         <translation>Abgeschlossen</translation>
     </message>
     <message>
-        <source>Reproducing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Fall wurde noch nicht bearbeitet und wird nicht in der öffentlichen Liste angezeigt.</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>Der Grund wurde noch nicht gefunden; weitere Beobachtung und Untersuchungen sind nötig.</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>Der Fall konnte reproduziert werden und das zugrundliegende Problem identifiziert.</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Fall ist kein Fehler oder ist von anderer Natur.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Fall wurde gelöst und es steht eine Veröffentlichung an.</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>Die Anforderung wurde noch nicht bearbeitet und wird nicht in der öffentlichen Liste angezeigt</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>Der Fall wurde anerkannt und wird intern weiterverfolgt.</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>Für ein zukünftiges Release vorgesehen</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>Die Anforderung wurde nicht angenommen oder kann nicht zugeordnet werden</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>Die Entwicklung ist abgeschlossen und steht für ein Release an.</translation>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmfoto konnte nicht hinzugefügt werden.</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"/>
+        <translation>Die Bildgröße sollte weniger als 1MB betragen.</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Submit Feedback</source>
-        <translation>Rückmeldung absenden</translation>
+        <translation>Dieses Bildformat kann nicht hochgeladen werden.</translation>
     </message>
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Aktueller Status]: 
+[Gewünschter Status]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Voraussetzungen]: 
+[Nachzuvollziehende Schritte]: 
+[Erwartete Ergebnise]: 
+[Tatsächliche Ergebnisse]: </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Rückmeldung absenden</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -395,19 +403,27 @@
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Bitte beschreiben Sie kurz ihr Anliegen</translation>
     </message>
     <message>
         <source>Content：</source>
         <translation>Inhalt：</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Bitte geben Sie nicht mehrere Fälle in einer Rückmeldung an</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Bitte geben Sie nicht mehrere Fälle in einer Rückmeldung an</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>E-Mail：</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Bitte geben Sie ihre E-Mail-Adresse an</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -419,7 +435,7 @@
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Lade &lt;a href=&apos;home://sysinfo&apos;&gt;Geräteinformation&lt;/a&gt; hoch</translation>
     </message>
     <message>
         <source>Screenshots：</source>
@@ -431,15 +447,15 @@
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Ziehen Sie Dateien hierher oder klicken Sie auf den Button um bis zu drei Bilder hochzuladen</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>Sind Sie sicher, dass Sie die Rückmeldungseingabe verlassen wollen?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>Der Inhalt ihrer Rückmeldung wird nicht gespeichert.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -455,42 +471,34 @@
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Rückmeldung konnte nicht übertragen werden.</translation>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte geben Sie einen Titel und den Inhalt ihrer Rückmeldung an</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte geben Sie einen Titel ihrer Rückmeldung an</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte geben Sie den Inhalt ihrer Rückmeldung an</translation>
     </message>
     <message>
         <source>Incorrect email address entered.</source>
-        <translation type="unfinished"/>
+        <translation>Fehlerhafte E-Mail-Adresse eingegeben.</translation>
     </message>
     <message>
         <source>Device Information</source>
         <translation>Geräteinformationen</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Rückmeldungszentrale</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
@@ -502,7 +510,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Meine Dringlichen</translation>
     </message>
 </context>
 </TS>

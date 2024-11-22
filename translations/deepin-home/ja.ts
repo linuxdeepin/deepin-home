@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>ログアウト済み</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>お気に入り</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>マイ フィードバック</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>サインアウト</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>ログアウト済み</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>サインイン</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>マイ フィードバック</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>検索</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>タイプ:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>すべて</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>提案</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>バージョン:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>並べ替え:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>最新</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>強い要求</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>タイプ:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>バージョン:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>並べ替え:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>内部テスト</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>コミュニティーニュース</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>表示するものはありません</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>メッセージ</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>アンケート</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>表示するものはありません</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>保留中</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>再現中</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>確認済み</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>完了済み</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>再現中</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>画像ファイルのフォーマットがサポートされていません。</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>フィードバックを提出</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Current Status of the Product]: 
@@ -380,6 +380,10 @@
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>フィードバックを提出</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>本文：</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>１つのフィードバックに複数の問題を含めないでください。</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>１つのフィードバックに複数の問題を含めないでください。</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>メールアドレス：</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>メールアドレスを入力してください</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>デバイス情報</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>メールアドレスを入力してください</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>１つのフィードバックに複数の問題を含めないでください。</translation>
     </message>
 </context>
 <context>

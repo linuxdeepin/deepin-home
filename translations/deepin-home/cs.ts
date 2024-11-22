@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Nepřihlášení</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Mé oblíbené</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Zpětné vazby ode mne</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Odhlásit se</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Nepřihlášení</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Přihlásit se</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Zpětné vazby ode mne</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Hledat</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Typ:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Vše</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Návrhy</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Verze:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Řadit:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>Nejnovější</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>Zaurgovat</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Typ:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Verze:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Řadit:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Vnitřní zkoušení</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Zprávy společenství</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Žádné další položky</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Zprávy</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Dotazník</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Žádné další položky</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>Čekající</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Reprodukuje se</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Potvrzené</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Dokončené</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Reprodukuje se</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>Nahrávání takového formátu obrazových dat není podporováno.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Odeslat zpětnou vazbu</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Stávající stav produktu]: 
@@ -380,6 +380,10 @@
 [Kroky k zopakování]: 
 [Očekávané výsledky]: 
 [Skutečné výsledky]: </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Odeslat zpětnou vazbu</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Obsah:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>V rámci jedné zpětné vazby vyplňujte vždy jen jeden problém, ne vícero</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>V rámci jedné zpětné vazby vyplňujte vždy jen jeden požadavek, ne vícero</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>E-mail:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Zadejte svůj e-mail</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Informace o zařízení</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Zadejte svůj e-mail</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>V rámci jedné zpětné vazby vyplňujte vždy jen jeden problém, ne vícero</translation>
     </message>
 </context>
 <context>

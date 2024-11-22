@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Kirjautumaton</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Suosikkini</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Palautteeni</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Kirjaudu ulos</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Kirjautumaton</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Kirjaudu sisään</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Palautteeni</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Haku</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Typpi:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Kaikki</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Ehdotukset</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Versio:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Järjestys:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>Uusin</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>Kehotus</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Typpi:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Versio:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Järjestys:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Sisäinen testaus</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Yhteisön uutiset</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Ei enää kohteita</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Viestit</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Kyselylomakkeet</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Ei enää kohteita</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>Vireillä</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Kopiointi</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Vahvistettu</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Valmis</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Kopiointi</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>Lähetettävää kuvan tiedostomuotoa ei tueta.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Anna palautetta</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Tuotteen nykyinen tila]: 
@@ -380,6 +380,10 @@
 [Toistettavuuden vaiheet]: 
 [Odotetut tulokset]: 
 [Todelliset tulokset]: </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Anna palautetta</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Sisältö：</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Älä täytä useita kysymyksiä samaan palautteeseen</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Älä täytä montaa vaatimusta yhteen palautteeseen</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>Sähköposti：</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Anna sähköpostiosoitteesi</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Laitteen tiedot</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Anna sähköpostiosoitteesi</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Älä täytä useita kysymyksiä samaan palautteeseen</translation>
     </message>
 </context>
 <context>

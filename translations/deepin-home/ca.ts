@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Fora de la sessió</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Favorits</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Els meus comentaris</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Surt de la sessió</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Fora de la sessió</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Inicieu la sessió</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Els meus comentaris</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Cerca</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Tipus:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Tot</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Suggeriments</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Versió:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Classificació:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>El més nou</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>Urgent</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Tipus:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Versió:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Classificació:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Proves internes</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Notícies de la comunitat</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>No hi ha més elements.</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Missatges</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Qüestionaris</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>No hi ha més elements.</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>Pendent</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Reproducció</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Confirmat</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Completat</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Reproducció</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>El format de fitxer d&apos;imatge no és compatible per a la càrrega.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Envieu comentaris</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Estat actual del producte]:
@@ -380,6 +380,10 @@
 [Passos de reproductibilitat]:
 [Resultats esperats]:
 [Resultats reals]:</translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Envieu comentaris</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Contingut:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>No afegiu diversos problemes en un sol comentari.</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>No ompliu diversos requisits en un sol comentari.</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>Adreça electrònica:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Si us plau, escriviu l&apos;adreça electrònica.</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Informació del dispositiu</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Si us plau, escriviu l&apos;adreça electrònica.</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>No afegiu diversos problemes en un sol comentari.</translation>
     </message>
 </context>
 <context>

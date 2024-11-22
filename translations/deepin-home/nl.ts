@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Uitgelogd</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Mĳn favorieten</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Mĳn feedback</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Uitloggen</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Uitgelogd</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Inloggen</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Mĳn feedback</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Zoeken</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Soort:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Alles</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Suggesties</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Versie:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Sorteren op:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>Nieuwste</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>Voorstellen</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Soort:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Versie:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Sorteren op:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Interne tests</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Gemeenschapsnieuws</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Er zĳn geen items meer</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Berichten</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Vragenlĳsten</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Er zĳn geen items meer</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>In afwachting</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Nabootsen</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Bevestigd</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Voltooid</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Nabootsen</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>Het bestandsformaat wordt niet ondersteund.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Feedback versturen</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Huidige productstatus]: 
@@ -380,6 +380,10 @@
 [Herleidbare stappen]: 
 [Verwachte resultaten]: 
 [Daadwerkelĳke resultaten]: </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Feedback versturen</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Inhoud:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Let op: voer niet meerdere problemen in</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Let op: voer geen meerdere vereisten in</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>E-mailadres:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Voer je e-mailadres in</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Apparaatinformatie</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Voer je e-mailadres in</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Let op: voer niet meerdere problemen in</translation>
     </message>
 </context>
 <context>

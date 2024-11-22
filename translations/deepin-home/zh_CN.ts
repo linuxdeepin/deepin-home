@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>未登录</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>我的收藏</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>我的反馈</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>退出帐户</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>未登录</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>登录帐号</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>我的反馈</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>搜索</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>类型：</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>全部</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>需求</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>版本：</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>排序：</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>最新</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>催一下</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>类型：</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>版本：</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>排序：</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>内测交流</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation>全球化翻译</translation>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>社区动态</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>没有更多了</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>系统消息</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>调查问卷</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>没有更多了</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>待处理</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>复现中</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>已确认</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>已完成</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>复现中</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>图片的文件格式不支持上传</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>提交反馈</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>【产品现状】： 
@@ -380,6 +380,10 @@
 【复现步骤】： 
 【预期结果】： 
 【实际结果】： </translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>提交反馈</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>内容：</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>请勿在一条反馈中填写多个问题</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>请勿在一条反馈中填写多条需求</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>邮箱：</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>请输入您的电子邮件</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>设备信息</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>请输入您的电子邮件</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>请勿在一条反馈中填写多个问题</translation>
     </message>
 </context>
 <context>
