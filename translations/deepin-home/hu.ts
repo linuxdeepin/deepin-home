@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Nincs bejelentkezve</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Kedvenceim</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Visszajelzéseim</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Kijelentkezés</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Nincs bejelentkezve</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Bejelentkezés</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Visszajelzéseim</translation>
     </message>
 </context>
 <context>
@@ -93,43 +93,43 @@
     <name>Filter</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bug</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Suggestions</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Newest</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Favorite</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Keresés</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Típus:</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Összes</translation>
+    </message>
+    <message>
+        <source>Bug</source>
+        <translation>Hiba</translation>
+    </message>
+    <message>
+        <source>Suggestions</source>
+        <translation>Javaslatok</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"/>
+        <translation>Verzió:</translation>
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>Fajta:</translation>
+    </message>
+    <message>
+        <source>Newest</source>
+        <translation>Legújabb</translation>
+    </message>
+    <message>
+        <source>Favorite</source>
+        <translation>Kedvenc</translation>
+    </message>
+    <message>
+        <source>Urge</source>
+        <translation>Ösztönzés</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Belső tesztelés</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Közösségi Hírek</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Nincs több elem</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Üzenetek</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Kérdőívek</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Nincs több elem</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>A további műveletek folytatásához be kell jelentkeznie.</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Reprodukálás</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Megerősítve</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Befejezve</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Reprodukálás</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>A képfájl formátuma nem támogatott a feltöltéshez.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Visszajelzés küldése</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[A termék jelenlegi állapota]: 
@@ -380,6 +380,10 @@
 [Reprodukálási lépések]: 
 [Várható eredmények]: 
 [Jelenlegi eredmények]:</translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Visszajelzés küldése</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Tartalom:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Ne töltsön fel több hibajelzést egy visszajelzésben</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Ne töltsön ki több követelményt egy visszajelzésben</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>E-mail:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Kérjük adja meg az e-mail címét</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Eszköz információ</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Kérjük adja meg az e-mail címét</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Ne töltsön fel több hibajelzést egy visszajelzésben</translation>
     </message>
 </context>
 <context>
