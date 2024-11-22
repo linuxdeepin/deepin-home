@@ -28,24 +28,24 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
         <source>My Favorites</source>
         <translation>Os meus favoritos</translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
+        <translation>Os meus comentarios</translation>
     </message>
     <message>
         <source>Sign out</source>
         <translation>Pechar sesión</translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation>Desconectado</translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation>Inicia sesión</translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
-        <translation>Os meus comentarios</translation>
     </message>
 </context>
 <context>
@@ -96,6 +96,10 @@
         <translation>Buscar</translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation>Introducir:</translation>
+    </message>
+    <message>
         <source>All</source>
         <translation>Todo</translation>
     </message>
@@ -108,6 +112,14 @@
         <translation>Suxestións</translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation>Versión:</translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation>Ordenar:</translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation>O máis novo</translation>
     </message>
@@ -118,18 +130,6 @@
     <message>
         <source>Urge</source>
         <translation>Urxir</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation>Introducir:</translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation>Versión:</translation>
-    </message>
-    <message>
-        <source>Sort:</source>
-        <translation>Ordenar:</translation>
     </message>
 </context>
 <context>
@@ -175,6 +175,10 @@
         <translation>Probas internas</translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Community News</source>
         <translation>Novas da comunidade</translation>
     </message>
@@ -182,16 +186,16 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation>Non hai máis elementos</translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation>Mensaxe</translation>
     </message>
     <message>
         <source>Questionaires</source>
         <translation>Cuestionarios</translation>
-    </message>
-    <message>
-        <source>No more items</source>
-        <translation>Non hai máis elementos</translation>
     </message>
 </context>
 <context>
@@ -279,6 +283,10 @@
         <translation>Pendente</translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation>Reproducindo</translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation>Confirmado</translation>
     </message>
@@ -301,10 +309,6 @@
     <message>
         <source>Completed</source>
         <translation>Completado</translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
-        <translation>Reproducindo</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -362,10 +366,6 @@
         <translation>O formato de ficheiro de imaxe non é compatible para a carga.</translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation>Enviar comentario</translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation>[Estado actual do produto]:
@@ -380,6 +380,10 @@
 [Pasos de reproducibilidade]:
 [Resultados esperados]:
 [Resultados reais]:</translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
+        <translation>Enviar comentario</translation>
     </message>
     <message>
         <source>Type：</source>
@@ -406,12 +410,20 @@
         <translation>Contido:</translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation>Non encha varios problemas nun só comentario</translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation>Non encha varios requisitos nun só comentario</translation>
     </message>
     <message>
         <source>Email：</source>
         <translation>Email:</translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
+        <translation>Por favor, introduza o seu email</translation>
     </message>
     <message>
         <source>System Version:</source>
@@ -480,14 +492,6 @@
     <message>
         <source>Device Information</source>
         <translation>Información do dispositivo</translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation>Por favor, introduza o seu email</translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
-        <translation>Non encha varios problemas nun só comentario</translation>
     </message>
 </context>
 <context>
