@@ -30,7 +30,15 @@
 <context>
     <name>AccountButton</name>
     <message>
+        <source>Unlogged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>My Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My Feedbacks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -38,15 +46,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unlogged</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Sign in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>My Feedbacks</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -98,6 +98,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>All</source>
         <translation type="unfinished"></translation>
     </message>
@@ -110,6 +114,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sort:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Newest</source>
         <translation type="unfinished"></translation>
     </message>
@@ -119,18 +131,6 @@
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sort:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -177,6 +177,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Global Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Community News</source>
         <translation type="unfinished"></translation>
     </message>
@@ -184,15 +188,15 @@
 <context>
     <name>List</name>
     <message>
+        <source>No more items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Questionaires</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No more items</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -281,6 +285,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reproducing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Confirmed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -302,10 +310,6 @@
     </message>
     <message>
         <source>Completed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Reproducing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -364,10 +368,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Submit Feedback</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
         <translation type="unfinished"></translation>
@@ -377,6 +377,10 @@
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Submit Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -404,11 +408,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Do not fill in multiple issues in one feedback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Do not fill in multiple requirements in one feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Email：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter your email</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -477,14 +489,6 @@
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please enter your email</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Do not fill in multiple issues in one feedback</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
