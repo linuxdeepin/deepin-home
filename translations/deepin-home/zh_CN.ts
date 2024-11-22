@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>全球化翻译</translation>
     </message>
     <message>
         <source>Community News</source>
