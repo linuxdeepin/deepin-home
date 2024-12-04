@@ -29,36 +29,36 @@ set(DAEMON_SRC
     ../../translations/deepin-home-daemon.qrc
     )
 
-# Find the Qt5Quick library
-find_package(Qt5Quick CONFIG REQUIRED)
-find_package(Qt5DBus CONFIG REQUIRED)
-find_package(Qt5Widgets CONFIG REQUIRED)
+# Find the Qt Quick library
+find_package(Qt${QT_VERSION_MAJOR}Quick CONFIG REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR}DBus CONFIG REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR}Widgets CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 # 通过 dbus 接口的 xml 描述文件，生成调用dbus的 cpp 代码
 set_source_files_properties(../dbusservice/org.freedesktop.DBus.Properties.xml PROPERTIES CLASSNAME PropertiesChangedProxy)
 set_source_files_properties(../dbusservice/org.freedesktop.DBus.Properties.xml PROPERTIES NO_NAMESPACE ON)
-qt5_add_dbus_interface(DAEMON_SRC ../dbusservice/org.freedesktop.DBus.Properties.xml propertiesChangedProxy)
+qt_add_dbus_interface(DAEMON_SRC ../dbusservice/org.freedesktop.DBus.Properties.xml propertiesChangedProxy)
 
 set_source_files_properties(../dbusservice/org.desktopspec.ApplicationManager1.Application.xml PROPERTIES CLASSNAME ApplicationManager1Application)
 set_source_files_properties(../dbusservice/org.desktopspec.ApplicationManager1.Application.xml PROPERTIES NO_NAMESPACE ON)
-qt5_add_dbus_interface(DAEMON_SRC ../dbusservice/org.desktopspec.ApplicationManager1.Application.xml applicationManager1Application)
+qt_add_dbus_interface(DAEMON_SRC ../dbusservice/org.desktopspec.ApplicationManager1.Application.xml applicationManager1Application)
 
 set_source_files_properties(../dbusservice/com.deepin.deepinid.xml PROPERTIES CLASSNAME DeepinidDaemonProxy)
 set_source_files_properties(../dbusservice/com.deepin.deepinid.xml PROPERTIES NO_NAMESPACE ON)
-qt5_add_dbus_interface(DAEMON_SRC ../dbusservice/com.deepin.deepinid.xml deepinidDaemonProxy)
+qt_add_dbus_interface(DAEMON_SRC ../dbusservice/com.deepin.deepinid.xml deepinidDaemonProxy)
 
 set_source_files_properties(../dbusservice/com.deepin.deepinid.Client.xml PROPERTIES CLASSNAME DeepinidClientProxy)
 set_source_files_properties(../dbusservice/com.deepin.deepinid.Client.xml PROPERTIES NO_NAMESPACE ON)
-qt5_add_dbus_interface(DAEMON_SRC ../dbusservice/com.deepin.deepinid.Client.xml deepinidClientProxy)
+qt_add_dbus_interface(DAEMON_SRC ../dbusservice/com.deepin.deepinid.Client.xml deepinidClientProxy)
 
 set_source_files_properties(../dbusservice/com.deepin.Home.Daemon.xml PROPERTIES CLASSNAME HomeDaemonProxy)
-qt5_add_dbus_interface(SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemonProxy)
+qt_add_dbus_interface(SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemonProxy)
 
 # 通过 dbus 接口的 xml 描述文件，生成 Adaptor 类，使用 Adaptor 可以选择性的暴露类接口到 dbus
 # 可使用 qdbuscpp2xml 生成类的 xml 描述文件，再通过修改 xml 来隐藏部分接口
 # daemon 的 xml 描述文件生成： qdbuscpp2xml "src/main/homeDaemon.h" "-o" "src/dbusservice/com.deepin.Home.Daemon.xml"
-qt5_add_dbus_adaptor(DAEMON_SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemon.h HomeDaemon homeDaemonAdaptor HomeDaemonAdaptor)
+qt_add_dbus_adaptor(DAEMON_SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemon.h HomeDaemon homeDaemonAdaptor HomeDaemonAdaptor)
 
 # Add Client EXE
 add_executable(${APP_NAME} ${SRC})
@@ -67,15 +67,15 @@ add_executable(${APP_DAEMON_NAME} ${DAEMON_SRC})
 
 # 由于 EXE 只是作为启动程序加载 LIB 使用，一般来说，只需链接 ${LIB_NAME} 既可。
 target_link_libraries(${APP_NAME}
-    Qt5::Quick
-    Qt5::DBus
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::DBus
     ${DtkDeclarative_LIBRARIES}
     )
 target_link_libraries(${APP_DAEMON_NAME}
-    Qt5::Core
-    Qt5::Network
-    Qt5::DBus
-    Qt5::Widgets
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::DBus
+    Qt${QT_VERSION_MAJOR}::Widgets
     OpenSSL::SSL
     API
     )

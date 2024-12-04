@@ -6,14 +6,13 @@ import "./router"
 import "./titlebar"
 import QtQuick 2.11
 import org.deepin.dtk 1.0
-import org.deepin.dtk.impl 1.0 as D
 
 AppLoader {
     id: appLoader
 
     Component.onCompleted: {
         // TODO 暂不支持暗色主题，固定为亮色主题
-        D.ApplicationHelper.setPaletteType(D.ApplicationHelper.LightType);
+        ApplicationHelper.setPaletteType(ApplicationHelper.LightType);
         // 设置标题栏
         appLoader.window.header = actualTitleBar;
         for (let i = 1; i <= 10; i++) {

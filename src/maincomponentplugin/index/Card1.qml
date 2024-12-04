@@ -6,7 +6,7 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.7
-import QtGraphicalEffects 1.0
+import QtQuick.Shapes 1.8
 import org.deepin.dtk 1.0
 
 Control {
@@ -73,16 +73,7 @@ Control {
                 antialiasing: true
                 corners: (RoundRectangle.TopRightCorner | RoundRectangle.BottomCorner)
 
-                LinearGradient {
-                    source: parent
-                    anchors.fill: parent
-                    start: Qt.point(0, height/3)
-                    end: Qt.point(width, height/3)
-                    gradient: Gradient {
-                        GradientStop {  position: 0.12;    color: "#ffa469"  }
-                        GradientStop {  position: 0.76;    color: "#fe3232" }
-                    }
-                }
+
                 Text {
                     id: t
                     text: qsTr("Coming")
