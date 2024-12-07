@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
     // daemon也使用client的应用名
     QApplication::setApplicationName(APP_NAME);
     QApplication::setApplicationVersion(APP_VERSION);
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
 
     QTranslator translator;
@@ -37,7 +36,8 @@ int main(int argc, char *argv[])
     dbus.registerObject(DEEPIN_HOME_DAEMON_PATH, &daemon);
 
     if (!dbus.registerService(DEEPIN_HOME_DAEMON_SERVICE)) {
-        qDebug() << "Register DBus Error" << dbus.lastError().message() << "Process may already be running.";
+        qDebug() << "Register DBus Error" << dbus.lastError().message()
+                 << "Process may already be running.";
         return -1;
     }
 
