@@ -2,29 +2,29 @@
 <context>
     <name>HomeDaemon</name>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="55"/>
+        <location filename="../src/main/homeDaemon.cpp" line="71"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin 홈</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="57"/>
+        <location filename="../src/main/homeDaemon.cpp" line="83"/>
         <source>Show main window</source>
-        <translation type="unfinished"/>
+        <translation>기본 창 표시하기</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="69"/>
+        <location filename="../src/main/homeDaemon.cpp" line="89"/>
         <source>Communication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="72"/>
+        <location filename="../src/main/homeDaemon.cpp" line="92"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>종료</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="306"/>
+        <location filename="../src/main/homeDaemon.cpp" line="333"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>보기</translation>
     </message>
 </context>
 </TS>
