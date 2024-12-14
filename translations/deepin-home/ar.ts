@@ -3,7 +3,7 @@
     <name>API</name>
     <message>
         <source>Please log in with your Deepin ID.</source>
-        <translation type="unfinished"/>
+        <translation>يرجى تسجيل الدخول باستخدام معرف Deepin الخاص بك.</translation>
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
@@ -29,7 +29,7 @@
     <name>AccountButton</name>
     <message>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>غير مسجل</translation>
     </message>
     <message>
         <source>My Favorites</source>
@@ -52,7 +52,7 @@
     <name>Card</name>
     <message>
         <source>%1 views</source>
-        <translation type="unfinished"/>
+        <translation>%1 وجهات نظر</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -60,26 +60,26 @@
     </message>
     <message>
         <source>Unfavorite</source>
-        <translation type="unfinished"/>
+        <translation>غير المفضل</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>المفضلة</translation>
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>إلغاء الرغبة</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>الإلحاح</translation>
     </message>
 </context>
 <context>
     <name>Card1</name>
     <message>
         <source>Coming</source>
-        <translation type="unfinished"/>
+        <translation>المجيء</translation>
     </message>
 </context>
 <context>
@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>فرز:</translation>
     </message>
     <message>
         <source>Newest</source>
@@ -125,11 +125,11 @@
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>المفضلة</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>الإلحاح</translation>
     </message>
 </context>
 <context>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>الترجمة العالمية</translation>
     </message>
     <message>
         <source>Community News</source>
@@ -202,7 +202,7 @@
     <name>MyTitleBar</name>
     <message>
         <source>Launch at system startup</source>
-        <translation type="unfinished"/>
+        <translation>الإطلاق عند بدء التشغيل النظام</translation>
     </message>
     <message>
         <source>About</source>
@@ -214,11 +214,11 @@
     </message>
     <message>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>منزل Deepin</translation>
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>تسجيل الدخول السريع إلى المنتديات، تقديم الاقتراحات وتقرير الأخطاء.</translation>
     </message>
 </context>
 <context>
@@ -229,7 +229,7 @@
     </message>
     <message>
         <source>%1 messages</source>
-        <translation type="unfinished"/>
+        <translation>%1 رسائل</translation>
     </message>
     <message>
         <source>Mark all as read</source>
@@ -258,7 +258,7 @@
     <name>Preload</name>
     <message>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>منزل Deepin</translation>
     </message>
 </context>
 <context>
@@ -269,7 +269,7 @@
     </message>
     <message>
         <source>Expired on: %1</source>
-        <translation type="unfinished"/>
+        <translation>مختصر في: %1</translation>
     </message>
     <message>
         <source>Fill In</source>
@@ -284,7 +284,7 @@
     </message>
     <message>
         <source>Reproducing</source>
-        <translation type="unfinished"/>
+        <translation>يتكرر</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -312,43 +312,43 @@
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>لم يتم معالجة المشكلة ولن يتم عرضها في القائمة العامة.</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>لا يمكن التعرف على السبب حاليًا؛ يتطلب الأمر المراقبة والتحقيق بشكل متواصل.</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>تم إعادة إنتاج المشكلة وتم التعرف على السبب الجذري.</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>المشكلة ليست خللًا أو نوعًا مختلفًا.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>تم حل المشكلة وينتظر الإصدار الرسمي</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>&gt; - لم يتم معالجة المتطلب ولم يتم عرضه في القائمة العامة</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>تم التعرف على المشكلة ويجري تقييمها داخليًا</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>مدرج ضمن الخطط المقبلة للإصدار</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>إما أن الشرط غير مقبول أو غير قادر على التلبية</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>انتهت أعمال التطوير، ويجري الإنتظار للإصدار الرسمي</translation>
     </message>
 </context>
 <context>
@@ -368,14 +368,14 @@
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>|- [الحالة الحالية للمنتج]: |- [المنتج المرغوب]: |</translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>|- [الشروط المسبقة]: |- [خطوات التجددية]: |- [النتائج المتوقعة]: |- [النتائج الفعلية]: |</translation>
     </message>
     <message>
         <source>Submit Feedback</source>
@@ -407,11 +407,11 @@
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>لا تدخل عدة مشاكل في ملاحظة واحدة</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>لا تدخل عدة متطلبات في ملاحظة واحدة</translation>
     </message>
     <message>
         <source>Email：</source>
@@ -431,7 +431,7 @@
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>رفع &lt;a href=&apos;home://sysinfo&apos;&gt;معلومات الجهاز&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
@@ -494,7 +494,7 @@
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>مركز الملاحظات</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
@@ -506,7 +506,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>مطلوباتي</translation>
     </message>
 </context>
 </TS>
