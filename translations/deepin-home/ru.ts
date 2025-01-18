@@ -121,26 +121,26 @@
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"/>
+        <translation>Самые новые</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Любимый</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Призыв</translation>
     </message>
 </context>
 <context>
     <name>Index</name>
     <message>
         <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>Общение</translation>
     </message>
     <message>
         <source>Discuss and share here</source>
-        <translation type="unfinished"/>
+        <translation>Обсуждайте и делитесь здесь</translation>
     </message>
     <message>
         <source>Bug Report</source>
@@ -240,7 +240,7 @@
     <name>NotifyDetail</name>
     <message>
         <source>View more</source>
-        <translation type="unfinished"/>
+        <translation>Смотреть подробнее</translation>
     </message>
 </context>
 <context>
@@ -439,27 +439,27 @@
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Скриншоты：</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Файлы изображений</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Перетаскивайте файлы или нажимайте кнопки для добавления изображений, до трех</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>Вы уверены, что хотите выйти из отправки отзывов?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>Содержание отзывов не будет сохранено.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -506,11 +506,11 @@
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Мои любимые</translation>
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Моя настоятельная просьба</translation>
     </message>
 </context>
 </TS>
