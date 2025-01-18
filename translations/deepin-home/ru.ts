@@ -308,19 +308,19 @@
     </message>
     <message>
         <source>Completed</source>
-        <translation type="unfinished"/>
+        <translation>Завершено</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>Вопрос не был обработан и не будет отображаться в публичном списке.</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>В настоящее время не удается установить причину; требуется постоянный мониторинг и расследование.</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>Проблема была воспроизведена и выявлена ее первопричина.</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
@@ -435,7 +435,7 @@
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Загружать&lt;a href=&apos;home://sysinfo&apos;&gt;информация об устройстве&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
