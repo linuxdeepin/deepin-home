@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>グローバル翻訳</translation>
     </message>
     <message>
         <source>Community News</source>
@@ -308,7 +308,7 @@
     </message>
     <message>
         <source>Completed</source>
-        <translation>完了済み</translation>
+        <translation>完了</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
