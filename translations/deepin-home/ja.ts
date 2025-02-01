@@ -156,7 +156,7 @@
     </message>
     <message>
         <source>Submit your suggestions</source>
-        <translation>提案を提出する</translation>
+        <translation>改善を提案してみませんか</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation>フォーラムへのクイックログイン、提案の提出、バグの報告が行えます。</translation>
+        <translation>フォーラムへのクイックログイン、改善の提案、バグの報告が行えます。</translation>
     </message>
 </context>
 <context>
