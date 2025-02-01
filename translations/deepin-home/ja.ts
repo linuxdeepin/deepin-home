@@ -14,7 +14,7 @@
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation>リクエストが多すぎます。しばらく経ってからやり直してください。</translation>
+        <translation>リクエストが多すぎます。しばらく経ってからお試しください。</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation>ネットワークエラーです。もう一度やり直してください。</translation>
+        <translation>ネットワークエラーです。もう一度お試しください。</translation>
     </message>
 </context>
 <context>
@@ -247,7 +247,7 @@
     <name>Offline</name>
     <message>
         <source>Network error, please try later</source>
-        <translation>ネットワークエラーです。もう一度やり直してください。</translation>
+        <translation>ネットワークエラーです。もう一度お試しください。</translation>
     </message>
     <message>
         <source>Refresh</source>
