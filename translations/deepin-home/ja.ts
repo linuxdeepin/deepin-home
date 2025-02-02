@@ -510,7 +510,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation>私の強い要求</translation>
+        <translation>強い要求に指定</translation>
     </message>
 </context>
 </TS>
