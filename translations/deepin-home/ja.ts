@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>Community News</source>
-        <translation>コミュニティーニュース</translation>
+        <translation>公式ニュース</translation>
     </message>
 </context>
 <context>
@@ -502,7 +502,7 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>マイ フィードバック</translation>
+        <translation>送信したフィードバック</translation>
     </message>
     <message>
         <source>My Favorites</source>
