@@ -14,7 +14,7 @@
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation>リクエストが多すぎます。しばらく経ってからやり直してください。</translation>
+        <translation>リクエストが多すぎます。しばらく経ってからお試しください。</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation>ネットワークエラーです。もう一度やり直してください。</translation>
+        <translation>ネットワークエラーです。もう一度お試しください。</translation>
     </message>
 </context>
 <context>
@@ -156,7 +156,7 @@
     </message>
     <message>
         <source>Submit your suggestions</source>
-        <translation>提案を提出する</translation>
+        <translation>改善を提案してみませんか</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -176,11 +176,11 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>グローバル翻訳</translation>
     </message>
     <message>
         <source>Community News</source>
-        <translation>コミュニティーニュース</translation>
+        <translation>公式ニュース</translation>
     </message>
 </context>
 <context>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation>フォーラムへのクイックログイン、提案の提出、バグの報告が行えます。</translation>
+        <translation>フォーラムへのクイックログイン、改善の提案、バグの報告が行えます。</translation>
     </message>
 </context>
 <context>
@@ -247,7 +247,7 @@
     <name>Offline</name>
     <message>
         <source>Network error, please try later</source>
-        <translation>ネットワークエラーです。もう一度やり直してください。</translation>
+        <translation>ネットワークエラーです。もう一度お試しください。</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -308,7 +308,7 @@
     </message>
     <message>
         <source>Completed</source>
-        <translation>完了済み</translation>
+        <translation>完了</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
@@ -502,7 +502,7 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>マイ フィードバック</translation>
+        <translation>送信したフィードバック</translation>
     </message>
     <message>
         <source>My Favorites</source>
@@ -510,7 +510,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation>私の強い要求</translation>
+        <translation>強い要求に指定</translation>
     </message>
 </context>
 </TS>
