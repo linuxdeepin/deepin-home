@@ -116,12 +116,19 @@ QString HomeDaemon::getMachineID()
 // 获取服务器地址
 QString HomeDaemon::getServer()
 {
-    auto server = m_settings.value("server").toString();
+    // 根据语言选择不同的服务器
+    const auto isCN = QLocale::system().name().contains("CN");
+    const QString region = isCN ? "CN" : "DE";
+    auto server = m_settings.value("server_" + region).toString();
     if (!server.isEmpty()) {
         return server;
     }
-    server = DEEPIN_HOME_SERVER;
-    m_settings.setValue("server", server);
+    if (isCN) {
+        server = DEEPIN_HOME_SERVER_CN;
+    } else {
+        server = DEEPIN_HOME_SERVER;
+    }
+    m_settings.setValue("server_" + region, server);
     return server;
 }
 
@@ -194,7 +201,6 @@ void HomeDaemon::start()
 // 主流程，更新node信息，并启动定时器刷新渠道消息
 void HomeDaemon::run()
 {
-    qCDebug(logger) << "Refresh Node";
     // 用于停止旧的定时器
     auto cronID = newUUID();
     m_refreshChannelCronID = cronID;
@@ -203,6 +209,8 @@ void HomeDaemon::run()
     auto nextRefreshTime = 60 * 60;
     try {
         refreshNode();
+        qCDebug(logger) << "Refresh Node"
+                        << "server" << m_node << "machine" << getMachineID();
         // 如果执行无异常，服从服务器调控
         nextRefreshTime = m_nodeRefreshTime;
         for (auto channel : getChannels()) {
