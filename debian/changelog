@@ -1,3 +1,13 @@
+deepin-home (1.6.4) UNRELEASED; urgency=medium
+
+  [ transifex-integration[bot] ]
+  * i18n: Updates for project Deepin Home (#131)
+
+  [ myml ]
+  * feat: support region server
+
+ -- myml <wurongjie@deepin.org>  Wed, 05 Mar 2025 15:00:10 +0800
+
 deepin-home (1.6.3) unstable; urgency=medium
 
   [ myml ]
