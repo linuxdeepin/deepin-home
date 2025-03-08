@@ -68,11 +68,11 @@
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation>強い要求を解除</translation>
+        <translation>マーク解除</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation>強い要求</translation>
+        <translation>要更新としてマークする</translation>
     </message>
 </context>
 <context>
