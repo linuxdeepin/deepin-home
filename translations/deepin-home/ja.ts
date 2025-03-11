@@ -68,11 +68,11 @@
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation>強い要求を解除</translation>
+        <translation>マーク解除</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation>強い要求</translation>
+        <translation>要更新としてマークする</translation>
     </message>
 </context>
 <context>
@@ -125,11 +125,11 @@
     </message>
     <message>
         <source>Favorite</source>
-        <translation>お気に入り</translation>
+        <translation>お気に入り数</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation>強い要求</translation>
+        <translation>マーク数</translation>
     </message>
 </context>
 <context>
@@ -510,7 +510,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation>強い要求に指定</translation>
+        <translation>マーク済み</translation>
     </message>
 </context>
 </TS>
