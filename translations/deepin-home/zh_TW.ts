@@ -14,15 +14,15 @@
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation type="unfinished"/>
+        <translation>您的操作太頻繁了，請稍後再試。</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
-        <translation type="unfinished"/>
+        <translation>您需要登入才能進行後續操作。</translation>
     </message>
     <message>
         <source>Network error, please try later.</source>
-        <translation type="unfinished"/>
+        <translation>網路錯誤，請稍後再試</translation>
     </message>
 </context>
 <context>
@@ -93,7 +93,7 @@
     <name>Filter</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>搜索</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -101,15 +101,15 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"/>
+        <translation>全部</translation>
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>BUG</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>需求回饋</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -121,11 +121,11 @@
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"/>
+        <translation>最新</translation>
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>收藏</translation>
     </message>
     <message>
         <source>Urge</source>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>全球化翻譯</translation>
     </message>
     <message>
         <source>Community News</source>
@@ -187,7 +187,7 @@
     <name>List</name>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>沒有更多了</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -411,7 +411,7 @@
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>請勿在一條回饋中填寫多個問題</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>Please enter your email</source>
-        <translation type="unfinished"/>
+        <translation>請輸入您的電子郵件</translation>
     </message>
     <message>
         <source>System Version:</source>
