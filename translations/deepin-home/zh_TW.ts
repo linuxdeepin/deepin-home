@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>類型：</translation>
     </message>
     <message>
         <source>All</source>
@@ -113,11 +113,11 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"/>
+        <translation>版本：</translation>
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>排序：</translation>
     </message>
     <message>
         <source>Newest</source>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>催一下</translation>
     </message>
 </context>
 <context>
