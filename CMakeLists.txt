@@ -7,23 +7,20 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 17)
+set(QT_VERSION_MAJOR 6)
+set(DTK_VERSION_MAJOR 6)
 
-find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core Quick)
+find_package(QT NAMES Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
-find_package(DtkDeclarative REQUIRED)
+find_package(Dtk${DTK_VERSION_MAJOR}Declarative REQUIRED)
 
 # 旧版本Dtk不支持使用cmake find_package 获取版本号， 使用 PkgConfig 来获取版本号
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(DtkDeclarativeModule REQUIRED dtkdeclarative)
-# DtkDeclarative 在 5.6.3 更改了插件的路径和使用方式 See: https://github.com/linuxdeepin/dtkdeclarative/commit/a9701858155b7118bfb53b6f241e35b9f6c0f15e
-if(${DtkDeclarativeModule_VERSION} VERSION_LESS "5.6.3")
-  set(DTK_OLD_VERSION True)
-endif()
+pkg_check_modules(Dtk${DTK_VERSION_MAJOR}DeclarativeModule REQUIRED dtk${DTK_VERSION_MAJOR}declarative)
 
 add_definitions(-DAPP_VERSION="${APP_VERSION}")
 add_subdirectory(src)
 add_subdirectory(3rdparty/apiserver/client)
 
-set(ENV{QT_SELECT} qt5)
-execute_process(COMMAND bash "-c" "lrelease translations/**/*"
+execute_process(COMMAND bash "-c" "/usr/lib/qt${QT_VERSION_MAJOR}/bin/lrelease translations/**/*"
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
