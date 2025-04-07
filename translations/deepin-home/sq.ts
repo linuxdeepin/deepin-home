@@ -68,11 +68,11 @@
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>Anuloj urjen</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Urjë</translation>
     </message>
 </context>
 <context>
@@ -125,11 +125,11 @@
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Përshkruajë</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Urjë</translation>
     </message>
 </context>
 <context>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>Përshtatje Globale</translation>
     </message>
     <message>
         <source>Community News</source>
@@ -510,7 +510,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Urjetimë e Mësuar</translation>
     </message>
 </context>
 </TS>
