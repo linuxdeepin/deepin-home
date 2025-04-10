@@ -2,29 +2,29 @@
 <context>
     <name>HomeDaemon</name>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="55"/>
+        <location filename="../src/main/homeDaemon.cpp" line="71"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>ডিপিন হোম</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="57"/>
+        <location filename="../src/main/homeDaemon.cpp" line="83"/>
         <source>Show main window</source>
-        <translation type="unfinished"/>
+        <translation>মুখ্য উইন্ডো প্রদর্শন</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="69"/>
+        <location filename="../src/main/homeDaemon.cpp" line="89"/>
         <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>ব্যাক্তিগত যোগাযোগ</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="72"/>
+        <location filename="../src/main/homeDaemon.cpp" line="92"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>বের হওয়া</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="306"/>
+        <location filename="../src/main/homeDaemon.cpp" line="333"/>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>দেখুন</translation>
     </message>
 </context>
 </TS>
