@@ -214,7 +214,7 @@
     </message>
     <message>
         <source>Deepin Home</source>
-        <translation>Główna Deepin</translation>
+        <translation>Deepin Home</translation>
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
@@ -258,7 +258,7 @@
     <name>Preload</name>
     <message>
         <source>Deepin Home</source>
-        <translation>Główna Deepin</translation>
+        <translation>Deepin Home</translation>
     </message>
 </context>
 <context>
