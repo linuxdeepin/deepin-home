@@ -355,7 +355,7 @@
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation>No se puede agregar una captura de pantalla.</translation>
+        <translation>No se puede añadir una captura de pantalla.</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
@@ -447,7 +447,7 @@
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation>Arrastre y suelte archivos o haga clic en los botones para agregar imágenes, hasta tres</translation>
+        <translation>Arrastre y suelte archivos o haga clic en los botones para añadir imágenes, hasta tres</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
