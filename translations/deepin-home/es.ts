@@ -14,7 +14,7 @@
     <name>APIProxy</name>
     <message>
         <source>You have been making too many requests, Please try again later.</source>
-        <translation>Has hacho demasiadas solicitudes. inténtelo de nuevo más tarde.</translation>
+        <translation>Ha hecho demasiadas solicitudes. inténtelo de nuevo más tarde.</translation>
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
