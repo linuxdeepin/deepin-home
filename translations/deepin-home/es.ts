@@ -3,7 +3,7 @@
     <name>API</name>
     <message>
         <source>Please log in with your Deepin ID.</source>
-        <translation>Inicie sesión con su ID de Deepin.</translation>
+        <translation>Inicie sesión con su Deepin ID.</translation>
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
