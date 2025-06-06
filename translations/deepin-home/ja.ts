@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>You need to log in to proceed with the subsequent operations.</source>
-        <translation>この操作を行うにはログインする必要があります。</translation>
+        <translation>この操作を行うにはログインを行う必要があります。</translation>
     </message>
 </context>
 <context>
@@ -18,7 +18,7 @@
     </message>
     <message>
         <source>You need to login to proceed with the subsequent operations.</source>
-        <translation>この操作を行うにはログインする必要があります。</translation>
+        <translation>この操作を行うにはログインを行う必要があります。</translation>
     </message>
     <message>
         <source>Network error, please try later.</source>
