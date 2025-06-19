@@ -1,0 +1,20 @@
+[main]
+host = https://www.transifex.com
+
+[o:linuxdeepin:p:deepin-home:r:bad354a0c370deff052c13b687289331]
+file_filter = translations/deepin-home/<lang>.ts
+source_file = translations/deepin-home.ts
+source_lang = en_US
+type = QT
+
+[o:linuxdeepin:p:deepin-home:r:bfb4a2f8f5188eae1798c974f7b7c89d]
+file_filter = translations/deepin-home-daemon/<lang>.ts
+source_file = translations/deepin-home-daemon.ts
+source_lang = en_US
+type = QT
+
+[o:linuxdeepin:p:deepin-home:r:f8e1e1000513d971ebfa936ed38366dc]
+file_filter = translations/deepin-home-desktop/desktop_<lang>.ts
+source_file = translations/deepin-home-desktop.ts
+source_lang = en_US
+type = QT
