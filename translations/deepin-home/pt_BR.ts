@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>My Favorites</source>
-        <translation>Meus Favoritos</translation>
+        <translation>Meus favoritos</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>Meus Feedbacks</translation>
+        <translation>Meus feedbacks</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -172,7 +172,7 @@
     </message>
     <message>
         <source>Internal Testing</source>
-        <translation>Teste Interno</translation>
+        <translation>Teste interno</translation>
     </message>
     <message>
         <source>Global Translation</source>
@@ -180,7 +180,7 @@
     </message>
     <message>
         <source>Community News</source>
-        <translation>Notícias da Comunidade</translation>
+        <translation>Notícias da comunidade</translation>
     </message>
 </context>
 <context>
@@ -387,7 +387,7 @@
     </message>
     <message>
         <source>Type：</source>
-        <translation>Tipo：</translation>
+        <translation>Tipo:</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -399,7 +399,7 @@
     </message>
     <message>
         <source>Title：</source>
-        <translation>Título：</translation>
+        <translation>Título:</translation>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <source>Content：</source>
-        <translation>Conteúdo：</translation>
+        <translation>Conteúdo:</translation>
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Email：</source>
-        <translation>E-mail：</translation>
+        <translation>E-mail:</translation>
     </message>
     <message>
         <source>Please enter your email</source>
@@ -431,7 +431,7 @@
     </message>
     <message>
         <source>Device Info：</source>
-        <translation>Informações do dispositivo：</translation>
+        <translation>Informações do dispositivo:</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
@@ -439,7 +439,7 @@
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation>Capturas de tela：</translation>
+        <translation>Capturas de tela:</translation>
     </message>
     <message>
         <source>Image files</source>
@@ -498,19 +498,19 @@
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation>Outros Feedbacks</translation>
+        <translation>Outros feedbacks</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>Meus Feedbacks</translation>
+        <translation>Meus feedbacks</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation>Meus Favoritos</translation>
+        <translation>Meus favoritos</translation>
     </message>
     <message>
         <source>My Urged</source>
-        <translation>Minhas Solicitações</translation>
+        <translation>Minhas solicitações</translation>
     </message>
 </context>
 </TS>
