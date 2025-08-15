@@ -16,7 +16,8 @@ API::API(QString cacheName, QObject *parent)
 {
     init();
     auto cache = new QNetworkDiskCache(parent);
-    auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/api_http_cache";
+    auto cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)
+                    + "/api_http_cache";
     cache->setCacheDirectory(cacheDir);
     qDebug() << "api cache dir:" << cacheDir << QThread::currentThreadId();
     m_http->setCache(cache);
@@ -54,10 +55,11 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
             exp.err_msg = QString("http code %1").arg(worker->getHttpResponseCode());
         }
         auto headers = worker->getResponseHeaders();
-        if (!headers["Content-Type"].startsWith("application/json")) {
+        if (!headers["Content-Type"].startsWith("application/json")
+            && !headers["content-type"].startsWith("application/json")) {
             exp.err_code = 600;
             exp.err_type = "http";
-            exp.err_msg = QString("http content: %1 != application/json")
+            exp.err_msg = QString("http content type: %1 != application/json")
                               .arg(headers["Content-Type"]);
         }
         result = resp;
@@ -65,7 +67,7 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
     });
     connect(sender, errSignal, &loop, [this, &loop, &exp](auto *worker, auto err_type, auto err_str) {
         exp.err_code = worker->getHttpResponseCode();
-        exp.err_type = err_type;
+        exp.err_type = "http";
         exp.err_msg = err_str;
         if (exp.err_code == 0) {
             exp.err_code = -1;

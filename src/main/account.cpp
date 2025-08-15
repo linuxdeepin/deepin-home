@@ -30,7 +30,7 @@ Account::Account(QObject *parent, API *api, QString server)
         // 跟随deepinid退出登陆
         if (!m_deepinidDaemon->isLogin()) {
             this->m_isLogin = false;
-            this->m_token = false;
+            this->m_token = "";
             emit this->userInfoChanged();
             return;
         }
