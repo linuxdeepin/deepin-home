@@ -2,27 +2,27 @@
 <context>
     <name>HomeDaemon</name>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="55"/>
+        <location filename="../src/main/homeDaemon.cpp" line="71"/>
         <source>Deepin Home</source>
         <translation>ਡੀਪਿਨ ਹੋਮ</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="57"/>
+        <location filename="../src/main/homeDaemon.cpp" line="83"/>
         <source>Show main window</source>
         <translation>ਮੁੱਖ ਵਿੰਡੋ ਵੇਖਾਓ</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="72"/>
+        <location filename="../src/main/homeDaemon.cpp" line="89"/>
         <source>Communication</source>
         <translation>ਸੰਚਾਰ</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="75"/>
+        <location filename="../src/main/homeDaemon.cpp" line="92"/>
         <source>Exit</source>
         <translation>ਬਾਹਰ</translation>
     </message>
     <message>
-        <location filename="../src/main/homeDaemon.cpp" line="315"/>
+        <location filename="../src/main/homeDaemon.cpp" line="333"/>
         <source>View</source>
         <translation>ਵੇਖੋ</translation>
     </message>
