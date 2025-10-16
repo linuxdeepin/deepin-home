@@ -455,15 +455,15 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Avsluta</translation>
     </message>
     <message>
         <source>Submit</source>
-        <translation type="unfinished"/>
+        <translation>Skicka</translation>
     </message>
     <message>
         <source>Unable to submit feedback.</source>
@@ -502,7 +502,7 @@
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Mina favoriter</translation>
     </message>
     <message>
         <source>My Urged</source>
