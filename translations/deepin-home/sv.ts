@@ -435,11 +435,11 @@
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation type="unfinished"/>
+        <translation>Skärmbilder:</translation>
     </message>
     <message>
         <source>Image files</source>
-        <translation type="unfinished"/>
+        <translation>Bildfiler</translation>
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
