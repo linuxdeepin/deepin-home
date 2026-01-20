@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>Übersetzungen allgemein</translation>
     </message>
     <message>
         <source>Community News</source>
@@ -292,7 +292,7 @@
     </message>
     <message>
         <source>Replied</source>
-        <translation>Antwortete</translation>
+        <translation>Beantwortet</translation>
     </message>
     <message>
         <source>Resolved</source>
