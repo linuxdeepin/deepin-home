@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>マイ フィードバック</translation>
+        <translation>送信したフィードバック</translation>
     </message>
     <message>
         <source>Sign out</source>
