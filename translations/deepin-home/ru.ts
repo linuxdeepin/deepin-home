@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Sort:</source>
-        <translation>Сорт:</translation>
+        <translation>Сортировка:</translation>
     </message>
     <message>
         <source>Newest</source>
@@ -269,7 +269,7 @@
     </message>
     <message>
         <source>Expired on: %1</source>
-        <translation>Истек срок действия: %1</translation>
+        <translation>Срок действия истёк: %1</translation>
     </message>
     <message>
         <source>Fill In</source>
@@ -387,7 +387,7 @@
     </message>
     <message>
         <source>Type：</source>
-        <translation>Тип：</translation>
+        <translation>Тип:</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -399,7 +399,7 @@
     </message>
     <message>
         <source>Title：</source>
-        <translation>Название：</translation>
+        <translation>Название:</translation>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
@@ -407,7 +407,7 @@
     </message>
     <message>
         <source>Content：</source>
-        <translation>Содержание：</translation>
+        <translation>Содержание:</translation>
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
@@ -419,7 +419,7 @@
     </message>
     <message>
         <source>Email：</source>
-        <translation>Электронная почта：</translation>
+        <translation>Электронная почта:</translation>
     </message>
     <message>
         <source>Please enter your email</source>
@@ -431,15 +431,15 @@
     </message>
     <message>
         <source>Device Info：</source>
-        <translation>Информация об устройстве：</translation>
+        <translation>Информация об устройстве:</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation>Загружать&lt;a href=&apos;home://sysinfo&apos;&gt;информация об устройстве&lt;/a&gt;</translation>
+        <translation>Отправить&lt;a href=&apos;home://sysinfo&apos;&gt;информация об устройстве&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
-        <translation>Скриншоты：</translation>
+        <translation>Скриншоты:</translation>
     </message>
     <message>
         <source>Image files</source>
@@ -451,7 +451,7 @@
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation>Вы уверены, что хотите выйти из отправки отзывов?</translation>
+        <translation>Уверены, что хотите выйти из отправки отзывов?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
