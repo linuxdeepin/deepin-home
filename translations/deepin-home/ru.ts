@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>Join US</source>
-        <translation>Присоединяйтесь к США</translation>
+        <translation>Присоединяйтесь к НАМ</translation>
     </message>
     <message>
         <source>Internal Testing</source>
@@ -214,7 +214,7 @@
     </message>
     <message>
         <source>Deepin Home</source>
-        <translation>Дом Deepin</translation>
+        <translation>Домашняя Deepin</translation>
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
@@ -258,7 +258,7 @@
     <name>Preload</name>
     <message>
         <source>Deepin Home</source>
-        <translation>Дом Deepin</translation>
+        <translation>Домашняя Deepin</translation>
     </message>
 </context>
 <context>
@@ -487,7 +487,7 @@
     </message>
     <message>
         <source>Incorrect email address entered.</source>
-        <translation>Введен неправильный адрес электронной почты.</translation>
+        <translation>Введён неправильный адрес электронной почты.</translation>
     </message>
     <message>
         <source>Device Information</source>
