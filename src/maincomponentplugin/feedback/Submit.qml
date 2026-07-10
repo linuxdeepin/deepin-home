@@ -3,13 +3,12 @@
 
 import "../api"
 import "../router"
-import APIProxy 1.0
-import QtGraphicalEffects 1.0
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Dialogs 1.0
-import QtQuick.Layouts 1.7
-import org.deepin.dtk 1.0
+import APIProxy
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Dialogs
+import QtQuick.Layouts
+import org.deepin.dtk
 
 Item {
     id: root
@@ -239,8 +238,8 @@ Item {
                     text: emailText.text
                     visible: false
 
-                    validator: RegExpValidator {
-                        regExp: /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+                    validator: RegularExpressionValidator {
+                        regularExpression: /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
                     }
 
                 }
@@ -339,8 +338,7 @@ Item {
                             id: fileDialog
 
                             title: "Please choose a file"
-                            folder: shortcuts.home
-                            selectMultiple: true
+                            fileMode: FileDialog.OpenFiles
                             nameFilters: [qsTr("Image files") + " (*.png *.jpg *.gif)"]
                             onAccepted: {
                                 for (const f of fileDialog.fileUrls) {

@@ -70,7 +70,7 @@ void APIProxy::waitFuture(QFuture<T> future, Func2 receiver)
         try {
             receiver(watcher->result());
         } catch (APIException exp) {
-            qCDebug(logger) << "api exception" << exp.err_code;
+            qCDebug(logger) << "api exception" << exp.err_code << exp.err_msg;
             emit this->signalAPIError(exp.err_code, exp.err_type, exp.err_msg);
         } catch (...) {
             qCDebug(logger) << "unknown exception";
