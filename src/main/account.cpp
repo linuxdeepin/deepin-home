@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -30,7 +30,7 @@ Account::Account(QObject *parent, API *api, QString server)
         // 跟随deepinid退出登陆
         if (!m_deepinidDaemon->isLogin()) {
             this->m_isLogin = false;
-            this->m_token = false;
+            this->m_token.clear();
             emit this->userInfoChanged();
             return;
         }

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -415,7 +415,7 @@ QStringList HomeDaemon::getToken(QString publicKey)
 {
     qCDebug(logger) << "get token";
 #ifndef QT_DEBUG
-    auto pid = connection().interface()->servicePid(message().service());
+    auto pid = connection().interface()->servicePid(message().service()).value();
     qCDebug(logger) << "sender pid" << pid;
     auto sender = QFile::symLinkTarget(QString("/proc/%1/exe").arg(pid));
     if (sender != QString("%1%2").arg(APP_BIN_INSTALL_DIR).arg(APP_NAME)) {

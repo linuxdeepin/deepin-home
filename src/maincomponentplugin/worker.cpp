@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -225,7 +225,12 @@ QMap<QString, QVariant> Worker::getFileInfo(QString filepath)
 
 QString Worker::sysVersion()
 {
+    // minorVersion() 仅在 Linux 上可用，Windows 上使用 productVersion()
+#ifdef Q_OS_LINUX
     return Dtk::Core::DSysInfo::minorVersion();
+#else
+    return Dtk::Core::DSysInfo::productVersion();
+#endif
 }
 
 void Worker::notify(QString title, QString message)

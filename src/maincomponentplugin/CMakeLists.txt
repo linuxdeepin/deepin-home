@@ -1,8 +1,4 @@
-if(${DTK_OLD_VERSION})
-    set(MAINCOMPONENT_LIB_NAME dtkqml-${CMAKE_PROJECT_NAME})
-else()
-    set(MAINCOMPONENT_LIB_NAME ${CMAKE_PROJECT_NAME}-main)
-endif()
+set(MAINCOMPONENT_LIB_NAME ${CMAKE_PROJECT_NAME}-main)
 set(MAINCOMPONENNT_SRC
     maincomponentplugin.h
     maincomponentplugin.cpp
@@ -13,16 +9,23 @@ set(MAINCOMPONENNT_SRC
     apiproxy.h
     apiproxy.cpp
 )
-find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
-find_package(Qt5QuickCompiler REQUIRED)
-find_package(Qt5DBus CONFIG REQUIRED)
-find_package(Qt5Concurrent CONFIG REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
+find_package(Qt${QT_VERSION_MAJOR}DBus CONFIG REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR}Concurrent CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 set_source_files_properties(../dbusservice/com.deepin.Home.Daemon.xml PROPERTIES CLASSNAME HomeDaemonProxy)
-qt5_add_dbus_interface(MAINCOMPONENNT_SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemonProxy)
+qt_add_dbus_interface(MAINCOMPONENNT_SRC ../dbusservice/com.deepin.Home.Daemon.xml homeDaemonProxy)
 
-qtquick_compiler_add_resources(MAINCOMPONENT_RCC_SOURCES maincomponent.qrc)
+# Qt5 uses qtquick_compiler_add_resources for AOT compilation,
+# Qt6 uses qt_add_resources
+if(QT_VERSION_MAJOR EQUAL 5)
+    find_package(Qt5QuickCompiler REQUIRED)
+    qtquick_compiler_add_resources(MAINCOMPONENT_RCC_SOURCES maincomponent.qrc)
+else()
+    qt_add_resources(MAINCOMPONENT_RCC_SOURCES maincomponent.qrc)
+endif()
+
 include_directories(src/maincomponentplugin)
 add_library(${MAINCOMPONENT_LIB_NAME} SHARED
     ${MAINCOMPONENNT_SRC}
@@ -33,14 +36,12 @@ target_include_directories(${MAINCOMPONENT_LIB_NAME}
     ${DTKDECLARATIVE_INCLUDE_DIR}
 )
 target_link_libraries(${MAINCOMPONENT_LIB_NAME}
-    Qt5::Quick
-    Qt5::Widgets
-    Qt5::DBus
-    Qt5::Concurrent
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::DBus
+    Qt${QT_VERSION_MAJOR}::Concurrent
     OpenSSL::SSL
     ${DtkDeclarative_LIBRARIES}
     API
 )
 install(TARGETS ${MAINCOMPONENT_LIB_NAME} DESTINATION ${DTK_QML_APP_PLUGIN_PATH})
-
-

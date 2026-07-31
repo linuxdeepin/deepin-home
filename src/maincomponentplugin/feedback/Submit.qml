@@ -1,13 +1,13 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 import "../api"
 import "../router"
 import APIProxy 1.0
-import QtGraphicalEffects 1.0
+import Qt5Compat.GraphicalEffects
 import QtQuick 2.11
 import QtQuick.Controls 2.4
-import QtQuick.Dialogs 1.0
+import QtQuick.Dialogs
 import QtQuick.Layouts 1.7
 import org.deepin.dtk 1.0
 
@@ -339,11 +339,11 @@ Item {
                             id: fileDialog
 
                             title: "Please choose a file"
-                            folder: shortcuts.home
                             selectMultiple: true
                             nameFilters: [qsTr("Image files") + " (*.png *.jpg *.gif)"]
                             onAccepted: {
-                                for (const f of fileDialog.fileUrls) {
+                                var files = typeof selectedFiles !== "undefined" ? selectedFiles : fileUrls;
+                                for (const f of files) {
                                     root.appendImage(f);
                                 }
                             }
