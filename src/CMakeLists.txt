@@ -1,6 +1,6 @@
 # Application
 include(GNUInstallDirs)
-set(DTK_QML_APP_PLUGIN_PATH ${CMAKE_INSTALL_LIBDIR}/dtkdeclarative/qml-app)
+set(DTK_QML_APP_PLUGIN_PATH ${CMAKE_INSTALL_LIBDIR}/dtk6declarative/qml-app)
 add_definitions(-DAPP_PLUGIN_PATH="${DTK_QML_APP_PLUGIN_PATH}")
 
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
