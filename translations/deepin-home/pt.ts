@@ -125,11 +125,11 @@
     </message>
     <message>
         <source>Favorite</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar aos favoritos</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Solicitar urgência</translation>
     </message>
 </context>
 <context>
@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Global Translation</source>
-        <translation type="unfinished"/>
+        <translation>Tradução Global</translation>
     </message>
     <message>
         <source>Community News</source>
@@ -187,7 +187,7 @@
     <name>List</name>
     <message>
         <source>No more items</source>
-        <translation type="unfinished"/>
+        <translation>Mais nenhum item</translation>
     </message>
     <message>
         <source>Messages</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Faça login rapidamente nos fóruns, envie sugestões e reporte bugs.</translation>
     </message>
 </context>
 <context>
@@ -247,11 +247,11 @@
     <name>Offline</name>
     <message>
         <source>Network error, please try later</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede, por favor tente mais tarde.</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Refrescar</translation>
     </message>
 </context>
 <context>
@@ -280,59 +280,59 @@
     <name>Status</name>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"/>
+        <translation>Pendente</translation>
     </message>
     <message>
         <source>Reproducing</source>
-        <translation type="unfinished"/>
+        <translation>A reproduzir</translation>
     </message>
     <message>
         <source>Confirmed</source>
-        <translation type="unfinished"/>
+        <translation>Confirmado</translation>
     </message>
     <message>
         <source>Replied</source>
-        <translation type="unfinished"/>
+        <translation>Respondido</translation>
     </message>
     <message>
         <source>Resolved</source>
-        <translation type="unfinished"/>
+        <translation>Resolvido</translation>
     </message>
     <message>
         <source>Evaluating</source>
-        <translation type="unfinished"/>
+        <translation>Em avaliação</translation>
     </message>
     <message>
         <source>Accepted</source>
-        <translation type="unfinished"/>
+        <translation>Aceite</translation>
     </message>
     <message>
         <source>Completed</source>
-        <translation type="unfinished"/>
+        <translation>Concluído</translation>
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>O problema não foi processado e não será exibido na listagem pública.</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>Atualmente não é possível identificar a causa; será necessária investigação e monitorização contínua.</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>O problema foi reproduzido e a raiz da causa foi identificada.</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>O problema é de natureza diferente ou não é um bug.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>O problema foi resolvido e está a aguardar lançamento formal</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>O requisito não foi processado e não será exibido na listagem pública</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
