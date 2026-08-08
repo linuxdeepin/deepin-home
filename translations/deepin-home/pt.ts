@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>My Favorites</source>
-        <translation>Os meus Favoritos</translation>
+        <translation>Os Meus Favoritos</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation>Os meus Feedbacks</translation>
+        <translation>Os Meus Feedbacks</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -487,30 +487,30 @@
     </message>
     <message>
         <source>Incorrect email address entered.</source>
-        <translation>Endereço de email incorreto inserido.</translation>
+        <translation>Inserido endereço de email incorreto.</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>Informação do Dispositivo</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Centro de Feedback</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Os Meus Feedbacks</translation>
     </message>
     <message>
         <source>My Favorites</source>
-        <translation type="unfinished"/>
+        <translation>Os Meus Favoritos</translation>
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>As Minhas Urgências</translation>
     </message>
 </context>
 </TS>
