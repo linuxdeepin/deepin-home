@@ -336,74 +336,78 @@
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>O problema foi reconhecido e está a ser avaliado internamente</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>Incluído nos planos para uma versão futura</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>O requisito não pode ser atendido ou não é aceite</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>O trabalho de desenvolvimento está concluído, aguarda o lançamento formal</translation>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"/>
+        <translation>Incapaz de adicionar uma captura de ecrã.</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"/>
+        <translation>O tamanho do ficheiro imagem deve ser inferior a 1MB.</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
+        <translation>O formato do ficheiro imagem não é suportado para envio.</translation>
     </message>
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Estado Atual do Produto]: 
+[Produto Desejado]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Condições prévias]: 
+[Etapas de Reprodutibilidade]: 
+[Resultados Esperados]: 
+[Resultados Atuais]: </translation>
     </message>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Enviar Feedback</translation>
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>Tipo :</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Sugestões</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Reportar Bug</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>Título :</translation>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Por favor forneça uma breve descrição do seu problema</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>Conteúdo :</translation>
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
