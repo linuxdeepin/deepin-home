@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
     // daemon也使用client的应用名
     QApplication::setApplicationName(APP_NAME);
     QApplication::setApplicationVersion(APP_VERSION);
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
 
     QTranslator translator;

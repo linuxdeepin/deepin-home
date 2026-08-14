@@ -5,8 +5,6 @@
 
 include /usr/share/dpkg/default.mk
 
-export QT_SELECT = qt5
-
 # see FEATURE AREAS in dpkg-buildflags(1)
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 

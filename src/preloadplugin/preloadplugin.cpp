@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -29,8 +29,6 @@ QGuiApplication *PreloadPlugin::creatApplication(int &argc, char **argv)
     app->setOrganizationName("deepin");
     app->setOrganizationDomain("deepin.org");
     app->setApplicationVersion(APP_VERSION);
-    // 高分屏
-    app->setAttribute(Qt::AA_UseHighDpiPixmaps);
     // 加载翻译
     auto translator = new QTranslator(app);
     if (translator->load(QLocale::system().name(), ":/resources/deepin-home/")) {
