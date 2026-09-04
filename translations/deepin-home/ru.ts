@@ -52,7 +52,7 @@
     <name>Card</name>
     <message>
         <source>%1 views</source>
-        <translation>%1 просмотр</translation>
+        <translation>%1 просмотров</translation>
     </message>
     <message>
         <source>Suggestions</source>
