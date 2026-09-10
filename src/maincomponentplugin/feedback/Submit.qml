@@ -69,7 +69,7 @@ Item {
         property string reqPlaceholder: qsTr("[Current Status of the Product]: \n[Desired Product]: ")
         property string bugPlaceholder: qsTr("[Preconditions]: \n[Reproducibility Steps]: \n[Expected Results]: \n[Actual Results]: ")
         property string placeholder: reqType.checked ? reqPlaceholder : bugPlaceholder
-        // 表单控件宽度
+        // 表单控件宽度（标签 + 右侧边距各 100，动态布局中仅作参考）
         property int controlWidth: width - 100 * 2
 
         icon: "deepin-home"
@@ -104,18 +104,19 @@ Item {
             }
 
             // 反馈类型
-            Row {
+            RowLayout {
                 spacing: 10
+                Layout.fillWidth: true
 
                 ControlLabel {
                     text: qsTr("Type：")
-                    verticalAlignment: Text.AlignVCenter
+                    Layout.alignment: Qt.AlignVCenter
                 }
 
                 Rectangle {
                     color: Qt.rgba(0, 0, 0, 0.05)
                     height: titleText.height
-                    width: win.controlWidth
+                    Layout.fillWidth: true
                     radius: 8
 
                     RadioButton {
@@ -123,7 +124,6 @@ Item {
 
                         anchors.verticalCenter: parent.verticalCenter
                         checked: true
-                        width: 150 // 控件宽度没自适应
                         text: qsTr("Suggestions")
                         font.pixelSize: DTK.fontManager.t7.pixelSize
                     }
@@ -132,7 +132,6 @@ Item {
                         id: bugType
 
                         anchors.verticalCenter: parent.verticalCenter
-                        width: 150 // 控件宽度没自适应
                         anchors.left: reqType.right
                         text: qsTr("Bug Report")
                         font.pixelSize: DTK.fontManager.t7.pixelSize
@@ -143,18 +142,19 @@ Item {
             }
 
             // 标题
-            Row {
+            RowLayout {
                 spacing: 10
+                Layout.fillWidth: true
 
                 ControlLabel {
                     text: qsTr("Title：")
-                    verticalAlignment: Text.AlignVCenter
+                    Layout.alignment: Qt.AlignVCenter
                 }
 
                 TextField {
                     id: titleText
 
-                    width: win.controlWidth
+                    Layout.fillWidth: true
                     selectByMouse: true
                     text: ""
                     font.pixelSize: DTK.fontManager.t6.pixelSize
@@ -165,12 +165,16 @@ Item {
                     }
 
                     Text {
-                        x: 10
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.leftMargin: 10
+                        anchors.rightMargin: 10
                         anchors.verticalCenter: parent.verticalCenter
                         text: qsTr("Please provide a brief description of your issue")
                         font.pixelSize: DTK.fontManager.t6.pixelSize
                         color: "#555"
                         opacity: 0.4
+                        elide: Text.ElideRight
                         visible: !titleText.text && !titleText.activeFocus
                     }
 
@@ -179,16 +183,20 @@ Item {
             }
 
             // 内容
-            Row {
+            RowLayout {
                 spacing: 10
+                Layout.fillWidth: true
 
                 ControlLabel {
                     text: qsTr("Content：")
+                    Layout.alignment: Qt.AlignTop
                 }
 
                 Column {
+                    Layout.fillWidth: true
+
                     ScrollView {
-                        width: win.controlWidth
+                        width: parent.width
                         height: 140
 
                         TextArea {
@@ -214,6 +222,8 @@ Item {
                     }
 
                     Label {
+                        width: parent.width
+                        wrapMode: Text.Wrap
                         font: DTK.fontManager.t9
                         color: Qt.rgba(0, 0, 0, 0.6)
                         text: bugType.checked ? qsTr("Do not fill in multiple issues in one feedback") : qsTr("Do not fill in multiple requirements in one feedback")
@@ -224,12 +234,13 @@ Item {
             }
 
             // 联系邮箱
-            Row {
+            RowLayout {
                 spacing: 10
+                Layout.fillWidth: true
 
                 ControlLabel {
                     text: qsTr("Email：")
-                    verticalAlignment: Text.AlignVCenter
+                    Layout.alignment: Qt.AlignVCenter
                 }
                 // 使用隐藏的输入框做邮箱校验，避免validator阻止用户输入，用户体验不好
 
@@ -249,16 +260,20 @@ Item {
                     id: emailText
 
                     selectByMouse: true
-                    width: win.controlWidth / 2
+                    Layout.preferredWidth: win.width * 0.35
                     text: ""
 
                     Text {
-                        x: 10
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.leftMargin: 10
+                        anchors.rightMargin: 10
                         anchors.verticalCenter: parent.verticalCenter
                         text: qsTr("Please enter your email")
                         font.pixelSize: DTK.fontManager.t6.pixelSize
                         color: "#555"
                         opacity: 0.4
+                        elide: Text.ElideRight
                         visible: !emailText.text && !emailText.activeFocus
                     }
 
@@ -267,19 +282,20 @@ Item {
             }
 
             // 系统版本
-            Row {
+            RowLayout {
                 spacing: 10
+                Layout.fillWidth: true
 
                 ControlLabel {
                     text: qsTr("System Version:")
-                    verticalAlignment: Text.AlignVCenter
+                    Layout.alignment: Qt.AlignVCenter
                 }
 
                 TextField {
                     id: versionText
 
                     selectByMouse: true
-                    width: win.controlWidth / 2
+                    Layout.preferredWidth: win.width * 0.35
                     readOnly: true
                     text: API.sysVersion()
                 }
@@ -287,16 +303,17 @@ Item {
             }
 
             // 上传设备信息
-            Row {
+            RowLayout {
                 visible: bugType.checked
                 spacing: 10
+                Layout.fillWidth: true
 
                 ControlLabel {
                     text: qsTr("Device Info：")
-                    verticalAlignment: Text.AlignVCenter
+                    Layout.alignment: Qt.AlignVCenter
                 }
 
-                Row {
+                RowLayout {
                     Switch {
                         id: sysinfoSwitch
 
@@ -307,10 +324,12 @@ Item {
                     Text {
                         id: sysinfoText
 
+                        Layout.fillWidth: true
                         text: qsTr("Upload <a href='home://sysinfo'>device information</a>")
                         linkColor: "blue"
                         height: reqType.height
                         verticalAlignment: Text.AlignVCenter
+                        wrapMode: Text.Wrap
                         onLinkActivated: {
                             sysinfoView.visible = true;
                         }
@@ -321,14 +340,17 @@ Item {
             }
 
             // 图片说明
-            Row {
+            RowLayout {
                 spacing: 10
+                Layout.fillWidth: true
 
                 ControlLabel {
                     text: qsTr("Screenshots：")
+                    Layout.alignment: Qt.AlignTop
                 }
 
                 Column {
+                    Layout.fillWidth: true
                     spacing: 10
 
                     Row {
@@ -437,6 +459,8 @@ Item {
                     }
 
                     Label {
+                        width: parent.width
+                        wrapMode: Text.Wrap
                         font: DTK.fontManager.t9
                         color: Qt.rgba(0, 0, 0, 0.6)
                         text: qsTr("Drag and drop files or click buttons to add pictures, up to three")
@@ -469,6 +493,11 @@ Item {
                             id: cancelText
 
                             Layout.alignment: Qt.AlignHCenter
+                            Layout.fillWidth: true
+                            Layout.leftMargin: 20
+                            Layout.rightMargin: 20
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.Wrap
                             font.pixelSize: DTK.fontManager.t5.pixelSize
                             font.weight: Font.Medium
                             text: qsTr("Are you sure you want to exit the feedback submission?")
@@ -476,6 +505,11 @@ Item {
 
                         Text {
                             Layout.alignment: Qt.AlignHCenter
+                            Layout.fillWidth: true
+                            Layout.leftMargin: 20
+                            Layout.rightMargin: 20
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.Wrap
                             font: DTK.fontManager.t8
                             color: Qt.rgba(0, 0, 0, 0.7)
                             text: qsTr("The feedback content will not be saved.")
@@ -649,8 +683,6 @@ Item {
 
         component ControlLabel: Text {
             font.pixelSize: DTK.fontManager.t6.pixelSize
-            width: 100
-            height: parent.height
             horizontalAlignment: Text.AlignRight
         }
 

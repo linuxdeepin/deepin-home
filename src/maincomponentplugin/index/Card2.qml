@@ -37,10 +37,15 @@ Control {
         Text {
             id: title
             y: 16
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin: 16
+            anchors.rightMargin: 16
+            wrapMode: Text.Wrap
+            horizontalAlignment: Text.AlignHCenter
             text: root.title
             font.pixelSize: 16
             font.bold: true
-            anchors.horizontalCenter: parent.horizontalCenter
         }
         // 阴影
         BoxShadow {
