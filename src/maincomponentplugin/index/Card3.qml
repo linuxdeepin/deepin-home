@@ -32,10 +32,14 @@ Control {
             font.pixelSize: 20
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: icon.right
+            anchors.right: arrow.left
             anchors.leftMargin: 14
+            anchors.rightMargin: 14
+            elide: Text.ElideRight
         }
 
         DciIcon {
+            id: arrow
             name: "menu_arrow"
             width: 12
             height: 12
