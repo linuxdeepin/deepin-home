@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -11,10 +11,6 @@ import "../router"
 // 窗口图标和返回按钮
 TitleBar {
     id: root
-    // DTK5 的 org.deepin.dtk.style 模块提供 DS.Style.titleBar.height，DTK6 已移除该模块
-    // 此处保留原取值 40 并抽取为有名常量
-    readonly property int titleBarHeight: 40
-    height: root.titleBarHeight
     icon.name: "deepin-home"
     signal notifyClicked()
     

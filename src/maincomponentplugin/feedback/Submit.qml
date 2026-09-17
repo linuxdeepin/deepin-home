@@ -74,7 +74,6 @@ Item {
         property int controlWidth: width - 100 * 2
 
         icon: "deepin-home"
-        title: qsTr("Submit Feedback")
         width: root.width * 0.8
         height: submitLayout.height + 36 + 36
         onClosing: {
@@ -98,7 +97,7 @@ Item {
 
             Label {
                 Layout.alignment: Qt.AlignHCenter
-                text: win.title
+                text: qsTr("Submit Feedback")
                 Layout.bottomMargin: 5
                 font.pixelSize: DTK.fontManager.t6.pixelSize
                 font.bold: true
