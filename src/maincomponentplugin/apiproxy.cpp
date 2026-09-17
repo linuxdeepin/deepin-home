@@ -1,8 +1,10 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "apiproxy.h"
+
+#include <QUrl>
 
 template<typename T>
 QJsonArray toJsonArray(QList<T> list)
@@ -275,11 +277,10 @@ void APIProxy::uploadFile(const QString &filepath)
 {
     auto env = getEnv();
     auto future = QtConcurrent::run([env, filepath] {
-        auto prefix = QString("file://");
-        auto path = filepath;
-        if (path.startsWith(prefix)) {
-            path = path.mid(prefix.length());
-        }
+        const auto url = QUrl(filepath);
+        const auto path = url.scheme().compare("file", Qt::CaseInsensitive) == 0
+                ? url.toLocalFile()
+                : filepath;
         API api(env.cachename);
         auto resp = api.uploadFile(env.server, env.token, path);
         return resp;

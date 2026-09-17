@@ -1,14 +1,14 @@
-// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 import "../api"
 import "../router"
 import APIProxy 1.0
-import Qt5Compat.GraphicalEffects
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Dialogs 1.0
-import QtQuick.Layouts 1.7
+import QtCore
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Dialogs
+import QtQuick.Layouts
 import org.deepin.dtk 1.0
 
 Item {
@@ -27,7 +27,8 @@ Item {
         if (imgListModel.count >= 3)
             return ;
 
-        const info = API.getFileInfo(src);
+        const filepath = src.toString();
+        const info = API.getFileInfo(filepath);
         if (info.size > 1024 * 1024) {
             API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file size should be less than 1MB."));
             return ;
@@ -42,7 +43,7 @@ Item {
             API.notify(qsTr("Unable to add a screenshot."), qsTr("The image file format is not supported for uploading."));
             return ;
         }
-        api.uploadFile(src);
+        api.uploadFile(filepath);
     }
 
     APIProxy {
@@ -239,8 +240,8 @@ Item {
                     text: emailText.text
                     visible: false
 
-                    validator: RegExpValidator {
-                        regExp: /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+                    validator: RegularExpressionValidator {
+                        regularExpression: /^[a-zA-Z0-9_\.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
                     }
 
                 }
@@ -338,12 +339,12 @@ Item {
                         FileDialog {
                             id: fileDialog
 
-                            title: "Please choose a file"
-                            folder: shortcuts.home
-                            selectMultiple: true
+                            title: qsTr("Please choose a file")
+                            currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
+                            fileMode: FileDialog.OpenFiles
                             nameFilters: [qsTr("Image files") + " (*.png *.jpg *.gif)"]
                             onAccepted: {
-                                for (const f of fileDialog.fileUrls) {
+                                for (const f of fileDialog.selectedFiles) {
                                     root.appendImage(f);
                                 }
                             }
@@ -579,9 +580,9 @@ Item {
         // 拖拽文件处理
         DropArea {
             anchors.fill: parent
-            onEntered: {
+            onEntered: function(drag) {
                 dropRect.visible = true;
-                drag.accept(Qt.CopyAction);
+                drag.accepted = true;
             }
             onExited: {
                 dropRect.visible = false;
