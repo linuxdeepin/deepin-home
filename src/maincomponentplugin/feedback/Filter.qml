@@ -1,16 +1,16 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 // 反馈列表筛选组件
 // 在反馈广场使用
 
 import "../router"
 import APIProxy 1.0
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.7
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import org.deepin.dtk 1.0
 
-RowLayout {
+GridLayout {
     id: root
 
     property var controls: ["keyword", "type", "version", "order"]
@@ -27,7 +27,9 @@ RowLayout {
         });
     }
 
-    spacing: 10
+    columns: width >= 1000 ? 4 : width >= 520 ? 2 : 1
+    columnSpacing: 10
+    rowSpacing: 10
     Component.onCompleted: {
         api.getSystemVersion();
         if (!value)
@@ -57,7 +59,7 @@ RowLayout {
         id: keywordEdit
 
         visible: controls.includes("keyword")
-        Layout.preferredWidth: 300
+        Layout.preferredWidth: Math.min(300, root.width)
         Keys.onReturnPressed: {
             root.activated();
         }
@@ -93,106 +95,141 @@ RowLayout {
 
     }
 
-    Item {
-        Layout.fillWidth: true
-    }
-
-    Text {
+    Row {
         visible: controls.includes("type")
-        Layout.leftMargin: 30
-        text: qsTr("Type:")
-    }
+        spacing: 10
 
-    ComboBox {
-        id: typeBox
-
-        visible: controls.includes("type")
-        Layout.preferredWidth: 140
-        textRole: "text"
-        onActivated: {
-            root.activated();
+        Text {
+            text: qsTr("Type:")
+            anchors.verticalCenter: parent.verticalCenter
         }
 
-        model: ListModel {
-            ListElement {
-                text: qsTr("All")
-                value: ""
+        ComboBox {
+            id: typeBox
+
+            width: 140
+            textRole: "text"
+            HoverHandler { id: typeHover }
+            TextMetrics {
+                id: typeTextMetrics
+                font: typeBox.font
+                text: typeBox.displayText
+            }
+            ToolTip.visible: typeHover.hovered && contentItem
+                             && typeTextMetrics.width > contentItem.width
+            ToolTip.text: displayText
+            ToolTip.delay: 300
+            onActivated: {
+                root.activated();
             }
 
-            ListElement {
-                text: qsTr("Bug")
-                value: "bug"
-            }
+            model: ListModel {
+                ListElement {
+                    text: qsTr("All")
+                    value: ""
+                }
 
-            ListElement {
-                text: qsTr("Suggestions")
-                value: "req"
+                ListElement {
+                    text: qsTr("Bug")
+                    value: "bug"
+                }
+
+                ListElement {
+                    text: qsTr("Suggestions")
+                    value: "req"
+                }
+
             }
 
         }
-
     }
 
-    Text {
+    Row {
         visible: controls.includes("version")
-        Layout.leftMargin: 30
-        text: qsTr("Version:")
-    }
+        spacing: 10
 
-    ComboBox {
-        id: versionBox
-
-        visible: controls.includes("version")
-        textRole: "text"
-        Layout.preferredWidth: 120
-        onActivated: {
-            root.activated();
+        Text {
+            text: qsTr("Version:")
+            anchors.verticalCenter: parent.verticalCenter
         }
 
-        model: ListModel {
-            ListElement {
-                text: qsTr("All")
-                value: ""
+        ComboBox {
+            id: versionBox
+
+            textRole: "text"
+            width: 120
+            HoverHandler { id: versionHover }
+            TextMetrics {
+                id: versionTextMetrics
+                font: versionBox.font
+                text: versionBox.displayText
+            }
+            ToolTip.visible: versionHover.hovered && contentItem
+                             && versionTextMetrics.width > contentItem.width
+            ToolTip.text: displayText
+            ToolTip.delay: 300
+            onActivated: {
+                root.activated();
+            }
+
+            model: ListModel {
+                ListElement {
+                    text: qsTr("All")
+                    value: ""
+                }
+
             }
 
         }
-
     }
 
-    Text {
+    Row {
         visible: controls.includes("order")
-        Layout.leftMargin: 30
-        text: qsTr("Sort:")
-    }
+        spacing: 10
 
-    ComboBox {
-        id: orderBox
-
-        visible: controls.includes("order")
-        textRole: "text"
-        Layout.preferredWidth: 120
-        onActivated: {
-            root.activated();
+        Text {
+            text: qsTr("Sort:")
+            anchors.verticalCenter: parent.verticalCenter
         }
 
-        model: ListModel {
-            ListElement {
-                text: qsTr("Newest")
-                value: ""
+        ComboBox {
+            id: orderBox
+
+            textRole: "text"
+            width: 120
+            HoverHandler { id: orderHover }
+            TextMetrics {
+                id: orderTextMetrics
+                font: orderBox.font
+                text: orderBox.displayText
+            }
+            ToolTip.visible: orderHover.hovered && contentItem
+                             && orderTextMetrics.width > contentItem.width
+            ToolTip.text: displayText
+            ToolTip.delay: 300
+            onActivated: {
+                root.activated();
             }
 
-            ListElement {
-                text: qsTr("Favorite")
-                value: "collect"
-            }
+            model: ListModel {
+                ListElement {
+                    text: qsTr("Newest")
+                    value: ""
+                }
 
-            ListElement {
-                text: qsTr("Urge")
-                value: "like"
+                ListElement {
+                    text: qsTr("Favorite")
+                    value: "collect"
+                }
+
+                ListElement {
+                    text: qsTr("Urge")
+                    value: "like"
+                }
+
             }
 
         }
-
     }
 
 }

@@ -1,10 +1,10 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 // 全局的界面路由管理
 // 用于在多个界面之前进行切换和导航，data参数作为属性传递给组件
 // 在切换的过程中会记录路由历史，支持返回上一页
 
-import QtQuick 2.0
+import QtQuick
 pragma Singleton
 
 Item {

@@ -123,7 +123,7 @@ Item {
 
                         anchors.verticalCenter: parent.verticalCenter
                         checked: true
-                        width: 150 // 控件宽度没自适应
+                        width: Math.max(150, implicitWidth)
                         text: qsTr("Suggestions")
                         font.pixelSize: DTK.fontManager.t7.pixelSize
                     }
@@ -132,8 +132,8 @@ Item {
                         id: bugType
 
                         anchors.verticalCenter: parent.verticalCenter
-                        width: 150 // 控件宽度没自适应
                         anchors.left: reqType.right
+                        width: Math.max(150, implicitWidth)
                         text: qsTr("Bug Report")
                         font.pixelSize: DTK.fontManager.t7.pixelSize
                     }
@@ -157,21 +157,22 @@ Item {
                     width: win.controlWidth
                     selectByMouse: true
                     text: ""
+                    placeholderText: qsTr("Please provide a brief description of your issue")
+                    HoverHandler { id: titleHover }
+                    TextMetrics {
+                        id: titlePlaceholderMetrics
+                        font: titleText.font
+                        text: titleText.placeholderText
+                    }
+                    ToolTip.visible: titleHover.hovered && !text
+                                     && titlePlaceholderMetrics.width > width - leftPadding - rightPadding
+                    ToolTip.text: placeholderText
+                    ToolTip.delay: 300
                     font.pixelSize: DTK.fontManager.t6.pixelSize
                     onTextChanged: {
                         if (length > 60)
                             remove(60, length);
 
-                    }
-
-                    Text {
-                        x: 10
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("Please provide a brief description of your issue")
-                        font.pixelSize: DTK.fontManager.t6.pixelSize
-                        color: "#555"
-                        opacity: 0.4
-                        visible: !titleText.text && !titleText.activeFocus
                     }
 
                 }
@@ -217,6 +218,8 @@ Item {
                         font: DTK.fontManager.t9
                         color: Qt.rgba(0, 0, 0, 0.6)
                         text: bugType.checked ? qsTr("Do not fill in multiple issues in one feedback") : qsTr("Do not fill in multiple requirements in one feedback")
+                        width: win.controlWidth
+                        wrapMode: Text.Wrap
                     }
 
                 }
@@ -251,16 +254,17 @@ Item {
                     selectByMouse: true
                     width: win.controlWidth / 2
                     text: ""
-
-                    Text {
-                        x: 10
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("Please enter your email")
-                        font.pixelSize: DTK.fontManager.t6.pixelSize
-                        color: "#555"
-                        opacity: 0.4
-                        visible: !emailText.text && !emailText.activeFocus
+                    placeholderText: qsTr("Please enter your email")
+                    HoverHandler { id: emailHover }
+                    TextMetrics {
+                        id: emailPlaceholderMetrics
+                        font: emailText.font
+                        text: emailText.placeholderText
                     }
+                    ToolTip.visible: emailHover.hovered && !text
+                                     && emailPlaceholderMetrics.width > width - leftPadding - rightPadding
+                    ToolTip.text: placeholderText
+                    ToolTip.delay: 300
 
                 }
 
@@ -309,7 +313,9 @@ Item {
 
                         text: qsTr("Upload <a href='home://sysinfo'>device information</a>")
                         linkColor: "blue"
-                        height: reqType.height
+                        width: win.controlWidth - sysinfoSwitch.width
+                        height: Math.max(reqType.height, implicitHeight)
+                        wrapMode: Text.Wrap
                         verticalAlignment: Text.AlignVCenter
                         onLinkActivated: {
                             sysinfoView.visible = true;
@@ -440,6 +446,8 @@ Item {
                         font: DTK.fontManager.t9
                         color: Qt.rgba(0, 0, 0, 0.6)
                         text: qsTr("Drag and drop files or click buttons to add pictures, up to three")
+                        width: win.controlWidth
+                        wrapMode: Text.Wrap
                     }
 
                 }
@@ -469,16 +477,30 @@ Item {
                             id: cancelText
 
                             Layout.alignment: Qt.AlignHCenter
+                            Layout.preferredWidth: cancelConfirm.width - 40
                             font.pixelSize: DTK.fontManager.t5.pixelSize
                             font.weight: Font.Medium
                             text: qsTr("Are you sure you want to exit the feedback submission?")
+                            elide: Text.ElideRight
+
+                            HoverHandler { id: cancelTextHover }
+                            ToolTip.visible: cancelTextHover.hovered && truncated
+                            ToolTip.text: text
+                            ToolTip.delay: 300
                         }
 
                         Text {
                             Layout.alignment: Qt.AlignHCenter
+                            Layout.preferredWidth: cancelConfirm.width - 40
                             font: DTK.fontManager.t8
                             color: Qt.rgba(0, 0, 0, 0.7)
                             text: qsTr("The feedback content will not be saved.")
+                            elide: Text.ElideRight
+
+                            HoverHandler { id: cancelDescriptionHover }
+                            ToolTip.visible: cancelDescriptionHover.hovered && truncated
+                            ToolTip.text: text
+                            ToolTip.delay: 300
                         }
 
                         RowLayout {
@@ -650,8 +672,13 @@ Item {
         component ControlLabel: Text {
             font.pixelSize: DTK.fontManager.t6.pixelSize
             width: 100
-            height: parent.height
             horizontalAlignment: Text.AlignRight
+            elide: Text.ElideRight
+
+            HoverHandler { id: labelHover }
+            ToolTip.visible: labelHover.hovered && truncated
+            ToolTip.text: text
+            ToolTip.delay: 300
         }
 
     }
