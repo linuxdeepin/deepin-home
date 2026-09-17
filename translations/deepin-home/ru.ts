@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>Join US</source>
-        <translation>Присоединяйтесь к НАМ</translation>
+        <translation>Присоединяйтесь к нам</translation>
     </message>
     <message>
         <source>Internal Testing</source>
