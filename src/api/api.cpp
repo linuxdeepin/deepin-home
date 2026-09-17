@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -53,12 +53,18 @@ T API::waitSignal(const typename QtPrivate::FunctionPointer<Func1>::Object *send
             exp.err_type = "http";
             exp.err_msg = QString("http code %1").arg(worker->getHttpResponseCode());
         }
-        auto headers = worker->getResponseHeaders();
-        if (!headers["Content-Type"].startsWith("application/json")) {
+        const auto headers = worker->getResponseHeaders();
+        QString contentType;
+        for (auto it = headers.cbegin(); it != headers.cend(); ++it) {
+            if (it.key().compare("Content-Type", Qt::CaseInsensitive) == 0) {
+                contentType = it.value();
+                break;
+            }
+        }
+        if (!contentType.startsWith("application/json")) {
             exp.err_code = 600;
             exp.err_type = "http";
-            exp.err_msg = QString("http content: %1 != application/json")
-                              .arg(headers["Content-Type"]);
+            exp.err_msg = QString("http content: %1 != application/json").arg(contentType);
         }
         result = resp;
         loop.quit();

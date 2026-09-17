@@ -1,9 +1,11 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "./worker.h"
 #include "../base/const.h"
+
+#include <QUrl>
 
 Worker::Worker(QObject *parent)
     : QObject(parent)
@@ -215,7 +217,11 @@ void Worker::setEmail(QString email)
 // 获取本地文件信息
 QMap<QString, QVariant> Worker::getFileInfo(QString filepath)
 {
-    auto info = QFileInfo(filepath);
+    const auto url = QUrl(filepath);
+    const auto path = url.scheme().compare("file", Qt::CaseInsensitive) == 0
+            ? url.toLocalFile()
+            : filepath;
+    const auto info = QFileInfo(path);
     QMap<QString, QVariant> result;
     result["size"] = info.size();
     result["filename"] = info.fileName();
