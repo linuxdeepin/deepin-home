@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 import "../api"
 import "../widgets"
 import APIProxy 1.0
-import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick
+import QtQuick.Controls
 import org.deepin.dtk 1.0
 
 Item {
@@ -70,6 +70,12 @@ Item {
             model: list_model
 
             delegate: Rectangle {
+                HoverHandler { id: questionnaireHover }
+                ToolTip.visible: questionnaireHover.hovered
+                                 && (endtime_text.truncated || title_text.truncated || summary_text.truncated)
+                ToolTip.text: title + "\n" + endtime_text.text + "\n" + summary
+                ToolTip.delay: 300
+
                 function read() {
                     API.markRead("p", "q", uuid);
                     mark_dot.color = "#b1b1b1";
@@ -121,6 +127,7 @@ Item {
 
                         text: qsTr("Expired on: %1").arg(end_at)
                         anchors.right: parent.right
+                        width: Math.min(implicitWidth, parent.width * 0.55)
                         color: Qt.rgba(0, 0, 0, 0.6)
                         elide: Text.ElideRight
                     }

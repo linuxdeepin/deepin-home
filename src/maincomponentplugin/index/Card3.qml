@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.7
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import org.deepin.dtk 1.0
 
@@ -13,6 +13,10 @@ Control {
     id: root
     property string title
     property string icon
+    HoverHandler { id: titleHover }
+    ToolTip.visible: titleHover.hovered && titleText.truncated
+    ToolTip.text: root.title
+    ToolTip.delay: 300
     Rectangle {
         width: root.width
         height: root.height
@@ -28,14 +32,19 @@ Control {
             source: root.icon
         }
         Text {
+            id: titleText
             text: root.title
             font.pixelSize: 20
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: icon.right
             anchors.leftMargin: 14
+            anchors.right: arrow.left
+            anchors.rightMargin: 8
+            elide: Text.ElideRight
         }
 
         DciIcon {
+            id: arrow
             name: "menu_arrow"
             width: 12
             height: 12

@@ -1,12 +1,12 @@
-// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 import "../api"
 import "../widgets"
 import APIProxy 1.0
 import Qt5Compat.GraphicalEffects
-import QtQuick 2.11
-import QtQuick.Controls 2.4
+import QtQuick
+import QtQuick.Controls
 import org.deepin.dtk 1.0
 
 Control {
@@ -83,6 +83,11 @@ Control {
                 model: list_model
 
                 delegate: Rectangle {
+                    HoverHandler { id: notifyHover }
+                    ToolTip.visible: notifyHover.hovered && (title_text.truncated || summary_text.truncated)
+                    ToolTip.text: title + "\n" + summary
+                    ToolTip.delay: 300
+
                     width: sidebar.width - 20
                     height: 66
                     radius: 8
@@ -164,6 +169,7 @@ Control {
                         }
 
                         Text {
+                            id: summary_text
                             x: 20
                             text: summary
                             anchors.top: title_text.bottom

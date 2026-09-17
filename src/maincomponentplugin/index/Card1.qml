@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.7
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import org.deepin.dtk 1.0
 
@@ -47,18 +47,23 @@ Control {
             color: "transparent"
             Text {
                 id: title
+                width: Math.max(0, parent.width - control.width - 30)
                 font.pixelSize: 20
                 font.bold: true
                 text: root.title
                 anchors.bottom: parent.verticalCenter
+                elide: Text.ElideRight
             }
             Text {
+                id: subtitle
+                width: Math.max(0, parent.width - control.width - 30)
                 font.pixelSize: 11
                 color: "#000"
                 opacity: 0.6
                 anchors.top: title.bottom
                 anchors.topMargin: 4
                 text: root.subtitle
+                elide: Text.ElideRight
             }
 
 
@@ -140,4 +145,8 @@ Control {
             root.clicked()
         }
     }
+    HoverHandler { id: cardHover }
+    ToolTip.visible: cardHover.hovered && (title.truncated || subtitle.truncated)
+    ToolTip.text: root.title + "\n" + root.subtitle
+    ToolTip.delay: 300
 }

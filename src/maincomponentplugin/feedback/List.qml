@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 // 反馈列表组件
 // 在反馈广场、我的反馈、我的收藏和我的关注中均有使用
@@ -7,9 +7,9 @@ import "../api"
 import "../router"
 import "../widgets"
 import APIProxy 1.0
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.7
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import org.deepin.dtk 1.0
 
 Item {
@@ -137,15 +137,15 @@ Item {
         id: headerRect
 
         width: parent.width
-        height: 64
+        height: filter.implicitHeight + 20
         visible: root.typeFilter
 
         Filter {
             id: filter
 
             x: 20
+            y: 10
             width: parent.width - x * 2
-            height: parent.height
             value: filterParam
             onValueChange: (val) => {
                 filterParam = val;

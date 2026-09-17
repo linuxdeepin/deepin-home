@@ -1,9 +1,10 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
-import QtQuick 2.11
-import QtQuick.Layouts 1.7
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import org.deepin.dtk 1.0
 import "../api"
 import "../router"
@@ -49,8 +50,15 @@ WindowButton {
                     anchors.left: avatarImg.right
                     anchors.top: avatarImg.top
                     anchors.leftMargin: 20
+                    width: accountMenu.width - 40 - avatarImg.width - 20
                     color: API.isLogin ? "black" : "gray"
                     text: API.isLogin ? API.nickname : qsTr("Unlogged")
+                    elide: Text.ElideRight
+
+                    HoverHandler { id: accountNameHover }
+                    ToolTip.visible: accountNameHover.hovered && truncated
+                    ToolTip.text: text
+                    ToolTip.delay: 300
                 }
             }
             Button {

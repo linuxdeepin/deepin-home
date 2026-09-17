@@ -5,7 +5,7 @@
 pragma Singleton
 
 import APIProxy 1.0
-import QtQuick 2.0
+import QtQuick
 
 Item {
     // 服务器节点
