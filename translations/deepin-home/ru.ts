@@ -52,7 +52,7 @@
     <name>Card</name>
     <message>
         <source>%1 views</source>
-        <translation>%1 просмотр</translation>
+        <translation>%1 просмотров</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>Join US</source>
-        <translation>Присоединяйтесь к НАМ</translation>
+        <translation>Присоединяйтесь к нам</translation>
     </message>
     <message>
         <source>Internal Testing</source>

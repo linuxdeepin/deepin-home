@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="71"/>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Home</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="83"/>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="89"/>
         <source>Communication</source>
-        <translation type="unfinished"/>
+        <translation>Kommunikation</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="92"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation>Avsluta</translation>
     </message>
     <message>
         <location filename="../src/main/homeDaemon.cpp" line="333"/>

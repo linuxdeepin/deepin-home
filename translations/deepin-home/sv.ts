@@ -29,7 +29,7 @@
     <name>AccountButton</name>
     <message>
         <source>Unlogged</source>
-        <translation type="unfinished"/>
+        <translation>Inte inloggad</translation>
     </message>
     <message>
         <source>My Favorites</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Mina återkopplingar</translation>
     </message>
     <message>
         <source>Sign out</source>
@@ -68,18 +68,18 @@
     </message>
     <message>
         <source>Cancel the urge</source>
-        <translation type="unfinished"/>
+        <translation>Återkalla påminnelsen</translation>
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Påminn</translation>
     </message>
 </context>
 <context>
     <name>Card1</name>
     <message>
         <source>Coming</source>
-        <translation type="unfinished"/>
+        <translation>Kommer</translation>
     </message>
 </context>
 <context>
@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Bug</source>
-        <translation type="unfinished"/>
+        <translation>Fel</translation>
     </message>
     <message>
         <source>Suggestions</source>
@@ -117,11 +117,11 @@
     </message>
     <message>
         <source>Sort:</source>
-        <translation type="unfinished"/>
+        <translation>Sortera:</translation>
     </message>
     <message>
         <source>Newest</source>
-        <translation type="unfinished"/>
+        <translation>Nyaste</translation>
     </message>
     <message>
         <source>Favorite</source>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>Urge</source>
-        <translation type="unfinished"/>
+        <translation>Påminn</translation>
     </message>
 </context>
 <context>
@@ -144,15 +144,15 @@
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Felrapport</translation>
     </message>
     <message>
         <source>Report issues you found</source>
-        <translation type="unfinished"/>
+        <translation>Rapportera problem du har upptäckt</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Förslag</translation>
     </message>
     <message>
         <source>Submit your suggestions</source>
@@ -164,15 +164,15 @@
     </message>
     <message>
         <source>Questionaire</source>
-        <translation type="unfinished"/>
+        <translation>Enkät</translation>
     </message>
     <message>
         <source>Join US</source>
-        <translation type="unfinished"/>
+        <translation>Gå med oss</translation>
     </message>
     <message>
         <source>Internal Testing</source>
-        <translation type="unfinished"/>
+        <translation>Intern testning</translation>
     </message>
     <message>
         <source>Global Translation</source>
@@ -195,14 +195,14 @@
     </message>
     <message>
         <source>Questionaires</source>
-        <translation type="unfinished"/>
+        <translation>Enkäter</translation>
     </message>
 </context>
 <context>
     <name>MyTitleBar</name>
     <message>
         <source>Launch at system startup</source>
-        <translation type="unfinished"/>
+        <translation>Starta vid systemstart</translation>
     </message>
     <message>
         <source>About</source>
@@ -214,11 +214,11 @@
     </message>
     <message>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Home</translation>
     </message>
     <message>
         <source>Quick login to forums, submit suggestions, and report bugs.</source>
-        <translation type="unfinished"/>
+        <translation>Logga snabbt in på forum, skicka förslag och rapportera fel.</translation>
     </message>
 </context>
 <context>
@@ -247,7 +247,7 @@
     <name>Offline</name>
     <message>
         <source>Network error, please try later</source>
-        <translation type="unfinished"/>
+        <translation>Nätverksfel, försök igen senare</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -258,22 +258,22 @@
     <name>Preload</name>
     <message>
         <source>Deepin Home</source>
-        <translation type="unfinished"/>
+        <translation>Deepin Home</translation>
     </message>
 </context>
 <context>
     <name>Questionnaire</name>
     <message>
         <source>No questionaires yet.</source>
-        <translation type="unfinished"/>
+        <translation>Det finns inga enkäter ännu.</translation>
     </message>
     <message>
         <source>Expired on: %1</source>
-        <translation type="unfinished"/>
+        <translation>Upphör: %1</translation>
     </message>
     <message>
         <source>Fill In</source>
-        <translation type="unfinished"/>
+        <translation>Fyll i</translation>
     </message>
 </context>
 <context>
@@ -312,106 +312,110 @@
     </message>
     <message>
         <source>The issue has not been processed and will not be displayed in the public listing.</source>
-        <translation type="unfinished"/>
+        <translation>Problemet har inte behandlats och visas inte i den offentliga listan.</translation>
     </message>
     <message>
         <source>Currently unable to identify the cause; continuous monitoring and investigation are required.</source>
-        <translation type="unfinished"/>
+        <translation>Orsaken kan för närvarande inte fastställas; fortsatt övervakning och utredning krävs.</translation>
     </message>
     <message>
         <source>The issue has been reproduced and the root cause has been identified.</source>
-        <translation type="unfinished"/>
+        <translation>Problemet har återskapats och grundorsaken har identifierats.</translation>
     </message>
     <message>
         <source>The issue is not a bug or of a different nature.</source>
-        <translation type="unfinished"/>
+        <translation>Problemet är inte ett fel eller har en annan karaktär.</translation>
     </message>
     <message>
         <source>The issue has been resolved and awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>Problemet är löst och väntar på formell utgåva</translation>
     </message>
     <message>
         <source>The requirement has not been processed and will not be displayed in the public listing</source>
-        <translation type="unfinished"/>
+        <translation>Kravet har inte behandlats och visas inte i den offentliga listan</translation>
     </message>
     <message>
         <source>The issue has been acknowledged and is being internally assessed</source>
-        <translation type="unfinished"/>
+        <translation>Problemet har bekräftats och bedöms internt</translation>
     </message>
     <message>
         <source>Included in the plans for a future release</source>
-        <translation type="unfinished"/>
+        <translation>Ingår i planerna för en framtida utgåva</translation>
     </message>
     <message>
         <source>The requirement is either not accepted or unable to be addressed</source>
-        <translation type="unfinished"/>
+        <translation>Kravet har antingen inte godkänts eller kan inte åtgärdas</translation>
     </message>
     <message>
         <source>Development work is finished, awaiting formal release</source>
-        <translation type="unfinished"/>
+        <translation>Utvecklingsarbetet är klart och väntar på formell utgåva</translation>
     </message>
 </context>
 <context>
     <name>Submit</name>
     <message>
         <source>Unable to add a screenshot.</source>
-        <translation type="unfinished"/>
+        <translation>Det gick inte att lägga till en skärmbild.</translation>
     </message>
     <message>
         <source>The image file size should be less than 1MB.</source>
-        <translation type="unfinished"/>
+        <translation>Bildfilen måste vara mindre än 1 MB.</translation>
     </message>
     <message>
         <source>The image file format is not supported for uploading.</source>
-        <translation type="unfinished"/>
+        <translation>Bildfilformatet stöds inte för uppladdning.</translation>
     </message>
     <message>
         <source>[Current Status of the Product]: 
 [Desired Product]: </source>
-        <translation type="unfinished"/>
+        <translation>[Produktens nuvarande status]: 
+[Önskad produkt]: </translation>
     </message>
     <message>
         <source>[Preconditions]: 
 [Reproducibility Steps]: 
 [Expected Results]: 
 [Actual Results]: </source>
-        <translation type="unfinished"/>
+        <translation>[Förutsättningar]: 
+[Steg för att återskapa]: 
+[Förväntat resultat]: 
+[Faktiskt resultat]: </translation>
     </message>
     <message>
         <source>Submit Feedback</source>
-        <translation type="unfinished"/>
+        <translation>Skicka återkoppling</translation>
     </message>
     <message>
         <source>Type：</source>
-        <translation type="unfinished"/>
+        <translation>Typ:</translation>
     </message>
     <message>
         <source>Suggestions</source>
-        <translation type="unfinished"/>
+        <translation>Förslag</translation>
     </message>
     <message>
         <source>Bug Report</source>
-        <translation type="unfinished"/>
+        <translation>Felrapport</translation>
     </message>
     <message>
         <source>Title：</source>
-        <translation type="unfinished"/>
+        <translation>Rubrik:</translation>
     </message>
     <message>
         <source>Please provide a brief description of your issue</source>
-        <translation type="unfinished"/>
+        <translation>Beskriv problemet kortfattat</translation>
     </message>
     <message>
         <source>Content：</source>
-        <translation type="unfinished"/>
+        <translation>Innehåll:</translation>
     </message>
     <message>
         <source>Do not fill in multiple issues in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Lägg inte flera problem i samma återkoppling</translation>
     </message>
     <message>
         <source>Do not fill in multiple requirements in one feedback</source>
-        <translation type="unfinished"/>
+        <translation>Lägg inte flera krav i samma återkoppling</translation>
     </message>
     <message>
         <source>Email：</source>
@@ -419,19 +423,19 @@
     </message>
     <message>
         <source>Please enter your email</source>
-        <translation type="unfinished"/>
+        <translation>Ange din e-postadress</translation>
     </message>
     <message>
         <source>System Version:</source>
-        <translation type="unfinished"/>
+        <translation>Systemversion:</translation>
     </message>
     <message>
         <source>Device Info：</source>
-        <translation type="unfinished"/>
+        <translation>Enhetsinformation:</translation>
     </message>
     <message>
         <source>Upload &lt;a href=&apos;home://sysinfo&apos;&gt;device information&lt;/a&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Ladda upp &lt;a href=&apos;home://sysinfo&apos;&gt;enhetsinformation&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Screenshots：</source>
@@ -443,15 +447,15 @@
     </message>
     <message>
         <source>Drag and drop files or click buttons to add pictures, up to three</source>
-        <translation type="unfinished"/>
+        <translation>Dra och släpp filer eller klicka på knappar för att lägga till högst tre bilder</translation>
     </message>
     <message>
         <source>Are you sure you want to exit the feedback submission?</source>
-        <translation type="unfinished"/>
+        <translation>Är du säker på att du vill avsluta inskickandet av återkopplingen?</translation>
     </message>
     <message>
         <source>The feedback content will not be saved.</source>
-        <translation type="unfinished"/>
+        <translation>Återkopplingens innehåll sparas inte.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -467,38 +471,38 @@
     </message>
     <message>
         <source>Unable to submit feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Det gick inte att skicka återkopplingen.</translation>
     </message>
     <message>
         <source>Please provide the title and content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Ange rubrik och innehåll för din återkoppling.</translation>
     </message>
     <message>
         <source>Please provide the title of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Ange rubriken för din återkoppling.</translation>
     </message>
     <message>
         <source>Please provide the content of your feedback.</source>
-        <translation type="unfinished"/>
+        <translation>Ange innehållet i din återkoppling.</translation>
     </message>
     <message>
         <source>Incorrect email address entered.</source>
-        <translation type="unfinished"/>
+        <translation>Felaktig e-postadress angavs.</translation>
     </message>
     <message>
         <source>Device Information</source>
-        <translation type="unfinished"/>
+        <translation>Enhetsinformation</translation>
     </message>
 </context>
 <context>
     <name>TabButton</name>
     <message>
         <source>Feedback Hub</source>
-        <translation type="unfinished"/>
+        <translation>Återkopplingscentral</translation>
     </message>
     <message>
         <source>My Feedbacks</source>
-        <translation type="unfinished"/>
+        <translation>Mina återkopplingar</translation>
     </message>
     <message>
         <source>My Favorites</source>
@@ -506,7 +510,7 @@
     </message>
     <message>
         <source>My Urged</source>
-        <translation type="unfinished"/>
+        <translation>Mina påminnelser</translation>
     </message>
 </context>
 </TS>
