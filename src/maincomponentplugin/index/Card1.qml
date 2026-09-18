@@ -47,12 +47,16 @@ Control {
             color: "transparent"
             Text {
                 id: title
+                width: parent.width
+                wrapMode: Text.Wrap
                 font.pixelSize: 20
                 font.bold: true
                 text: root.title
                 anchors.bottom: parent.verticalCenter
             }
             Text {
+                width: parent.width
+                wrapMode: Text.Wrap
                 font.pixelSize: 11
                 color: "#000"
                 opacity: 0.6

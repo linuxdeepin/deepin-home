@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 import "../api"
@@ -30,7 +30,7 @@ Item {
                     "uuid": item.uuid,
                     "title": item.title,
                     "summary": item.summary,
-                    "end_at": new Date(item.end_at).toLocaleString(locale, Locale.ShortFormat),
+                    "end_at": new Date(item.end_at).toLocaleString(Qt.locale(), Locale.ShortFormat),
                     "url": item.url
                 });
             }
