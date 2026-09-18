@@ -1,3 +1,11 @@
+deepin-home (1.6.6) unstable; urgency=medium
+
+  [ myml ]
+  * feat: version 1.6.6 release
+
+ -- myml <wurongjie@deepin.org>  $(date +%a,%d %b %Y %H:%M:%S +0800)
+
+
 deepin-home (1.6.4) UNRELEASED; urgency=medium
 
   [ transifex-integration[bot] ]
